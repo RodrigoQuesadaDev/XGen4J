@@ -22,7 +22,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 jar {
-    baseName = 'exceptions-generator'
+    baseName = 'xgen'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
@@ -38,6 +38,7 @@ repositories {
 
 configurations {
     provided
+    compile.extendsFrom provided
 }
 
 sourceSets {
@@ -68,8 +69,4 @@ dependencies {
     /* Testing */
     testCompile("junit:junit:${junitVersion}")
     testCompile("org.assertj:assertj-core:${assertjCoreVersion}")
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.4'
 }
