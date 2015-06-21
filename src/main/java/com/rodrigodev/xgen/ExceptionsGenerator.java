@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.writer.ClassWriter;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassDefinition;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
+import com.rodrigodev.xgen.writer.template.error.ErrorClassTemplate;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
@@ -27,11 +28,19 @@ public class ExceptionsGenerator {
     private Template exceptionClassTemplate;
 
     public ExceptionsGenerator(@NonNull String baseDirPath) {
-
-
-
-            errorClassWriter = new ClassWriter();
+        errorClassWriter = new ClassWriter();
+        try {
+            //TODO remove this configuration, it does not belong here
+            Configuration configuration = new Configuration(Configuration.VERSION_2_3_22);
+            configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
+            configuration.setDefaultEncoding("UTF-8");
+            configuration.setTemplateExceptionHandler(
+                    TemplateExceptionHandler.RETHROW_HANDLER);
             exceptionClassTemplate = configuration.getTemplate("exception-class-def.ftl");
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -40,7 +49,7 @@ public class ExceptionsGenerator {
         generateErrorClass(error);
         //generateExceptionClass(anError);
 
-        ErrorDefinition[] subErrors = error.getErrors();
+        ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {
             generate(subError);
         }
@@ -61,6 +70,6 @@ public class ExceptionsGenerator {
 
         ErrorClassDefinition errorClass = new ErrorClassDefinition(error);
         ErrorClassFile classFile = new ErrorClassFile(SRC_DIRECTORY, errorClass);
-        errorClassWriter.write(classFile);
+        errorClassWriter.write(new ErrorClassTemplate(classFile));
     }
 }

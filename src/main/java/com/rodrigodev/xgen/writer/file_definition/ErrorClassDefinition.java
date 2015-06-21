@@ -16,7 +16,11 @@ public class ErrorClassDefinition extends ClassDefinition {
     @NonNull @Getter private ErrorDefinition errorDefinition;
 
     public ErrorClassDefinition(@NonNull ErrorDefinition errorDefinition) {
-        super(NAME_SUFFIX, errorDefinition.name(), errorDefinition.basePackage());
+        super(errorDefinition.name(), NAME_SUFFIX, errorDefinition.basePackage());
         this.errorDefinition = errorDefinition;
+    }
+
+    public boolean isConcrete() {
+        return errorDefinition.description().isPresent();
     }
 }

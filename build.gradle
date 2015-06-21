@@ -3,7 +3,8 @@ buildscript {
         freemarkerVersion = '2.3.22'
         guavaVersion = '18.0'
         protonpackVersion = '1.4'
-        lambokVersion = '1.16.4'
+        lombokVersion = '1.16.4'
+        daggerVersion = '2.0.1'
 
         //Testing
         junitVersion = '4.12'
@@ -61,7 +62,9 @@ dependencies {
     compile("org.freemarker:freemarker:${freemarkerVersion}")
     compile("com.google.guava:guava:${guavaVersion}")
     compile("com.codepoetics:protonpack:${protonpackVersion}")
-    provided("org.projectlombok:lombok:${lambokVersion}")
+    provided("org.projectlombok:lombok:${lombokVersion}")
+    compile("com.google.dagger:dagger:${daggerVersion}")
+    provided("com.google.dagger:dagger-compiler:${daggerVersion}")
 
     /* Testing */
     testCompile("junit:junit:${junitVersion}")

@@ -1,14 +1,20 @@
 package com.rodrigodev.xgen.configuration;
 
 import lombok.NonNull;
+import lombok.Value;
+import lombok.experimental.Accessors;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
  */
+@Value
+@Accessors(fluent = true)
 public class ParameterDefinition {
 
-    public static ParameterDefinition p(@NonNull Class type, @NonNull String name) {
-        //TODO implement this
-        return null;
+    @NonNull private Class<?> type;
+    @NonNull private String name;
+
+    public static ParameterDefinition p(Class type, String name) {
+        return new ParameterDefinition(type, name);
     }
 }

@@ -33,6 +33,6 @@ public abstract class ClassDefinition {
     }
 
     public String fullQualifiedName() {
-        return packagePath + DOT + baseName;
+        return packagePath + DOT + name;
     }
 }

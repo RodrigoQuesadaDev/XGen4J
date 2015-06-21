@@ -1,11 +1,15 @@
 package com.rodrigodev.xgen.configuration;
 
+import lombok.Value;
+import lombok.experimental.Accessors;
+
 /**
  * Created by Rodrigo Quesada on 12/05/15.
  */
+@Value
+@Accessors(fluent = true)
 public class ErrorDescription {
 
-    public ErrorDescription(String descriptionFormat, ParameterDefinition[] params) {
-        //TODO implement this
-    }
+    private String format;
+    private ParameterDefinition[] params;
 }

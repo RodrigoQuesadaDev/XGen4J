@@ -11,7 +11,7 @@ import java.io.File;
  * Created by Rodrigo Quesada on 25/05/15.
  */
 @Accessors(fluent = true)
-public class ErrorClassFile implements ClassFile {
+public class ErrorClassFile implements ClassFile<ErrorClassDefinition> {
 
     public static final String FILE_EXTENSION = ".java";
 
@@ -31,5 +31,10 @@ public class ErrorClassFile implements ClassFile {
 
     private String generateFilePath() {
         return baseDirectory + File.separator + PackageUtil.toFilePath(errorClass.fullQualifiedName()) + FILE_EXTENSION;
+    }
+
+    @Override
+    public ErrorClassDefinition classDefinition() {
+        return errorClass;
     }
 }

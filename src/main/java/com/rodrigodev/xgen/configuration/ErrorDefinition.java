@@ -40,7 +40,7 @@ public class ErrorDefinition {
         public ErrorDefinition.ErrorDefinitionBuilder description(
                 String descriptionFormat, ParameterDefinition... params
         ) {
-            this.description = Optional.of(new ErrorDescription(descriptionFormat, params));
+            description = Optional.of(new ErrorDescription(descriptionFormat, params));
             return this;
         }
 

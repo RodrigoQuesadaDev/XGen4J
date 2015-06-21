@@ -2,7 +2,7 @@ package com.rodrigodev.xgen.writer;
 
 import com.google.common.io.Files;
 import com.rodrigodev.xgen.writer.file_definition.ClassFile;
-import freemarker.template.Template;
+import com.rodrigodev.xgen.writer.template.FreemarkerClassTemplate;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,17 +16,15 @@ public class ClassWriter {
 
     public static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
-    private Template template;
-
-    public ClassWriter(Template template) {
-        this.template = template;
+    public ClassWriter() {
     }
 
-    public void write(ClassFile classFile) {
+    public void write(FreemarkerClassTemplate<?, ?, ?> classTemplate) {
+        ClassFile classFile = classTemplate.classFile();
         try (BufferedWriter errorClassWriter = Files.newWriter(
                 new File(classFile.filePath()), DEFAULT_CHARSET
         )) {
-            template.process(null, errorClassWriter);
+            classTemplate.template().process(classTemplate.model(), errorClassWriter);
         }
         catch (Exception e) {
             throw new RuntimeException(e);
