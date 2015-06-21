@@ -5,12 +5,15 @@ import com.rodrigodev.xgen.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.writer.ClassWriter;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassDefinition;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
-import com.rodrigodev.xgen.writer.template.error.ErrorClassTemplate;
+import com.rodrigodev.xgen.writer.template.TemplateModule;
+import com.rodrigodev.xgen.writer.template.error.ErrorClassTemplateFactory;
+import dagger.Component;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 import lombok.NonNull;
 
+import javax.inject.Inject;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
@@ -21,13 +24,21 @@ import java.nio.charset.Charset;
  */
 public class ExceptionsGenerator {
 
-    public static final String SRC_DIRECTORY = "src/test-gen/java";
+    @Component(modules = TemplateModule.class)
+    public interface ExceptionsGeneratorComponent {
 
+        void inject(ExceptionsGenerator exceptionsGenerator);
+    }
+
+    private String sourceDirPath;
     private Configuration configuration;
     private ClassWriter errorClassWriter;
     private Template exceptionClassTemplate;
 
-    public ExceptionsGenerator(@NonNull String baseDirPath) {
+    @Inject ErrorClassTemplateFactory errorClassTemplateFactory;
+
+    public ExceptionsGenerator(@NonNull String sourceDirPath) {
+        this.sourceDirPath = sourceDirPath;
         errorClassWriter = new ClassWriter();
         try {
             //TODO remove this configuration, it does not belong here
@@ -41,7 +52,7 @@ public class ExceptionsGenerator {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        DaggerExceptionsGenerator_ExceptionsGeneratorComponent.create().inject(this);
     }
 
     public void generate(@NonNull ErrorDefinition error) {
@@ -69,7 +80,7 @@ public class ExceptionsGenerator {
     private void generateErrorClass(ErrorDefinition error) {
 
         ErrorClassDefinition errorClass = new ErrorClassDefinition(error);
-        ErrorClassFile classFile = new ErrorClassFile(SRC_DIRECTORY, errorClass);
-        errorClassWriter.write(new ErrorClassTemplate(classFile));
+        ErrorClassFile classFile = new ErrorClassFile(sourceDirPath, errorClass);
+        errorClassWriter.write(errorClassTemplateFactory.create(classFile));
     }
 }

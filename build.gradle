@@ -41,6 +41,10 @@ configurations {
 sourceSets {
     main {
         compileClasspath += [configurations.provided]
+
+        java {
+            srcDir 'generated'
+        }
     }
     test {
         compileClasspath += [configurations.provided]

@@ -3,6 +3,7 @@ package com.rodrigodev.xgen.writer.template;
 import com.rodrigodev.xgen.writer.file_definition.ClassDefinition;
 import com.rodrigodev.xgen.writer.file_definition.ClassFile;
 import com.rodrigodev.xgen.writer.template.ClassTemplateModel.ClassTemplateModelBuilder;
+import freemarker.template.Configuration;
 import freemarker.template.Template;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -16,15 +17,25 @@ import java.io.IOException;
 @Accessors(fluent = true)
 public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB extends ClassTemplateModelBuilder<M>, D extends ClassDefinition> {
 
+    public static class InjectedFields {
+
+        @Inject Configuration configuration;
+
+        @Inject
+        public InjectedFields() {
+        }
+    }
+
+    private InjectedFields inj;
     @Getter private Template template;
     @Getter private ClassFile<D> classFile;
     protected MB modelBuilder;
 
-    @Inject TemplateConfig templateConfig;
-
-    protected FreemarkerClassTemplate(String templateFileName, MB modelBuilder, ClassFile classFile) {
+    protected FreemarkerClassTemplate(InjectedFields injectedFields, String templateFileName, MB modelBuilder,
+                                      ClassFile classFile) {
         try {
-            template = templateConfig.configuration().getTemplate(templateFileName);
+            inj = injectedFields;
+            template = inj.configuration.getTemplate(templateFileName);
             this.classFile = classFile;
             this.modelBuilder = modelBuilder;
             initModel();

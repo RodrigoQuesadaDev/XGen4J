@@ -17,7 +17,7 @@ public class TemplateConfig {
     private static final String TEMPLATES_BASE_DIR = "src/main/resources/templates";
     private static final String ENCODING = "UTF-8";
 
-    public Configuration configuration() {
+    public static Configuration configuration() {
         return unchecked(
                 () -> {
                     Configuration configuration = new Configuration(VERSION);

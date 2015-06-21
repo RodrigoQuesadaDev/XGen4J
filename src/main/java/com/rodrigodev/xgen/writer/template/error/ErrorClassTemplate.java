@@ -14,8 +14,8 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
     public static final String TEMPLATE_FILE_NAME = "error-class-def.ftl";
 
     //TODO change to builder?
-    public ErrorClassTemplate(ErrorClassFile classFile) {
-        super(TEMPLATE_FILE_NAME, ErrorClassTemplateModel.builder(), classFile);
+    public ErrorClassTemplate(InjectedFields injectedFields, ErrorClassFile classFile) {
+        super(injectedFields, TEMPLATE_FILE_NAME, ErrorClassTemplateModel.builder(), classFile);
     }
 
     @Override
