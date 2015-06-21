@@ -1,17 +1,13 @@
 buildscript {
     ext {
+        freemarkerVersion = '2.3.22'
         guavaVersion = '18.0'
         protonpackVersion = '1.4'
         lambokVersion = '1.16.4'
-        greenDaoVersion = '1.3.7'
-        daggerVersion = '1.2.2'
-        eventBusVersion = '2.4.0'
 
         //Testing
         junitVersion = '4.12'
         assertjCoreVersion = '3.0.0'
-        androidVersion = '4.1.1.4'
-        robolectricVersion = '3.0-SNAPSHOT'
     }
     repositories {
         mavenCentral()
@@ -62,6 +58,7 @@ idea {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile("org.freemarker:freemarker:${freemarkerVersion}")
     compile("com.google.guava:guava:${guavaVersion}")
     compile("com.codepoetics:protonpack:${protonpackVersion}")
     provided("org.projectlombok:lombok:${lambokVersion}")

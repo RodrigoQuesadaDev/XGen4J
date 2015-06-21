@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen.configuration;
 
 import lombok.NonNull;
 
@@ -7,7 +7,7 @@ import lombok.NonNull;
  */
 public class ParameterDefinition {
 
-    public static ParameterDefinition p(@NonNull Class aType, @NonNull String aName) {
+    public static ParameterDefinition p(@NonNull Class type, @NonNull String name) {
         //TODO implement this
         return null;
     }
