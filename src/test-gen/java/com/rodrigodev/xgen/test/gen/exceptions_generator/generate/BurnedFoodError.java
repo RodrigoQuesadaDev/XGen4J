@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class BurnedFoodError {
 
-    private static String MESSAGE_FORMAT = "Damn, %s just burned! We better order some pizza.";
+    private static String MESSAGE_FORMAT = "Damn, the %s just burned! We better order some pizza.";
 
     public static void throwException(String model) {
         throw new BurnedFoodException(String.format(MESSAGE_FORMAT, model));

@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class DischargedError {
 
-    private static String MESSAGE_FORMAT = "%s is discharged.";
+    private static String MESSAGE_FORMAT = "The %s is discharged.";
 
     public static void throwException(String applianceName) {
         throw new DischargedException(String.format(MESSAGE_FORMAT, applianceName));

@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class FrozenFoodError {
 
-    private static String MESSAGE_FORMAT = "%s is frozen! How could you possibly eat that?";
+    private static String MESSAGE_FORMAT = "The %s is frozen! How could you possibly eat that?";
 
     public static void throwException(String foodName) {
         throw new FrozenFoodException(String.format(MESSAGE_FORMAT, foodName));

@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class DamagedError {
 
-    private static String MESSAGE_FORMAT = "%s has been damaged.";
+    private static String MESSAGE_FORMAT = "The %s has been damaged.";
 
     public static void throwException(String applianceName) {
         throw new DamagedException(String.format(MESSAGE_FORMAT, applianceName));

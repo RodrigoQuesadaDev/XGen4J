@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class BedroomError {
 
-    private static String MESSAGE_FORMAT = "%'s bedroom is not a good place to sleep.";
+    private static String MESSAGE_FORMAT = "%s's bedroom is not a good place to sleep.";
 
     public static void throwException(String personName) {
         throw new BedroomException(String.format(MESSAGE_FORMAT, personName));

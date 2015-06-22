@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.gen.exceptions_generator.generate;
 */
 public class ScratchesError {
 
-    private static String MESSAGE_FORMAT = "%s got some scratches.";
+    private static String MESSAGE_FORMAT = "The %s got some scratches.";
 
     public static void throwException(String applianceName) {
         throw new ScratchesException(String.format(MESSAGE_FORMAT, applianceName));
