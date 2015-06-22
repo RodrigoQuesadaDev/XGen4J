@@ -8,6 +8,6 @@ public class FoodNotFoundError {
     private static String MESSAGE_FORMAT = "Food %s not found! I'm starving.";
 
     public static void throwException(String foodName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, foodName));
+        throw new FoodNotFoundException(String.format(MESSAGE_FORMAT, foodName));
     }
 }

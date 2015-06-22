@@ -8,6 +8,6 @@ public class BedroomError {
     private static String MESSAGE_FORMAT = "%'s bedroom is not a good place to sleep.";
 
     public static void throwException(String personName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, personName));
+        throw new BedroomException(String.format(MESSAGE_FORMAT, personName));
     }
 }

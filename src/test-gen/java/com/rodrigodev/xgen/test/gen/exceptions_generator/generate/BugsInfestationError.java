@@ -8,6 +8,6 @@ public class BugsInfestationError {
     private static String MESSAGE_FORMAT = "Oh shoot, there is bug infestation here. We better move to %s.";
 
     public static void throwException(String place) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, place));
+        throw new BugsInfestationException(String.format(MESSAGE_FORMAT, place));
     }
 }

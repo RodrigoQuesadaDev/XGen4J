@@ -8,6 +8,6 @@ public class DischargedError {
     private static String MESSAGE_FORMAT = "%s is discharged.";
 
     public static void throwException(String applianceName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, applianceName));
+        throw new DischargedException(String.format(MESSAGE_FORMAT, applianceName));
     }
 }

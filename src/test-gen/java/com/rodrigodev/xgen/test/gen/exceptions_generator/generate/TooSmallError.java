@@ -8,6 +8,6 @@ public class TooSmallError {
     private static String MESSAGE_FORMAT = "%s is too damn small!";
 
     public static void throwException(String roomName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, roomName));
+        throw new TooSmallException(String.format(MESSAGE_FORMAT, roomName));
     }
 }

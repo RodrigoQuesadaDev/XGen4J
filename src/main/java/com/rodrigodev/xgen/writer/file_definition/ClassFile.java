@@ -1,10 +1,41 @@
 package com.rodrigodev.xgen.writer.file_definition;
 
+import com.rodrigodev.common.lang.PackageUtil;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.experimental.Accessors;
+
+import java.io.File;
+
 /**
  * Created by Rodrigo Quesada on 26/05/15.
  */
-public interface ClassFile<D extends ClassDefinition> {
+@Accessors(fluent = true)
+public abstract class ClassFile<D extends ClassDefinition> {
 
-    String filePath();
-    D classDefinition();
+    public static final String FILE_EXTENSION = ".java";
+
+    @NonNull private String baseDirectory;
+    @NonNull private D classDefinition;
+    @NonNull @Getter private String filePath;
+
+    public ClassFile(@NonNull String baseDirectory, @NonNull D classDefinition) {
+        this.baseDirectory = baseDirectory;
+        this.classDefinition = classDefinition;
+        init();
+    }
+
+    private void init() {
+        filePath = generateFilePath();
+    }
+
+    private String generateFilePath() {
+        return baseDirectory + File.separator
+                + PackageUtil.toFilePath(classDefinition.fullQualifiedName())
+                + FILE_EXTENSION;
+    }
+
+    public D classDefinition() {
+        return classDefinition;
+    }
 }

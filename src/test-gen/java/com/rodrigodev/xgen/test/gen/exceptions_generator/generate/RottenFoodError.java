@@ -8,6 +8,6 @@ public class RottenFoodError {
     private static String MESSAGE_FORMAT = "%s is rotten my friend.";
 
     public static void throwException(String foodName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, foodName));
+        throw new RottenFoodException(String.format(MESSAGE_FORMAT, foodName));
     }
 }

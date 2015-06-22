@@ -8,6 +8,6 @@ public class BurnedFoodError {
     private static String MESSAGE_FORMAT = "Damn, %s just burned! We better order some pizza.";
 
     public static void throwException(String model) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, model));
+        throw new BurnedFoodException(String.format(MESSAGE_FORMAT, model));
     }
 }

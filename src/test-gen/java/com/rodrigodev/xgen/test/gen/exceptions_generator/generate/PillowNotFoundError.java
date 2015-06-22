@@ -8,6 +8,6 @@ public class PillowNotFoundError {
     private static String MESSAGE_FORMAT = "There is no pillow! How can %s sleep here?";
 
     public static void throwException(String personName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, personName));
+        throw new PillowNotFoundException(String.format(MESSAGE_FORMAT, personName));
     }
 }

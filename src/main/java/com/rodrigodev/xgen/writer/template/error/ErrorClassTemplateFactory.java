@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.writer.template.error;
 
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
+import com.rodrigodev.xgen.writer.file_definition.ExceptionClassFile;
 import com.rodrigodev.xgen.writer.template.FreemarkerClassTemplate.InjectedFields;
 
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ public class ErrorClassTemplateFactory {
     public ErrorClassTemplateFactory() {
     }
 
-    public ErrorClassTemplate create(ErrorClassFile classFile) {
-        return new ErrorClassTemplate(injectedFields, classFile);
+    public ErrorClassTemplate create(ErrorClassFile errorClassFile, ExceptionClassFile exceptionClassFile) {
+        return new ErrorClassTemplate(injectedFields, errorClassFile, exceptionClassFile);
     }
 }

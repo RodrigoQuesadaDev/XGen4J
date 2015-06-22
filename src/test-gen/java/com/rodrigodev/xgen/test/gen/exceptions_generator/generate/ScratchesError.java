@@ -8,6 +8,6 @@ public class ScratchesError {
     private static String MESSAGE_FORMAT = "%s got some scratches.";
 
     public static void throwException(String applianceName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, applianceName));
+        throw new ScratchesException(String.format(MESSAGE_FORMAT, applianceName));
     }
 }

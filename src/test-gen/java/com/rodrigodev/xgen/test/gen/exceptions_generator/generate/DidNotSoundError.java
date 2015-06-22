@@ -8,6 +8,6 @@ public class DidNotSoundError {
     private static String MESSAGE_FORMAT = "Oh shooooot!!! Now WTF am I supposed to do? %s is going to fire me!";
 
     public static void throwException(String bossName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, bossName));
+        throw new DidNotSoundException(String.format(MESSAGE_FORMAT, bossName));
     }
 }

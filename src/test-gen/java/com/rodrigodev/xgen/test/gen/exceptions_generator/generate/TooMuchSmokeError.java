@@ -8,6 +8,6 @@ public class TooMuchSmokeError {
     private static String MESSAGE_FORMAT = "Wow, there is too much smoke coming out from the oven. Do you think %s is okay?";
 
     public static void throwException(String model) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, model));
+        throw new TooMuchSmokeException(String.format(MESSAGE_FORMAT, model));
     }
 }

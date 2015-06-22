@@ -14,22 +14,12 @@ public abstract class ClassDefinition {
 
     @NonNull @Getter private String name;
     @NonNull private String baseName;
-    @NonNull private String nameSuffix;
+
     @NonNull @Getter private String packagePath;
 
-    public ClassDefinition(String baseName, String nameSuffix, String basePackage) {
-        this.baseName = baseName;
-        this.nameSuffix = nameSuffix;
+    public ClassDefinition(String name, String basePackage) {
+        this.name = name;
         this.packagePath = basePackage;
-        init();
-    }
-
-    private void init() {
-        name = generateName();
-    }
-
-    private String generateName() {
-        return baseName + nameSuffix;
     }
 
     public String fullQualifiedName() {

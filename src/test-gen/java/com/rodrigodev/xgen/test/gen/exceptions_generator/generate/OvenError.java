@@ -8,6 +8,6 @@ public class OvenError {
     private static String MESSAGE_FORMAT = "The oven is not working. Model: %s";
 
     public static void throwException(String model) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, model));
+        throw new OvenException(String.format(MESSAGE_FORMAT, model));
     }
 }

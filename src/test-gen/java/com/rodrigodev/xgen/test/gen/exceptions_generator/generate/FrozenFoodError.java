@@ -8,6 +8,6 @@ public class FrozenFoodError {
     private static String MESSAGE_FORMAT = "%s is frozen! How could you possibly eat that?";
 
     public static void throwException(String foodName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, foodName));
+        throw new FrozenFoodException(String.format(MESSAGE_FORMAT, foodName));
     }
 }

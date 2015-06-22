@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by Rodrigo Quesada on 20/06/15.
  */
 @Accessors(fluent = true)
-public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB extends ClassTemplateModelBuilder<M>, D extends ClassDefinition> {
+public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB extends ClassTemplateModelBuilder<M, MB>, D extends ClassDefinition> {
 
     public static class InjectedFields {
 
@@ -31,8 +31,9 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
     @Getter private ClassFile<D> classFile;
     protected MB modelBuilder;
 
-    protected FreemarkerClassTemplate(InjectedFields injectedFields, String templateFileName, MB modelBuilder,
-                                      ClassFile classFile) {
+    protected FreemarkerClassTemplate(
+            InjectedFields injectedFields, String templateFileName, MB modelBuilder, ClassFile classFile
+    ) {
         try {
             inj = injectedFields;
             template = inj.configuration.getTemplate(templateFileName);

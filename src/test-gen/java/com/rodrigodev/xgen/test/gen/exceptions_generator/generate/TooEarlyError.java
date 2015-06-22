@@ -8,6 +8,6 @@ public class TooEarlyError {
     private static String MESSAGE_FORMAT = "It's just %s, still to early to wake up.";
 
     public static void throwException(String time) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, time));
+        throw new TooEarlyException(String.format(MESSAGE_FORMAT, time));
     }
 }

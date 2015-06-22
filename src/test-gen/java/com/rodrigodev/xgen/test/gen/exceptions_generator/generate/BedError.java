@@ -8,6 +8,6 @@ public class BedError {
     private static String MESSAGE_FORMAT = "This bed is freaking bad. Model: %s";
 
     public static void throwException(String model) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, model));
+        throw new BedException(String.format(MESSAGE_FORMAT, model));
     }
 }

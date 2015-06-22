@@ -8,6 +8,6 @@ public class DamagedError {
     private static String MESSAGE_FORMAT = "%s has been damaged.";
 
     public static void throwException(String applianceName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, applianceName));
+        throw new DamagedException(String.format(MESSAGE_FORMAT, applianceName));
     }
 }

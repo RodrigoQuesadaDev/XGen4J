@@ -8,6 +8,6 @@ public class BadSmellError {
     private static String MESSAGE_FORMAT = "%s smells bad, really bad.";
 
     public static void throwException(String roomName) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, roomName));
+        throw new BadSmellException(String.format(MESSAGE_FORMAT, roomName));
     }
 }

@@ -2,7 +2,6 @@ package com.rodrigodev.xgen.writer.template;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.experimental.Accessors;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -17,21 +16,21 @@ public class ClassTemplateModel {
         name = another.name;
     }
 
-    protected static abstract class ClassTemplateModelBuilder<B extends ClassTemplateModel> {
+    protected static abstract class ClassTemplateModelBuilder<M extends ClassTemplateModel, B extends ClassTemplateModelBuilder<M, B>> {
 
         private String name;
 
-        protected abstract ClassTemplateModelBuilder<B> self();
+        protected abstract B self();
 
-        public ClassTemplateModelBuilder<B> name(String name) {
+        public B name(String name) {
             this.name = name;
             return self();
         }
 
-        public B build() {
+        public M build() {
             return build(new ClassTemplateModel(name));
         }
 
-        protected abstract B build(ClassTemplateModel model);
+        protected abstract M build(ClassTemplateModel model);
     }
 }

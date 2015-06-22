@@ -9,7 +9,7 @@ public class ${name} {
     private static String MESSAGE_FORMAT = "${description.format}";
 
     public static void throwException(<#list description.params as param>${param.type} ${param.name}<#if param_has_next>,</#if></#list>) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, <#list description.params as param>${param.name}<#if param_has_next>,</#if></#list>));
+        throw new ${exceptionName}(String.format(MESSAGE_FORMAT, <#list description.params as param>${param.name}<#if param_has_next>,</#if></#list>));
     }
     </#if>
 }

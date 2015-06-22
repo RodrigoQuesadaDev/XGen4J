@@ -8,6 +8,6 @@ public class UndercookedError {
     private static String MESSAGE_FORMAT = "%s is undercooked my friend, I won't eat that.";
 
     public static void throwException(String model) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, model));
+        throw new UndercookedException(String.format(MESSAGE_FORMAT, model));
     }
 }

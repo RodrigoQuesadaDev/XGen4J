@@ -4,6 +4,7 @@ import com.google.common.io.Files;
 import com.rodrigodev.xgen.writer.file_definition.ClassFile;
 import com.rodrigodev.xgen.writer.template.FreemarkerClassTemplate;
 
+import javax.inject.Inject;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.nio.charset.Charset;
@@ -16,6 +17,7 @@ public class ClassWriter {
 
     public static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
+    @Inject
     public ClassWriter() {
     }
 

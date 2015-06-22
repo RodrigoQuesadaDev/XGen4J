@@ -44,12 +44,16 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     }
 
     @NonNull private Optional<ErrorDescriptionModel> description;
+    @NonNull private String exceptionName;
 
-    public ErrorClassTemplateModel(ClassTemplateModel model, @NonNull Optional<ErrorDescription> description) {
+    public ErrorClassTemplateModel(
+            ClassTemplateModel model, @NonNull Optional<ErrorDescription> description, String exceptionName
+    ) {
         super(model);
         this.description = description.isPresent()
                 ? Optional.of(new ErrorDescriptionModel(description.get()))
                 : Optional.empty();
+        this.exceptionName = exceptionName;
     }
 
     public static ErrorClassTemplateModelBuilder builder() {
@@ -66,18 +70,19 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
     @Setter
     @Accessors(fluent = true)
-    public static class ErrorClassTemplateModelBuilder extends ClassTemplateModelBuilder<ErrorClassTemplateModel> {
+    public static class ErrorClassTemplateModelBuilder extends ClassTemplateModelBuilder<ErrorClassTemplateModel, ErrorClassTemplateModelBuilder> {
 
         private ErrorDescription description;
+        @NonNull private String exceptionName;
 
         @Override
-        protected ClassTemplateModelBuilder<ErrorClassTemplateModel> self() {
+        protected ErrorClassTemplateModelBuilder self() {
             return this;
         }
 
         @Override
         protected ErrorClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorClassTemplateModel(model, Optional.ofNullable(description));
+            return new ErrorClassTemplateModel(model, Optional.ofNullable(description), exceptionName);
         }
     }
 }

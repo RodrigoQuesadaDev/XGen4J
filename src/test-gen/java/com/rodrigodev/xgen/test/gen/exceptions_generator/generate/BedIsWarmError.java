@@ -8,6 +8,6 @@ public class BedIsWarmError {
     private static String MESSAGE_FORMAT = "Bed #%d is too damn warm!";
 
     public static void throwException(Integer bedNumber) {
-        throw new DirtyException(String.format(MESSAGE_FORMAT, bedNumber));
+        throw new BedIsWarmException(String.format(MESSAGE_FORMAT, bedNumber));
     }
 }
