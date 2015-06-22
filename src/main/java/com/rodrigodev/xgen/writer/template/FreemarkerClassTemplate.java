@@ -48,6 +48,7 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
 
     final protected void initModel() {
         modelBuilder.name(classFile.classDefinition().name());
+        modelBuilder.packagePath(classFile.classDefinition().packagePath());
         doInitModel(classFile);
     }
 
