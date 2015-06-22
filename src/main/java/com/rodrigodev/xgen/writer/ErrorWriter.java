@@ -8,6 +8,7 @@ import com.rodrigodev.xgen.writer.template.error.ErrorClassTemplateFactory;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
@@ -21,13 +22,16 @@ public class ErrorWriter {
     public ErrorWriter() {
     }
 
-    public void write(
+    public ErrorClassFile write(
             @NonNull String sourceDirPath,
             @NonNull ErrorDefinition errorDefinition,
-            @NonNull ExceptionClassFile exceptionClassFile
+            @NonNull ExceptionClassFile exceptionClassFile,
+            @NonNull Optional<ErrorClassFile> parentClassFile
     ) {
         ErrorClassDefinition errorClass = new ErrorClassDefinition(errorDefinition);
         ErrorClassFile errorClassFile = new ErrorClassFile(sourceDirPath, errorClass);
-        classWriter.write(errorClassTemplateFactory.create(errorClassFile, exceptionClassFile));
+        classWriter.write(errorClassTemplateFactory.create(errorClassFile, exceptionClassFile, parentClassFile));
+
+        return errorClassFile;
     }
 }

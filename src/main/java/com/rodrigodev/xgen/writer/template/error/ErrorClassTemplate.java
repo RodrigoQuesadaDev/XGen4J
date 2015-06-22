@@ -1,11 +1,13 @@
 package com.rodrigodev.xgen.writer.template.error;
 
-import com.rodrigodev.xgen.writer.file_definition.ClassFile;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassDefinition;
 import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
 import com.rodrigodev.xgen.writer.file_definition.ExceptionClassFile;
 import com.rodrigodev.xgen.writer.template.FreemarkerClassTemplate;
 import com.rodrigodev.xgen.writer.template.error.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
+import lombok.NonNull;
+
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -16,17 +18,27 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
 
     //TODO change to builder?
     public ErrorClassTemplate(
-            InjectedFields injectedFields, ErrorClassFile errorClassFile, ExceptionClassFile exceptionClassFile
+            InjectedFields injectedFields,
+            ErrorClassFile errorClassFile,
+            @NonNull ExceptionClassFile exceptionClassFile,
+            Optional<ErrorClassFile> parentClassFile
     ) {
-        super(injectedFields,
-              TEMPLATE_FILE_NAME,
-              ErrorClassTemplateModel.builder().exceptionName(exceptionClassFile.classDefinition().name()),
-              errorClassFile
+        super(
+                injectedFields,
+                TEMPLATE_FILE_NAME,
+                modelBuilder(errorClassFile, exceptionClassFile),
+                errorClassFile,
+                parentClassFile
         );
     }
 
-    @Override
-    protected void doInitModel(ClassFile<ErrorClassDefinition> classFile) {
-        classFile.classDefinition().errorDefinition().description().ifPresent(modelBuilder::description);
+    private static ErrorClassTemplateModelBuilder modelBuilder(
+            ErrorClassFile errorClassFile,
+            ExceptionClassFile exceptionClassFile
+    ) {
+        ErrorClassTemplateModelBuilder modelBuilder = ErrorClassTemplateModel.builder();
+        errorClassFile.classDefinition().errorDefinition().description().ifPresent(modelBuilder::description);
+        modelBuilder.exceptionName(exceptionClassFile.classDefinition().name());
+        return modelBuilder;
     }
 }

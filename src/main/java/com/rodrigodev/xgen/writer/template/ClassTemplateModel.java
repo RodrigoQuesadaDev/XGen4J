@@ -13,16 +13,19 @@ public class ClassTemplateModel {
 
     @NonNull final private String name;
     @NonNull final private String packagePath;
+    final private String parentName;
 
     protected ClassTemplateModel(ClassTemplateModel another) {
         name = another.name;
         packagePath = another.packagePath;
+        parentName = another.parentName;
     }
 
     protected static abstract class ClassTemplateModelBuilder<M extends ClassTemplateModel, B extends ClassTemplateModelBuilder<M, B>> {
 
-        private String name;
-        private String packagePath;
+        @NonNull private String name;
+        @NonNull private String packagePath;
+        @NonNull private String parentName;
 
         protected abstract B self();
 
@@ -36,8 +39,13 @@ public class ClassTemplateModel {
             return self();
         }
 
+        public B parentName(String parentName) {
+            this.parentName = parentName;
+            return self();
+        }
+
         public M build() {
-            return build(new ClassTemplateModel(name, packagePath));
+            return build(new ClassTemplateModel(name, packagePath, parentName));
         }
 
         protected abstract M build(ClassTemplateModel model);

@@ -9,7 +9,6 @@ import lombok.Value;
 import lombok.experimental.Accessors;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -43,16 +42,16 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         }
     }
 
-    @NonNull private Optional<ErrorDescriptionModel> description;
+    @NonNull private ErrorDescriptionModel description;
     @NonNull private String exceptionName;
 
     public ErrorClassTemplateModel(
-            ClassTemplateModel model, @NonNull Optional<ErrorDescription> description, String exceptionName
+            @NonNull ClassTemplateModel model,
+            ErrorDescription description,
+            @NonNull String exceptionName
     ) {
         super(model);
-        this.description = description.isPresent()
-                ? Optional.of(new ErrorDescriptionModel(description.get()))
-                : Optional.empty();
+        this.description = description != null ? new ErrorDescriptionModel(description) : null;
         this.exceptionName = exceptionName;
     }
 
@@ -61,11 +60,11 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     }
 
     public boolean isConcrete() {
-        return description.isPresent();
+        return description != null;
     }
 
     public ErrorDescriptionModel getDescription() {
-        return description.get();
+        return description;
     }
 
     @Setter
@@ -82,7 +81,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
         @Override
         protected ErrorClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorClassTemplateModel(model, Optional.ofNullable(description), exceptionName);
+            return new ErrorClassTemplateModel(model, description, exceptionName);
         }
     }
 }

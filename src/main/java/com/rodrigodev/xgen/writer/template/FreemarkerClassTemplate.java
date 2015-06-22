@@ -6,10 +6,12 @@ import com.rodrigodev.xgen.writer.template.ClassTemplateModel.ClassTemplateModel
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.experimental.Accessors;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -26,19 +28,25 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
         }
     }
 
-    private InjectedFields inj;
-    @Getter private Template template;
-    @Getter private ClassFile<D> classFile;
-    protected MB modelBuilder;
+    @NonNull private InjectedFields inj;
+    @NonNull @Getter private Template template;
+    @NonNull @Getter private ClassFile<D> classFile;
+    @NonNull Optional<? extends ClassFile<?>> parentClassFile;
+    @NonNull protected MB modelBuilder;
 
     protected FreemarkerClassTemplate(
-            InjectedFields injectedFields, String templateFileName, MB modelBuilder, ClassFile classFile
+            @NonNull InjectedFields injectedFields,
+            @NonNull String templateFileName,
+            @NonNull MB modelBuilder,
+            @NonNull ClassFile<D> classFile,
+            @NonNull Optional<? extends ClassFile<?>> parentClassFile
     ) {
         try {
             inj = injectedFields;
             template = inj.configuration.getTemplate(templateFileName);
             this.classFile = classFile;
             this.modelBuilder = modelBuilder;
+            this.parentClassFile = parentClassFile;
             initModel();
         }
         catch (IOException e) {
@@ -46,13 +54,11 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
         }
     }
 
-    final protected void initModel() {
+    private void initModel() {
         modelBuilder.name(classFile.classDefinition().name());
         modelBuilder.packagePath(classFile.classDefinition().packagePath());
-        doInitModel(classFile);
+        parentClassFile.ifPresent(p -> modelBuilder.parentName(p.classDefinition().name()));
     }
-
-    protected abstract void doInitModel(ClassFile<D> classFile);
 
     public M model() {
         return modelBuilder.build();

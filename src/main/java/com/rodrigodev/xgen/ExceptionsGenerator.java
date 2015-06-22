@@ -3,12 +3,14 @@ package com.rodrigodev.xgen;
 import com.rodrigodev.xgen.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.writer.ErrorWriter;
 import com.rodrigodev.xgen.writer.ExceptionWriter;
+import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
 import com.rodrigodev.xgen.writer.file_definition.ExceptionClassFile;
 import com.rodrigodev.xgen.writer.template.TemplateModule;
 import dagger.Component;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -32,13 +34,21 @@ public class ExceptionsGenerator {
     }
 
     public void generate(@NonNull ErrorDefinition error) {
+        generate(error, Optional.empty(), Optional.empty());
+    }
 
-        ExceptionClassFile exceptionClassFile = exceptionWriter.write(sourceDirPath, error);
-        errorWriter.write(sourceDirPath, error, exceptionClassFile);
+    private void generate(
+            ErrorDefinition error,
+            Optional<ErrorClassFile> parentErrorClassFile,
+            Optional<ExceptionClassFile> parentExceptionClassFile
+    ) {
+        ExceptionClassFile exceptionClassFile = exceptionWriter.write(sourceDirPath, error, parentExceptionClassFile);
+        ErrorClassFile errorClassFile = errorWriter
+                .write(sourceDirPath, error, exceptionClassFile, parentErrorClassFile);
 
         ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {
-            generate(subError);
+            generate(subError, Optional.of(errorClassFile), Optional.of(exceptionClassFile));
         }
     }
 }
