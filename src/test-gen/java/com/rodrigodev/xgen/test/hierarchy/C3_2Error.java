@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.test.hierarchy;
 */
 public class C3_2Error extends C2Error {
 
-    private static String MESSAGE_FORMAT = "";
+    private static String MESSAGE_FORMAT = "ABCDE";
 
     public static void throwException() {
         throw new C3_2Exception(String.format(MESSAGE_FORMAT));

@@ -1,5 +1,6 @@
 package com.rodrigodev.xgen.configuration;
 
+import lombok.NonNull;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
@@ -10,6 +11,6 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 public class ErrorDescription {
 
-    private String format;
-    private ParameterDefinition[] params;
+    @NonNull private String format;
+    @NonNull private ParameterDefinition[] params;
 }

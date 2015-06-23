@@ -24,16 +24,16 @@ public class HierarchyTests {
         xgen.generate(baseError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
-                                error("C3_1").description(""),
-                                error("C3_2").description(""),
-                                error("C3_3").description("")
+                                error("C3_1").description("ABCDE"),
+                                error("C3_2").description("ABCDE"),
+                                error("C3_3").description("ABCDE")
                         )
                 ),
                 error("E1").errors(
                         error("E2").errors(
-                                error("E3_1").description(""),
-                                error("E3_2").description(""),
-                                error("E3_3").description("")
+                                error("E3_1").description("ABCDE"),
+                                error("E3_2").description("ABCDE"),
+                                error("E3_3").description("ABCDE")
                         )
                 )
         ).basePackage("com.rodrigodev.xgen.test.hierarchy").build());

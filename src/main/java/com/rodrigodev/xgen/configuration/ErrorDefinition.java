@@ -8,6 +8,8 @@ import lombok.experimental.Accessors;
 import java.util.Arrays;
 import java.util.Optional;
 
+import static com.google.common.base.Preconditions.*;
+
 /**
  * Created by Rodrigo Quesada on 12/05/15.
  */
@@ -40,6 +42,8 @@ public class ErrorDefinition {
         public ErrorDefinition.ErrorDefinitionBuilder description(
                 String descriptionFormat, ParameterDefinition... params
         ) {
+            checkArgument(!descriptionFormat.isEmpty(), "descriptionFormat is empty");
+
             description = Optional.of(new ErrorDescription(descriptionFormat, params));
             return this;
         }
