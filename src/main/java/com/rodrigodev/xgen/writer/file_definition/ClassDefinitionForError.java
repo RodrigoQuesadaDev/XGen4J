@@ -14,7 +14,7 @@ public abstract class ClassDefinitionForError extends ClassDefinition {
     @NonNull @Getter private ErrorDefinition errorDefinition;
 
     public ClassDefinitionForError(@NonNull ErrorDefinition errorDefinition, String nameSuffix) {
-        super(generateName(errorDefinition, nameSuffix), errorDefinition.basePackage());
+        super(generateName(errorDefinition, nameSuffix), errorDefinition.packagePath());
         this.errorDefinition = errorDefinition;
     }
 

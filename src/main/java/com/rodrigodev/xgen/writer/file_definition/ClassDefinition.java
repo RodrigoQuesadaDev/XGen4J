@@ -17,9 +17,9 @@ public abstract class ClassDefinition {
 
     @NonNull @Getter private String packagePath;
 
-    public ClassDefinition(String name, String basePackage) {
+    public ClassDefinition(String name, String packagePath) {
         this.name = name;
-        this.packagePath = basePackage;
+        this.packagePath = packagePath;
     }
 
     public String fullQualifiedName() {

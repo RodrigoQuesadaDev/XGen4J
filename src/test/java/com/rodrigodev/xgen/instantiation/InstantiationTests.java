@@ -1,15 +1,16 @@
 package com.rodrigodev.xgen.instantiation;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.*;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootError;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Error;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Error;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Error;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Error;
 import org.junit.Test;
 
-import java.lang.reflect.Modifier;
-
-import static com.rodrigodev.xgen.configuration.ErrorConfiguration.baseError;
-import static com.rodrigodev.xgen.configuration.ErrorConfiguration.commonError;
-import static com.rodrigodev.xgen.configuration.ErrorConfiguration.error;
-
+import static com.rodrigodev.xgen.configuration.ErrorConfiguration.*;
 import static java.lang.reflect.Modifier.isAbstract;
 import static org.assertj.core.api.Assertions.*;
 
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.*;
 public class InstantiationTests {
 
     @Test
-    public void errorsClassesAreAbstract(){
+    public void errorsClassesAreAbstract() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
         xgen.generate(baseError("Root").errors(

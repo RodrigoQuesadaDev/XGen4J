@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.message;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.message.noParamsForDescription.e1.e2.e3.E3Error;
 import org.junit.Test;
 
 import static com.rodrigodev.xgen.configuration.ErrorConfiguration.baseError;
@@ -43,7 +44,7 @@ public class MessageTests {
         ).basePackage("com.rodrigodev.xgen.test.message.noParamsForDescription").build());
         // @formatter:on
 
-        assertThatThrownBy(com.rodrigodev.xgen.test.message.noParamsForDescription.E3Error::throwException)
+        assertThatThrownBy(E3Error::throwException)
                 .hasMessage("Some description.");
     }
 }

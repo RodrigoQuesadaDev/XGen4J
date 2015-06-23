@@ -24,12 +24,21 @@ public class ClassWriter {
     public void write(FreemarkerClassTemplate<?, ?, ?> classTemplate) {
         ClassFile classFile = classTemplate.classFile();
         try (BufferedWriter errorClassWriter = Files.newWriter(
-                new File(classFile.filePath()), DEFAULT_CHARSET
+                createPackagePath(classFile), DEFAULT_CHARSET
         )) {
             classTemplate.template().process(classTemplate.model(), errorClassWriter);
         }
         catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private File createPackagePath(ClassFile classFile) {
+        File file = new File(classFile.filePath());
+        File parentDir = file.getParentFile();
+        if (parentDir != null) {
+            parentDir.mkdirs();
+        }
+        return file;
     }
 }

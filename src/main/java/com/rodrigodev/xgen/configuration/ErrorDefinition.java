@@ -1,5 +1,6 @@
 package com.rodrigodev.xgen.configuration;
 
+import com.google.common.base.CaseFormat;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -20,7 +21,7 @@ public class ErrorDefinition {
     @NonNull private String name;
     @NonNull private Optional<ErrorDescription> description;
     @NonNull private ErrorDefinition[] errors;
-    @NonNull private String basePackage;
+    @NonNull private String packagePath;
 
     public static ErrorDefinitionBuilder builder() {
         return new ErrorDefinitionBuilder();
@@ -28,6 +29,8 @@ public class ErrorDefinition {
 
     @Accessors(fluent = true)
     public static class ErrorDefinitionBuilder {
+
+        private static final String DOT = ".";
 
         @Setter private String name;
         private Optional<ErrorDescription> description;
@@ -54,11 +57,24 @@ public class ErrorDefinition {
         }
 
         public ErrorDefinition build() {
+            return build(true);
+        }
+
+        private ErrorDefinition build(boolean isRoot) {
+            String packagePath = generatePackagePath(isRoot);
             ErrorDefinition[] errors = Arrays.stream(errorBuilders)
-                    .peek(b -> b.basePackage(basePackage))
-                    .map(ErrorDefinitionBuilder::build)
+                    .peek(e -> e.basePackage(packagePath))
+                    .map(e -> e.build(false))
                     .toArray(ErrorDefinition[]::new);
-            return new ErrorDefinition(name, description, errors, basePackage);
+            return new ErrorDefinition(name, description, errors, packagePath);
+        }
+
+        private String generatePackagePath(boolean isRoot) {
+            StringBuilder stringBuilder = new StringBuilder(basePackage);
+            if (!isRoot) {
+                stringBuilder.append(DOT).append(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name));
+            }
+            return stringBuilder.toString();
         }
     }
 }

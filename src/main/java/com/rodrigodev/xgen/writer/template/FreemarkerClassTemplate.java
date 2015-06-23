@@ -57,7 +57,7 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
     private void initModel() {
         modelBuilder.name(classFile.classDefinition().name());
         modelBuilder.packagePath(classFile.classDefinition().packagePath());
-        parentClassFile.ifPresent(p -> modelBuilder.parentName(p.classDefinition().name()));
+        parentClassFile.ifPresent(p -> modelBuilder.parent(p.classDefinition()));
     }
 
     public M model() {
