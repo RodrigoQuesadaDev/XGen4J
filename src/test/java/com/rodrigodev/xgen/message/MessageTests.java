@@ -15,18 +15,15 @@ public class MessageTests {
 
     @Test
     public void descriptionIsEmpty_anIllegalArgumentExceptionIsThrown() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         assertThatThrownBy(
                 () -> {
-                    // @formatter:off
-                    xgen.generate(baseError("Root").errors(
+                    baseError("Root").errors(
                             error("E1").errors(
                                     error("E2").errors(
                                             error("E3").description("")
                                     )
                             )
-                    ).basePackage("com.rodrigodev.xgen.test.message.descriptionIsEmpty").build());
-                    // @formatter:on
+                    );
                 }
         ).isInstanceOf(IllegalArgumentException.class).hasMessage("descriptionFormat is empty");
     }
@@ -34,7 +31,6 @@ public class MessageTests {
     @Test
     public void noParamsForDescription() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-        // @formatter:off
         xgen.generate(baseError("Root").errors(
                 error("E1").errors(
                         error("E2").errors(
@@ -42,7 +38,6 @@ public class MessageTests {
                         )
                 )
         ).basePackage("com.rodrigodev.xgen.test.message.noParamsForDescription").build());
-        // @formatter:on
 
         assertThatThrownBy(E3Error::throwException)
                 .hasMessage("Some description.");

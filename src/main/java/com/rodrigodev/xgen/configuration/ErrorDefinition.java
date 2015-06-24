@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
 
@@ -18,10 +19,25 @@ import static com.google.common.base.Preconditions.*;
 @Accessors(fluent = true)
 public class ErrorDefinition {
 
+    private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
+
     @NonNull private String name;
     @NonNull private Optional<ErrorDescription> description;
     @NonNull private ErrorDefinition[] errors;
     @NonNull private String packagePath;
+
+    private ErrorDefinition(
+            @NonNull String name,
+            @NonNull Optional<ErrorDescription> description,
+            @NonNull ErrorDefinition[] errors,
+            @NonNull String packagePath
+    ) {
+        this.name = name;
+        this.description = description;
+        this.errors = errors;
+        this.packagePath = packagePath;
+    }
+
 
     public static ErrorDefinitionBuilder builder() {
         return new ErrorDefinitionBuilder();
@@ -32,7 +48,7 @@ public class ErrorDefinition {
 
         private static final String DOT = ".";
 
-        @Setter private String name;
+        private String name;
         private Optional<ErrorDescription> description;
         private ErrorDefinitionBuilder[] errorBuilders;
         @Setter private String basePackage;
@@ -40,6 +56,16 @@ public class ErrorDefinition {
         public ErrorDefinitionBuilder() {
             description = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
+        }
+
+        public ErrorDefinition.ErrorDefinitionBuilder name(String name) {
+            checkArgument(
+                    VALID_NAME_PATTERN.matcher(name).matches(),
+                    String.format("Error name '%s' has invalid format.", name)
+            );
+
+            this.name = name;
+            return this;
         }
 
         public ErrorDefinition.ErrorDefinitionBuilder description(
