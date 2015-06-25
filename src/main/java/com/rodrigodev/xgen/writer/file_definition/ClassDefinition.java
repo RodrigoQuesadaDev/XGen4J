@@ -13,8 +13,6 @@ public abstract class ClassDefinition {
     public static final String DOT = ".";
 
     @NonNull @Getter private String name;
-    @NonNull private String baseName;
-
     @NonNull @Getter private String packagePath;
 
     public ClassDefinition(String name, String packagePath) {
@@ -22,7 +20,7 @@ public abstract class ClassDefinition {
         this.packagePath = packagePath;
     }
 
-    public String fullQualifiedName() {
+    public String fullyQualifiedName() {
         return packagePath + DOT + name;
     }
 }

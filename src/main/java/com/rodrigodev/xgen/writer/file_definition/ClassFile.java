@@ -31,7 +31,7 @@ public abstract class ClassFile<D extends ClassDefinition> {
 
     private String generateFilePath() {
         return baseDirectory + File.separator
-                + PackageUtil.toFilePath(classDefinition.fullQualifiedName())
+                + PackageUtil.toFilePath(classDefinition.fullyQualifiedName())
                 + FILE_EXTENSION;
     }
 

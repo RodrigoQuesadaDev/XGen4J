@@ -1,9 +1,9 @@
 package com.rodrigodev.xgen.writer.template;
 
 import com.rodrigodev.xgen.writer.file_definition.ClassDefinition;
+import com.rodrigodev.xgen.writer.template.common.TypeModel;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.Value;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -11,22 +11,15 @@ import lombok.Value;
 @Getter
 public class ClassTemplateModel {
 
-    @Value
-    public static class ParentModel {
-
-        @NonNull private String name;
-        @NonNull private String fullQualifiedName;
-    }
-
     @NonNull final private String name;
     @NonNull final private String packagePath;
-    final private ParentModel parent;
+    final private TypeModel parent;
 
     public ClassTemplateModel(String name, String packagePath, ClassDefinition parentClassDefinition) {
         this.name = name;
         this.packagePath = packagePath;
         this.parent = parentClassDefinition != null
-                ? new ParentModel(parentClassDefinition.name(), parentClassDefinition.fullQualifiedName())
+                ? new TypeModel(parentClassDefinition.name(), parentClassDefinition.fullyQualifiedName())
                 : null;
     }
 

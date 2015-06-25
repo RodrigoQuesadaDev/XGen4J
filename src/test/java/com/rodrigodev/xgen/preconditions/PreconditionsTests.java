@@ -3,8 +3,6 @@ package com.rodrigodev.xgen.preconditions;
 import com.rodrigodev.xgen.ExceptionsGenerator;
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static org.assertj.core.api.Assertions.*;
 
 /**

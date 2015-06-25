@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import static com.rodrigodev.xgen.configuration.ErrorConfiguration.baseError;
 import static com.rodrigodev.xgen.configuration.ErrorConfiguration.error;
+import static com.rodrigodev.xgen.configuration.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -41,5 +42,32 @@ public class MessageTests {
 
         assertThatThrownBy(E3Error::throwException)
                 .hasMessage("Some description.");
+    }
+
+    public static class TestObject {
+        @Override
+        public String toString() {
+            return "A test object.";
+        }
+    }
+
+    @Test
+    public void descriptionWithMultipleParametersIsAllowed() {
+
+        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        // @formatter:off
+        xgen.generate(baseError("Root").errors(
+                error("E1").errors(
+                        error("E2").errors(
+                                error("E3").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3"))
+                        )
+                )
+        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed").build());
+        // @formatter:on
+
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
+                        .throwException("Abcde", 123.456, new TestObject())
+        ).hasMessage("{param1: 'Abcde', param2: 123.456, param3: 'A test object.'}");
     }
 }

@@ -3,6 +3,7 @@ package com.rodrigodev.xgen.writer.template.error;
 import com.rodrigodev.xgen.configuration.ErrorDescription;
 import com.rodrigodev.xgen.configuration.ParameterDefinition;
 import com.rodrigodev.xgen.writer.template.ClassTemplateModel;
+import com.rodrigodev.xgen.writer.template.common.TypeModel;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -33,12 +34,13 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     @Value
     public static class ParameterDefinitionModel {
 
-        @NonNull private String type;
+        @NonNull private TypeModel type;
         @NonNull private String name;
 
         public ParameterDefinitionModel(@NonNull ParameterDefinition param) {
-            type = param.type().getSimpleName();
-            name = param.name();
+            Class<?> paramClass = param.type();
+            this.type = new TypeModel(paramClass.getSimpleName(), paramClass.getCanonicalName());
+            this.name = param.name();
         }
     }
 
