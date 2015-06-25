@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.message;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.test.message.noParamsForDescription.e1.e2.e3.E3Error;
+import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
 import org.junit.Test;
 
 import static com.rodrigodev.xgen.configuration.ErrorConfiguration.baseError;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.*;
 public class MessageTests {
 
     @Test
-    public void descriptionIsEmpty_anIllegalArgumentExceptionIsThrown() {
+    public void descriptionMustNotBeEmpty() {
         assertThatThrownBy(
                 () -> {
                     baseError("Root").errors(
@@ -29,7 +29,7 @@ public class MessageTests {
     }
 
     @Test
-    public void noParamsForDescription() {
+    public void descriptionWithNoParamsIsAllowed() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         xgen.generate(baseError("Root").errors(
                 error("E1").errors(
@@ -37,7 +37,7 @@ public class MessageTests {
                                 error("E3").description("Some description.")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.message.noParamsForDescription").build());
+        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed").build());
 
         assertThatThrownBy(E3Error::throwException)
                 .hasMessage("Some description.");

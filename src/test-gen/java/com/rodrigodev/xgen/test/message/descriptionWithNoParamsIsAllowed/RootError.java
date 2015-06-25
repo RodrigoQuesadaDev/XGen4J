@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.message.noParamsForDescription;
+package com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed;
 
 
 

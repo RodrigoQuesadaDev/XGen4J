@@ -10,7 +10,11 @@ import dagger.Component;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Optional;
+
+import static com.google.common.base.Preconditions.*;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -29,6 +33,8 @@ public class ExceptionsGenerator {
     @Inject ExceptionWriter exceptionWriter;
 
     public ExceptionsGenerator(@NonNull String sourceDirPath) {
+        checkArgument(Files.exists(Paths.get(sourceDirPath)), "Source directory doesn't exist.");
+
         DaggerExceptionsGenerator_ExceptionsGeneratorComponent.create().inject(this);
         this.sourceDirPath = sourceDirPath;
     }

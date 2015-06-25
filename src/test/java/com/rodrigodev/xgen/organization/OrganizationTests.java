@@ -194,7 +194,5 @@ public class OrganizationTests {
                 "com.rodrigodev.xgen.test.organization.packages.error_name1.error_name2.error_name3_3");
     }
 
-    //TODO validate names (so that can be assign to classes?)
-
     //TODO validate base package exists
 }
