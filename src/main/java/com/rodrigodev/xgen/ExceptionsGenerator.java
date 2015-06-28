@@ -1,12 +1,11 @@
 package com.rodrigodev.xgen;
 
-import com.rodrigodev.xgen.configuration.ErrorDefinition;
-import com.rodrigodev.xgen.writer.ErrorWriter;
-import com.rodrigodev.xgen.writer.ExceptionWriter;
-import com.rodrigodev.xgen.writer.file_definition.ErrorClassFile;
-import com.rodrigodev.xgen.writer.file_definition.ExceptionClassFile;
-import com.rodrigodev.xgen.writer.template.TemplateModule;
-import dagger.Component;
+import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
+import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
+import com.rodrigodev.xgen.model.error.ErrorWriter;
+import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
+import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import lombok.NonNull;
 
 import javax.inject.Inject;
@@ -21,40 +20,63 @@ import static com.google.common.base.Preconditions.*;
  */
 public class ExceptionsGenerator {
 
-    @Component(modules = TemplateModule.class)
-    public interface ExceptionsGeneratorComponent {
+    public static class InjectedFields {
 
-        void inject(ExceptionsGenerator exceptionsGenerator);
+        @Inject ErrorCodeWriter errorCodeWriter;
+        @Inject ErrorWriter errorWriter;
+        @Inject ExceptionWriter exceptionWriter;
+
+        @Inject
+        public InjectedFields() {
+        }
     }
 
+    @Inject InjectedFields inj;
     private String sourceDirPath;
 
-    @Inject ErrorWriter errorWriter;
-    @Inject ExceptionWriter exceptionWriter;
+    ExceptionsGenerator(
+            InjectedFields injectedFields,
+            String sourceDirPath
+    ) {
+        this.inj = injectedFields;
+        this.sourceDirPath = sourceDirPath;
+    }
 
     public ExceptionsGenerator(@NonNull String sourceDirPath) {
         checkArgument(Files.exists(Paths.get(sourceDirPath)), "Source directory doesn't exist.");
 
-        DaggerExceptionsGenerator_ExceptionsGeneratorComponent.create().inject(this);
         this.sourceDirPath = sourceDirPath;
+        DaggerExceptionsGeneratorComponent.builder()
+                .mainModule(new MainModule(sourceDirPath))
+                .build().inject(this);
     }
 
-    public void generate(@NonNull ErrorDefinition error) {
-        generate(error, Optional.empty(), Optional.empty());
+    public void generate(@NonNull ErrorDefinition rootError) {
+        generateBaseClasses(rootError);
+        generateErrors(rootError.packagePath(), rootError, Optional.empty(), Optional.empty());
     }
 
-    private void generate(
+    private void generateBaseClasses(ErrorDefinition rootError) {
+        generateErrorCodeClass(rootError);
+    }
+
+    private void generateErrorCodeClass(ErrorDefinition rootError) {
+        inj.errorCodeWriter.write(sourceDirPath, rootError);
+    }
+
+    private void generateErrors(
+            String rootPackage,
             ErrorDefinition error,
             Optional<ErrorClassFile> parentErrorClassFile,
             Optional<ExceptionClassFile> parentExceptionClassFile
     ) {
-        ExceptionClassFile exceptionClassFile = exceptionWriter.write(sourceDirPath, error, parentExceptionClassFile);
-        ErrorClassFile errorClassFile = errorWriter
-                .write(sourceDirPath, error, exceptionClassFile, parentErrorClassFile);
+        ExceptionClassFile exceptionClassFile = inj.exceptionWriter.write(sourceDirPath, error, parentExceptionClassFile);
+        ErrorClassFile errorClassFile = inj.errorWriter
+                .write(sourceDirPath, rootPackage, error, exceptionClassFile, parentErrorClassFile);
 
         ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {
-            generate(subError, Optional.of(errorClassFile), Optional.of(exceptionClassFile));
+            generateErrors(rootPackage, subError, Optional.of(errorClassFile), Optional.of(exceptionClassFile));
         }
     }
 }

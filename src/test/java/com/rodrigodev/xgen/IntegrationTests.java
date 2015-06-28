@@ -46,8 +46,8 @@ import com.rodrigodev.xgen.test.integration.kitchen.oven.undercooked.Undercooked
 import com.rodrigodev.xgen.test.integration.kitchen.oven.undercooked.UndercookedException;
 import org.junit.Test;
 
-import static com.rodrigodev.xgen.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.configuration.ParameterDefinition.p;
+import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -64,7 +64,7 @@ public class IntegrationTests {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
 
         // @formatter:off
-        xgen.generate(baseError("House").errors(
+        xgen.generate(rootError("House").errors(
                 commonError("Common").errors(
                         error("Room").errors(
                                 error("Dirty").description("%s is dirty!", p(String.class, "roomName")),

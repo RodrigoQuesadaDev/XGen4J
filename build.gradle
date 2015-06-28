@@ -50,7 +50,7 @@ sourceSets {
         compileClasspath += [configurations.provided]
 
         java {
-            srcDir 'src/test-gen/java'
+            srcDirs += ['src/test-gen/java', 'generated_tests']
         }
     }
 }

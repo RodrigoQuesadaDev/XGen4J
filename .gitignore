@@ -11,3 +11,4 @@
 *.iml
 *.jar
 /generated
+/generated_tests
