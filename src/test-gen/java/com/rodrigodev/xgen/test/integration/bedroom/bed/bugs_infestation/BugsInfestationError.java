@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class BugsInfestationError extends BedError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.bedroom.bed.bugs-infestation");
 
     private static String MESSAGE_FORMAT = "Oh shoot, there is bug infestation here. We better move to %s.";
 

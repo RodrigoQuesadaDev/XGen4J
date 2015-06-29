@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
+import static com.rodrigodev.xgen.model.error.configuration.ErrorCodeDefinition.codeNameFrom;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -20,7 +21,6 @@ import static com.google.common.base.Preconditions.*;
 public class ErrorDefinition {
 
     private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
-    private static final Pattern VALID_CODE_NAME_PATTERN = Pattern.compile("\\p{Lower}[\\p{Lower}\\d\\-]*", Pattern.UNICODE_CASE);
 
     @NonNull private String name;
     @NonNull private ErrorCodeDefinition code;
@@ -42,7 +42,6 @@ public class ErrorDefinition {
         this.packagePath = packagePath;
     }
 
-
     public static ErrorDefinitionBuilder builder() {
         return new ErrorDefinitionBuilder();
     }
@@ -51,15 +50,18 @@ public class ErrorDefinition {
     public static class ErrorDefinitionBuilder {
 
         private static final String DOT = ".";
+        private static final ErrorCodeDefinition UNDEFINED_CODE
+                = new ErrorCodeDefinition("undefined", Optional.empty());
 
         private String name;
         //TODO remove initialization (temporary while adding more features)
-        private ErrorCodeDefinition code = new ErrorCodeDefinition(Optional.empty(), Optional.empty());
+        private ErrorCodeDefinition code;
         private Optional<ErrorDescription> description;
         private ErrorDefinitionBuilder[] errorBuilders;
         @NonNull @Setter private String basePackage;
 
         public ErrorDefinitionBuilder() {
+            code = UNDEFINED_CODE;
             description = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
         }
@@ -71,16 +73,12 @@ public class ErrorDefinition {
             );
 
             this.name = name;
+            if (code == UNDEFINED_CODE) code = new ErrorCodeDefinition(codeNameFrom(name), Optional.empty());
             return this;
         }
 
         public ErrorDefinitionBuilder code(String codeName) {
-            checkArgument(
-                    VALID_CODE_NAME_PATTERN.matcher(codeName).matches(),
-                    String.format("Error code's name '%s' has invalid format.", codeName)
-            );
-
-            code = new ErrorCodeDefinition(Optional.of(codeName), Optional.empty());
+            code = new ErrorCodeDefinition(codeName, Optional.empty());
             return this;
         }
 

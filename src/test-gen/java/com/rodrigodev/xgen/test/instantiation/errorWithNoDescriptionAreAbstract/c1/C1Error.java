@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.
 */
 public abstract class C1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root.c-1");
 
 }

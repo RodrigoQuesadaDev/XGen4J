@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class DirtyError extends RoomError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.common.room.dirty");
 
     private static String MESSAGE_FORMAT = "%s is dirty!";
 

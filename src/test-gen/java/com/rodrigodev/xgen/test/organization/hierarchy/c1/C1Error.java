@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.hierarchy.ErrorCode;
 */
 public abstract class C1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root.c-1");
 
 }

@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class ApplianceError extends CommonError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.common.appliance");
 
     private static String MESSAGE_FORMAT = "Something went wrong with %s appliance.";
 

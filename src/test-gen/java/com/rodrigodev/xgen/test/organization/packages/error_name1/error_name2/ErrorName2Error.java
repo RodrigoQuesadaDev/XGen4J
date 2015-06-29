@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.packages.ErrorCode;
 */
 public abstract class ErrorName2Error extends ErrorName1Error {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root-name.error-name-1.error-name-2");
 
 }

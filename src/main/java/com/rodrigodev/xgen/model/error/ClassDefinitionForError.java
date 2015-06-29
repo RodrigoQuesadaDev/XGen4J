@@ -12,6 +12,8 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 public abstract class ClassDefinitionForError extends ClassDefinition {
 
+    public static final String UNDERSCORE = "_";
+    public static final String NON_WORD_CHAR_REGEX = "[^\\w]";
     @NonNull @Getter private ErrorDefinition errorDefinition;
 
     public ClassDefinitionForError(@NonNull ErrorDefinition errorDefinition, String nameSuffix) {
@@ -20,7 +22,7 @@ public abstract class ClassDefinitionForError extends ClassDefinition {
     }
 
     private static String generateName(ErrorDefinition errorDefinition, String nameSuffix) {
-        return errorDefinition.name() + nameSuffix;
+        return errorDefinition.name().replaceAll(NON_WORD_CHAR_REGEX, UNDERSCORE) + nameSuffix;
     }
 
     public boolean isConcrete() {

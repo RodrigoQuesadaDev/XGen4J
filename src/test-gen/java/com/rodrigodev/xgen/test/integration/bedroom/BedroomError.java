@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class BedroomError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.bedroom");
 
     private static String MESSAGE_FORMAT = "%s's bedroom is not a good place to sleep.";
 

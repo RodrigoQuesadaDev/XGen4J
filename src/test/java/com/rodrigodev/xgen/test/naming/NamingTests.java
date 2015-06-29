@@ -42,7 +42,7 @@ public class NamingTests {
     }
 
     @Test
-    public void errorNameCanOnlyContainLettersNumbersHyphensOrUnderscores() {
+    public void errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores() {
         assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::rootError);
         assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::commonError);
         assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::error);

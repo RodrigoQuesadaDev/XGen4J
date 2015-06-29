@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllow
 */
 public abstract class RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root");
 
 }

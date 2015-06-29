@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class DamagedError extends ApplianceError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.common.appliance.damaged");
 
     private static String MESSAGE_FORMAT = "The %s has been damaged.";
 

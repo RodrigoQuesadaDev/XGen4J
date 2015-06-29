@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class TooSmallError extends RoomError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.common.room.too-small");
 
     private static String MESSAGE_FORMAT = "%s is too damn small!";
 

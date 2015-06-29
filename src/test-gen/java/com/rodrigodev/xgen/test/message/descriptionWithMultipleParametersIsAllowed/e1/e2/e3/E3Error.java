@@ -12,7 +12,7 @@ import com.rodrigodev.xgen.test.message.MessageTests.TestObject;
 */
 public abstract class E3Error extends E2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root.e-1.e-2.e-3");
 
     private static String MESSAGE_FORMAT = "{param1: '%s', param2: %.3f, param3: '%s'}";
 

@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.packages.ErrorCode;
 */
 public abstract class RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root-name");
 
 }

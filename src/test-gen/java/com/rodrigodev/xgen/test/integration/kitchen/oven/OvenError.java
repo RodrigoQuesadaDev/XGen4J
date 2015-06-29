@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class OvenError extends KitchenError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.kitchen.oven");
 
     private static String MESSAGE_FORMAT = "The oven is not working. Model: %s";
 

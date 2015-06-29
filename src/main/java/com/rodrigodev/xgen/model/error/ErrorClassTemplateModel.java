@@ -5,13 +5,11 @@ import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen.model.error.configuration.ErrorCodeDefinition;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDescription;
 import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
-import com.rodrigodev.xgen.service.time.TimeService;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
-import javax.inject.Inject;
 import java.util.Arrays;
 
 /**
@@ -104,7 +102,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         @NonNull private String name;
 
         public ErrorCodeModel(@NonNull ErrorCodeDefinition code) {
-            this.name = code.name().orElse("undefined");
+            this.name = code.name();
         }
     }
 }

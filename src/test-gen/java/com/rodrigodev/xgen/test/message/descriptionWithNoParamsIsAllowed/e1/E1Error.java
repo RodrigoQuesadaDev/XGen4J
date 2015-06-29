@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.ErrorCo
 */
 public abstract class E1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root.e-1");
 
 }

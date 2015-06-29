@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class RottenFoodError extends FridgeError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.kitchen.fridge.rotten-food");
 
     private static String MESSAGE_FORMAT = "The %s is rotten my friend.";
 

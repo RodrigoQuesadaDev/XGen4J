@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class BurnedFoodError extends OvenError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.kitchen.oven.burned-food");
 
     private static String MESSAGE_FORMAT = "Damn, the %s just burned! We better order some pizza.";
 

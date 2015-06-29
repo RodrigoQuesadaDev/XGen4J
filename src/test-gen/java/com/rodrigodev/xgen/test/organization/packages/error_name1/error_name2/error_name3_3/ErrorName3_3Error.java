@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.organization.packages.ErrorCode;
 */
 public abstract class ErrorName3_3Error extends ErrorName2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root-name.error-name-1.error-name-2.error-name-3-3");
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

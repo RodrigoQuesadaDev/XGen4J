@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.integration.ErrorCode;
 */
 public abstract class KitchenError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.kitchen");
 
 }

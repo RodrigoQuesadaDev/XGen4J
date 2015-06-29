@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.packages.ErrorCode;
 */
 public abstract class CommonName2Error extends CommonName1Error {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("root-name.common-name-1.common-name-2");
 
 }

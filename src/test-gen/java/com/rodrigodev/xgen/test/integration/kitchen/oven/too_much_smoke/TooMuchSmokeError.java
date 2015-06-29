@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class TooMuchSmokeError extends OvenError {
 
-    public static final ErrorCode CODE = new ErrorCode("undefined");
+    public static final ErrorCode CODE = new ErrorCode("house.kitchen.oven.too-much-smoke");
 
     private static String MESSAGE_FORMAT = "Wow, there is too much smoke coming out from the oven. Do you think the %s is okay?";
 
