@@ -217,8 +217,6 @@ public class CodeTests {
 
     //TODO test parent code's number exists?
 
-    //TODO special cases for ERROR NAMES
-
     private interface ErrorCodeFactory<C> {
 
         C create(String name);
