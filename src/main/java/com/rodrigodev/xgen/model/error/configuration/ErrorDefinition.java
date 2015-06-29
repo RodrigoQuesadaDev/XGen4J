@@ -1,8 +1,8 @@
 package com.rodrigodev.xgen.model.error.configuration;
 
 import com.google.common.base.CaseFormat;
+import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import lombok.NonNull;
-import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
-import static com.rodrigodev.xgen.model.error.configuration.ErrorCodeDefinition.codeNameFrom;
+import static com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition.codeNameFrom;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -58,15 +58,17 @@ public class ErrorDefinition {
         private ErrorCodeDefinition code;
         private Optional<ErrorDescription> description;
         private ErrorDefinitionBuilder[] errorBuilders;
-        @NonNull @Setter private String basePackage;
+        @NonNull private String packagePath;
+        @NonNull private Optional<ErrorDefinitionBuilder> parent;
 
         public ErrorDefinitionBuilder() {
             code = UNDEFINED_CODE;
             description = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
+            parent = Optional.empty();
         }
 
-        public ErrorDefinition.ErrorDefinitionBuilder name(String name) {
+        public ErrorDefinitionBuilder name(String name) {
             checkArgument(
                     VALID_NAME_PATTERN.matcher(name).matches(),
                     String.format("Error name '%s' has invalid format.", name)
@@ -82,7 +84,12 @@ public class ErrorDefinition {
             return this;
         }
 
-        public ErrorDefinition.ErrorDefinitionBuilder description(
+        public ErrorDefinitionBuilder code(int codeNumber) {
+            code = code.withNumber(codeNumber);
+            return this;
+        }
+
+        public ErrorDefinitionBuilder description(
                 String descriptionFormat, ParameterDefinition... params
         ) {
             checkArgument(!descriptionFormat.isEmpty(), "descriptionFormat is empty");
@@ -91,33 +98,56 @@ public class ErrorDefinition {
             return this;
         }
 
-        public ErrorDefinition.ErrorDefinitionBuilder errors(ErrorDefinitionBuilder... errorBuilders) {
+        public ErrorDefinitionBuilder errors(ErrorDefinitionBuilder... errorBuilders) {
             this.errorBuilders = errorBuilders;
             return this;
         }
 
-        public ErrorDefinition build() {
-            return build(true);
+        public ErrorDefinitionBuilder basePackage(String basePackage) {
+            packagePath = basePackage;
+            return this;
         }
 
-        private ErrorDefinition build(boolean isRoot) {
-            String packagePath = generatePackagePath(isRoot);
+        public ErrorDefinitionBuilder parent(ErrorDefinitionBuilder parent) {
+            this.parent = Optional.of(parent);
+            return this;
+        }
+
+        public ErrorDefinition build() {
+            checkCode();
+
+            parent.ifPresent(
+                    p -> {
+                        code = code.withParent(p.code);
+                        packagePath = generatePackagePath(p);
+                    }
+            );
             ErrorDefinition[] errors = Arrays.stream(errorBuilders)
-                    .peek(e -> {
-                        e.basePackage(packagePath);
-                        e.code = e.code.withParent(code);
-                    })
-                    .map(e -> e.build(false))
+                    .peek(e -> e.parent(this))
+                    .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
             return new ErrorDefinition(name, code, description, errors, packagePath);
         }
 
-        private String generatePackagePath(boolean isRoot) {
-            StringBuilder stringBuilder = new StringBuilder(basePackage);
-            if (!isRoot) {
-                stringBuilder.append(DOT).append(CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name));
-            }
-            return stringBuilder.toString();
+        private String generatePackagePath(ErrorDefinitionBuilder parent) {
+            return parent.packagePath + DOT + CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+        }
+
+        private void checkCode() {
+            parent.ifPresent(
+                    p -> {
+                        boolean codeNumberPresent = code.number().isPresent();
+                        checkState(
+                                codeNumberPresent == p.code.number().isPresent(),
+                                String.format(
+                                        codeNumberPresent
+                                                ? "Error definition '%s' can't have a code number."
+                                                : "Code number is missing for error definition '%s'."
+                                        , name
+                                )
+                        );
+                    }
+            );
         }
     }
 }

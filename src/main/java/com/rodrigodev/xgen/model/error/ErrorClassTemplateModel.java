@@ -2,7 +2,7 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDescription;
 import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
 import lombok.NonNull;
