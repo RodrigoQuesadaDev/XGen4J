@@ -131,8 +131,9 @@ public class OrganizationTests {
                     .hasMessage(String.format("Base package '%s' has invalid format.", invalidPackage));
         }
 
-        private void assert_basePackagePartsMustNotContainGivenCharacters(String invalidCharacters,
-                                                                          Function<Character, String> invalidPartSupplier) {
+        private void assert_basePackagePartsMustNotContainGivenCharacters(
+                String invalidCharacters, Function<Character, String> invalidPartSupplier
+        ) {
             for (char invalidCharacter : invalidCharacters.toCharArray()) {
                 String invalidPart = invalidPartSupplier.apply(invalidCharacter);
 
@@ -148,15 +149,15 @@ public class OrganizationTests {
         private void assert_basePackagePartsCanBeginWithLetterOrUnderscore() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore").build());
             // @formatter:on
 
             //Next code should compile
-            com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore.RootNameError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore.RootError.class.getName();
         }
 
         @Test
@@ -168,19 +169,19 @@ public class OrganizationTests {
         private void assert_basePackagePartsCanContainLettersNumbersOrUnderscores() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_").build());
             // @formatter:on
 
             //Next code should compile
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores.RootNameError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_.RootNameError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_.RootError.class.getName();
         }
 
         @Test
@@ -189,8 +190,6 @@ public class OrganizationTests {
             assert_basePackagePartsMustNotContainGivenCharacters("-!@#$%^&*()+", c -> "name" + c + "suffix");
             assert_basePackagePartsCanContainLettersNumbersOrUnderscores();
         }
-
-        //TODO test package name starting with underscore/UpperCase for special...
 
         private void generateErrorsForPackageGeneratedFromErrorNameTests() {
 
@@ -288,6 +287,8 @@ public class OrganizationTests {
 
             //TODO implement this
         }
+
+        //TODO test package name starting with underscore/UpperCase for special...
 
         @Test
         public void noCodeNameIsProvided_packagesForErrorsAreGeneratedFromErrorNames_specialCases() {

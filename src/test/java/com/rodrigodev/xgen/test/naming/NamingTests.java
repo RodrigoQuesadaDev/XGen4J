@@ -6,6 +6,7 @@ import com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUn
 import org.junit.Test;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.rootError;
 import static org.assertj.core.api.Assertions.*;
@@ -15,42 +16,76 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class NamingTests {
 
-    private void assert_errorNameHasInvalidFormat(Consumer<String> methodCall, String invalidName){
+    private void assert_errorNameHasInvalidFormat(Consumer<String> methodCall, String invalidName) {
         assertThatThrownBy(() -> methodCall.accept(invalidName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(String.format("Error name '%s' has invalid format.", invalidName));
     }
 
-    private void assert_errorNameMustBeginWithUpperCaseLetter(Consumer<String> methodCall) {
-        String invalidCharacters = "a_1-!@#$%^&*()+.";
+    private void assert_errorNameMustNotContainGivenCharacters(
+            Consumer<String> methodCall, String invalidCharacters, Function<Character, String> invalidPartSupplier
+    ) {
         for (char invalidCharacter : invalidCharacters.toCharArray()) {
-            String invalidName = invalidCharacter + "abcde";
+            String invalidName = invalidPartSupplier.apply(invalidCharacter);
 
             assert_errorNameHasInvalidFormat(methodCall, invalidName);
         }
+    }
+
+    private void assert_errorNameMustNotStartWithGivenCharacters(Consumer<String> methodCall) {
+        assert_errorNameMustNotContainGivenCharacters(methodCall, "a_1-!@#$%^&*()+.", c -> c + "abcde");
+    }
+
+    private void assert_errorNameCanBeginWithUpperCaseLetter() {
+        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        // @formatter:off
+        xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter").build());
+        // @formatter:on
+
+        //Next code should compile
+        com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.class.getName();
     }
 
     @Test
     public void errorNameMustBeginWithUpperCaseLetter() {
-        assert_errorNameMustBeginWithUpperCaseLetter(ErrorConfiguration::rootError);
-        assert_errorNameMustBeginWithUpperCaseLetter(ErrorConfiguration::commonError);
-        assert_errorNameMustBeginWithUpperCaseLetter(ErrorConfiguration::error);
+        assert_errorNameMustNotStartWithGivenCharacters(ErrorConfiguration::rootError);
+        assert_errorNameMustNotStartWithGivenCharacters(ErrorConfiguration::commonError);
+        assert_errorNameMustNotStartWithGivenCharacters(ErrorConfiguration::error);
+        assert_errorNameCanBeginWithUpperCaseLetter();
     }
 
-    private void assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(Consumer<String> methodCall) {
-        String invalidCharacters = "!@#$%^&*()+.";
-        for (char invalidCharacter : invalidCharacters.toCharArray()) {
-            String invalidName = "Name" + invalidCharacter;
+    private void assert_errorNameMustNotContainGivenCharacters(Consumer<String> methodCall) {
+        assert_errorNameMustNotContainGivenCharacters(methodCall, "!@#$%^&*()+.", c -> "Name" + c);
+    }
 
-            assert_errorNameHasInvalidFormat(methodCall, invalidName);
-        }
+    private void assert_errorNameCanContainLettersNumbersHyphensOrUnderscores() {
+        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        // @formatter:off
+        xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root1Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("RootName1").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root-Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("RootName-").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root_Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("RootName_").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        // @formatter:on
+
+        //Next code should compile
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
     }
 
     @Test
     public void errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores() {
-        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::rootError);
-        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::commonError);
-        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::error);
+        assert_errorNameMustNotContainGivenCharacters(ErrorConfiguration::rootError);
+        assert_errorNameMustNotContainGivenCharacters(ErrorConfiguration::commonError);
+        assert_errorNameMustNotContainGivenCharacters(ErrorConfiguration::error);
+        assert_errorNameCanContainLettersNumbersHyphensOrUnderscores();
     }
 
     @Test
