@@ -15,14 +15,18 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class NamingTests {
 
+    private void assert_errorNameHasInvalidFormat(Consumer<String> methodCall, String invalidName){
+        assertThatThrownBy(() -> methodCall.accept(invalidName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(String.format("Error name '%s' has invalid format.", invalidName));
+    }
+
     private void assert_errorNameMustBeginWithUpperCaseLetter(Consumer<String> methodCall) {
-        String invalidCharacters = "a_1-$%";
+        String invalidCharacters = "a_1-!@#$%^&*()+.";
         for (char invalidCharacter : invalidCharacters.toCharArray()) {
             String invalidName = invalidCharacter + "abcde";
 
-            assertThatThrownBy(() -> methodCall.accept(invalidName))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(String.format("Error name '%s' has invalid format.", invalidName));
+            assert_errorNameHasInvalidFormat(methodCall, invalidName);
         }
     }
 
@@ -33,22 +37,20 @@ public class NamingTests {
         assert_errorNameMustBeginWithUpperCaseLetter(ErrorConfiguration::error);
     }
 
-    private void assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(Consumer<String> methodCall) {
-        String invalidCharacters = "!@#$%^&*()+";
+    private void assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(Consumer<String> methodCall) {
+        String invalidCharacters = "!@#$%^&*()+.";
         for (char invalidCharacter : invalidCharacters.toCharArray()) {
             String invalidName = "Name" + invalidCharacter;
 
-            assertThatThrownBy(() -> methodCall.accept(invalidName))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(String.format("Error name '%s' has invalid format.", invalidName));
+            assert_errorNameHasInvalidFormat(methodCall, invalidName);
         }
     }
 
     @Test
-    public void errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores() {
-        assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::rootError);
-        assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::commonError);
-        assert_errorNameMustOnlyHaveLettersNumbersHyphensOrUnderscores(ErrorConfiguration::error);
+    public void errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores() {
+        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::rootError);
+        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::commonError);
+        assert_errorNameMustOnlyContainLettersNumbersHyphensOrUnderscores(ErrorConfiguration::error);
     }
 
     @Test

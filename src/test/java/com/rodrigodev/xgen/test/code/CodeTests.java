@@ -380,8 +380,6 @@ public class CodeTests {
         }
     }
 
-    //TODO test parent code's number exists?
-
     //TODO test package name from Error Name?
 
     private interface ErrorCodeFactory<C> {
