@@ -62,22 +62,16 @@ public class NamingTests {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
         xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root1Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("RootName1").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root-Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("RootName-").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root_Name").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("RootName_").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root1Name1").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root_Name3_").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
         // @formatter:on
 
         //Next code should compile
         com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root1Name1Error.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name2_Error.class.getName();
+        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name3_Error.class.getName();
     }
 
     @Test
@@ -92,32 +86,22 @@ public class NamingTests {
     public void ifErrorNameHasHyphensTheyAreConvertedToUnderscores() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root_Name1").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root-Name2").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root__Name3").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root--Name4").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root_-_Name5").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("RootName6_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("RootName7-").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("RootName8__").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("RootName9--").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("RootName10_-_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root_name11").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root-name12").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_Name1_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root__Name3__").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root--Name4--").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_-_Name5_-_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_name6").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root-name7").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
         // @formatter:on
 
         //Next code should compile
-        Root_Name1Error.class.getName();
-        Root_Name2Error.class.getName();
-        Root__Name3Error.class.getName();
-        Root__Name4Error.class.getName();
-        Root___Name5Error.class.getName();
-        RootName6_Error.class.getName();
-        RootName7_Error.class.getName();
-        RootName8__Error.class.getName();
-        RootName9__Error.class.getName();
-        RootName10___Error.class.getName();
-        Root_name11Error.class.getName();
-        Root_name12Error.class.getName();
+        Root_Name1_Error.class.getName();
+        Root_Name2_Error.class.getName();
+        Root__Name3__Error.class.getName();
+        Root__Name4__Error.class.getName();
+        Root___Name5___Error.class.getName();
+        Root_name6Error.class.getName();
+        Root_name7Error.class.getName();
     }
 }

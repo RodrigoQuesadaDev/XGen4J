@@ -1,6 +1,5 @@
 package com.rodrigodev.xgen.model.error.configuration;
 
-import com.google.common.base.CaseFormat;
 import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import lombok.NonNull;
 import lombok.Value;
@@ -22,7 +21,8 @@ public class ErrorDefinition {
 
     private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
     private static final String VALID_PACKAGE_PART_REGEX = "[\\p{Alpha}_][\\w]*";
-    private static final Pattern VALID_PACKAGE_PATTERN = Pattern.compile(String.format("%1$s(?:\\.%1$s)*", VALID_PACKAGE_PART_REGEX), Pattern.UNICODE_CASE);
+    private static final Pattern VALID_PACKAGE_PATTERN = Pattern.compile(
+            String.format("%1$s(?:\\.%1$s)*", VALID_PACKAGE_PART_REGEX), Pattern.UNICODE_CASE);
 
     @NonNull private String name;
     @NonNull private ErrorCodeDefinition code;
@@ -137,7 +137,7 @@ public class ErrorDefinition {
         }
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {
-            return parent.packagePath + DOT + CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+            return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
         }
 
         private void checkCode() {

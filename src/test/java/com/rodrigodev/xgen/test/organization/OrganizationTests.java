@@ -45,6 +45,20 @@ import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGenera
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Exception;
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Error;
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error___name3_5___.Error___Name3_5___Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error___name3_5___.Error___Name3_5___Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_3__.Error__Name3_3__Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_3__.Error__Name3_3__Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_4__.Error__Name3_4__Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_4__.Error__Name3_4__Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_1_.Error_Name3_1_Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_1_.Error_Name3_1_Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_2_.Error_Name3_2_Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_2_.Error_Name3_2_Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_6.Error_name3_6Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_6.Error_name3_6Exception;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_7.Error_name3_7Error;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_7.Error_name3_7Exception;
 import org.junit.Test;
 
 import java.util.function.Function;
@@ -170,18 +184,14 @@ public class OrganizationTests {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
             xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1").build());
-            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores").build());
-            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1").build());
+            xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_").build());
             // @formatter:on
 
             //Next code should compile
             com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores.RootError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores.RootError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores1.RootError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores.RootError.class.getName();
-            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores_.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootError.class.getName();
+            com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootError.class.getName();
         }
 
         @Test
@@ -276,76 +286,58 @@ public class OrganizationTests {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
 
             // @formatter:off
-            /*xgen.generate(rootError("RootName").errors(
+            xgen.generate(rootError("RootName").errors(
                     error("ErrorName1").errors(
                             error("ErrorName2").errors(
-                                    error("Error-Name3").description("ABCDE")
+                                    error("Error_Name3_1_"),
+                                    error("Error-Name3_2-"),
+                                    error("Error__Name3_3__"),
+                                    error("Error--Name3_4--"),
+                                    error("Error_-_Name3_5_-_"),
+                                    error("Error_name3_6"),
+                                    error("Error-name3_7")
                             )
                     )
-            ).basePackage("com.rodrigodev.xgen.test.organization.packages_special").build());*/
+            ).basePackage("com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases").build());
             // @formatter:on
-
-            //TODO implement this
         }
-
-        //TODO test package name starting with underscore/UpperCase for special...
 
         @Test
         public void noCodeNameIsProvided_packagesForErrorsAreGeneratedFromErrorNames_specialCases() {
-            assertThat(RootNameError.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames");
 
-            assertThat(CommonName1Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1");
-            assertThat(CommonName2Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2");
-            assertThat(CommonName3_1Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1");
-            assertThat(CommonName3_2Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2");
-            assertThat(CommonName3_3Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3");
-
-            assertThat(ErrorName1Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1");
-            assertThat(ErrorName2Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2");
-            assertThat(ErrorName3_1Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1");
-            assertThat(ErrorName3_2Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2");
-            assertThat(ErrorName3_3Error.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3");
+            assertThat(Error_Name3_1_Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_1_");
+            assertThat(Error_Name3_2_Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_2_");
+            assertThat(Error__Name3_3__Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_3__");
+            assertThat(Error__Name3_4__Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_4__");
+            assertThat(Error___Name3_5___Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error___name3_5___");
+            assertThat(Error_name3_6Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_6");
+            assertThat(Error_name3_7Error.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_7");
         }
 
         @Test
         public void noCodeNameIsProvided_packagesForExceptionsAreGeneratedFromErrorNames_specialCases() {
-            assertThat(RootNameException.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames");
 
-            assertThat(CommonName1Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1");
-            assertThat(CommonName2Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2");
-            assertThat(CommonName3_1Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1");
-            assertThat(CommonName3_2Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2");
-            assertThat(CommonName3_3Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3");
-
-            assertThat(ErrorName1Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1");
-            assertThat(ErrorName2Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2");
-            assertThat(ErrorName3_1Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1");
-            assertThat(ErrorName3_2Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2");
-            assertThat(ErrorName3_3Exception.class.getPackage().getName()).isEqualTo(
-                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3");
+            assertThat(Error_Name3_1_Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_1_");
+            assertThat(Error_Name3_2_Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_2_");
+            assertThat(Error__Name3_3__Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_3__");
+            assertThat(Error__Name3_4__Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error__name3_4__");
+            assertThat(Error___Name3_5___Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error___name3_5___");
+            assertThat(Error_name3_6Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_6");
+            assertThat(Error_name3_7Exception.class.getPackage().getName()).isEqualTo(
+                    "com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases.error_name1.error_name2.error_name3_7");
         }
     }
-
-    //TODO package name/path validation
 }
