@@ -82,12 +82,17 @@ public class ErrorDefinition {
         }
 
         public ErrorDefinitionBuilder code(String codeName) {
-            code = new ErrorCodeDefinition(codeName, Optional.empty());
+            code = code.withName(codeName);
             return this;
         }
 
         public ErrorDefinitionBuilder code(int codeNumber) {
             code = code.withNumber(codeNumber);
+            return this;
+        }
+
+        public ErrorDefinitionBuilder code(String codeName, int codeNumber) {
+            code = new ErrorCodeDefinition(codeName, Optional.of(codeNumber));
             return this;
         }
 

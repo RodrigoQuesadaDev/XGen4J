@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.time.LocalDateTime;
 
+import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.commonError;
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.error;
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.rootError;
 import static org.assertj.core.api.Assertions.*;
@@ -62,7 +63,7 @@ public class CommentsTests {
         ExceptionsGenerator xgen = exceptionsGeneratorComponent.generator();
         // @formatter:off
         xgen.generate(rootError("Root").code("code-name-root").errors(
-                error("C1").code("code-name-c1").errors(
+                commonError("C1").code("code-name-c1").errors(
                         error("C2").code("code-name-c2").errors(
                                 error("C3_1").code("code-name-c3-1").description("ABCDE")
                         )

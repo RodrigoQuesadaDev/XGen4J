@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 23/06/15.
  */
-public class NamingTests {
+public class ErrorNamingTests {
 
     private void assert_errorNameHasInvalidFormat(Consumer<String> methodCall, String invalidName) {
         assertThatThrownBy(() -> methodCall.accept(invalidName))

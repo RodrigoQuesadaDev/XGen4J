@@ -32,8 +32,12 @@ public class ErrorCodeDefinition {
         this.number = number;
     }
 
-    public ErrorCodeDefinition withNumber(int codeNumber) {
-        return new ErrorCodeDefinition(name, Optional.of(codeNumber));
+    public ErrorCodeDefinition withName(String name) {
+        return new ErrorCodeDefinition(name, number);
+    }
+
+    public ErrorCodeDefinition withNumber(int number) {
+        return new ErrorCodeDefinition(name, Optional.of(number));
     }
 
     public static String codeNameFrom(@NonNull String text) {
