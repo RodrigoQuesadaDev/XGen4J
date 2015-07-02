@@ -2,9 +2,9 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDescription;
 import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
+import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -100,9 +100,11 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     public static class ErrorCodeModel {
 
         @NonNull private String name;
+        private Integer number;
 
         public ErrorCodeModel(@NonNull ErrorCodeDefinition code) {
             this.name = code.name();
+            this.number = code.number().orElse(null);
         }
     }
 }

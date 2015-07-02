@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.model.error.code;
 
-import com.rodrigodev.xgen.model.error.code.ErrorCodeClassTemplateModel.ErrorCodeClassTemplateModelBuilder;
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen.model.error.code.ErrorCodeClassTemplateModel.ErrorCodeClassTemplateModelBuilder;
 
 import java.util.Optional;
 
@@ -17,9 +17,15 @@ public class ErrorCodeClassTemplate extends FreemarkerClassTemplate<ErrorCodeCla
         super(
                 injectedFields,
                 TEMPLATE_FILE_NAME,
-                ErrorCodeClassTemplateModel.builder(),
+                modelBuilder(errorCodeClassFile),
                 errorCodeClassFile,
                 Optional.empty()
         );
+    }
+
+    private static ErrorCodeClassTemplateModelBuilder modelBuilder(ErrorCodeClassFile errorCodeClassFile) {
+        ErrorCodeClassTemplateModelBuilder modelBuilder = ErrorCodeClassTemplateModel.builder();
+        modelBuilder.hasNumber(errorCodeClassFile.classDefinition().hasNumber());
+        return modelBuilder;
     }
 }

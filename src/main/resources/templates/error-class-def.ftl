@@ -13,7 +13,7 @@ import ${rootPackage}.ErrorCode;
 */
 public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
 
-    public static final ErrorCode CODE = new ErrorCode("${code.name}"<#if parent??>, ${parent.name}.CODE</#if>);
+    public static final ErrorCode CODE = new ErrorCode("${code.name}"<#if code.number??>, ${code.number}</#if><#if parent??>, ${parent.name}.CODE</#if>);
 
     <#if concrete>
     private static String MESSAGE_FORMAT = "${description.format}";

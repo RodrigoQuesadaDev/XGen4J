@@ -61,7 +61,7 @@ public class ExceptionsGenerator {
     }
 
     private void generateErrorCodeClass(ErrorDefinition rootError) {
-        inj.errorCodeWriter.write(sourceDirPath, rootError);
+        inj.errorCodeWriter.write(sourceDirPath, rootError, rootError.code().number().isPresent());
     }
 
     private void generateErrors(

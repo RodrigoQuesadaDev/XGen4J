@@ -18,9 +18,9 @@ public class ErrorCodeWriter {
     public ErrorCodeWriter() {
     }
 
-    public ErrorCodeClassFile write(@NonNull String sourceDirPath, @NonNull ErrorDefinition rootError) {
+    public ErrorCodeClassFile write(@NonNull String sourceDirPath, @NonNull ErrorDefinition rootError, boolean generateNumber) {
 
-        ErrorCodeClassDefinition errorCodeClass = new ErrorCodeClassDefinition(rootError.packagePath());
+        ErrorCodeClassDefinition errorCodeClass = new ErrorCodeClassDefinition(rootError.packagePath(), generateNumber);
         ErrorCodeClassFile errorCodeClassFile = new ErrorCodeClassFile(sourceDirPath, errorCodeClass);
         classWriter.write(errorClassTemplateFactory.create(errorCodeClassFile));
 

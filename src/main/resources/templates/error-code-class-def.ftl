@@ -7,18 +7,18 @@ public class ${name} {
 
     private final String id;
     private final String name;
-    //private final String number;
+    <#if hasNumber>private final int number;</#if>
 
-    protected ${name}(String name/*, String number*/){
+    protected ${name}(String name<#if hasNumber>, int number</#if>){
         this.id = name;
         this.name = name;
-        //this.number = number;
+        <#if hasNumber>this.number = number;</#if>
     }
 
-    public ${name}(String name, ${name} parent/*, String number*/){
+    public ${name}(String name<#if hasNumber>, int number</#if>, ${name} parent){
         this.id = parent.id + "." + name;
         this.name = name;
-        //this.number = number;
+        <#if hasNumber>this.number = number;</#if>
     }
 
     public String id(){
@@ -29,9 +29,11 @@ public class ${name} {
         return name;
     }
 
-    /*public String number(){
+    <#if hasNumber>
+    public int number(){
         return number;
-    }*/
+    }
+    </#if>
 
     @Override
     final public boolean equals(Object o){

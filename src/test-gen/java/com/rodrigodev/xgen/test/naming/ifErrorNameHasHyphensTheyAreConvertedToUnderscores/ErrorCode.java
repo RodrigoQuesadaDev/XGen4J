@@ -7,18 +7,18 @@ public class ErrorCode {
 
     private final String id;
     private final String name;
-    //private final String number;
+    
 
-    protected ErrorCode(String name/*, String number*/){
+    protected ErrorCode(String name){
         this.id = name;
         this.name = name;
-        //this.number = number;
+        
     }
 
-    public ErrorCode(String name, ErrorCode parent/*, String number*/){
+    public ErrorCode(String name, ErrorCode parent){
         this.id = parent.id + "." + name;
         this.name = name;
-        //this.number = number;
+        
     }
 
     public String id(){
@@ -29,9 +29,6 @@ public class ErrorCode {
         return name;
     }
 
-    /*public String number(){
-        return number;
-    }*/
 
     @Override
     final public boolean equals(Object o){
