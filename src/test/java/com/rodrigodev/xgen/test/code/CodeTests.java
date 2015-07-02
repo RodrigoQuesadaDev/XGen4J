@@ -1,29 +1,29 @@
 package com.rodrigodev.xgen.test.code;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.RootError;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.c1.C1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.c1.c2.C2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.c1.c2.c3_1.C3_1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.c1.c2.c3_2.C3_2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.c1.c2.c3_3.C3_3Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.e1.E1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.e1.e2.E2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.e1.e2.e3_1.E3_1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.e1.e2.e3_2.E3_2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGenerated.e1.e2.e3_3.E3_3Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.RootNameError;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_1.CommonName3_1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_2.CommonName3_2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_3.CommonName3_3Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Error;
-import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases.*;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.RootError;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.c1.C1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.c1.c2.C2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.c1.c2.c3_1.C3_1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.c1.c2.c3_2.C3_2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.c1.c2.c3_3.C3_3Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.e1.E1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.e1.e2.E2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.e1.e2.e3_1.E3_1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.e1.e2.e3_2.E3_2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified.e1.e2.e3_3.E3_3Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameError;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_1.CommonName3_1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_2.CommonName3_2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_3.CommonName3_3Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Error;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.*;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
@@ -37,11 +37,14 @@ public class CodeTests {
 
     public static class CodeNameTests {
 
-        public CodeNameTests(){
-            generateErrorsForCodeIdAndNameTests();
+        public CodeNameTests() {
+            generateErrorsForCodeIdAndNameAreGeneratedWhenSpecifiedTests();
+            generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests();
+            generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests_specialCases();
+            generateErrorsForCodeIdAndNameAreGeneratedOnAMixedSituationTests();
         }
 
-        private void generateErrorsForCodeIdAndNameTests(){
+        private void generateErrorsForCodeIdAndNameAreGeneratedWhenSpecifiedTests() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
             xgen.generate(rootError("Root").code("code-name-root").errors(
@@ -59,12 +62,12 @@ public class CodeTests {
                                     error("E3_3").code("code-name-e3-3").description("ABCDE")
                             )
                     )
-            ).basePackage("com.rodrigodev.xgen.test.code.codeIdIsGenerated").build());
+            ).basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenSpecified").build());
             // @formatter:on
         }
 
         @Test
-        public void codeNameIsGenerated() {
+        public void codeNameIsGeneratedWhenSpecified() {
             assertThat(RootError.CODE.name()).isEqualTo("code-name-root");
 
             assertThat(C1Error.CODE.name()).isEqualTo("code-name-c1");
@@ -81,7 +84,7 @@ public class CodeTests {
         }
 
         @Test
-        public void codeIdIsGenerated() {
+        public void codeIdAndNameAreGeneratedWhenSpecified() {
             assertThat(RootError.CODE.id()).isEqualTo("code-name-root");
 
             assertThat(C1Error.CODE.id()).isEqualTo("code-name-root.code-name-c1");
@@ -121,8 +124,7 @@ public class CodeTests {
             }
         }
 
-        @Test
-        public void codeIdIsGeneratedFromErrorNameWhenNotSpecified() {
+        private void generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
             xgen.generate(rootError("RootName").errors(
@@ -140,8 +142,32 @@ public class CodeTests {
                                     error("ErrorName3_3").description("ABCDE")
                             )
                     )
-            ).basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified").build());
+            ).basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified").build());
+            // @formatter:on
+        }
 
+        @Test
+        public void codeNameIsGeneratedFromErrorNameWhenNotSpecified() {
+            // @formatter:off
+            assertThat(RootNameError.CODE.name()).isEqualTo("root-name");
+
+            assertThat(CommonName1Error.CODE.name()).isEqualTo("common-name-1");
+            assertThat(CommonName2Error.CODE.name()).isEqualTo("common-name-2");
+            assertThat(CommonName3_1Error.CODE.name()).isEqualTo("common-name-3-1");
+            assertThat(CommonName3_2Error.CODE.name()).isEqualTo("common-name-3-2");
+            assertThat(CommonName3_3Error.CODE.name()).isEqualTo("common-name-3-3");
+
+            assertThat(ErrorName1Error.CODE.name()).isEqualTo("error-name-1");
+            assertThat(ErrorName2Error.CODE.name()).isEqualTo("error-name-2");
+            assertThat(ErrorName3_1Error.CODE.name()).isEqualTo("error-name-3-1");
+            assertThat(ErrorName3_2Error.CODE.name()).isEqualTo("error-name-3-2");
+            assertThat(ErrorName3_3Error.CODE.name()).isEqualTo("error-name-3-3");
+            // @formatter:on
+        }
+
+        @Test
+        public void codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified() {
+            // @formatter:off
             assertThat(RootNameError.CODE.id()).isEqualTo("root-name");
 
             assertThat(CommonName1Error.CODE.id()).isEqualTo("root-name.common-name-1");
@@ -158,24 +184,43 @@ public class CodeTests {
             // @formatter:on
         }
 
-        @Test
-        public void codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases() {
+        private void generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests_specialCases() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
-            xgen.generate(rootError("Root_Name1").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root-Name2").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root__Name3").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root--Name4").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root_-_Name5").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("RootName6_").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("RootName7-").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("RootName8__").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("RootName9--").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("RootName10_-_").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root_name11").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
-            xgen.generate(rootError("Root-name12").basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root_Name1").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root-Name2").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root__Name3").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root--Name4").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root_-_Name5").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("RootName6_").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("RootName7-").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("RootName8__").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("RootName9--").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("RootName10_-_").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root_name11").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
+            xgen.generate(rootError("Root-name12").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
             // @formatter:on
+        }
 
+
+        @Test
+        public void codeNameIsGeneratedFromErrorNameWhenNotSpecified_specialCases() {
+            assertThat(Root_Name1Error.CODE.name()).isEqualTo("root-name-1");
+            assertThat(Root_Name2Error.CODE.name()).isEqualTo("root-name-2");
+            assertThat(Root__Name3Error.CODE.name()).isEqualTo("root-name-3");
+            assertThat(Root__Name4Error.CODE.name()).isEqualTo("root-name-4");
+            assertThat(Root___Name5Error.CODE.name()).isEqualTo("root-name-5");
+            assertThat(RootName6_Error.CODE.name()).isEqualTo("root-name-6");
+            assertThat(RootName7_Error.CODE.name()).isEqualTo("root-name-7");
+            assertThat(RootName8__Error.CODE.name()).isEqualTo("root-name-8");
+            assertThat(RootName9__Error.CODE.name()).isEqualTo("root-name-9");
+            assertThat(RootName10___Error.CODE.name()).isEqualTo("root-name-10");
+            assertThat(Root_name11Error.CODE.name()).isEqualTo("root-name-11");
+            assertThat(Root_name12Error.CODE.name()).isEqualTo("root-name-12");
+        }
+
+        @Test
+        public void codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases() {
             assertThat(Root_Name1Error.CODE.id()).isEqualTo("root-name-1");
             assertThat(Root_Name2Error.CODE.id()).isEqualTo("root-name-2");
             assertThat(Root__Name3Error.CODE.id()).isEqualTo("root-name-3");
@@ -190,8 +235,7 @@ public class CodeTests {
             assertThat(Root_name12Error.CODE.id()).isEqualTo("root-name-12");
         }
 
-        @Test
-        public void codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase() {
+        private void generateErrorsForCodeIdAndNameAreGeneratedOnAMixedSituationTests() {
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
             xgen.generate(rootError("RootName").errors(
@@ -209,31 +253,66 @@ public class CodeTests {
                                     error("ErrorName3_3").description("ABCDE")
                             )
                     )
-            ).basePackage("com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase").build());
+            ).basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation").build());
+            // @formatter:on
+        }
 
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.RootNameError.CODE.id())
+        @Test
+        public void codeNameIsGeneratedOnAMixedSituation() {
+            // @formatter:off
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameError.CODE.name())
                     .isEqualTo("root-name");
 
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.c1.C1Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.C1Error.CODE.name())
+                    .isEqualTo("code-name-c1");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.CommonName2Error.CODE.name())
+                    .isEqualTo("common-name-2");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.common_name3_1.CommonName3_1Error.CODE.name())
+                    .isEqualTo("common-name-3-1");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.c3_2.C3_2Error.CODE.name())
+                    .isEqualTo("code-name-c3-2");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.common_name3_3.CommonName3_3Error.CODE.name())
+                    .isEqualTo("common-name-3-3");
+
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.E1Error.CODE.name())
+                    .isEqualTo("code-name-e1");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.ErrorName2Error.CODE.name())
+                    .isEqualTo("error-name-2");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.error_name3_1.ErrorName3_1Error.CODE.name())
+                    .isEqualTo("error-name-3-1");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.e3_2.E3_2Error.CODE.name())
+                    .isEqualTo("code-name-e3-2");
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.error_name3_3.ErrorName3_3Error.CODE.name())
+                    .isEqualTo("error-name-3-3");
+            // @formatter:on
+        }
+
+        @Test
+        public void codeIdAndNameAreGeneratedOnAMixedSituation() {
+            // @formatter:off
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameError.CODE.id())
+                    .isEqualTo("root-name");
+
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.C1Error.CODE.id())
                     .isEqualTo("root-name.code-name-c1");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.c1.common_name2.CommonName2Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.CommonName2Error.CODE.id())
                     .isEqualTo("root-name.code-name-c1.common-name-2");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.c1.common_name2.common_name3_1.CommonName3_1Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.common_name3_1.CommonName3_1Error.CODE.id())
                     .isEqualTo("root-name.code-name-c1.common-name-2.common-name-3-1");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.c1.common_name2.c3_2.C3_2Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.c3_2.C3_2Error.CODE.id())
                     .isEqualTo("root-name.code-name-c1.common-name-2.code-name-c3-2");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.c1.common_name2.common_name3_3.CommonName3_3Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.c1.common_name2.common_name3_3.CommonName3_3Error.CODE.id())
                     .isEqualTo("root-name.code-name-c1.common-name-2.common-name-3-3");
 
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.e1.E1Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.E1Error.CODE.id())
                     .isEqualTo("root-name.code-name-e1");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.e1.error_name2.ErrorName2Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.ErrorName2Error.CODE.id())
                     .isEqualTo("root-name.code-name-e1.error-name-2");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.e1.error_name2.error_name3_1.ErrorName3_1Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.error_name3_1.ErrorName3_1Error.CODE.id())
                     .isEqualTo("root-name.code-name-e1.error-name-2.error-name-3-1");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.e1.error_name2.e3_2.E3_2Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.e3_2.E3_2Error.CODE.id())
                     .isEqualTo("root-name.code-name-e1.error-name-2.code-name-e3-2");
-            assertThat(com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecified_mixedCase.e1.error_name2.error_name3_3.ErrorName3_3Error.CODE.id())
+            assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.e1.error_name2.error_name3_3.ErrorName3_3Error.CODE.id())
                     .isEqualTo("root-name.code-name-e1.error-name-2.error-name-3-3");
             // @formatter:on
         }
