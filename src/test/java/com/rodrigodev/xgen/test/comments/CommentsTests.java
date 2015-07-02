@@ -72,7 +72,7 @@ public class CommentsTests {
                                 error("E3_1").code("code-name-e3-1").description("ABCDE")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.code.codeNameIsGenerated").build());
+        ).basePackage("com.rodrigodev.xgen.test.comments.currentDateIsAddedToTemplateComments").build());
         // @formatter:on
 
         for (StringBuffer output : fileService.files()) {

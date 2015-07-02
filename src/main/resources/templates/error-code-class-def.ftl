@@ -5,16 +5,16 @@ package ${packagePath};
 */
 public class ${name} {
 
-    private final String name;
+    private final String id;
     //private final String number;
 
-    public ${name}(String name/*, String number*/){
-        this.name = name;
+    public ${name}(String id/*, String number*/){
+        this.id = id;
         //this.number = number;
     }
 
-    public String name(){
-        return name;
+    public String id(){
+        return id;
     }
 
     /*public String number(){
@@ -23,11 +23,11 @@ public class ${name} {
 
     @Override
     final public boolean equals(Object o){
-        return o instanceof ${name} && ((${name})o).name.equals(name);
+        return o instanceof ${name} && ((${name})o).id.equals(id);
     }
 
     @Override
     public String toString(){
-        return String.format("{name: '%s'}", name);
+        return String.format("{id: '%s'}", id);
     }
 }
