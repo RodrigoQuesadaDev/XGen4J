@@ -219,20 +219,20 @@ public class CodeNumberTests {
         assertThat(E3_3Error.CODE.number()).isEqualTo(876);
     }
 
-    /*@Test
+    @Test
     public void codeNumericIdIsGeneratedWhenSpecified() {
-        assertThat(RootError.CODE.id()).isEqualTo("code-name-root");
+        assertThat(RootError.CODE.numericId()).isEqualTo("123");
 
-        assertThat(C1Error.CODE.id()).isEqualTo("code-name-root.code-name-c1");
-        assertThat(C2Error.CODE.id()).isEqualTo("code-name-root.code-name-c1.code-name-c2");
-        assertThat(C3_1Error.CODE.id()).isEqualTo("code-name-root.code-name-c1.code-name-c2.code-name-c3-1");
-        assertThat(C3_2Error.CODE.id()).isEqualTo("code-name-root.code-name-c1.code-name-c2.code-name-c3-2");
-        assertThat(C3_3Error.CODE.id()).isEqualTo("code-name-root.code-name-c1.code-name-c2.code-name-c3-3");
+        assertThat(C1Error.CODE.numericId()).isEqualTo("123:234");
+        assertThat(C2Error.CODE.numericId()).isEqualTo("123:234:345");
+        assertThat(C3_1Error.CODE.numericId()).isEqualTo("123:234:345:456");
+        assertThat(C3_2Error.CODE.numericId()).isEqualTo("123:234:345:567");
+        assertThat(C3_3Error.CODE.numericId()).isEqualTo("123:234:345:678");
 
-        assertThat(E1Error.CODE.id()).isEqualTo("code-name-root.code-name-e1");
-        assertThat(E2Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2");
-        assertThat(E3_1Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-1");
-        assertThat(E3_2Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-2");
-        assertThat(E3_3Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-3");
-    }*/
+        assertThat(E1Error.CODE.numericId()).isEqualTo("123:432");
+        assertThat(E2Error.CODE.numericId()).isEqualTo("123:432:543");
+        assertThat(E3_1Error.CODE.numericId()).isEqualTo("123:432:543:654");
+        assertThat(E3_2Error.CODE.numericId()).isEqualTo("123:432:543:765");
+        assertThat(E3_3Error.CODE.numericId()).isEqualTo("123:432:543:876");
+    }
 }

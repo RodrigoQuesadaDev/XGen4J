@@ -7,18 +7,27 @@ public class ${name} {
 
     private final String id;
     private final String name;
-    <#if hasNumber>private final int number;</#if>
+    <#if hasNumber>
+    private final String numericId;
+    private final int number;
+    </#if>
 
     protected ${name}(String name<#if hasNumber>, int number</#if>){
         this.id = name;
         this.name = name;
-        <#if hasNumber>this.number = number;</#if>
+        <#if hasNumber>
+        this.numericId = String.valueOf(number);
+        this.number = number;
+        </#if>
     }
 
     public ${name}(String name<#if hasNumber>, int number</#if>, ${name} parent){
         this.id = parent.id + "." + name;
         this.name = name;
-        <#if hasNumber>this.number = number;</#if>
+        <#if hasNumber>
+        this.numericId = parent.numericId + ":" + number;
+        this.number = number;
+        </#if>
     }
 
     public String id(){
@@ -28,8 +37,12 @@ public class ${name} {
     public String name(){
         return name;
     }
-
     <#if hasNumber>
+
+    public String numericId(){
+        return numericId;
+    }
+
     public int number(){
         return number;
     }
