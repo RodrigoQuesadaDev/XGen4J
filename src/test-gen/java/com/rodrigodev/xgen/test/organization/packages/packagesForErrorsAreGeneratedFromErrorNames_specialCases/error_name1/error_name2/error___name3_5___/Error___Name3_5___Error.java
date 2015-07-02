@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGenera
 */
 public abstract class Error___Name3_5___Error extends ErrorName2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.error-name-1.error-name-2.error-name-3-5");
+    public static final ErrorCode CODE = new ErrorCode("error-name-3-5", ErrorName2Error.CODE);
 
 }

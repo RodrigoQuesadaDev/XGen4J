@@ -10,7 +10,7 @@ import java.lang.Integer;
 */
 public abstract class BedIsWarmError extends BedError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.bedroom.bed.bed-is-warm");
+    public static final ErrorCode CODE = new ErrorCode("bed-is-warm", BedError.CODE);
 
     private static String MESSAGE_FORMAT = "Bed #%d is too damn warm!";
 

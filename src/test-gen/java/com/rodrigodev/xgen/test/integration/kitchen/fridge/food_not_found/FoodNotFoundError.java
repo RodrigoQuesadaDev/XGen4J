@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class FoodNotFoundError extends FridgeError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.kitchen.fridge.food-not-found");
+    public static final ErrorCode CODE = new ErrorCode("food-not-found", FridgeError.CODE);
 
     private static String MESSAGE_FORMAT = "Food %s not found! I'm starving.";
 

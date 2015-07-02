@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class TooEarlyError extends AlarmClockError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.bedroom.alarm-clock.too-early");
+    public static final ErrorCode CODE = new ErrorCode("too-early", AlarmClockError.CODE);
 
     private static String MESSAGE_FORMAT = "It's just %s, still to early to wake up.";
 

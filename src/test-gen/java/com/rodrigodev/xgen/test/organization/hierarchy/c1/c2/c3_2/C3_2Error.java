@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.organization.hierarchy.ErrorCode;
 */
 public abstract class C3_2Error extends C2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root.c-1.c-2.c-3-2");
+    public static final ErrorCode CODE = new ErrorCode("c-3-2", C2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

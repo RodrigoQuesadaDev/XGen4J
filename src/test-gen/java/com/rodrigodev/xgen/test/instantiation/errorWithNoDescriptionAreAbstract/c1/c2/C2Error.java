@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.
 */
 public abstract class C2Error extends C1Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root.c-1.c-2");
+    public static final ErrorCode CODE = new ErrorCode("c-2", C1Error.CODE);
 
 }

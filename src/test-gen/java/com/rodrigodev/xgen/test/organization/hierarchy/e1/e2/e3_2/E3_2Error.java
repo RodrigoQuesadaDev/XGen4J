@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.organization.hierarchy.ErrorCode;
 */
 public abstract class E3_2Error extends E2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root.e-1.e-2.e-3-2");
+    public static final ErrorCode CODE = new ErrorCode("e-3-2", E2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

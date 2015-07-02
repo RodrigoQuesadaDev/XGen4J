@@ -6,15 +6,27 @@ package com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBegin
 public class ErrorCode {
 
     private final String id;
+    private final String name;
     //private final String number;
 
-    public ErrorCode(String id/*, String number*/){
-        this.id = id;
+    protected ErrorCode(String name/*, String number*/){
+        this.id = name;
+        this.name = name;
+        //this.number = number;
+    }
+
+    public ErrorCode(String name, ErrorCode parent/*, String number*/){
+        this.id = parent.id + "." + name;
+        this.name = name;
         //this.number = number;
     }
 
     public String id(){
         return id;
+    }
+
+    public String name(){
+        return name;
     }
 
     /*public String number(){

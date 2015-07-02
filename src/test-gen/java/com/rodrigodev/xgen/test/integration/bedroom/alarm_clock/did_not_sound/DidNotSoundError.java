@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class DidNotSoundError extends AlarmClockError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.bedroom.alarm-clock.did-not-sound");
+    public static final ErrorCode CODE = new ErrorCode("did-not-sound", AlarmClockError.CODE);
 
     private static String MESSAGE_FORMAT = "Oh shooooot!!! Now WTF am I supposed to do? %s is going to fire me!";
 

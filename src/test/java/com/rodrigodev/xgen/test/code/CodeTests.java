@@ -37,8 +37,11 @@ public class CodeTests {
 
     public static class CodeNameTests {
 
-        @Test
-        public void codeIdIsGenerated() {
+        public CodeNameTests(){
+            generateErrorsForCodeIdAndNameTests();
+        }
+
+        private void generateErrorsForCodeIdAndNameTests(){
             ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
             // @formatter:off
             xgen.generate(rootError("Root").code("code-name-root").errors(
@@ -57,7 +60,28 @@ public class CodeTests {
                             )
                     )
             ).basePackage("com.rodrigodev.xgen.test.code.codeIdIsGenerated").build());
+            // @formatter:on
+        }
 
+        @Test
+        public void codeNameIsGenerated() {
+            assertThat(RootError.CODE.name()).isEqualTo("code-name-root");
+
+            assertThat(C1Error.CODE.name()).isEqualTo("code-name-c1");
+            assertThat(C2Error.CODE.name()).isEqualTo("code-name-c2");
+            assertThat(C3_1Error.CODE.name()).isEqualTo("code-name-c3-1");
+            assertThat(C3_2Error.CODE.name()).isEqualTo("code-name-c3-2");
+            assertThat(C3_3Error.CODE.name()).isEqualTo("code-name-c3-3");
+
+            assertThat(E1Error.CODE.name()).isEqualTo("code-name-e1");
+            assertThat(E2Error.CODE.name()).isEqualTo("code-name-e2");
+            assertThat(E3_1Error.CODE.name()).isEqualTo("code-name-e3-1");
+            assertThat(E3_2Error.CODE.name()).isEqualTo("code-name-e3-2");
+            assertThat(E3_3Error.CODE.name()).isEqualTo("code-name-e3-3");
+        }
+
+        @Test
+        public void codeIdIsGenerated() {
             assertThat(RootError.CODE.id()).isEqualTo("code-name-root");
 
             assertThat(C1Error.CODE.id()).isEqualTo("code-name-root.code-name-c1");
@@ -71,7 +95,6 @@ public class CodeTests {
             assertThat(E3_1Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-1");
             assertThat(E3_2Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-2");
             assertThat(E3_3Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-3");
-            // @formatter:on
         }
 
         @Test

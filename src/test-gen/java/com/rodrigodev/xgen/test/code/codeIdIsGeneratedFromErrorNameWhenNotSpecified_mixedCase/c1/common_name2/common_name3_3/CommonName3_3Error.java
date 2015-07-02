@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecif
 */
 public abstract class CommonName3_3Error extends CommonName2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.code-name-c1.common-name-2.common-name-3-3");
+    public static final ErrorCode CODE = new ErrorCode("common-name-3-3", CommonName2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

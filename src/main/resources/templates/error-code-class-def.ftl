@@ -6,15 +6,27 @@ package ${packagePath};
 public class ${name} {
 
     private final String id;
+    private final String name;
     //private final String number;
 
-    public ${name}(String id/*, String number*/){
-        this.id = id;
+    protected ${name}(String name/*, String number*/){
+        this.id = name;
+        this.name = name;
+        //this.number = number;
+    }
+
+    public ${name}(String name, ${name} parent/*, String number*/){
+        this.id = parent.id + "." + name;
+        this.name = name;
         //this.number = number;
     }
 
     public String id(){
         return id;
+    }
+
+    public String name(){
+        return name;
     }
 
     /*public String number(){

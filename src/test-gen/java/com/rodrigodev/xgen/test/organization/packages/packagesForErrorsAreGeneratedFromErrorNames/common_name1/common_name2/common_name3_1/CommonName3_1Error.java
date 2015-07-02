@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGenera
 */
 public abstract class CommonName3_1Error extends CommonName2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.common-name-1.common-name-2.common-name-3-1");
+    public static final ErrorCode CODE = new ErrorCode("common-name-3-1", CommonName2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

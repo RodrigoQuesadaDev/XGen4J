@@ -123,12 +123,7 @@ public class ErrorDefinition {
         public ErrorDefinition build() {
             checkCode();
 
-            parent.ifPresent(
-                    p -> {
-                        code = code.withParent(p.code);
-                        packagePath = generatePackagePath(p);
-                    }
-            );
+            parent.ifPresent(p -> packagePath = generatePackagePath(p));
             ErrorDefinition[] errors = Arrays.stream(errorBuilders)
                     .peek(e -> e.parent(this))
                     .map(ErrorDefinitionBuilder::build)

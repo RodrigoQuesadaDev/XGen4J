@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.
 */
 public abstract class C3Error extends C2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root.c-1.c-2.c-3");
+    public static final ErrorCode CODE = new ErrorCode("c-3", C2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.integration.ErrorCode;
 */
 public abstract class CommonError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.common");
+    public static final ErrorCode CODE = new ErrorCode("common", HouseError.CODE);
 
 }

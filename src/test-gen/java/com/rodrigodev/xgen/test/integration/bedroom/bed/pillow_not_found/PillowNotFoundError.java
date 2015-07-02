@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class PillowNotFoundError extends BedError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.bedroom.bed.pillow-not-found");
+    public static final ErrorCode CODE = new ErrorCode("pillow-not-found", BedError.CODE);
 
     private static String MESSAGE_FORMAT = "There is no pillow! How can %s sleep here?";
 

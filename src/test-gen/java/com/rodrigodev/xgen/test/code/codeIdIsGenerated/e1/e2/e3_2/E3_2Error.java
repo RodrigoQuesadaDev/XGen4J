@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.code.codeIdIsGenerated.ErrorCode;
 */
 public abstract class E3_2Error extends E2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("code-name-root.code-name-e1.code-name-e2.code-name-e3-2");
+    public static final ErrorCode CODE = new ErrorCode("code-name-e3-2", E2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class UndercookedError extends OvenError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.kitchen.oven.undercooked");
+    public static final ErrorCode CODE = new ErrorCode("undercooked", OvenError.CODE);
 
     private static String MESSAGE_FORMAT = "The %s is undercooked my friend, I won't eat that.";
 

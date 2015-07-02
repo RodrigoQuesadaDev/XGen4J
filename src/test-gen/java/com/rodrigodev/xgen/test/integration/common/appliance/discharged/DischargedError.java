@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class DischargedError extends ApplianceError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.common.appliance.discharged");
+    public static final ErrorCode CODE = new ErrorCode("discharged", ApplianceError.CODE);
 
     private static String MESSAGE_FORMAT = "The %s is discharged.";
 

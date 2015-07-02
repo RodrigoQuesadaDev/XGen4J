@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class FrozenFoodError extends FridgeError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.kitchen.fridge.frozen-food");
+    public static final ErrorCode CODE = new ErrorCode("frozen-food", FridgeError.CODE);
 
     private static String MESSAGE_FORMAT = "The %s is frozen! How could you possibly eat that?";
 

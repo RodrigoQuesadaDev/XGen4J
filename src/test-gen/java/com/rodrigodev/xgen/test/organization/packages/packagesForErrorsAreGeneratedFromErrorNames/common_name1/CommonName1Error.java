@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGenera
 */
 public abstract class CommonName1Error extends RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.common-name-1");
+    public static final ErrorCode CODE = new ErrorCode("common-name-1", RootNameError.CODE);
 
 }

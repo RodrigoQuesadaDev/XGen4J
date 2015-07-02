@@ -10,7 +10,7 @@ import java.lang.String;
 */
 public abstract class BadSmellError extends RoomError {
 
-    public static final ErrorCode CODE = new ErrorCode("house.common.room.bad-smell");
+    public static final ErrorCode CODE = new ErrorCode("bad-smell", RoomError.CODE);
 
     private static String MESSAGE_FORMAT = "The %s smells bad, really bad.";
 

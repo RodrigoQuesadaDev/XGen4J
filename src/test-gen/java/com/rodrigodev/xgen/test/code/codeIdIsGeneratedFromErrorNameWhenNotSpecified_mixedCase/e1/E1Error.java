@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecif
 */
 public abstract class E1Error extends RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.code-name-e1");
+    public static final ErrorCode CODE = new ErrorCode("code-name-e1", RootNameError.CODE);
 
 }

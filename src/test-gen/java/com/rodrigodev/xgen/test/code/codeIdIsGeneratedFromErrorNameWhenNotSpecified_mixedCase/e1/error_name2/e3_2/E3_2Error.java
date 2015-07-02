@@ -9,7 +9,7 @@ import com.rodrigodev.xgen.test.code.codeIdIsGeneratedFromErrorNameWhenNotSpecif
 */
 public abstract class E3_2Error extends ErrorName2Error {
 
-    public static final ErrorCode CODE = new ErrorCode("root-name.code-name-e1.error-name-2.code-name-e3-2");
+    public static final ErrorCode CODE = new ErrorCode("code-name-e3-2", ErrorName2Error.CODE);
 
     private static String MESSAGE_FORMAT = "ABCDE";
 

@@ -9,6 +9,6 @@ import com.rodrigodev.xgen.test.code.codeIdIsGenerated.ErrorCode;
 */
 public abstract class C2Error extends C1Error {
 
-    public static final ErrorCode CODE = new ErrorCode("code-name-root.code-name-c1.code-name-c2");
+    public static final ErrorCode CODE = new ErrorCode("code-name-c2", C1Error.CODE);
 
 }
