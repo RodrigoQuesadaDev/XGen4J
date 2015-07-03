@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition.ErrorDefini
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
 import lombok.Value;
 import lombok.experimental.NonFinal;
+import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
 import java.util.function.Supplier;
@@ -185,5 +186,47 @@ public class MessageTests {
         );
     }
 
-    //TODO description params must not be null (generate checks)
+    private void assert_generatedThrowExceptionMethodChecksParamIsNoNull(ThrowingCallable methodCall,
+                                                                         String paramName) {
+        assertThatThrownBy(
+                methodCall
+        ).isInstanceOf(NullPointerException.class)
+                .hasMessage(paramName);
+    }
+
+    @Test
+    public void generatedThrowExceptionMethodChecksParamsAreNoNull() {
+        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        // @formatter:off
+        xgen.generate(rootError("Root").errors(
+                error("E1").errors(
+                        error("E2").errors(
+                                error("E3_1").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3")),
+                                error("E3_2").description(TestMessageGeneratorObject.class, "generator")
+                        )
+                )
+        ).basePackage("com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull").build());
+        // @formatter:on
+
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
+                        .throwException(null, 1.0, new TestObject())
+                , "param1"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
+                        .throwException("abc", null, new TestObject())
+                , "param2"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
+                        .throwException("abc", 1.0, null)
+                , "param3"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_2.E3_2Error
+                        .throwException(null)
+                , "generator"
+        );
+    }
 }

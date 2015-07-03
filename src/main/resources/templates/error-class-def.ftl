@@ -24,10 +24,16 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     private static String MESSAGE_FORMAT = "${description.format}";
 
     public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
+        <#list description.params as param>
+        if(${param.name} == null) throw new NullPointerException("${param.name}");
+        </#list>
+
         throw new ${exceptionName}(String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>));
     }
     <#else>
     public static void throwException(${description.generator.type.name} ${description.generator.name}) {
+        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
+
         throw new ${exceptionName}(${description.generator.name}.message());
     }
     </#if>
