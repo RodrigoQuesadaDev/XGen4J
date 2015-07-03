@@ -1,5 +1,6 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen.test;
 
+import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.test.integration.bedroom.BedroomError;
 import com.rodrigodev.xgen.test.integration.bedroom.BedroomException;
 import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundError;
