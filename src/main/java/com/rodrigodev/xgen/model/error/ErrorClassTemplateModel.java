@@ -2,7 +2,8 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.ErrorDescription;
+import com.rodrigodev.xgen.model.error.configuration.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
 import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
 import lombok.NonNull;
@@ -25,13 +26,16 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
     private ErrorClassTemplateModel(
             ClassTemplateModel model,
-            ErrorDescription description,
+            ErrorDescriptionDefinition description,
+            CustomMessageGeneratorDefinition generator,
             @NonNull ErrorCodeDefinition code,
             @NonNull String exceptionName,
             @NonNull String rootPackage
     ) {
         super(model);
-        this.description = description != null ? new ErrorDescriptionModel(description) : null;
+        this.description = description != null
+                ? new ErrorDescriptionModel(description)
+                : generator != null ? new ErrorDescriptionModel(generator) : null;
         this.code = new ErrorCodeModel(code);
         this.exceptionName = exceptionName;
         this.rootPackage = rootPackage;
@@ -53,7 +57,8 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ErrorClassTemplateModelBuilder extends ClassTemplateModelBuilder<ErrorClassTemplateModel, ErrorClassTemplateModelBuilder> {
 
-        private ErrorDescription description;
+        private ErrorDescriptionDefinition description;
+        private CustomMessageGeneratorDefinition generator;
         private ErrorCodeDefinition code;
         private String exceptionName;
         private String rootPackage;
@@ -65,7 +70,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
         @Override
         protected ErrorClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorClassTemplateModel(model, description, code, exceptionName, rootPackage);
+            return new ErrorClassTemplateModel(model, description, generator, code, exceptionName, rootPackage);
         }
     }
 
@@ -73,13 +78,21 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     public static class ErrorDescriptionModel {
 
         @NonNull private String format;
-        @NonNull private ParameterDefinitionModel[] params;
+        private ParameterDefinitionModel[] params;
+        private CustomMessageGeneratorModel generator;
 
-        public ErrorDescriptionModel(@NonNull ErrorDescription description) {
+        public ErrorDescriptionModel(@NonNull ErrorDescriptionDefinition description) {
             format = description.format();
             params = Arrays.stream(description.params())
                     .map(ParameterDefinitionModel::new)
                     .toArray(ParameterDefinitionModel[]::new);
+            generator = null;
+        }
+
+        public ErrorDescriptionModel(@NonNull CustomMessageGeneratorDefinition generator) {
+            format = null;
+            params = null;
+            this.generator = new CustomMessageGeneratorModel(generator);
         }
     }
 
@@ -105,6 +118,19 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         public ErrorCodeModel(@NonNull ErrorCodeDefinition code) {
             this.name = code.name();
             this.number = code.number().orElse(null);
+        }
+    }
+
+    @Value
+    public static class CustomMessageGeneratorModel {
+
+        @NonNull private TypeTemplateModel type;
+        @NonNull private String name;
+
+        public CustomMessageGeneratorModel(@NonNull CustomMessageGeneratorDefinition generator) {
+            Class<?> paramClass = generator.type();
+            this.type = new TypeTemplateModel(paramClass.getSimpleName(), paramClass.getCanonicalName());
+            this.name = generator.name();
         }
     }
 }

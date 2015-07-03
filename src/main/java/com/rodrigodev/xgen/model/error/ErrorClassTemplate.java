@@ -40,6 +40,7 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
         ErrorClassTemplateModelBuilder modelBuilder = ErrorClassTemplateModel.builder();
         ErrorDefinition errorDefinition = errorClassFile.classDefinition().errorDefinition();
         errorDefinition.description().ifPresent(modelBuilder::description);
+        errorDefinition.customMessageGenerator().ifPresent(modelBuilder::generator);
         modelBuilder.code(errorDefinition.code());
         modelBuilder.exceptionName(exceptionClassFile.classDefinition().name());
         modelBuilder.rootPackage(rootPackage);

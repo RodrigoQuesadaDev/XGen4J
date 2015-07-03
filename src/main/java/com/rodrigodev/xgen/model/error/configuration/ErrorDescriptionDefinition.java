@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Value
 @Accessors(fluent = true)
-public class ErrorDescription {
+public class ErrorDescriptionDefinition {
 
     @NonNull private String format;
     @NonNull private ParameterDefinition[] params;

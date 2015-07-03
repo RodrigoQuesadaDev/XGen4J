@@ -26,20 +26,25 @@ public class ErrorDefinition {
 
     @NonNull private String name;
     @NonNull private ErrorCodeDefinition code;
-    @NonNull private Optional<ErrorDescription> description;
+    @NonNull private Optional<ErrorDescriptionDefinition> description;
+    @NonNull private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
     @NonNull private ErrorDefinition[] errors;
     @NonNull private String packagePath;
 
     private ErrorDefinition(
             @NonNull String name,
             @NonNull ErrorCodeDefinition code,
-            @NonNull Optional<ErrorDescription> description,
+            @NonNull Optional<ErrorDescriptionDefinition> description,
+            @NonNull Optional<CustomMessageGeneratorDefinition> customMessageGenerator,
             @NonNull ErrorDefinition[] errors,
             @NonNull String packagePath
     ) {
+        checkState(!description.isPresent() || description.isPresent() ^ customMessageGenerator.isPresent(), "Either specify a text-based description OR a custom message generator for it, but not both.");
+
         this.name = name;
         this.code = code;
         this.description = description;
+        this.customMessageGenerator = customMessageGenerator;
         this.errors = errors;
         this.packagePath = packagePath;
     }
@@ -58,7 +63,8 @@ public class ErrorDefinition {
         private String name;
         //TODO remove initialization (temporary while adding more features)
         private ErrorCodeDefinition code;
-        private Optional<ErrorDescription> description;
+        private Optional<ErrorDescriptionDefinition> description;
+        private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
         private ErrorDefinitionBuilder[] errorBuilders;
         @NonNull private String packagePath;
         @NonNull private Optional<ErrorDefinitionBuilder> parent;
@@ -66,6 +72,7 @@ public class ErrorDefinition {
         public ErrorDefinitionBuilder() {
             code = UNDEFINED_CODE;
             description = Optional.empty();
+            customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
             parent = Optional.empty();
         }
@@ -101,7 +108,13 @@ public class ErrorDefinition {
         ) {
             checkArgument(!descriptionFormat.isEmpty(), "descriptionFormat is empty");
 
-            description = Optional.of(new ErrorDescription(descriptionFormat, params));
+            description = Optional.of(new ErrorDescriptionDefinition(descriptionFormat, params));
+            return this;
+        }
+
+        public ErrorDefinitionBuilder description(Class<?> customMessageGeneratorType, String name) {
+            customMessageGenerator = Optional.of(
+                    new CustomMessageGeneratorDefinition(customMessageGeneratorType, name));
             return this;
         }
 
@@ -133,7 +146,7 @@ public class ErrorDefinition {
                     .peek(e -> e.parent(this))
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
-            return new ErrorDefinition(name, code, description, errors, packagePath);
+            return new ErrorDefinition(name, code, description, customMessageGenerator, errors, packagePath);
         }
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {
