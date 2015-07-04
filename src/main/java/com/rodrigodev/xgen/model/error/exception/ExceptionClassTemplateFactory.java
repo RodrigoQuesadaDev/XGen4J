@@ -16,7 +16,11 @@ public class ExceptionClassTemplateFactory {
     public ExceptionClassTemplateFactory() {
     }
 
-    public ExceptionClassTemplate create(ExceptionClassFile classFile, Optional<ExceptionClassFile> parentClassFile) {
-        return new ExceptionClassTemplate(injectedFields, classFile, parentClassFile);
+    public ExceptionClassTemplate create(
+            Optional<ExceptionClassFile> rootClassFile,
+            ExceptionClassFile classFile,
+            Optional<ExceptionClassFile> parentClassFile
+    ) {
+        return new ExceptionClassTemplate(injectedFields, rootClassFile, classFile, parentClassFile);
     }
 }

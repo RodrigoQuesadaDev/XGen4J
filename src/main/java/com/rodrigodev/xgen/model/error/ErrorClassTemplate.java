@@ -18,7 +18,8 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
     //TODO change to builder?
     public ErrorClassTemplate(
             InjectedFields injectedFields,
-            @NonNull String rootPackage,
+            @NonNull Optional<ErrorClassFile> rootErrorClassFile,
+            @NonNull Optional<ExceptionClassFile> rootExceptionClassFile,
             ErrorClassFile errorClassFile,
             @NonNull ExceptionClassFile exceptionClassFile,
             Optional<ErrorClassFile> parentClassFile
@@ -26,14 +27,15 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
         super(
                 injectedFields,
                 TEMPLATE_FILE_NAME,
-                modelBuilder(rootPackage, errorClassFile, exceptionClassFile),
+                modelBuilder(rootErrorClassFile, rootExceptionClassFile, errorClassFile, exceptionClassFile),
                 errorClassFile,
                 parentClassFile
         );
     }
 
     private static ErrorClassTemplateModelBuilder modelBuilder(
-            String rootPackage,
+            Optional<ErrorClassFile> rootErrorClassFile,
+            Optional<ExceptionClassFile> rootExceptionClassFile,
             ErrorClassFile errorClassFile,
             ExceptionClassFile exceptionClassFile
     ) {
@@ -43,7 +45,9 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
         errorDefinition.customMessageGenerator().ifPresent(modelBuilder::generator);
         modelBuilder.code(errorDefinition.code());
         modelBuilder.exceptionName(exceptionClassFile.classDefinition().name());
-        modelBuilder.rootPackage(rootPackage);
+        rootErrorClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
+        rootExceptionClassFile.ifPresent(r -> modelBuilder.rootException(r.classDefinition()));
+        modelBuilder.common(errorDefinition.isCommon());
         return modelBuilder;
     }
 }

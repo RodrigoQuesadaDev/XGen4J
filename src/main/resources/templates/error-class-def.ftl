@@ -1,7 +1,6 @@
 package ${packagePath};
 
 <#if parent??>import ${parent.canonicalName};</#if>
-import ${rootPackage}.ErrorCode;
 
 <#if concrete>
 <#if description.params??>
@@ -10,6 +9,15 @@ import ${rootPackage}.ErrorCode;
 <#else>
 import ${description.generator.type.canonicalName};
 </#if>
+</#if>
+
+<#if root??>
+import ${root.packagePath}.ErrorCode;
+<#if common>
+import ${root.exception.canonicalName}.ExceptionType;
+</#if>
+<#else>
+import ${packagePath}.${exceptionName}.ExceptionType;
 </#if>
 
 /**
@@ -23,19 +31,45 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <#if description.format??>
     private static String MESSAGE_FORMAT = "${description.format}";
 
+    private static String createMessage(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
+        return String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>);
+    }
+
     public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
         <#list description.params as param>
         if(${param.name} == null) throw new NullPointerException("${param.name}");
         </#list>
 
-        throw new ${exceptionName}(String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>));
+        throw new ${exceptionName}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
     }
+
+    <#if common>
+    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) {
+        throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
+    }
+    </#if>
     <#else>
+    private static String createMessage(${description.generator.type.name} ${description.generator.name}) {
+        return ${description.generator.name}.message();
+    }
+
     public static void throwException(${description.generator.type.name} ${description.generator.name}) {
         if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
 
-        throw new ${exceptionName}(${description.generator.name}.message());
+        throw new ${exceptionName}(createMessage(${description.generator.name}));
+    }
+
+    <#if common>
+    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) {
+        throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}));
     }
     </#if>
+    </#if>
+</#if>
+
+<#if !root??>
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) {
+        throw exceptionType.createException(message);
+    }
 </#if>
 }

@@ -6,6 +6,7 @@ import com.rodrigodev.xgen.model.error.configuration.CustomMessageGeneratorDefin
 import com.rodrigodev.xgen.model.error.configuration.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
 import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -22,7 +23,8 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     private ErrorDescriptionModel description;
     @NonNull private ErrorCodeModel code;
     @NonNull private String exceptionName;
-    @NonNull private String rootPackage;
+    @NonNull private RootTemplateModel root;
+    private boolean common;
 
     private ErrorClassTemplateModel(
             ClassTemplateModel model,
@@ -30,7 +32,9 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
             CustomMessageGeneratorDefinition generator,
             @NonNull ErrorCodeDefinition code,
             @NonNull String exceptionName,
-            @NonNull String rootPackage
+            ErrorClassDefinition root,
+            ExceptionClassDefinition rootException,
+            boolean common
     ) {
         super(model);
         this.description = description != null
@@ -38,7 +42,8 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
                 : generator != null ? new ErrorDescriptionModel(generator) : null;
         this.code = new ErrorCodeModel(code);
         this.exceptionName = exceptionName;
-        this.rootPackage = rootPackage;
+        this.root = root != null ? new RootTemplateModel(root, rootException) : null;
+        this.common = common;
     }
 
     public static ErrorClassTemplateModelBuilder builder() {
@@ -61,7 +66,9 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         private CustomMessageGeneratorDefinition generator;
         private ErrorCodeDefinition code;
         private String exceptionName;
-        private String rootPackage;
+        private ErrorClassDefinition root;
+        private ExceptionClassDefinition rootException;
+        private boolean common;
 
         @Override
         protected ErrorClassTemplateModelBuilder self() {
@@ -70,7 +77,9 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
         @Override
         protected ErrorClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorClassTemplateModel(model, description, generator, code, exceptionName, rootPackage);
+            return new ErrorClassTemplateModel(
+                    model, description, generator, code, exceptionName, root, rootException, common
+            );
         }
     }
 
@@ -131,6 +140,17 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
             Class<?> paramClass = generator.type();
             this.type = new TypeTemplateModel(paramClass.getSimpleName(), paramClass.getCanonicalName());
             this.name = generator.name();
+        }
+    }
+
+    @Value
+    public class RootTemplateModel extends TypeTemplateModel {
+
+        @NonNull private TypeTemplateModel exception;
+
+        public RootTemplateModel(@NonNull ErrorClassDefinition error, @NonNull ExceptionClassDefinition rootException) {
+            super(error);
+            exception = new TypeTemplateModel(rootException);
         }
     }
 }

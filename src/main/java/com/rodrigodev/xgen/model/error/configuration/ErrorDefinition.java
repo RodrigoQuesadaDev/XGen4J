@@ -30,6 +30,7 @@ public class ErrorDefinition {
     @NonNull private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
     @NonNull private ErrorDefinition[] errors;
     @NonNull private String packagePath;
+    private boolean isCommon;
 
     private ErrorDefinition(
             @NonNull String name,
@@ -37,9 +38,13 @@ public class ErrorDefinition {
             @NonNull Optional<ErrorDescriptionDefinition> description,
             @NonNull Optional<CustomMessageGeneratorDefinition> customMessageGenerator,
             @NonNull ErrorDefinition[] errors,
-            @NonNull String packagePath
+            @NonNull String packagePath,
+            boolean isCommon
     ) {
-        checkState(!description.isPresent() || description.isPresent() ^ customMessageGenerator.isPresent(), "Either specify a text-based description OR a custom message generator for it, but not both.");
+        checkState(
+                !description.isPresent() || description.isPresent() ^ customMessageGenerator.isPresent(),
+                "Either specify a text-based description OR a custom message generator for it, but not both."
+        );
 
         this.name = name;
         this.code = code;
@@ -47,6 +52,7 @@ public class ErrorDefinition {
         this.customMessageGenerator = customMessageGenerator;
         this.errors = errors;
         this.packagePath = packagePath;
+        this.isCommon = isCommon;
     }
 
     public static ErrorDefinitionBuilder builder() {
@@ -67,6 +73,7 @@ public class ErrorDefinition {
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
         private ErrorDefinitionBuilder[] errorBuilders;
         @NonNull private String packagePath;
+        boolean isCommon;
         @NonNull private Optional<ErrorDefinitionBuilder> parent;
 
         public ErrorDefinitionBuilder() {
@@ -133,6 +140,11 @@ public class ErrorDefinition {
             return this;
         }
 
+        public ErrorDefinitionBuilder isCommon(boolean isCommon) {
+            this.isCommon = isCommon;
+            return this;
+        }
+
         public ErrorDefinitionBuilder parent(ErrorDefinitionBuilder parent) {
             this.parent = Optional.of(parent);
             return this;
@@ -141,12 +153,24 @@ public class ErrorDefinition {
         public ErrorDefinition build() {
             checkCode();
 
-            parent.ifPresent(p -> packagePath = generatePackagePath(p));
+            parent.ifPresent(p -> {
+                packagePath = generatePackagePath(p);
+                isCommon = isCommon || p.isCommon;
+            });
             ErrorDefinition[] errors = Arrays.stream(errorBuilders)
                     .peek(e -> e.parent(this))
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
-            return new ErrorDefinition(name, code, description, customMessageGenerator, errors, packagePath);
+
+            return new ErrorDefinition(
+                    name,
+                    code,
+                    description,
+                    customMessageGenerator,
+                    errors,
+                    packagePath,
+                    isCommon
+            );
         }
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {

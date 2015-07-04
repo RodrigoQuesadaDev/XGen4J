@@ -16,11 +16,19 @@ public class ErrorClassTemplateFactory extends FreemarkerClassTemplateFactory {
     }
 
     public ErrorClassTemplate create(
-            String rootPackage,
+            Optional<ErrorClassFile> rootErrorClassFile,
+            Optional<ExceptionClassFile> rootExceptionClassFile,
             ErrorClassFile errorClassFile,
             ExceptionClassFile exceptionClassFile,
             Optional<ErrorClassFile> parentClassFile
     ) {
-        return new ErrorClassTemplate(injectedFields, rootPackage, errorClassFile, exceptionClassFile, parentClassFile);
+        return new ErrorClassTemplate(
+                injectedFields,
+                rootErrorClassFile,
+                rootExceptionClassFile,
+                errorClassFile,
+                exceptionClassFile,
+                parentClassFile
+        );
     }
 }

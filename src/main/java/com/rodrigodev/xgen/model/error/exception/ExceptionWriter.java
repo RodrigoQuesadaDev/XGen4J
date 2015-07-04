@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.model.error.exception;
 
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
+import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import lombok.NonNull;
 
 import javax.inject.Inject;
@@ -21,12 +21,15 @@ public class ExceptionWriter {
 
     public ExceptionClassFile write(
             @NonNull String sourceDirPath,
+            @NonNull Optional<ExceptionClassFile> rootExceptionClassFile,
             @NonNull ErrorDefinition errorDefinition,
             @NonNull Optional<ExceptionClassFile> parentClassFile
     ) {
         ExceptionClassDefinition exceptionClass = new ExceptionClassDefinition(errorDefinition);
         ExceptionClassFile exceptionClassFile = new ExceptionClassFile(sourceDirPath, exceptionClass);
-        classWriter.write(exceptionClassTemplateFactory.create(exceptionClassFile, parentClassFile));
+        classWriter.write(exceptionClassTemplateFactory.create(
+                rootExceptionClassFile, exceptionClassFile, parentClassFile
+        ));
 
         return exceptionClassFile;
     }

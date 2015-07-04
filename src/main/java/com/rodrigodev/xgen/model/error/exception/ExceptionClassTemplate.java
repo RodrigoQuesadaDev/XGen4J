@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.model.error.exception;
 
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassTemplateModel.ExceptionClassTemplateModelBuilder;
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen.model.error.exception.ExceptionClassTemplateModel.ExceptionClassTemplateModelBuilder;
 
 import java.util.Optional;
 
@@ -14,8 +14,21 @@ public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionCla
 
     //TODO change to builder?
     public ExceptionClassTemplate(
-            InjectedFields injectedFields, ExceptionClassFile classFile, Optional<ExceptionClassFile> parentClassFile
+            InjectedFields injectedFields,
+            Optional<ExceptionClassFile> rootClassFile,
+            ExceptionClassFile classFile,
+            Optional<ExceptionClassFile> parentClassFile
     ) {
-        super(injectedFields, TEMPLATE_FILE_NAME, ExceptionClassTemplateModel.builder(), classFile, parentClassFile);
+        super(injectedFields, TEMPLATE_FILE_NAME, modelBuilder(rootClassFile, classFile), classFile, parentClassFile);
+    }
+
+    private static ExceptionClassTemplateModelBuilder modelBuilder(
+            Optional<ExceptionClassFile> rootClassFile,
+            ExceptionClassFile classFile
+    ) {
+        ExceptionClassTemplateModelBuilder modelBuilder = ExceptionClassTemplateModel.builder();
+        rootClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
+        modelBuilder.common(classFile.classDefinition().errorDefinition().isCommon());
+        return modelBuilder;
     }
 }

@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.error.exception;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
@@ -11,8 +12,13 @@ import lombok.experimental.Accessors;
 @Value
 public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
-    public ExceptionClassTemplateModel(ClassTemplateModel model) {
+    private TypeTemplateModel root;
+    private boolean common;
+
+    public ExceptionClassTemplateModel(ClassTemplateModel model, ExceptionClassDefinition root, boolean common) {
         super(model);
+        this.root = root != null ? new TypeTemplateModel(root) : null;
+        this.common = common;
     }
 
     public static ExceptionClassTemplateModelBuilder builder() {
@@ -23,6 +29,9 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ExceptionClassTemplateModelBuilder extends ClassTemplateModelBuilder<ExceptionClassTemplateModel, ExceptionClassTemplateModelBuilder> {
 
+        private ExceptionClassDefinition root;
+        private boolean common;
+
         @Override
         protected ExceptionClassTemplateModelBuilder self() {
             return this;
@@ -30,7 +39,7 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
         @Override
         protected ExceptionClassTemplateModel build(ClassTemplateModel model) {
-            return new ExceptionClassTemplateModel(model);
+            return new ExceptionClassTemplateModel(model, root, common);
         }
     }
 }

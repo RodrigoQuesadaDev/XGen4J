@@ -13,7 +13,7 @@ public class ErrorConfiguration {
     }
 
     public static ErrorDefinition.ErrorDefinitionBuilder commonError(@NonNull String name) {
-        return ErrorDefinition.builder().name(name);
+        return ErrorDefinition.builder().name(name).isCommon(true);
     }
 
     public static ErrorDefinition.ErrorDefinitionBuilder error(@NonNull String name) {

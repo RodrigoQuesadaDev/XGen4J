@@ -1,14 +1,38 @@
 package com.rodrigodev.xgen.model.common.template.model;
 
+import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
+import lombok.Getter;
 import lombok.NonNull;
-import lombok.Value;
+
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 24/06/15.
  */
-@Value
+@Getter
 public class TypeTemplateModel {
 
-    @NonNull private String name;
-    @NonNull private String canonicalName;
+    final private String packagePath;
+    final private String name;
+    final private String canonicalName;
+
+    private TypeTemplateModel(
+            @NonNull Optional<String> packagePath, @NonNull String name, @NonNull String canonicalName
+    ) {
+        this.packagePath = packagePath.orElse(null);
+        this.name = name;
+        this.canonicalName = canonicalName;
+    }
+
+    public TypeTemplateModel(String packagePath, String name, String canonicalName) {
+        this(Optional.of(packagePath), name, canonicalName);
+    }
+
+    public TypeTemplateModel(String name, String canonicalName) {
+        this(Optional.empty(), name, canonicalName);
+    }
+
+    public TypeTemplateModel(ClassDefinition classDefinition) {
+        this(classDefinition.packagePath(), classDefinition.name(), classDefinition.fullyQualifiedName());
+    }
 }

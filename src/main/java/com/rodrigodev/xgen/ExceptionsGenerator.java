@@ -1,11 +1,11 @@
 package com.rodrigodev.xgen;
 
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
-import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
-import com.rodrigodev.xgen.model.error.ErrorWriter;
-import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import com.rodrigodev.xgen.model.error.ErrorWriter;
+import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
+import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;
@@ -32,7 +32,7 @@ public class ExceptionsGenerator {
     }
 
     @Inject InjectedFields inj;
-    private String sourceDirPath;
+    private final String sourceDirPath;
 
     ExceptionsGenerator(
             InjectedFields injectedFields,
@@ -53,7 +53,7 @@ public class ExceptionsGenerator {
 
     public void generate(@NonNull ErrorDefinition rootError) {
         generateBaseClasses(rootError);
-        generateErrors(rootError.packagePath(), rootError, Optional.empty(), Optional.empty());
+        generateErrors(Optional.empty(), Optional.empty(), rootError, Optional.empty(), Optional.empty());
     }
 
     private void generateBaseClasses(ErrorDefinition rootError) {
@@ -65,18 +65,38 @@ public class ExceptionsGenerator {
     }
 
     private void generateErrors(
-            String rootPackage,
+            Optional<ErrorClassFile> rootErrorClassFile,
+            Optional<ExceptionClassFile> rootExceptionClassFile,
             ErrorDefinition error,
             Optional<ErrorClassFile> parentErrorClassFile,
             Optional<ExceptionClassFile> parentExceptionClassFile
     ) {
-        ExceptionClassFile exceptionClassFile = inj.exceptionWriter.write(sourceDirPath, error, parentExceptionClassFile);
-        ErrorClassFile errorClassFile = inj.errorWriter
-                .write(sourceDirPath, rootPackage, error, exceptionClassFile, parentErrorClassFile);
+        ExceptionClassFile exceptionClassFile = inj.exceptionWriter.write(
+                sourceDirPath, rootExceptionClassFile, error, parentExceptionClassFile
+        );
+        ErrorClassFile errorClassFile = inj.errorWriter.write(
+                sourceDirPath,
+                rootErrorClassFile,
+                rootExceptionClassFile,
+                error,
+                exceptionClassFile,
+                parentErrorClassFile
+        );
+
+        if (!rootErrorClassFile.isPresent()) {
+            rootErrorClassFile = Optional.of(errorClassFile);
+            rootExceptionClassFile = Optional.of(exceptionClassFile);
+        }
 
         ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {
-            generateErrors(rootPackage, subError, Optional.of(errorClassFile), Optional.of(exceptionClassFile));
+            generateErrors(
+                    rootErrorClassFile,
+                    rootExceptionClassFile,
+                    subError,
+                    Optional.of(errorClassFile),
+                    Optional.of(exceptionClassFile)
+            );
         }
     }
 }
