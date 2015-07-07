@@ -186,12 +186,10 @@ public class MessageTests {
         );
     }
 
-    private void assert_generatedThrowExceptionMethodChecksParamIsNoNull(ThrowingCallable methodCall,
-                                                                         String paramName) {
-        assertThatThrownBy(
-                methodCall
-        ).isInstanceOf(NullPointerException.class)
-                .hasMessage(paramName);
+    private void assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+            ThrowingCallable methodCall, String paramName
+    ) {
+        assertThatThrownBy(methodCall).isInstanceOf(NullPointerException.class).hasMessage(paramName);
     }
 
     @Test

@@ -141,4 +141,45 @@ public class ThrowTests {
             // @formatter:on
         }
     }
+
+    private void assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+            ThrowingCallable methodCall, String paramName
+    ) {
+        assertThatThrownBy(methodCall).isInstanceOf(NullPointerException.class).hasMessage(paramName);
+    }
+
+    @Test
+    public void generatedThrowExceptionMethodChecksParamsAreNoNull() {
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(null, "abc", 1, new TestObject())
+                , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(E1Exception.TYPE, null, 1, new TestObject())
+                , "param1"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(E1Exception.TYPE, "abc", null, new TestObject())
+                , "param2"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(E1Exception.TYPE, "abc", 1, null)
+                , "param3"
+        );
+
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                        .throwException(null, new TestMessageGeneratorObject("abc", 1))
+                , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                        .throwException(E1Exception.TYPE, null)
+                , "generator"
+        );
+    }
 }

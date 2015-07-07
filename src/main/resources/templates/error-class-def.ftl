@@ -45,6 +45,10 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
 
     <#if common>
     public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) {
+        <#list description.params as param>
+        if(${param.name} == null) throw new NullPointerException("${param.name}");
+        </#list>
+
         throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
     }
     </#if>
@@ -61,6 +65,8 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
 
     <#if common>
     public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) {
+        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
+
         throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}));
     }
     </#if>
@@ -69,6 +75,8 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
 
 <#if !root??>
     protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) {
+        if(exceptionType == null) throw new NullPointerException("exceptionType");
+
         throw exceptionType.createException(message);
     }
 </#if>
