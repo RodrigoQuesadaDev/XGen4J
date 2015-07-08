@@ -51,11 +51,13 @@ public class ErrorCodeDefinition {
         private Optional<Integer> number;
 
         private Set<Integer> childrenNumbers;
+        private Set<String> childrenNames;
 
         private ErrorCodeDefinitionBuilder() {
             this.parent = Optional.empty();
             this.number = Optional.empty();
             this.childrenNumbers = new HashSet<>();
+            this.childrenNames = new HashSet<>();
         }
 
         public ErrorCodeDefinitionBuilder parent(ErrorCodeDefinitionBuilder parent) {
@@ -78,9 +80,20 @@ public class ErrorCodeDefinition {
         }
 
         public ErrorCodeDefinition build() {
+            checkName();
             checkNumber();
 
             return new ErrorCodeDefinition(name, number);
+        }
+
+        private void checkName() {
+            if (parent.isPresent()) {
+                Set<String> parentChildrenNames = parent.get().childrenNames;
+                checkState(
+                        parentChildrenNames.add(name),
+                        String.format("Duplicated code name '%s' for error code.", name)
+                );
+            }
         }
 
         private void checkNumber() {
