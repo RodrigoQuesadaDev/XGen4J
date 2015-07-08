@@ -48,7 +48,7 @@ public class CodeNameTests {
         for (char invalidCharacter : invalidCharacters.toCharArray()) {
             String invalidName = invalidCharacter + "abcde";
 
-            assertThatThrownBy(() -> rootError("Root").code(invalidName))
+            assertThatThrownBy(() -> rootError("Root").code(invalidName).build())
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(String.format("Error code's name '%s' has invalid format.", invalidName));
         }
@@ -60,7 +60,7 @@ public class CodeNameTests {
         for (char invalidCharacter : invalidCharacters.toCharArray()) {
             String invalidName = "name" + invalidCharacter;
 
-            assertThatThrownBy(() -> rootError("Root").code(invalidName))
+            assertThatThrownBy(() -> rootError("Root").code(invalidName).build())
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(String.format("Error code's name '%s' has invalid format.", invalidName));
         }

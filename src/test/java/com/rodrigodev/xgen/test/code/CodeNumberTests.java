@@ -31,7 +31,7 @@ public class CodeNumberTests {
     private void assert_ifRootErrorHasCodeNumberThenAllDescendantsMustAlsoHaveIt(ThrowingCallable methodCall) {
         assertThatThrownBy(methodCall)
                 .isInstanceOf(IllegalStateException.class)
-                .hasMessage("Code number is missing for error definition 'AnErrorName'.");
+                .hasMessage("Code number is missing for error code 'an-error-name'.");
     }
 
     @Test
@@ -108,7 +108,7 @@ public class CodeNumberTests {
             ThrowingCallable methodCall) {
         assertThatThrownBy(methodCall)
                 .isInstanceOf(IllegalStateException.class)
-                .hasMessage("Error definition 'AnErrorName' can't have a code number.");
+                .hasMessage("Error code 'an-error-name' can't have a code number.");
     }
 
     @Test
@@ -214,6 +214,7 @@ public class CodeNumberTests {
         assertThat(C3_3Error.CODE.number()).isEqualTo(678);
 
         assertThat(E1Error.CODE.number()).isEqualTo(432);
+
         assertThat(E2Error.CODE.number()).isEqualTo(543);
         assertThat(E3_1Error.CODE.number()).isEqualTo(654);
         assertThat(E3_2Error.CODE.number()).isEqualTo(765);

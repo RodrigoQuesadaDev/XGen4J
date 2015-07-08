@@ -171,7 +171,7 @@ public class MessageTests {
                         )
                 ).basePackage("com.rodrigodev.xgen.test.message.onlyTextBasedDescriptionOrCustomMessageGeneratorCanBeSpecifyNotBoth").build())
                 // @formatter:on
-        ).isInstanceOf(IllegalStateException.class)
+        ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(
                         "Either specify a text-based description OR a custom message generator for it, but not both.");
     }

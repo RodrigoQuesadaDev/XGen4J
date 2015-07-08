@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.error.configuration;
 
 import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
 import lombok.NonNull;
 import lombok.Value;
 import lombok.experimental.Accessors;
@@ -41,7 +42,7 @@ public class ErrorDefinition {
             @NonNull String packagePath,
             boolean isCommon
     ) {
-        checkState(
+        checkArgument(
                 !description.isPresent() || description.isPresent() ^ customMessageGenerator.isPresent(),
                 "Either specify a text-based description OR a custom message generator for it, but not both."
         );
@@ -63,12 +64,10 @@ public class ErrorDefinition {
     public static class ErrorDefinitionBuilder {
 
         private static final String DOT = ".";
-        private static final ErrorCodeDefinition UNDEFINED_CODE
-                = new ErrorCodeDefinition("undefined", Optional.empty());
 
         private String name;
         //TODO remove initialization (temporary while adding more features)
-        private ErrorCodeDefinition code;
+        private ErrorCodeDefinitionBuilder codeBuilder;
         private Optional<ErrorDescriptionDefinition> description;
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
         private ErrorDefinitionBuilder[] errorBuilders;
@@ -77,7 +76,7 @@ public class ErrorDefinition {
         @NonNull private Optional<ErrorDefinitionBuilder> parent;
 
         public ErrorDefinitionBuilder() {
-            code = UNDEFINED_CODE;
+            codeBuilder = ErrorCodeDefinition.builder();
             description = Optional.empty();
             customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
@@ -91,22 +90,23 @@ public class ErrorDefinition {
             );
 
             this.name = name;
-            if (code == UNDEFINED_CODE) code = new ErrorCodeDefinition(codeNameFrom(name), Optional.empty());
+            if (!codeBuilder.nameIsSet()) codeBuilder.name(codeNameFrom(name));
+            //TODO name generation when code number specified but name is not
             return this;
         }
 
         public ErrorDefinitionBuilder code(String codeName) {
-            code = code.withName(codeName);
+            codeBuilder.name(codeName);
             return this;
         }
 
         public ErrorDefinitionBuilder code(int codeNumber) {
-            code = code.withNumber(codeNumber);
+            codeBuilder.number(codeNumber);
             return this;
         }
 
         public ErrorDefinitionBuilder code(String codeName, int codeNumber) {
-            code = new ErrorCodeDefinition(codeName, Optional.of(codeNumber));
+            codeBuilder.name(codeName).number(codeNumber);
             return this;
         }
 
@@ -151,9 +151,8 @@ public class ErrorDefinition {
         }
 
         public ErrorDefinition build() {
-            checkCode();
-
             parent.ifPresent(p -> {
+                codeBuilder.parent(p.codeBuilder);
                 packagePath = generatePackagePath(p);
                 isCommon = isCommon || p.isCommon;
             });
@@ -164,7 +163,7 @@ public class ErrorDefinition {
 
             return new ErrorDefinition(
                     name,
-                    code,
+                    codeBuilder.build(),
                     description,
                     customMessageGenerator,
                     errors,
@@ -175,23 +174,6 @@ public class ErrorDefinition {
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {
             return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
-        }
-
-        private void checkCode() {
-            parent.ifPresent(
-                    p -> {
-                        boolean codeNumberPresent = code.number().isPresent();
-                        checkState(
-                                codeNumberPresent == p.code.number().isPresent(),
-                                String.format(
-                                        codeNumberPresent
-                                                ? "Error definition '%s' can't have a code number."
-                                                : "Code number is missing for error definition '%s'."
-                                        , name
-                                )
-                        );
-                    }
-            );
         }
     }
 }
