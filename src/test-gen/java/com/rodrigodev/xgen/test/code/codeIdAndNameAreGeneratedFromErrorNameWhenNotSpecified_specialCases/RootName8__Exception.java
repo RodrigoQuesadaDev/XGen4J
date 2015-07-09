@@ -14,9 +14,15 @@ public class RootName8__Exception extends RuntimeException {
         }
 
         protected abstract RootName8__Exception createException(String message);
+
+        protected abstract RootName8__Exception createException(String message, Throwable cause);
     }
 
     protected RootName8__Exception(String message) {
         super(message);
+    }
+
+    protected RootName8__Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

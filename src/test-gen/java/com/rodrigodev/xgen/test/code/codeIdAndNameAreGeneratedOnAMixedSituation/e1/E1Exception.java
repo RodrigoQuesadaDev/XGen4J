@@ -16,9 +16,18 @@ public class E1Exception extends RootNameException {
         protected RootNameException createException(String message) {
             return new E1Exception(message);
         }
+
+        @Override
+        protected RootNameException createException(String message, Throwable cause) {
+            return new E1Exception(message, cause);
+        }
     }
 
     protected E1Exception(String message) {
         super(message);
+    }
+
+    protected E1Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

@@ -2,7 +2,9 @@ package com.rodrigodev.xgen.test.message;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
+import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception;
 import lombok.Value;
 import lombok.experimental.NonFinal;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
@@ -10,8 +12,7 @@ import org.junit.Test;
 
 import java.util.function.Supplier;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.error;
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.rootError;
+import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
 import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
@@ -39,6 +40,11 @@ public class MessageTests {
     public void descriptionWithNoParamsIsAllowed() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         xgen.generate(rootError("Root").errors(
+                commonError("C1").errors(
+                        error("C2").errors(
+                                error("C3").description("Some description.")
+                        )
+                ),
                 error("E1").errors(
                         error("E2").errors(
                                 error("E3").description("Some description.")
@@ -47,6 +53,10 @@ public class MessageTests {
         ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed").build());
 
         assertThatThrownBy(E3Error::throwException)
+                .hasMessage("Some description.");
+        assertThatThrownBy(() -> C3Error.throwException(E3Exception.TYPE))
+                .hasMessage("Some description.");
+        assertThatThrownBy(() -> E3Error.throwException(new NullPointerException()))
                 .hasMessage("Some description.");
     }
 
@@ -62,6 +72,11 @@ public class MessageTests {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
         xgen.generate(rootError("Root").errors(
+                commonError("C1").errors(
+                        error("C2").errors(
+                                error("C3").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3"))
+                        )
+                ),
                 error("E1").errors(
                         error("E2").errors(
                                 error("E3").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3"))
@@ -69,11 +84,23 @@ public class MessageTests {
                 )
         ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed").build());
         // @formatter:on
+        String expectedMessage = "{param1: 'Abcde', param2: 123.456, param3: 'A test object.'}";
 
         assertThatThrownBy(
                 () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
                         .throwException("Abcde", 123.456, new TestObject())
-        ).hasMessage("{param1: 'Abcde', param2: 123.456, param3: 'A test object.'}");
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.c1.c2.c3.C3Error
+                        .throwException(
+                                com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Exception.TYPE,
+                                "Abcde", 123.456, new TestObject()
+                        )
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
+                        .throwException("Abcde", 123.456, new TestObject(), new NullPointerException())
+        ).hasMessage(expectedMessage);
     }
 
     @Value
@@ -93,6 +120,11 @@ public class MessageTests {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
         xgen.generate(rootError("Root").errors(
+                commonError("C1").errors(
+                        error("C2").errors(
+                                error("C3").description(TestMessageGeneratorObject.class, "generator")
+                        )
+                ),
                 error("E1").errors(
                         error("E2").errors(
                                 error("E3").description(TestMessageGeneratorObject.class, "generator")
@@ -100,11 +132,25 @@ public class MessageTests {
                 )
         ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed").build());
         // @formatter:on
+        String expectedMessage = "Custom Message: {value1: 'Some text goes here.', value2: 123}";
 
         assertThatThrownBy(
                 () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
                         .throwException(new TestMessageGeneratorObject("Some text goes here.", 123))
-        ).hasMessage("Custom Message: {value1: 'Some text goes here.', value2: 123}");
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.c1.c2.c3.C3Error
+                        .throwException(
+                                com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Exception.TYPE,
+                                new TestMessageGeneratorObject("Some text goes here.", 123)
+                        )
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
+                        .throwException(
+                                new TestMessageGeneratorObject("Some text goes here.", 123), new NullPointerException()
+                        )
+        ).hasMessage(expectedMessage);
     }
 
     public static class TestMessageGeneratorObjectChild extends TestMessageGeneratorObject {
@@ -119,6 +165,11 @@ public class MessageTests {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
         xgen.generate(rootError("Root").errors(
+                commonError("C1").errors(
+                        error("C2").errors(
+                                error("C3").description(TestMessageGeneratorObjectChild.class, "generator")
+                        )
+                ),
                 error("E1").errors(
                         error("E2").errors(
                                 error("E3").description(TestMessageGeneratorObjectChild.class, "generator")
@@ -126,11 +177,26 @@ public class MessageTests {
                 )
         ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation").build());
         // @formatter:on
+        String expectedMessage = "Custom Message: {value1: 'Some text goes here.', value2: 123}";
 
         assertThatThrownBy(
                 () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
                         .throwException(new TestMessageGeneratorObjectChild("Some text goes here.", 123))
-        ).hasMessage("Custom Message: {value1: 'Some text goes here.', value2: 123}");
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.c1.c2.c3.C3Error
+                        .throwException(
+                                com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Exception.TYPE,
+                                new TestMessageGeneratorObjectChild("Some text goes here.", 123)
+                        )
+        ).hasMessage(expectedMessage);
+        assertThatThrownBy(
+                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
+                        .throwException(
+                                new TestMessageGeneratorObjectChild("Some text goes here.", 123),
+                                new NullPointerException()
+                        )
+        ).hasMessage(expectedMessage);
     }
 
     @Value
@@ -183,48 +249,6 @@ public class MessageTests {
         );
         assert_onlyTextBasedDescriptionOrCustomMessageGeneratorCanBeSpecifyNotBoth(
                 () -> error("E3").description(TestMessageGeneratorObject.class, "generator").description("ABCDE")
-        );
-    }
-
-    private void assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-            ThrowingCallable methodCall, String paramName
-    ) {
-        assertThatThrownBy(methodCall).isInstanceOf(NullPointerException.class).hasMessage(paramName);
-    }
-
-    @Test
-    public void generatedThrowExceptionMethodChecksParamsAreNoNull() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-        // @formatter:off
-        xgen.generate(rootError("Root").errors(
-                error("E1").errors(
-                        error("E2").errors(
-                                error("E3_1").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3")),
-                                error("E3_2").description(TestMessageGeneratorObject.class, "generator")
-                        )
-                )
-        ).basePackage("com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull").build());
-        // @formatter:on
-
-        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
-                        .throwException(null, 1.0, new TestObject())
-                , "param1"
-        );
-        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
-                        .throwException("abc", null, new TestObject())
-                , "param2"
-        );
-        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_1.E3_1Error
-                        .throwException("abc", 1.0, null)
-                , "param3"
-        );
-        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.message.generatedThrowExceptionMethodChecksParamsAreNoNull.e1.e2.e3_2.E3_2Error
-                        .throwException(null)
-                , "generator"
         );
     }
 }

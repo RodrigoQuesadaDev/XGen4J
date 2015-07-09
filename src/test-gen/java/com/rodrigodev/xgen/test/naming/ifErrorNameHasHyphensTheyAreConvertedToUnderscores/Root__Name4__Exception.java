@@ -14,9 +14,15 @@ public class Root__Name4__Exception extends RuntimeException {
         }
 
         protected abstract Root__Name4__Exception createException(String message);
+
+        protected abstract Root__Name4__Exception createException(String message, Throwable cause);
     }
 
     protected Root__Name4__Exception(String message) {
         super(message);
+    }
+
+    protected Root__Name4__Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

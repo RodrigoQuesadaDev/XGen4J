@@ -16,9 +16,18 @@ public class E3_2Exception extends E2Exception {
         protected RootException createException(String message) {
             return new E3_2Exception(message);
         }
+
+        @Override
+        protected RootException createException(String message, Throwable cause) {
+            return new E3_2Exception(message, cause);
+        }
     }
 
     protected E3_2Exception(String message) {
         super(message);
+    }
+
+    protected E3_2Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

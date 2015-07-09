@@ -16,9 +16,18 @@ public class FrozenFoodException extends FridgeException {
         protected HouseException createException(String message) {
             return new FrozenFoodException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new FrozenFoodException(message, cause);
+        }
     }
 
     protected FrozenFoodException(String message) {
         super(message);
+    }
+
+    protected FrozenFoodException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

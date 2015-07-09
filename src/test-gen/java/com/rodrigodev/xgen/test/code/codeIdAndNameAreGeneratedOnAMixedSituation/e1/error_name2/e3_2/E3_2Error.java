@@ -15,12 +15,16 @@ public abstract class E3_2Error extends ErrorName2Error {
     private static String MESSAGE_FORMAT = "ABCDE";
 
     private static String createMessage() {
+
         return String.format(MESSAGE_FORMAT);
     }
 
     public static void throwException() {
-
         throw new E3_2Exception(createMessage());
+    }
+
+    public static void throwException(Throwable cause) {
+        throw new E3_2Exception(createMessage(), cause);
     }
 
 

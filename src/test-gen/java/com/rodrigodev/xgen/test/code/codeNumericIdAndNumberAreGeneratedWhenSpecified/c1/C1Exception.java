@@ -12,4 +12,8 @@ public class C1Exception extends RootException {
     protected C1Exception(String message) {
         super(message);
     }
+
+    protected C1Exception(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

@@ -16,9 +16,18 @@ public class ShutUpException extends AlarmClockException {
         protected HouseException createException(String message) {
             return new ShutUpException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new ShutUpException(message, cause);
+        }
     }
 
     protected ShutUpException(String message) {
         super(message);
+    }
+
+    protected ShutUpException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

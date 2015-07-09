@@ -12,4 +12,8 @@ public class DirtyException extends RoomException {
     protected DirtyException(String message) {
         super(message);
     }
+
+    protected DirtyException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

@@ -16,13 +16,17 @@ public abstract class TooMuchSmokeError extends OvenError {
     private static String MESSAGE_FORMAT = "Wow, there is too much smoke coming out from the oven. Do you think the %s is okay?";
 
     private static String createMessage(String model) {
+        if(model == null) throw new NullPointerException("model");
+
         return String.format(MESSAGE_FORMAT, model);
     }
 
     public static void throwException(String model) {
-        if(model == null) throw new NullPointerException("model");
-
         throw new TooMuchSmokeException(createMessage(model));
+    }
+
+    public static void throwException(String model, Throwable cause) {
+        throw new TooMuchSmokeException(createMessage(model), cause);
     }
 
 

@@ -16,13 +16,17 @@ public abstract class PillowNotFoundError extends BedError {
     private static String MESSAGE_FORMAT = "There is no pillow! How can %s sleep here?";
 
     private static String createMessage(String personName) {
+        if(personName == null) throw new NullPointerException("personName");
+
         return String.format(MESSAGE_FORMAT, personName);
     }
 
     public static void throwException(String personName) {
-        if(personName == null) throw new NullPointerException("personName");
-
         throw new PillowNotFoundException(createMessage(personName));
+    }
+
+    public static void throwException(String personName, Throwable cause) {
+        throw new PillowNotFoundException(createMessage(personName), cause);
     }
 
 

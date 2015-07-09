@@ -16,17 +16,24 @@ public abstract class CommonName3_1Error extends CommonName2Error {
     private static String MESSAGE_FORMAT = "ABCDE";
 
     private static String createMessage() {
+
         return String.format(MESSAGE_FORMAT);
     }
 
     public static void throwException() {
-
         throw new CommonName3_1Exception(createMessage());
     }
 
-    public static void throwException(ExceptionType exceptionType) {
+    public static void throwException(Throwable cause) {
+        throw new CommonName3_1Exception(createMessage(), cause);
+    }
 
+    public static void throwException(ExceptionType exceptionType) {
         throwExceptionForCommonError(exceptionType, createMessage());
+    }
+
+    public static void throwException(ExceptionType exceptionType, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(), cause);
     }
 
 }

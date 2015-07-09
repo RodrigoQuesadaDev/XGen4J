@@ -16,13 +16,17 @@ public abstract class FrozenFoodError extends FridgeError {
     private static String MESSAGE_FORMAT = "The %s is frozen! How could you possibly eat that?";
 
     private static String createMessage(String foodName) {
+        if(foodName == null) throw new NullPointerException("foodName");
+
         return String.format(MESSAGE_FORMAT, foodName);
     }
 
     public static void throwException(String foodName) {
-        if(foodName == null) throw new NullPointerException("foodName");
-
         throw new FrozenFoodException(createMessage(foodName));
+    }
+
+    public static void throwException(String foodName, Throwable cause) {
+        throw new FrozenFoodException(createMessage(foodName), cause);
     }
 
 

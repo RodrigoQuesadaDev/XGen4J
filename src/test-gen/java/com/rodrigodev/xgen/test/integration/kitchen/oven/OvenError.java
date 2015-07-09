@@ -16,13 +16,17 @@ public abstract class OvenError extends KitchenError {
     private static String MESSAGE_FORMAT = "The oven is not working. Model: %s";
 
     private static String createMessage(String model) {
+        if(model == null) throw new NullPointerException("model");
+
         return String.format(MESSAGE_FORMAT, model);
     }
 
     public static void throwException(String model) {
-        if(model == null) throw new NullPointerException("model");
-
         throw new OvenException(createMessage(model));
+    }
+
+    public static void throwException(String model, Throwable cause) {
+        throw new OvenException(createMessage(model), cause);
     }
 
 

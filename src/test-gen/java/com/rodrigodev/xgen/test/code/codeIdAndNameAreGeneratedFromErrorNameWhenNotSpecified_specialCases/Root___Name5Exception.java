@@ -14,9 +14,15 @@ public class Root___Name5Exception extends RuntimeException {
         }
 
         protected abstract Root___Name5Exception createException(String message);
+
+        protected abstract Root___Name5Exception createException(String message, Throwable cause);
     }
 
     protected Root___Name5Exception(String message) {
         super(message);
+    }
+
+    protected Root___Name5Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

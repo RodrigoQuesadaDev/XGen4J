@@ -16,9 +16,18 @@ public class DidNotSoundException extends AlarmClockException {
         protected HouseException createException(String message) {
             return new DidNotSoundException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new DidNotSoundException(message, cause);
+        }
     }
 
     protected DidNotSoundException(String message) {
         super(message);
+    }
+
+    protected DidNotSoundException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

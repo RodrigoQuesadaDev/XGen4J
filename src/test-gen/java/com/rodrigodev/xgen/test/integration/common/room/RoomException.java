@@ -12,4 +12,8 @@ public class RoomException extends CommonException {
     protected RoomException(String message) {
         super(message);
     }
+
+    protected RoomException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

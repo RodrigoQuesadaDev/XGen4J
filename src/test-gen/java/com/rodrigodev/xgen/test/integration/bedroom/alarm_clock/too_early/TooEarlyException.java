@@ -16,9 +16,18 @@ public class TooEarlyException extends AlarmClockException {
         protected HouseException createException(String message) {
             return new TooEarlyException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new TooEarlyException(message, cause);
+        }
     }
 
     protected TooEarlyException(String message) {
         super(message);
+    }
+
+    protected TooEarlyException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

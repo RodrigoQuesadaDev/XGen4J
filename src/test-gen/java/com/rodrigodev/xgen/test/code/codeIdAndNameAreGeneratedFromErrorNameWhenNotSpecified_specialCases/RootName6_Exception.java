@@ -14,9 +14,15 @@ public class RootName6_Exception extends RuntimeException {
         }
 
         protected abstract RootName6_Exception createException(String message);
+
+        protected abstract RootName6_Exception createException(String message, Throwable cause);
     }
 
     protected RootName6_Exception(String message) {
         super(message);
+    }
+
+    protected RootName6_Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

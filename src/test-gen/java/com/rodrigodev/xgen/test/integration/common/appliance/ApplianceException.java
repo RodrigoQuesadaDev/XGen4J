@@ -12,4 +12,8 @@ public class ApplianceException extends CommonException {
     protected ApplianceException(String message) {
         super(message);
     }
+
+    protected ApplianceException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

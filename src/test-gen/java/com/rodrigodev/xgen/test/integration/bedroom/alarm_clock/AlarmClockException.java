@@ -16,9 +16,18 @@ public class AlarmClockException extends BedroomException {
         protected HouseException createException(String message) {
             return new AlarmClockException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new AlarmClockException(message, cause);
+        }
     }
 
     protected AlarmClockException(String message) {
         super(message);
+    }
+
+    protected AlarmClockException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

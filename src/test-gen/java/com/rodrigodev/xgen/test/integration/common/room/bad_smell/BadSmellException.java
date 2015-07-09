@@ -12,4 +12,8 @@ public class BadSmellException extends RoomException {
     protected BadSmellException(String message) {
         super(message);
     }
+
+    protected BadSmellException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

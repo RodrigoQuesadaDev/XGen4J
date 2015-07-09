@@ -19,23 +19,27 @@ public abstract class C3_2Error extends C2Error {
     private static String MESSAGE_FORMAT = "{param1: '%s', param2: %d, param3: '%s'}";
 
     private static String createMessage(String param1, Integer param2, TestObject param3) {
+        if(param1 == null) throw new NullPointerException("param1");
+        if(param2 == null) throw new NullPointerException("param2");
+        if(param3 == null) throw new NullPointerException("param3");
+
         return String.format(MESSAGE_FORMAT, param1, param2, param3);
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3) {
-        if(param1 == null) throw new NullPointerException("param1");
-        if(param2 == null) throw new NullPointerException("param2");
-        if(param3 == null) throw new NullPointerException("param3");
-
         throw new C3_2Exception(createMessage(param1, param2, param3));
     }
 
-    public static void throwException(ExceptionType exceptionType, String param1, Integer param2, TestObject param3) {
-        if(param1 == null) throw new NullPointerException("param1");
-        if(param2 == null) throw new NullPointerException("param2");
-        if(param3 == null) throw new NullPointerException("param3");
+    public static void throwException(String param1, Integer param2, TestObject param3, Throwable cause) {
+        throw new C3_2Exception(createMessage(param1, param2, param3), cause);
+    }
 
+    public static void throwException(ExceptionType exceptionType, String param1, Integer param2, TestObject param3) {
         throwExceptionForCommonError(exceptionType, createMessage(param1, param2, param3));
+    }
+
+    public static void throwException(ExceptionType exceptionType, String param1, Integer param2, TestObject param3, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(param1, param2, param3), cause);
     }
 
 }

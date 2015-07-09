@@ -16,9 +16,18 @@ public class FoodNotFoundException extends FridgeException {
         protected HouseException createException(String message) {
             return new FoodNotFoundException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new FoodNotFoundException(message, cause);
+        }
     }
 
     protected FoodNotFoundException(String message) {
         super(message);
+    }
+
+    protected FoodNotFoundException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

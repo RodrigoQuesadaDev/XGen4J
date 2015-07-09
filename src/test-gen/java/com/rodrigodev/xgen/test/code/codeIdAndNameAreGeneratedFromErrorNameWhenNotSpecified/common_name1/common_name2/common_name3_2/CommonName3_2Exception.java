@@ -12,4 +12,8 @@ public class CommonName3_2Exception extends CommonName2Exception {
     protected CommonName3_2Exception(String message) {
         super(message);
     }
+
+    protected CommonName3_2Exception(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

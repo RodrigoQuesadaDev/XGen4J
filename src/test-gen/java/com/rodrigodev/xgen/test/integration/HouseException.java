@@ -14,9 +14,15 @@ public class HouseException extends RuntimeException {
         }
 
         protected abstract HouseException createException(String message);
+
+        protected abstract HouseException createException(String message, Throwable cause);
     }
 
     protected HouseException(String message) {
         super(message);
+    }
+
+    protected HouseException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

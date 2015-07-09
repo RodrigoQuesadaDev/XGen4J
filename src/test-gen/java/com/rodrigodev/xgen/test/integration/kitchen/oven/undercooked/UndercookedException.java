@@ -16,9 +16,18 @@ public class UndercookedException extends OvenException {
         protected HouseException createException(String message) {
             return new UndercookedException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new UndercookedException(message, cause);
+        }
     }
 
     protected UndercookedException(String message) {
         super(message);
+    }
+
+    protected UndercookedException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

@@ -14,13 +14,17 @@ public abstract class E3Error extends E2Error {
     public static final ErrorCode CODE = new ErrorCode("e-3", E2Error.CODE);
 
     private static String createMessage(TestMessageGeneratorObjectChild generator) {
+        if(generator == null) throw new NullPointerException("generator");
+
         return generator.message();
     }
 
     public static void throwException(TestMessageGeneratorObjectChild generator) {
-        if(generator == null) throw new NullPointerException("generator");
-
         throw new E3Exception(createMessage(generator));
+    }
+
+    public static void throwException(TestMessageGeneratorObjectChild generator, Throwable cause) {
+        throw new E3Exception(createMessage(generator), cause);
     }
 
 

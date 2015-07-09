@@ -16,9 +16,18 @@ public class BugsInfestationException extends BedException {
         protected HouseException createException(String message) {
             return new BugsInfestationException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new BugsInfestationException(message, cause);
+        }
     }
 
     protected BugsInfestationException(String message) {
         super(message);
+    }
+
+    protected BugsInfestationException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

@@ -16,9 +16,18 @@ public class ErrorName3_2Exception extends ErrorName2Exception {
         protected RootNameException createException(String message) {
             return new ErrorName3_2Exception(message);
         }
+
+        @Override
+        protected RootNameException createException(String message, Throwable cause) {
+            return new ErrorName3_2Exception(message, cause);
+        }
     }
 
     protected ErrorName3_2Exception(String message) {
         super(message);
+    }
+
+    protected ErrorName3_2Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

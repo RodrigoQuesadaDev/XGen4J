@@ -16,13 +16,17 @@ public abstract class TooEarlyError extends AlarmClockError {
     private static String MESSAGE_FORMAT = "It's just %s, still to early to wake up.";
 
     private static String createMessage(String time) {
+        if(time == null) throw new NullPointerException("time");
+
         return String.format(MESSAGE_FORMAT, time);
     }
 
     public static void throwException(String time) {
-        if(time == null) throw new NullPointerException("time");
-
         throw new TooEarlyException(createMessage(time));
+    }
+
+    public static void throwException(String time, Throwable cause) {
+        throw new TooEarlyException(createMessage(time), cause);
     }
 
 

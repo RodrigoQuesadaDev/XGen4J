@@ -17,19 +17,25 @@ public abstract class BadSmellError extends RoomError {
     private static String MESSAGE_FORMAT = "The %s smells bad, really bad.";
 
     private static String createMessage(String roomName) {
+        if(roomName == null) throw new NullPointerException("roomName");
+
         return String.format(MESSAGE_FORMAT, roomName);
     }
 
     public static void throwException(String roomName) {
-        if(roomName == null) throw new NullPointerException("roomName");
-
         throw new BadSmellException(createMessage(roomName));
     }
 
-    public static void throwException(ExceptionType exceptionType, String roomName) {
-        if(roomName == null) throw new NullPointerException("roomName");
+    public static void throwException(String roomName, Throwable cause) {
+        throw new BadSmellException(createMessage(roomName), cause);
+    }
 
+    public static void throwException(ExceptionType exceptionType, String roomName) {
         throwExceptionForCommonError(exceptionType, createMessage(roomName));
+    }
+
+    public static void throwException(ExceptionType exceptionType, String roomName, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(roomName), cause);
     }
 
 }

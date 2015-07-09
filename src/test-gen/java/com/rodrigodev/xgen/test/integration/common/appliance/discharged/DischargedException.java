@@ -12,4 +12,8 @@ public class DischargedException extends ApplianceException {
     protected DischargedException(String message) {
         super(message);
     }
+
+    protected DischargedException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

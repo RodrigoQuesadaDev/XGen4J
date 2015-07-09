@@ -32,42 +32,52 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     private static String MESSAGE_FORMAT = "${description.format}";
 
     private static String createMessage(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
+        <#list description.params as param>
+        if(${param.name} == null) throw new NullPointerException("${param.name}");
+        </#list>
+
         return String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>);
     }
 
     public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
-        <#list description.params as param>
-        if(${param.name} == null) throw new NullPointerException("${param.name}");
-        </#list>
-
         throw new ${exceptionName}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
+    }
+
+    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}, </#list>Throwable cause) {
+        throw new ${exceptionName}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
     }
 
     <#if common>
     public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) {
-        <#list description.params as param>
-        if(${param.name} == null) throw new NullPointerException("${param.name}");
-        </#list>
-
         throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
+    }
+
+    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
     }
     </#if>
     <#else>
     private static String createMessage(${description.generator.type.name} ${description.generator.name}) {
+        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
+
         return ${description.generator.name}.message();
     }
 
     public static void throwException(${description.generator.type.name} ${description.generator.name}) {
-        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
-
         throw new ${exceptionName}(createMessage(${description.generator.name}));
+    }
+
+    public static void throwException(${description.generator.type.name} ${description.generator.name}, Throwable cause) {
+        throw new ${exceptionName}(createMessage(${description.generator.name}), cause);
     }
 
     <#if common>
     public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) {
-        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
-
         throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}));
+    }
+
+    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}), cause);
     }
     </#if>
     </#if>
@@ -78,6 +88,12 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
         throw exceptionType.createException(message);
+    }
+
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) {
+        if(exceptionType == null) throw new NullPointerException("exceptionType");
+
+        throw exceptionType.createException(message, cause);
     }
 </#if>
 }

@@ -16,13 +16,17 @@ public abstract class BedError extends BedroomError {
     private static String MESSAGE_FORMAT = "This bed is freaking bad. Model: %s";
 
     private static String createMessage(String model) {
+        if(model == null) throw new NullPointerException("model");
+
         return String.format(MESSAGE_FORMAT, model);
     }
 
     public static void throwException(String model) {
-        if(model == null) throw new NullPointerException("model");
-
         throw new BedException(createMessage(model));
+    }
+
+    public static void throwException(String model, Throwable cause) {
+        throw new BedException(createMessage(model), cause);
     }
 
 

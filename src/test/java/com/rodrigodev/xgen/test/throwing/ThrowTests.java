@@ -5,15 +5,23 @@ import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Exception;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error;
+import com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Exception;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error;
+import com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Exception;
 import com.rodrigodev.xgen.test.throwing.e1.E1Exception;
 import com.rodrigodev.xgen.test.throwing.e1.e2.E2Exception;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3.E3Error;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3.E3Exception;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_1.E3_1Error;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_1.E3_1Exception;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Exception;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error;
+import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Exception;
 import lombok.Value;
 import lombok.experimental.NonFinal;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
 import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
@@ -62,7 +70,9 @@ public class ThrowTests {
                 ),
                 error("E1").errors(
                         error("E2").errors(
-                                error("E3").description("Message for E3 error.")
+                                error("E3_1").description("Message for E3_1 error."),
+                                error("E3_2").description("{param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                error("E3_3").description(TestMessageGeneratorObject.class, "generator")
                         )
                 )
         ).basePackage("com.rodrigodev.xgen.test.throwing").build());
@@ -70,53 +80,90 @@ public class ThrowTests {
     }
 
     @Test
-    public void errorsAreAbleToThrowCorrespondingExceptionsWithCorrectMessage() {
+    public void errorsAreAbleToThrowCorrespondingExceptions() {
 
-        assertThatThrownBy(() -> C3_1Error.throwException())
-                .isInstanceOf(C3_1Exception.class).hasMessage("Message for C3_1 error.");
+        // @formatter:off
+        assertThatThrownBy(C3_1Error::throwException)
+                .isInstanceOf(C3_1Exception.class);
+        assertThatThrownBy(() -> C3_1Error.throwException(new NullPointerException()))
+                .isInstanceOf(C3_1Exception.class);
 
-        assertThatThrownBy(() -> E3Error.throwException())
-                .isInstanceOf(E3Exception.class).hasMessage("Message for E3 error.");
+        assertThatThrownBy(() -> C3_2Error.throwException("ABCDE", 1, new TestObject()))
+                .isInstanceOf(C3_2Exception.class);
+        assertThatThrownBy(() -> C3_2Error.throwException("ABCDE", 1, new TestObject(), new NullPointerException()))
+                .isInstanceOf(C3_2Exception.class);
+
+        assertThatThrownBy(() -> C3_3Error.throwException(new TestMessageGeneratorObject("ABCDE", 1)))
+                .isInstanceOf(C3_3Exception.class);
+        assertThatThrownBy(() -> C3_3Error.throwException(new TestMessageGeneratorObject("ABCDE", 1), new NullPointerException()))
+                .isInstanceOf(C3_3Exception.class);
+
+        assertThatThrownBy(E3_1Error::throwException)
+                .isInstanceOf(E3_1Exception.class);
+        assertThatThrownBy(E3_1Error::throwException)
+                .isInstanceOf(E3_1Exception.class);
+
+        assertThatThrownBy(() -> E3_2Error.throwException("ABCDE", 1, new TestObject()))
+                .isInstanceOf(E3_2Exception.class);
+        assertThatThrownBy(() -> E3_2Error.throwException("ABCDE", 1, new TestObject(), new NullPointerException()))
+                .isInstanceOf(E3_2Exception.class);
+
+        assertThatThrownBy(() -> E3_3Error.throwException(new TestMessageGeneratorObject("ABCDE", 1)))
+                .isInstanceOf(E3_3Exception.class);
+        assertThatThrownBy(() -> E3_3Error.throwException(new TestMessageGeneratorObject("ABCDE", 1), new NullPointerException()))
+                .isInstanceOf(E3_3Exception.class);
+        // @formatter:on
     }
 
-    private void assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage(
+    private void assert_commonErrorsCanThrowOtherExceptionTypes(
             ThrowingCallable throwExceptionMethodCall,
-            Class<? extends RootException> expectedExceptionClass,
-            String expectedMessage
+            Class<? extends RootException> expectedExceptionClass
     ) {
         assertThatThrownBy(throwExceptionMethodCall)
-                .isInstanceOf(expectedExceptionClass)
-                .hasMessage(expectedMessage);
+                .isInstanceOf(expectedExceptionClass);
     }
 
-    private void assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage1(
+    private void assert_commonErrorsCanThrowOtherExceptionTypes1(
             ExceptionType exceptionType, Class<? extends RootException> expectedExceptionClass
     ) {
-        assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage(
-                () -> C3_1Error.throwException(exceptionType), expectedExceptionClass, "Message for C3_1 error."
+        assert_commonErrorsCanThrowOtherExceptionTypes(
+                () -> C3_1Error.throwException(exceptionType), expectedExceptionClass
+        );
+        assert_commonErrorsCanThrowOtherExceptionTypes(
+                () -> C3_1Error.throwException(exceptionType, new NullPointerException()), expectedExceptionClass
         );
     }
 
-    private void assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage2(
+    private void assert_commonErrorsCanThrowOtherExceptionTypes2(
             ExceptionType exceptionType, Class<? extends RootException> expectedExceptionClass
     ) {
-        assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage(
-                () -> C3_2Error.throwException(exceptionType, "ABCDE", 123, new TestObject()),
-                expectedExceptionClass,
-                "{param1: 'ABCDE', param2: 123, param3: 'A test object.'}"
+        assert_commonErrorsCanThrowOtherExceptionTypes(
+                () -> C3_2Error.throwException(exceptionType, "ABCDE", 1, new TestObject()),
+                expectedExceptionClass
+        );
+        assert_commonErrorsCanThrowOtherExceptionTypes(
+                () -> C3_2Error.throwException(exceptionType, "ABCDE", 1, new TestObject(), new NullPointerException()),
+                expectedExceptionClass
         );
     }
 
-    private void assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage3(
+    private void assert_commonErrorsCanThrowOtherExceptionTypes3(
             ExceptionType exceptionType, Class<? extends RootException> expectedExceptionClass
     ) {
-        assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage(
+        assert_commonErrorsCanThrowOtherExceptionTypes(
                 () -> C3_3Error.throwException(
                         exceptionType,
-                        new TestMessageGeneratorObject("Some text goes here.", 123)
+                        new TestMessageGeneratorObject("ABCDE", 1)
                 ),
-                expectedExceptionClass,
-                "Custom Message: {value1: 'Some text goes here.', value2: 123}"
+                expectedExceptionClass
+        );
+        assert_commonErrorsCanThrowOtherExceptionTypes(
+                () -> C3_3Error.throwException(
+                        exceptionType,
+                        new TestMessageGeneratorObject("ABCDE", 1),
+                        new NullPointerException()
+                ),
+                expectedExceptionClass
         );
     }
 
@@ -130,14 +177,16 @@ public class ThrowTests {
         Argument[] arguments = {
                 new Argument(E1Exception.TYPE, E1Exception.class),
                 new Argument(E2Exception.TYPE, E2Exception.class),
-                new Argument(E3Exception.TYPE, E3Exception.class)
+                new Argument(E3_1Exception.TYPE, E3_1Exception.class),
+                new Argument(E3_2Exception.TYPE, E3_2Exception.class),
+                new Argument(E3_3Exception.TYPE, E3_3Exception.class)
         };
 
         for (Argument argument : arguments) {
             // @formatter:off
-            assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage1(argument.exceptionType, argument.expectedExceptionClass);
-            assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage2(argument.exceptionType, argument.expectedExceptionClass);
-            assert_commonErrorsCanThrowOtherExceptionsUsingOwnMessage3(argument.exceptionType, argument.expectedExceptionClass);
+            assert_commonErrorsCanThrowOtherExceptionTypes1(argument.exceptionType, argument.expectedExceptionClass);
+            assert_commonErrorsCanThrowOtherExceptionTypes2(argument.exceptionType, argument.expectedExceptionClass);
+            assert_commonErrorsCanThrowOtherExceptionTypes3(argument.exceptionType, argument.expectedExceptionClass);
             // @formatter:on
         }
     }
@@ -150,10 +199,47 @@ public class ThrowTests {
 
     @Test
     public void generatedThrowExceptionMethodChecksParamsAreNoNull() {
+
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error
+                        .throwException((ExceptionType) null)
+                , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error
+                        .throwException(null, new NullPointerException())
+                , "exceptionType"
+        );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
                 () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(null, "abc", 1, new TestObject())
                 , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(null, "abc", 1, new TestObject(), new NullPointerException())
+                , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                        .throwException(null, new TestMessageGeneratorObject("abc", 1))
+                , "exceptionType"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                        .throwException(null, new TestMessageGeneratorObject("abc", 1), new NullPointerException())
+                , "exceptionType"
+        );
+
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                        .throwException(null, 1, new TestObject())
+                , "param1"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                        .throwException(null, 1, new TestObject(), new NullPointerException())
+                , "param1"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
                 () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
@@ -162,24 +248,69 @@ public class ThrowTests {
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
                 () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
-                        .throwException(E1Exception.TYPE, "abc", null, new TestObject())
-                , "param2"
+                        .throwException(E1Exception.TYPE, null, 1, new TestObject(), new NullPointerException())
+                , "param1"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                        .throwException("abc", 1, null)
+                , "param3"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                        .throwException("abc", 1, null, new NullPointerException())
+                , "param3"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
                 () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(E1Exception.TYPE, "abc", 1, null)
                 , "param3"
         );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                        .throwException(E1Exception.TYPE, "abc", 1, null, new NullPointerException())
+                , "param3"
+        );
 
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
-                        .throwException(null, new TestMessageGeneratorObject("abc", 1))
-                , "exceptionType"
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error
+                        .throwException(null)
+                , "generator"
+        );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error
+                        .throwException(null, new NullPointerException())
+                , "generator"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
                 () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
                         .throwException(E1Exception.TYPE, null)
                 , "generator"
         );
+        assert_generatedThrowExceptionMethodChecksParamIsNoNull(
+                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                        .throwException(E1Exception.TYPE, null, new NullPointerException())
+                , "generator"
+        );
+    }
+
+    @Test
+    public void errorsAreAbleToThrowExceptionsSpecifyingACause() {
+        Throwable expectedCause = new IOException("A message goes here.");
+
+        // @formatter:off
+        assertThatThrownBy(() -> E3_1Error.throwException(expectedCause))
+                .hasCause(expectedCause);
+        assertThatThrownBy(() -> C3_1Error.throwException(E1Exception.TYPE, expectedCause))
+                .hasCause(expectedCause);
+        assertThatThrownBy(() -> E3_2Error.throwException("abc", 1, new TestObject(), expectedCause))
+                .hasCause(expectedCause);
+        assertThatThrownBy(() -> C3_2Error.throwException(E1Exception.TYPE, "abc", 1, new TestObject(), expectedCause))
+                .hasCause(expectedCause);
+        assertThatThrownBy(() -> E3_3Error.throwException(new TestMessageGeneratorObject("abc", 1), expectedCause))
+                .hasCause(expectedCause);
+        assertThatThrownBy(() -> C3_3Error.throwException(E1Exception.TYPE, new TestMessageGeneratorObject("abc", 1), expectedCause))
+                .hasCause(expectedCause);
+        // @formatter:on
     }
 }

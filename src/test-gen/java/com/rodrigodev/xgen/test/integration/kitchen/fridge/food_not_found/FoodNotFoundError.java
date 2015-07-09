@@ -16,13 +16,17 @@ public abstract class FoodNotFoundError extends FridgeError {
     private static String MESSAGE_FORMAT = "Food %s not found! I'm starving.";
 
     private static String createMessage(String foodName) {
+        if(foodName == null) throw new NullPointerException("foodName");
+
         return String.format(MESSAGE_FORMAT, foodName);
     }
 
     public static void throwException(String foodName) {
-        if(foodName == null) throw new NullPointerException("foodName");
-
         throw new FoodNotFoundException(createMessage(foodName));
+    }
+
+    public static void throwException(String foodName, Throwable cause) {
+        throw new FoodNotFoundException(createMessage(foodName), cause);
     }
 
 

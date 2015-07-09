@@ -16,13 +16,17 @@ public abstract class BedroomError extends HouseError {
     private static String MESSAGE_FORMAT = "%s's bedroom is not a good place to sleep.";
 
     private static String createMessage(String personName) {
+        if(personName == null) throw new NullPointerException("personName");
+
         return String.format(MESSAGE_FORMAT, personName);
     }
 
     public static void throwException(String personName) {
-        if(personName == null) throw new NullPointerException("personName");
-
         throw new BedroomException(createMessage(personName));
+    }
+
+    public static void throwException(String personName, Throwable cause) {
+        throw new BedroomException(createMessage(personName), cause);
     }
 
 

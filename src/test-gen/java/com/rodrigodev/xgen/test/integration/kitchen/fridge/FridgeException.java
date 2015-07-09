@@ -16,9 +16,18 @@ public class FridgeException extends KitchenException {
         protected HouseException createException(String message) {
             return new FridgeException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new FridgeException(message, cause);
+        }
     }
 
     protected FridgeException(String message) {
         super(message);
+    }
+
+    protected FridgeException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

@@ -12,4 +12,8 @@ public class ScratchesException extends ApplianceException {
     protected ScratchesException(String message) {
         super(message);
     }
+
+    protected ScratchesException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

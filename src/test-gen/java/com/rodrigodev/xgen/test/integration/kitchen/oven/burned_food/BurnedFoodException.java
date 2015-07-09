@@ -16,9 +16,18 @@ public class BurnedFoodException extends OvenException {
         protected HouseException createException(String message) {
             return new BurnedFoodException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new BurnedFoodException(message, cause);
+        }
     }
 
     protected BurnedFoodException(String message) {
         super(message);
+    }
+
+    protected BurnedFoodException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

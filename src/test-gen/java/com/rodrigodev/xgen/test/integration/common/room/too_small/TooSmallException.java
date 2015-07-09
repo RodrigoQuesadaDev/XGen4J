@@ -12,4 +12,8 @@ public class TooSmallException extends RoomException {
     protected TooSmallException(String message) {
         super(message);
     }
+
+    protected TooSmallException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

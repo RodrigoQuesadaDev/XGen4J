@@ -16,13 +16,17 @@ public abstract class DidNotSoundError extends AlarmClockError {
     private static String MESSAGE_FORMAT = "Oh shooooot!!! Now WTF am I supposed to do? %s is going to fire me!";
 
     private static String createMessage(String bossName) {
+        if(bossName == null) throw new NullPointerException("bossName");
+
         return String.format(MESSAGE_FORMAT, bossName);
     }
 
     public static void throwException(String bossName) {
-        if(bossName == null) throw new NullPointerException("bossName");
-
         throw new DidNotSoundException(createMessage(bossName));
+    }
+
+    public static void throwException(String bossName, Throwable cause) {
+        throw new DidNotSoundException(createMessage(bossName), cause);
     }
 
 

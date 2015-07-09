@@ -16,13 +16,17 @@ public abstract class ShutUpError extends AlarmClockError {
     private static String MESSAGE_FORMAT = "Shut up!, I just want to defeat the boss and get %s's legendary sword.";
 
     private static String createMessage(String legendaryHero) {
+        if(legendaryHero == null) throw new NullPointerException("legendaryHero");
+
         return String.format(MESSAGE_FORMAT, legendaryHero);
     }
 
     public static void throwException(String legendaryHero) {
-        if(legendaryHero == null) throw new NullPointerException("legendaryHero");
-
         throw new ShutUpException(createMessage(legendaryHero));
+    }
+
+    public static void throwException(String legendaryHero, Throwable cause) {
+        throw new ShutUpException(createMessage(legendaryHero), cause);
     }
 
 

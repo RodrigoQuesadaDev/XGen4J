@@ -12,4 +12,8 @@ public class C3_2Exception extends C2Exception {
     protected C3_2Exception(String message) {
         super(message);
     }
+
+    protected C3_2Exception(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

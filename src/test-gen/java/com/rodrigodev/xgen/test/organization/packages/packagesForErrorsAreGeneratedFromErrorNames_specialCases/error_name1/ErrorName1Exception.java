@@ -16,9 +16,18 @@ public class ErrorName1Exception extends RootNameException {
         protected RootNameException createException(String message) {
             return new ErrorName1Exception(message);
         }
+
+        @Override
+        protected RootNameException createException(String message, Throwable cause) {
+            return new ErrorName1Exception(message, cause);
+        }
     }
 
     protected ErrorName1Exception(String message) {
         super(message);
+    }
+
+    protected ErrorName1Exception(String message, Throwable cause) {
+        super(message, cause);
     }
 }

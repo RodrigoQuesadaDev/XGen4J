@@ -16,9 +16,18 @@ public class BedIsWarmException extends BedException {
         protected HouseException createException(String message) {
             return new BedIsWarmException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new BedIsWarmException(message, cause);
+        }
     }
 
     protected BedIsWarmException(String message) {
         super(message);
+    }
+
+    protected BedIsWarmException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

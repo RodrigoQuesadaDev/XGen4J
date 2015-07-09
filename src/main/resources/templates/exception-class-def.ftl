@@ -18,6 +18,11 @@ public class ${name} extends <#if parent??>${parent.name}<#else>RuntimeException
         protected ${root.name} createException(String message) {
             return new ${name}(message);
         }
+
+        @Override
+        protected ${root.name} createException(String message, Throwable cause) {
+            return new ${name}(message, cause);
+        }
     }
     </#if>
     <#else>
@@ -27,10 +32,16 @@ public class ${name} extends <#if parent??>${parent.name}<#else>RuntimeException
         }
 
         protected abstract ${name} createException(String message);
+
+        protected abstract ${name} createException(String message, Throwable cause);
     }
     </#if>
 
     protected ${name}(String message) {
         super(message);
+    }
+
+    protected ${name}(String message, Throwable cause) {
+        super(message, cause);
     }
 }

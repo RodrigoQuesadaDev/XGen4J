@@ -17,19 +17,25 @@ public abstract class DamagedError extends ApplianceError {
     private static String MESSAGE_FORMAT = "The %s has been damaged.";
 
     private static String createMessage(String applianceName) {
+        if(applianceName == null) throw new NullPointerException("applianceName");
+
         return String.format(MESSAGE_FORMAT, applianceName);
     }
 
     public static void throwException(String applianceName) {
-        if(applianceName == null) throw new NullPointerException("applianceName");
-
         throw new DamagedException(createMessage(applianceName));
     }
 
-    public static void throwException(ExceptionType exceptionType, String applianceName) {
-        if(applianceName == null) throw new NullPointerException("applianceName");
+    public static void throwException(String applianceName, Throwable cause) {
+        throw new DamagedException(createMessage(applianceName), cause);
+    }
 
+    public static void throwException(ExceptionType exceptionType, String applianceName) {
         throwExceptionForCommonError(exceptionType, createMessage(applianceName));
+    }
+
+    public static void throwException(ExceptionType exceptionType, String applianceName, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(applianceName), cause);
     }
 
 }

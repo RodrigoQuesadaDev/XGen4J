@@ -16,9 +16,18 @@ public class TooMuchSmokeException extends OvenException {
         protected HouseException createException(String message) {
             return new TooMuchSmokeException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new TooMuchSmokeException(message, cause);
+        }
     }
 
     protected TooMuchSmokeException(String message) {
         super(message);
+    }
+
+    protected TooMuchSmokeException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

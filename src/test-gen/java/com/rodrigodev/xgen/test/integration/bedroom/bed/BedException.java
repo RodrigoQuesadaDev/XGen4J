@@ -16,9 +16,18 @@ public class BedException extends BedroomException {
         protected HouseException createException(String message) {
             return new BedException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new BedException(message, cause);
+        }
     }
 
     protected BedException(String message) {
         super(message);
+    }
+
+    protected BedException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

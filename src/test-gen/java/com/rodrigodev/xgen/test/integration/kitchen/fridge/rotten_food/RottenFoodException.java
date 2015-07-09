@@ -16,9 +16,18 @@ public class RottenFoodException extends FridgeException {
         protected HouseException createException(String message) {
             return new RottenFoodException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new RottenFoodException(message, cause);
+        }
     }
 
     protected RottenFoodException(String message) {
         super(message);
+    }
+
+    protected RottenFoodException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

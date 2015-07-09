@@ -12,4 +12,8 @@ public class DamagedException extends ApplianceException {
     protected DamagedException(String message) {
         super(message);
     }
+
+    protected DamagedException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

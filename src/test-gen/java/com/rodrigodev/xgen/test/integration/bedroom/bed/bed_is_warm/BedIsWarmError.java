@@ -16,13 +16,17 @@ public abstract class BedIsWarmError extends BedError {
     private static String MESSAGE_FORMAT = "Bed #%d is too damn warm!";
 
     private static String createMessage(Integer bedNumber) {
+        if(bedNumber == null) throw new NullPointerException("bedNumber");
+
         return String.format(MESSAGE_FORMAT, bedNumber);
     }
 
     public static void throwException(Integer bedNumber) {
-        if(bedNumber == null) throw new NullPointerException("bedNumber");
-
         throw new BedIsWarmException(createMessage(bedNumber));
+    }
+
+    public static void throwException(Integer bedNumber, Throwable cause) {
+        throw new BedIsWarmException(createMessage(bedNumber), cause);
     }
 
 

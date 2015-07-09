@@ -16,13 +16,17 @@ public abstract class RottenFoodError extends FridgeError {
     private static String MESSAGE_FORMAT = "The %s is rotten my friend.";
 
     private static String createMessage(String foodName) {
+        if(foodName == null) throw new NullPointerException("foodName");
+
         return String.format(MESSAGE_FORMAT, foodName);
     }
 
     public static void throwException(String foodName) {
-        if(foodName == null) throw new NullPointerException("foodName");
-
         throw new RottenFoodException(createMessage(foodName));
+    }
+
+    public static void throwException(String foodName, Throwable cause) {
+        throw new RottenFoodException(createMessage(foodName), cause);
     }
 
 

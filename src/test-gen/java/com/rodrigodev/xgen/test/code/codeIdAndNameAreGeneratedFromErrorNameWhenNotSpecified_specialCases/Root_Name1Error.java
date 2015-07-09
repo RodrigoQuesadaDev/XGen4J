@@ -18,4 +18,10 @@ public abstract class Root_Name1Error {
 
         throw exceptionType.createException(message);
     }
+
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) {
+        if(exceptionType == null) throw new NullPointerException("exceptionType");
+
+        throw exceptionType.createException(message, cause);
+    }
 }

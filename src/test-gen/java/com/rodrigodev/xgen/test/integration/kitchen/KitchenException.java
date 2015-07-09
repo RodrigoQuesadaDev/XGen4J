@@ -16,9 +16,18 @@ public class KitchenException extends HouseException {
         protected HouseException createException(String message) {
             return new KitchenException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new KitchenException(message, cause);
+        }
     }
 
     protected KitchenException(String message) {
         super(message);
+    }
+
+    protected KitchenException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

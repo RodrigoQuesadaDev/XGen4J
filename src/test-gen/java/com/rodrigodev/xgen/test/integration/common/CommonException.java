@@ -12,4 +12,8 @@ public class CommonException extends HouseException {
     protected CommonException(String message) {
         super(message);
     }
+
+    protected CommonException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

@@ -16,9 +16,18 @@ public class PillowNotFoundException extends BedException {
         protected HouseException createException(String message) {
             return new PillowNotFoundException(message);
         }
+
+        @Override
+        protected HouseException createException(String message, Throwable cause) {
+            return new PillowNotFoundException(message, cause);
+        }
     }
 
     protected PillowNotFoundException(String message) {
         super(message);
+    }
+
+    protected PillowNotFoundException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

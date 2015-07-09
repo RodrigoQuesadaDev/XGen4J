@@ -17,19 +17,25 @@ public abstract class TooSmallError extends RoomError {
     private static String MESSAGE_FORMAT = "%s is too damn small!";
 
     private static String createMessage(String roomName) {
+        if(roomName == null) throw new NullPointerException("roomName");
+
         return String.format(MESSAGE_FORMAT, roomName);
     }
 
     public static void throwException(String roomName) {
-        if(roomName == null) throw new NullPointerException("roomName");
-
         throw new TooSmallException(createMessage(roomName));
     }
 
-    public static void throwException(ExceptionType exceptionType, String roomName) {
-        if(roomName == null) throw new NullPointerException("roomName");
+    public static void throwException(String roomName, Throwable cause) {
+        throw new TooSmallException(createMessage(roomName), cause);
+    }
 
+    public static void throwException(ExceptionType exceptionType, String roomName) {
         throwExceptionForCommonError(exceptionType, createMessage(roomName));
+    }
+
+    public static void throwException(ExceptionType exceptionType, String roomName, Throwable cause) {
+        throwExceptionForCommonError(exceptionType, createMessage(roomName), cause);
     }
 
 }

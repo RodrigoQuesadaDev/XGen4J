@@ -16,13 +16,17 @@ public abstract class BurnedFoodError extends OvenError {
     private static String MESSAGE_FORMAT = "Damn, the %s just burned! We better order some pizza.";
 
     private static String createMessage(String model) {
+        if(model == null) throw new NullPointerException("model");
+
         return String.format(MESSAGE_FORMAT, model);
     }
 
     public static void throwException(String model) {
-        if(model == null) throw new NullPointerException("model");
-
         throw new BurnedFoodException(createMessage(model));
+    }
+
+    public static void throwException(String model, Throwable cause) {
+        throw new BurnedFoodException(createMessage(model), cause);
     }
 
 

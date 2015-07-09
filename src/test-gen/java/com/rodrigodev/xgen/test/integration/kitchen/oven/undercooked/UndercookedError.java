@@ -16,13 +16,17 @@ public abstract class UndercookedError extends OvenError {
     private static String MESSAGE_FORMAT = "The %s is undercooked my friend, I won't eat that.";
 
     private static String createMessage(String model) {
+        if(model == null) throw new NullPointerException("model");
+
         return String.format(MESSAGE_FORMAT, model);
     }
 
     public static void throwException(String model) {
-        if(model == null) throw new NullPointerException("model");
-
         throw new UndercookedException(createMessage(model));
+    }
+
+    public static void throwException(String model, Throwable cause) {
+        throw new UndercookedException(createMessage(model), cause);
     }
 
 
