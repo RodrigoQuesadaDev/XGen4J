@@ -29,6 +29,8 @@ public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionCla
         ExceptionClassTemplateModelBuilder modelBuilder = ExceptionClassTemplateModel.builder();
         rootClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
         modelBuilder.common(classFile.classDefinition().errorDefinition().isCommon());
+        modelBuilder.hasType(classFile.classDefinition().hasType());
+        //TODO maybe errorDefinition on classDefinition should be hided? (expose what you need only?)
         return modelBuilder;
     }
 }

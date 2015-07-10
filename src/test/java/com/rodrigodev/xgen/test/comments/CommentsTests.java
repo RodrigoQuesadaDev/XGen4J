@@ -80,4 +80,6 @@ public class CommentsTests {
             assertThat(output).contains("November 13, 1234");
         }
     }
+
+    //TODO add the rest of classes? (such as Information class)
 }

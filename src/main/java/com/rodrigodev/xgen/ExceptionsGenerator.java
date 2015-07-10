@@ -1,16 +1,21 @@
 package com.rodrigodev.xgen;
 
+import com.google.common.collect.ImmutableList;
+import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.ErrorWriter;
 import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
+import com.rodrigodev.xgen.model.information.InformationClassesWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static com.google.common.base.Preconditions.*;
@@ -25,6 +30,7 @@ public class ExceptionsGenerator {
         @Inject ErrorCodeWriter errorCodeWriter;
         @Inject ErrorWriter errorWriter;
         @Inject ExceptionWriter exceptionWriter;
+        @Inject InformationClassesWriter informationClassesWriter;
 
         @Inject
         public InjectedFields() {
@@ -34,12 +40,23 @@ public class ExceptionsGenerator {
     @Inject InjectedFields inj;
     private final String sourceDirPath;
 
+    private Optional<ErrorClassFile> rootErrorClassFile;
+    private Optional<ExceptionClassFile> rootExceptionClassFile;
+    private List<ErrorExceptionClassDefinitionPair> errorExceptionPairs;
+
     ExceptionsGenerator(
             InjectedFields injectedFields,
             String sourceDirPath
     ) {
         this.inj = injectedFields;
         this.sourceDirPath = sourceDirPath;
+        init();
+    }
+
+    private void init() {
+        rootErrorClassFile = Optional.empty();
+        rootExceptionClassFile = Optional.empty();
+        errorExceptionPairs = new ArrayList<>();
     }
 
     public ExceptionsGenerator(@NonNull String sourceDirPath) {
@@ -52,8 +69,10 @@ public class ExceptionsGenerator {
     }
 
     public void generate(@NonNull ErrorDefinition rootError) {
+        init();
         generateBaseClasses(rootError);
-        generateErrors(Optional.empty(), Optional.empty(), rootError, Optional.empty(), Optional.empty());
+        generateErrors(rootError, Optional.empty(), Optional.empty());
+        generateInformationClasses();
     }
 
     private void generateBaseClasses(ErrorDefinition rootError) {
@@ -65,8 +84,6 @@ public class ExceptionsGenerator {
     }
 
     private void generateErrors(
-            Optional<ErrorClassFile> rootErrorClassFile,
-            Optional<ExceptionClassFile> rootExceptionClassFile,
             ErrorDefinition error,
             Optional<ErrorClassFile> parentErrorClassFile,
             Optional<ExceptionClassFile> parentExceptionClassFile
@@ -88,15 +105,32 @@ public class ExceptionsGenerator {
             rootExceptionClassFile = Optional.of(exceptionClassFile);
         }
 
+        errorExceptionPairs.add(new ErrorExceptionClassDefinitionPair(
+                errorClassFile.classDefinition(), exceptionClassFile.classDefinition()
+        ));
+
         ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {
             generateErrors(
-                    rootErrorClassFile,
-                    rootExceptionClassFile,
                     subError,
                     Optional.of(errorClassFile),
                     Optional.of(exceptionClassFile)
             );
         }
+    }
+
+    private void generateInformationClasses() {
+        checkState(
+                rootErrorClassFile.isPresent() && rootExceptionClassFile.isPresent(),
+                "rootErrorClassFile or rootExceptionClassFile fields must be present"
+        );
+        checkState(!errorExceptionPairs.isEmpty(), "errorExceptionPairs is empty");
+
+        inj.informationClassesWriter.write(
+                sourceDirPath,
+                rootErrorClassFile.get(),
+                rootExceptionClassFile.get(),
+                ImmutableList.copyOf(errorExceptionPairs)
+        );
     }
 }

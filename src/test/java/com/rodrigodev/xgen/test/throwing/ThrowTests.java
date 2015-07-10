@@ -1,6 +1,8 @@
 package com.rodrigodev.xgen.test.throwing;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
+import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error;
 import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Exception;
@@ -17,7 +19,6 @@ import com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Exception;
 import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error;
 import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Exception;
 import lombok.Value;
-import lombok.experimental.NonFinal;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
@@ -34,25 +35,6 @@ public class ThrowTests {
 
     public ThrowTests() {
         generateErrorsForThrowTests();
-    }
-
-    public static class TestObject {
-        @Override
-        public String toString() {
-            return "A test object.";
-        }
-    }
-
-    @Value
-    @NonFinal
-    public static class TestMessageGeneratorObject {
-
-        private String value1;
-        private int value2;
-
-        public String message() {
-            return String.format("Custom Message: {value1: '%s', value2: %d}", value1, value2);
-        }
     }
 
     private void generateErrorsForThrowTests() {

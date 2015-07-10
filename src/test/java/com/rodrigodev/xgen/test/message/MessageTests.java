@@ -2,12 +2,12 @@ package com.rodrigodev.xgen.test.message;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
+import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception;
 import lombok.Value;
-import lombok.experimental.NonFinal;
-import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
 import java.util.function.Supplier;
@@ -60,13 +60,6 @@ public class MessageTests {
                 .hasMessage("Some description.");
     }
 
-    public static class TestObject {
-        @Override
-        public String toString() {
-            return "A test object.";
-        }
-    }
-
     @Test
     public void descriptionWithMultipleParametersIsAllowed() {
         ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
@@ -101,18 +94,6 @@ public class MessageTests {
                 () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
                         .throwException("Abcde", 123.456, new TestObject(), new NullPointerException())
         ).hasMessage(expectedMessage);
-    }
-
-    @Value
-    @NonFinal
-    public static class TestMessageGeneratorObject {
-
-        private String value1;
-        private int value2;
-
-        public String message() {
-            return String.format("Custom Message: {value1: '%s', value2: %d}", value1, value2);
-        }
     }
 
     @Test

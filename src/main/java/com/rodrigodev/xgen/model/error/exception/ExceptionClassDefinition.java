@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.model.error.exception;
 
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.ClassDefinitionForError;
+import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import lombok.NonNull;
 import lombok.experimental.Accessors;
 
@@ -15,5 +15,9 @@ public class ExceptionClassDefinition extends ClassDefinitionForError {
 
     public ExceptionClassDefinition(@NonNull ErrorDefinition errorDefinition) {
         super(errorDefinition, NAME_SUFFIX);
+    }
+
+    public boolean hasType() {
+        return !errorDefinition().isRoot() && !errorDefinition().isCommon();
     }
 }

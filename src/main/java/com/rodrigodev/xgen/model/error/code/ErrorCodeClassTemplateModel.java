@@ -13,8 +13,8 @@ public class ErrorCodeClassTemplateModel extends ClassTemplateModel {
 
     private boolean hasNumber;
 
-    private ErrorCodeClassTemplateModel(ClassTemplateModel model, boolean hasNumber) {
-        super(model);
+    private ErrorCodeClassTemplateModel(ClassTemplateModel another, boolean hasNumber) {
+        super(another);
         this.hasNumber = hasNumber;
     }
 

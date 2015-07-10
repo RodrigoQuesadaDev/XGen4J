@@ -32,6 +32,7 @@ public class ErrorDefinition {
     @NonNull private ErrorDefinition[] errors;
     @NonNull private String packagePath;
     private boolean isCommon;
+    @NonNull private boolean isRoot;
 
     private ErrorDefinition(
             @NonNull String name,
@@ -40,7 +41,8 @@ public class ErrorDefinition {
             @NonNull Optional<CustomMessageGeneratorDefinition> customMessageGenerator,
             @NonNull ErrorDefinition[] errors,
             @NonNull String packagePath,
-            boolean isCommon
+            boolean isCommon,
+            boolean isRoot
     ) {
         checkArgument(
                 !description.isPresent() || description.isPresent() ^ customMessageGenerator.isPresent(),
@@ -54,6 +56,7 @@ public class ErrorDefinition {
         this.errors = errors;
         this.packagePath = packagePath;
         this.isCommon = isCommon;
+        this.isRoot = isRoot;
     }
 
     public static ErrorDefinitionBuilder builder() {
@@ -168,7 +171,8 @@ public class ErrorDefinition {
                     customMessageGenerator,
                     errors,
                     packagePath,
-                    isCommon
+                    isCommon,
+                    !parent.isPresent()
             );
         }
 
