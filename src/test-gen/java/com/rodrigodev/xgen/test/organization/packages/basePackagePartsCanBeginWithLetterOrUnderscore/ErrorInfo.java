@@ -66,6 +66,11 @@ public class ErrorInfo {
         return isCommon;
     }
 
+    @Override
+    final public boolean equals(Object o){
+        return o instanceof ErrorInfo && ((ErrorInfo)o).code.equals(code);
+    }
+
     public static abstract class ErrorDescription {
 
         private boolean usesCustomMessageGenerator;

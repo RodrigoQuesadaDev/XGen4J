@@ -199,6 +199,36 @@ public class InfoGenerationTests {
                 .doesNotHaveDuplicates();
     }
 
+    @Test
+    public void errorInfoEqualityIsBasedOnCode() {
+        ErrorInfo errorInfo = new ErrorInfo(
+                C1Error.class,
+                new ExceptionInfo(C1Exception.class),
+                C1Error.CODE,
+                new PlainTextErrorDescription("Message for C1 error."),
+                true
+        );
+
+        assertThat(errorInfo).isNotEqualTo(
+                new ErrorInfo(
+                        C1Error.class,
+                        new ExceptionInfo(C1Exception.class),
+                        EA1Error.CODE,
+                        new PlainTextErrorDescription("Message for C1 error."),
+                        true
+                )
+        );
+        assertThat(errorInfo).isEqualTo(
+                new ErrorInfo(
+                        EA1Error.class,
+                        new ExceptionInfo(EA1Exception.class),
+                        C1Error.CODE,
+                        new PlainTextErrorDescription("Message for EA1 error."),
+                        false
+                )
+        );
+    }
+
     public static class ErrorInfoTestComparator implements Comparator<ErrorInfo> {
 
         @Override
@@ -258,8 +288,6 @@ public class InfoGenerationTests {
             return String.format("Custom Message3: {value1: '%s', value2: %d}", value1, value2);
         }
     }
-
-    //TODO tests for equals of ErrorInfo AND ErrorCode
 
     //TODO Optional class is for Java 1.8
 }

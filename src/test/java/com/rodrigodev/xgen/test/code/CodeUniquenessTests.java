@@ -1,8 +1,17 @@
 package com.rodrigodev.xgen.test.code;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCodeATestFactory;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorCodeBTestFactory;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error;
+import dagger.Component;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
+
+import javax.inject.Inject;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
 import static org.assertj.core.api.Assertions.*;
@@ -11,6 +20,19 @@ import static org.assertj.core.api.Assertions.*;
  * Created by Rodrigo Quesada on 07/07/15.
  */
 public class CodeUniquenessTests {
+
+    @Inject ErrorCodeATestFactory errorCodeATestFactory;
+    @Inject ErrorCodeBTestFactory errorCodeBTestFactory;
+
+    @Component
+    public interface TestComponent {
+
+        void inject(CodeUniquenessTests testClass);
+    }
+
+    public CodeUniquenessTests() {
+        DaggerCodeUniquenessTests_TestComponent.create().inject(this);
+    }
 
     private void assert_codeNumberMustBeUniqueAmongSiblingErrors(
             ThrowingCallable methodCall, int codeNumber, String codeName
@@ -324,5 +346,36 @@ public class CodeUniquenessTests {
                         // @formatter:on
                 , "e-3-1-name"
         );
+    }
+
+    @Test
+    public void errorCodeEqualityIsBasedOnId() {
+        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        // @formatter:off
+        xgen.generate(rootError("ARoot").code("root").errors(
+                commonError("AC1").code("c1").errors(
+                        error("AC2").code("c2").errors(
+                                error("AC3_1").code("c3-1")
+                        )
+                )
+        ).basePackage("com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName").build());
+        xgen.generate(rootError("BRoot").code("root", 1).errors(
+                commonError("BC1").code("c1", 2).errors(
+                        error("BC2").code("c2", 3).errors(
+                                error("BC3_1").code("c3-1", 4)
+                        )
+                )
+        ).basePackage("com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber").build());
+        // @formatter:on
+
+        assertThat(ARootError.CODE).isEqualTo(errorCodeATestFactory.create("root"));
+        assertThat(ARootError.CODE).isNotEqualTo(errorCodeATestFactory.create("different"));
+        assertThat(AC3_1Error.CODE).isEqualTo(errorCodeATestFactory.create("root.c1.c2.c3-1"));
+        assertThat(AC3_1Error.CODE).isNotEqualTo(errorCodeATestFactory.create("root.c1.c2.different"));
+
+        assertThat(BRootError.CODE).isEqualTo(errorCodeBTestFactory.create("root", 123));
+        assertThat(BRootError.CODE).isNotEqualTo(errorCodeBTestFactory.create("different", 123));
+        assertThat(BC3_1Error.CODE).isEqualTo(errorCodeBTestFactory.create("root.c1.c2.c3-1", 123));
+        assertThat(BC3_1Error.CODE).isNotEqualTo(errorCodeBTestFactory.create("root.c1.c2.different", 123));
     }
 }

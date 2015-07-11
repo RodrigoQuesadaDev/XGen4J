@@ -66,6 +66,11 @@ public class ${name} {
         return isCommon;
     }
 
+    @Override
+    final public boolean equals(Object o){
+        return o instanceof ${name} && ((${name})o).code.equals(code);
+    }
+
     public static abstract class ErrorDescription {
 
         private boolean usesCustomMessageGenerator;
