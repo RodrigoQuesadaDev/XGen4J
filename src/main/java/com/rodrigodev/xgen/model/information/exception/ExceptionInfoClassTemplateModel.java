@@ -17,13 +17,17 @@ public class ExceptionInfoClassTemplateModel extends ClassTemplateModel {
 
     @NonNull private RootErrorTemplateModel rootError;
 
-    protected ExceptionInfoClassTemplateModel(
-            ClassTemplateModel another,
+    private ExceptionInfoClassTemplateModel(
+            ExceptionInfoClassTemplateModelBuilder builder,
             @NonNull ErrorClassDefinition rootError,
             @NonNull ExceptionClassDefinition rootException
     ) {
-        super(another);
+        super(builder);
         this.rootError = new RootErrorTemplateModel(rootError, rootException);
+    }
+
+    protected ExceptionInfoClassTemplateModel(ExceptionInfoClassTemplateModelBuilder builder) {
+        this(builder, builder.rootError, builder.rootException);
     }
 
     public static ExceptionInfoClassTemplateModelBuilder builder() {
@@ -38,13 +42,8 @@ public class ExceptionInfoClassTemplateModel extends ClassTemplateModel {
         private ExceptionClassDefinition rootException;
 
         @Override
-        protected ExceptionInfoClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected ExceptionInfoClassTemplateModel build(ClassTemplateModel model) {
-            return new ExceptionInfoClassTemplateModel(model, rootError, rootException);
+        public ExceptionInfoClassTemplateModel build() {
+            return new ExceptionInfoClassTemplateModel(this);
         }
     }
 

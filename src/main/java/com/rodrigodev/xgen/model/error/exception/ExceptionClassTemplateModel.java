@@ -16,13 +16,17 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
     private boolean common;
     private boolean hasType;
 
-    public ExceptionClassTemplateModel(
-            ClassTemplateModel model, ExceptionClassDefinition root, boolean common, boolean hasType
+    private ExceptionClassTemplateModel(
+            ExceptionClassTemplateModelBuilder builder, ExceptionClassDefinition root, boolean common, boolean hasType
     ) {
-        super(model);
+        super(builder);
         this.root = root != null ? new TypeTemplateModel(root) : null;
         this.common = common;
         this.hasType = hasType;
+    }
+
+    protected ExceptionClassTemplateModel(ExceptionClassTemplateModelBuilder builder) {
+        this(builder, builder.root, builder.common, builder.hasType);
     }
 
     public static ExceptionClassTemplateModelBuilder builder() {
@@ -38,13 +42,8 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
         private boolean hasType;
 
         @Override
-        protected ExceptionClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected ExceptionClassTemplateModel build(ClassTemplateModel model) {
-            return new ExceptionClassTemplateModel(model, root, common, hasType);
+        public ExceptionClassTemplateModel build() {
+            return new ExceptionClassTemplateModel(this);
         }
     }
 }

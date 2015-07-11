@@ -11,11 +11,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 20/06/15.
  */
-public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTemplateModel, ErrorClassTemplateModelBuilder, ErrorClassDefinition> {
+public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTemplateModel, ErrorClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "error-class-def.ftl";
 
-    //TODO change to builder?
     public ErrorClassTemplate(
             InjectedFields injectedFields,
             @NonNull Optional<ErrorClassFile> rootErrorClassFile,

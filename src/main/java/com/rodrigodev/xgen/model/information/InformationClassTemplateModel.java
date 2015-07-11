@@ -23,16 +23,20 @@ public class InformationClassTemplateModel extends ClassTemplateModel {
 
     private ImmutableList<ErrorTemplateModel> errors;
 
-    protected InformationClassTemplateModel(
-            ClassTemplateModel another,
+    private InformationClassTemplateModel(
+            InformationClassTemplateModelBuilder builder,
             @NonNull ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs
     ) {
-        super(another);
+        super(builder);
         ImmutableList.Builder<ErrorTemplateModel> errorsListBuilder = ImmutableList.builder();
         errorExceptionPairs.stream()
                 .map(ErrorTemplateModel::new)
                 .forEach(errorsListBuilder::add);
         this.errors = errorsListBuilder.build();
+    }
+
+    protected InformationClassTemplateModel(InformationClassTemplateModelBuilder builder) {
+        this(builder, builder.errorExceptionPairs);
     }
 
     public static InformationClassTemplateModelBuilder builder() {
@@ -46,13 +50,8 @@ public class InformationClassTemplateModel extends ClassTemplateModel {
         private ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs;
 
         @Override
-        protected InformationClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected InformationClassTemplateModel build(ClassTemplateModel model) {
-            return new InformationClassTemplateModel(model, errorExceptionPairs);
+        public InformationClassTemplateModel build() {
+            return new InformationClassTemplateModel(this);
         }
     }
 
@@ -65,9 +64,12 @@ public class InformationClassTemplateModel extends ClassTemplateModel {
 
         public ErrorTemplateModel(@NonNull ErrorExceptionClassDefinitionPair errorExceptionPair) {
             super(errorExceptionPair.error());
+
             this.exception = new ExceptionTemplateModel(errorExceptionPair.exception());
+
             ErrorDefinition errorDefinition = errorExceptionPair.error().errorDefinition();
             this.common = errorDefinition.isCommon();
+
             Optional<ErrorDescriptionDefinition> descriptionDefinition = errorDefinition.description();
             Optional<CustomMessageGeneratorDefinition> customMessageGenerator = errorDefinition.customMessageGenerator();
             this.description = descriptionDefinition.isPresent() || customMessageGenerator.isPresent()

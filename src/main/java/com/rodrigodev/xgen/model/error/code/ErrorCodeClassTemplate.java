@@ -8,11 +8,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 25/06/15.
  */
-public class ErrorCodeClassTemplate extends FreemarkerClassTemplate<ErrorCodeClassTemplateModel, ErrorCodeClassTemplateModelBuilder, ErrorCodeClassDefinition> {
+public class ErrorCodeClassTemplate extends FreemarkerClassTemplate<ErrorCodeClassTemplateModel, ErrorCodeClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "error-code-class-def.ftl";
 
-    //TODO change to builder?
     public ErrorCodeClassTemplate(InjectedFields injectedFields, ErrorCodeClassFile errorCodeClassFile) {
         super(
                 injectedFields,

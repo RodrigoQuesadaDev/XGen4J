@@ -16,9 +16,15 @@ public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
 
     @NonNull private TypeTemplateModel rootError;
 
-    protected ErrorInfoClassTemplateModel(ClassTemplateModel another, @NonNull ErrorClassDefinition rootError) {
-        super(another);
+    private ErrorInfoClassTemplateModel(
+            ErrorInfoClassTemplateModelBuilder builder, @NonNull ErrorClassDefinition rootError
+    ) {
+        super(builder);
         this.rootError = new TypeTemplateModel(rootError);
+    }
+
+    protected ErrorInfoClassTemplateModel(ErrorInfoClassTemplateModelBuilder builder) {
+        this(builder, builder.rootError);
     }
 
     public static ErrorInfoClassTemplateModelBuilder builder() {
@@ -32,13 +38,8 @@ public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
         private ErrorClassDefinition rootError;
 
         @Override
-        protected ErrorInfoClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected ErrorInfoClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorInfoClassTemplateModel(model, rootError);
+        public ErrorInfoClassTemplateModel build() {
+            return new ErrorInfoClassTemplateModel(this);
         }
     }
 }

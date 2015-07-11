@@ -18,7 +18,7 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 20/06/15.
  */
 @Accessors(fluent = true)
-public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB extends ClassTemplateModelBuilder<M, MB>, D extends ClassDefinition> {
+public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, D extends ClassDefinition> {
 
     public static class InjectedFields {
 
@@ -33,13 +33,13 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
     @NonNull private InjectedFields inj;
     @NonNull @Getter private Template template;
     @NonNull @Getter private ClassFile<D> classFile;
-    @NonNull Optional<? extends ClassFile<?>> parentClassFile;
-    @NonNull protected MB modelBuilder;
+    @NonNull private Optional<? extends ClassFile<?>> parentClassFile;
+    @NonNull @Getter protected M model;
 
     protected FreemarkerClassTemplate(
             @NonNull InjectedFields injectedFields,
             @NonNull String templateFileName,
-            @NonNull MB modelBuilder,
+            @NonNull ClassTemplateModelBuilder<M, ?> modelBuilder,
             @NonNull ClassFile<D> classFile,
             @NonNull Optional<? extends ClassFile<?>> parentClassFile
     ) {
@@ -47,23 +47,19 @@ public abstract class FreemarkerClassTemplate<M extends ClassTemplateModel, MB e
             inj = injectedFields;
             template = inj.configuration.getTemplate(templateFileName);
             this.classFile = classFile;
-            this.modelBuilder = modelBuilder;
             this.parentClassFile = parentClassFile;
-            initModel(injectedFields.modelInjectedFields);
+            initModel(modelBuilder);
         }
         catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void initModel(ClassTemplateModel.InjectedFields modelInjectedFields) {
-        modelBuilder.injectedFields(modelInjectedFields);
+    private void initModel(ClassTemplateModelBuilder<M, ?> modelBuilder) {
+        modelBuilder.injectedFields(inj.modelInjectedFields);
         modelBuilder.name(classFile.classDefinition().name());
         modelBuilder.packagePath(classFile.classDefinition().packagePath());
         parentClassFile.ifPresent(p -> modelBuilder.parent(p.classDefinition()));
-    }
-
-    public M model() {
-        return modelBuilder.build();
+        this.model = modelBuilder.build();
     }
 }

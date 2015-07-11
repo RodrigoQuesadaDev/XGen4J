@@ -11,7 +11,6 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
-import static com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition.codeNameFrom;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -69,7 +68,6 @@ public class ErrorDefinition {
         private static final String DOT = ".";
 
         private String name;
-        //TODO remove initialization (temporary while adding more features)
         private ErrorCodeDefinitionBuilder codeBuilder;
         private Optional<ErrorDescriptionDefinition> description;
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
@@ -93,8 +91,7 @@ public class ErrorDefinition {
             );
 
             this.name = name;
-            if (!codeBuilder.nameIsSet()) codeBuilder.name(codeNameFrom(name));
-            //TODO name generation when code number specified but name is not
+            if (!codeBuilder.nameIsSet()) codeBuilder.nameFromText(name);
             return this;
         }
 

@@ -27,7 +27,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     private boolean common;
 
     private ErrorClassTemplateModel(
-            ClassTemplateModel model,
+            ErrorClassTemplateModelBuilder builder,
             ErrorDescriptionDefinition description,
             CustomMessageGeneratorDefinition generator,
             @NonNull ErrorCodeDefinition code,
@@ -36,7 +36,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
             ExceptionClassDefinition rootException,
             boolean common
     ) {
-        super(model);
+        super(builder);
         this.description = description != null
                 ? new ErrorDescriptionModel(description)
                 : generator != null ? new ErrorDescriptionModel(generator) : null;
@@ -44,6 +44,18 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         this.exceptionName = exceptionName;
         this.root = root != null ? new RootTemplateModel(root, rootException) : null;
         this.common = common;
+    }
+
+    protected ErrorClassTemplateModel(ErrorClassTemplateModelBuilder builder) {
+        this(builder,
+             builder.description,
+             builder.generator,
+             builder.code,
+             builder.exceptionName,
+             builder.root,
+             builder.rootException,
+             builder.common
+        );
     }
 
     public static ErrorClassTemplateModelBuilder builder() {
@@ -71,15 +83,8 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         private boolean common;
 
         @Override
-        protected ErrorClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected ErrorClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorClassTemplateModel(
-                    model, description, generator, code, exceptionName, root, rootException, common
-            );
+        public ErrorClassTemplateModel build() {
+            return new ErrorClassTemplateModel(this);
         }
     }
 

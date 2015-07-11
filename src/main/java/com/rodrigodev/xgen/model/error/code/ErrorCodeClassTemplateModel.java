@@ -13,9 +13,13 @@ public class ErrorCodeClassTemplateModel extends ClassTemplateModel {
 
     private boolean hasNumber;
 
-    private ErrorCodeClassTemplateModel(ClassTemplateModel another, boolean hasNumber) {
-        super(another);
+    private ErrorCodeClassTemplateModel(ErrorCodeClassTemplateModelBuilder builder, boolean hasNumber) {
+        super(builder);
         this.hasNumber = hasNumber;
+    }
+
+    protected ErrorCodeClassTemplateModel(ErrorCodeClassTemplateModelBuilder builder) {
+        this(builder, builder.hasNumber);
     }
 
     public static ErrorCodeClassTemplateModelBuilder builder() {
@@ -29,13 +33,8 @@ public class ErrorCodeClassTemplateModel extends ClassTemplateModel {
         private boolean hasNumber;
 
         @Override
-        protected ErrorCodeClassTemplateModelBuilder self() {
-            return this;
-        }
-
-        @Override
-        protected ErrorCodeClassTemplateModel build(ClassTemplateModel model) {
-            return new ErrorCodeClassTemplateModel(model, hasNumber);
+        public ErrorCodeClassTemplateModel build() {
+            return new ErrorCodeClassTemplateModel(this);
         }
     }
 }

@@ -11,11 +11,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
-public class ExceptionInfoClassTemplate extends FreemarkerClassTemplate<ExceptionInfoClassTemplateModel, ExceptionInfoClassTemplateModelBuilder, ExceptionInfoClassDefinition> {
+public class ExceptionInfoClassTemplate extends FreemarkerClassTemplate<ExceptionInfoClassTemplateModel, ExceptionInfoClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "exception-info-class-def.ftl";
 
-    //TODO change to builder?
     public ExceptionInfoClassTemplate(
             InjectedFields injectedFields,
             ExceptionInfoClassFile exceptionInfoClassFile,

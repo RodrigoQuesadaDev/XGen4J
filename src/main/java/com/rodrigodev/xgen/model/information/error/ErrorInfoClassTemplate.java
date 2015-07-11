@@ -10,11 +10,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
-public class ErrorInfoClassTemplate extends FreemarkerClassTemplate<ErrorInfoClassTemplateModel, ErrorInfoClassTemplateModelBuilder, ErrorInfoClassDefinition> {
+public class ErrorInfoClassTemplate extends FreemarkerClassTemplate<ErrorInfoClassTemplateModel, ErrorInfoClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "error-info-class-def.ftl";
 
-    //TODO change to builder?
     public ErrorInfoClassTemplate(
             InjectedFields injectedFields,
             ErrorInfoClassFile errorInfoClassFile,

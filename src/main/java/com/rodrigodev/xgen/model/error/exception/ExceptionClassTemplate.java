@@ -8,11 +8,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 20/06/15.
  */
-public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionClassTemplateModel, ExceptionClassTemplateModelBuilder, ExceptionClassDefinition> {
+public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionClassTemplateModel, ExceptionClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "exception-class-def.ftl";
 
-    //TODO change to builder?
     public ExceptionClassTemplate(
             InjectedFields injectedFields,
             Optional<ExceptionClassFile> rootClassFile,
@@ -30,7 +29,6 @@ public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionCla
         rootClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
         modelBuilder.common(classFile.classDefinition().errorDefinition().isCommon());
         modelBuilder.hasType(classFile.classDefinition().hasType());
-        //TODO maybe errorDefinition on classDefinition should be hided? (expose what you need only?)
         return modelBuilder;
     }
 }

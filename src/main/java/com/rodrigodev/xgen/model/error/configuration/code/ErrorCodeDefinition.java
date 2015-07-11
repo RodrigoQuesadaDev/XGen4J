@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.error.configuration.code;
 
 import lombok.NonNull;
+import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
@@ -34,11 +35,6 @@ public class ErrorCodeDefinition {
         this.number = number;
     }
 
-    //TODO change this
-    public static String codeNameFrom(@NonNull String text) {
-        return TextToCodeNameConverter.convert(text);
-    }
-
     public static ErrorCodeDefinitionBuilder builder() {
         return new ErrorCodeDefinitionBuilder();
     }
@@ -47,7 +43,7 @@ public class ErrorCodeDefinition {
     public static class ErrorCodeDefinitionBuilder {
 
         private Optional<ErrorCodeDefinitionBuilder> parent;
-        private String name;
+        @Setter private String name;
         private Optional<Integer> number;
 
         private Set<Integer> childrenNumbers;
@@ -65,9 +61,8 @@ public class ErrorCodeDefinition {
             return this;
         }
 
-        public ErrorCodeDefinitionBuilder name(String name) {
-            this.name = name;
-            return this;
+        public void nameFromText(String text) {
+            name = TextToCodeNameConverter.convert(text);
         }
 
         public boolean nameIsSet() {

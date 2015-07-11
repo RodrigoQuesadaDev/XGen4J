@@ -18,7 +18,7 @@ public class ClassWriter {
     public ClassWriter() {
     }
 
-    public void write(FreemarkerClassTemplate<?, ?, ?> classTemplate) {
+    public void write(FreemarkerClassTemplate<?, ?> classTemplate) {
         ClassFile classFile = classTemplate.classFile();
         try (Writer errorClassWriter = fileService.newWriter(createPackagePath(classFile))) {
             classTemplate.template().process(classTemplate.model(), errorClassWriter);

@@ -10,11 +10,10 @@ import java.util.Optional;
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
-public class InformationClassTemplate extends FreemarkerClassTemplate<InformationClassTemplateModel, InformationClassTemplateModelBuilder, InformationClassDefinition> {
+public class InformationClassTemplate extends FreemarkerClassTemplate<InformationClassTemplateModel, InformationClassDefinition> {
 
     public static final String TEMPLATE_FILE_NAME = "information-class-def.ftl";
 
-    //TODO change to builder?
     public InformationClassTemplate(
             InjectedFields injectedFields,
             InformationClassFile informationClassFile,
