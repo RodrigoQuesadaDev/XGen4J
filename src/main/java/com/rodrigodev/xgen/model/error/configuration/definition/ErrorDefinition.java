@@ -1,10 +1,15 @@
-package com.rodrigodev.xgen.model.error.configuration;
+package com.rodrigodev.xgen.model.error.configuration.definition;
 
-import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
-import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
+import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import lombok.AccessLevel;
 import lombok.NonNull;
+import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
+import lombok.experimental.NonFinal;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -17,12 +22,10 @@ import static com.google.common.base.Preconditions.*;
  */
 @Value
 @Accessors(fluent = true)
+@NonFinal
 public class ErrorDefinition {
 
     private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
-    private static final String VALID_PACKAGE_PART_REGEX = "[\\p{Alpha}_][\\w]*";
-    private static final Pattern VALID_PACKAGE_PATTERN = Pattern.compile(
-            String.format("%1$s(?:\\.%1$s)*", VALID_PACKAGE_PART_REGEX), Pattern.UNICODE_CASE);
 
     @NonNull private String name;
     @NonNull private ErrorCodeDefinition code;
@@ -58,12 +61,23 @@ public class ErrorDefinition {
         this.isRoot = isRoot;
     }
 
-    public static ErrorDefinitionBuilder builder() {
-        return new ErrorDefinitionBuilder();
+    protected ErrorDefinition(ErrorDefinitionBuilder<?> builder) {
+        this(builder.name,
+             builder.codeBuilder.build(),
+             builder.description,
+             builder.customMessageGenerator,
+             builder.errors,
+             builder.packagePath,
+             builder.isCommon,
+             !builder.parent.isPresent());
+    }
+
+    public static ErrorDefinitionBuilder builder(String name) {
+        return new NormalErrorDefinitionBuilder(name);
     }
 
     @Accessors(fluent = true)
-    public static class ErrorDefinitionBuilder {
+    public static abstract class ErrorDefinitionBuilder<B extends ErrorDefinitionBuilder<B>> {
 
         private static final String DOT = ".";
 
@@ -72,19 +86,23 @@ public class ErrorDefinition {
         private Optional<ErrorDescriptionDefinition> description;
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
         private ErrorDefinitionBuilder[] errorBuilders;
-        @NonNull private String packagePath;
-        boolean isCommon;
+        private ErrorDefinition[] errors;
+        @NonNull @Setter(AccessLevel.PROTECTED) private String packagePath;
+        @Setter(AccessLevel.PROTECTED) private boolean isCommon;
         @NonNull private Optional<ErrorDefinitionBuilder> parent;
 
-        public ErrorDefinitionBuilder() {
+        protected ErrorDefinitionBuilder(String name) {
             codeBuilder = ErrorCodeDefinition.builder();
             description = Optional.empty();
             customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
             parent = Optional.empty();
+            setName(name);
         }
 
-        public ErrorDefinitionBuilder name(String name) {
+        protected abstract B self();
+
+        private void setName(String name) {
             checkArgument(
                     VALID_NAME_PATTERN.matcher(name).matches(),
                     String.format("Error name '%s' has invalid format.", name)
@@ -92,62 +110,46 @@ public class ErrorDefinition {
 
             this.name = name;
             if (!codeBuilder.nameIsSet()) codeBuilder.nameFromText(name);
-            return this;
         }
 
-        public ErrorDefinitionBuilder code(String codeName) {
+        public B code(String codeName) {
             codeBuilder.name(codeName);
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder code(int codeNumber) {
+        public B code(int codeNumber) {
             codeBuilder.number(codeNumber);
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder code(String codeName, int codeNumber) {
+        public B code(String codeName, int codeNumber) {
             codeBuilder.name(codeName).number(codeNumber);
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder description(
+        public B description(
                 String descriptionFormat, ParameterDefinition... params
         ) {
             checkArgument(!descriptionFormat.isEmpty(), "descriptionFormat is empty");
 
             description = Optional.of(new ErrorDescriptionDefinition(descriptionFormat, params));
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder description(Class<?> customMessageGeneratorType, String name) {
+        public B description(Class<?> customMessageGeneratorType, String name) {
             customMessageGenerator = Optional.of(
                     new CustomMessageGeneratorDefinition(customMessageGeneratorType, name));
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder errors(ErrorDefinitionBuilder... errorBuilders) {
+        public B errors(ErrorDefinitionBuilder... errorBuilders) {
             this.errorBuilders = errorBuilders;
-            return this;
+            return self();
         }
 
-        public ErrorDefinitionBuilder basePackage(String basePackage) {
-            checkArgument(
-                    VALID_PACKAGE_PATTERN.matcher(basePackage).matches(),
-                    String.format("Base package '%s' has invalid format.", basePackage)
-            );
-
-            packagePath = basePackage;
-            return this;
-        }
-
-        public ErrorDefinitionBuilder isCommon(boolean isCommon) {
-            this.isCommon = isCommon;
-            return this;
-        }
-
-        public ErrorDefinitionBuilder parent(ErrorDefinitionBuilder parent) {
+        private B parent(ErrorDefinitionBuilder parent) {
             this.parent = Optional.of(parent);
-            return this;
+            return self();
         }
 
         public ErrorDefinition build() {
@@ -156,25 +158,28 @@ public class ErrorDefinition {
                 packagePath = generatePackagePath(p);
                 isCommon = isCommon || p.isCommon;
             });
-            ErrorDefinition[] errors = Arrays.stream(errorBuilders)
+            errors = Arrays.stream(errorBuilders)
                     .peek(e -> e.parent(this))
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
 
-            return new ErrorDefinition(
-                    name,
-                    codeBuilder.build(),
-                    description,
-                    customMessageGenerator,
-                    errors,
-                    packagePath,
-                    isCommon,
-                    !parent.isPresent()
-            );
+            return new ErrorDefinition(this);
         }
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {
             return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
+        }
+    }
+
+    private static class NormalErrorDefinitionBuilder extends ErrorDefinitionBuilder<NormalErrorDefinitionBuilder> {
+
+        protected NormalErrorDefinitionBuilder(String name) {
+            super(name);
+        }
+
+        @Override
+        protected NormalErrorDefinitionBuilder self() {
+            return this;
         }
     }
 }

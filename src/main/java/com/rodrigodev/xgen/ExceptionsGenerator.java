@@ -5,7 +5,7 @@ import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.ErrorWriter;
 import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
 import com.rodrigodev.xgen.model.information.InformationClassesWriter;

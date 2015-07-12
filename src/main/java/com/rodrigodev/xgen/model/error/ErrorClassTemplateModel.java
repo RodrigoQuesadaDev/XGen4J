@@ -2,10 +2,10 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.CustomMessageGeneratorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.ErrorDescriptionDefinition;
-import com.rodrigodev.xgen.model.error.configuration.ParameterDefinition;
-import com.rodrigodev.xgen.model.error.configuration.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
 import lombok.NonNull;
 import lombok.Setter;

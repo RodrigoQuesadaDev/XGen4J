@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.test.message;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
@@ -13,7 +13,7 @@ import org.junit.Test;
 import java.util.function.Supplier;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
+import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**

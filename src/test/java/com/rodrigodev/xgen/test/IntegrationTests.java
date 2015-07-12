@@ -48,7 +48,7 @@ import com.rodrigodev.xgen.test.integration.kitchen.oven.undercooked.Undercooked
 import org.junit.Test;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
+import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**

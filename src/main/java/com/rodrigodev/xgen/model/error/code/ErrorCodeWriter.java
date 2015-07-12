@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen.model.error.code;
 
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import lombok.NonNull;
 

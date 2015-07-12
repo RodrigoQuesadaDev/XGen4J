@@ -25,7 +25,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
+import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**

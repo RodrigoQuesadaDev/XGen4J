@@ -2,7 +2,7 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
 import com.rodrigodev.xgen.model.error.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
-import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import lombok.NonNull;
 

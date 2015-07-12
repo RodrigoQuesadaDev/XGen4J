@@ -41,7 +41,7 @@ import org.junit.Test;
 import java.util.Comparator;
 
 import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.ParameterDefinition.p;
+import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -292,6 +292,4 @@ public class InfoGenerationTests {
     //TODO Optional class is for Java 1.8
 
     //TODO add support for checked exceptions!!!
-
-    //TODO @Singleton!!!!!!
 }
