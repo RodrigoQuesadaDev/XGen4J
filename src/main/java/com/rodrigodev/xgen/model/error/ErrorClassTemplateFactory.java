@@ -4,11 +4,13 @@ import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplateFactory;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
+@Singleton
 public class ErrorClassTemplateFactory extends FreemarkerClassTemplateFactory {
 
     @Inject

@@ -5,10 +5,12 @@ import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
+@Singleton
 public class ErrorCodeWriter {
 
     @Inject ClassWriter classWriter;

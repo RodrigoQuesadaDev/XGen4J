@@ -14,10 +14,12 @@ import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassTemplat
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
+@Singleton
 public class InformationClassesWriter {
 
     @Inject ClassWriter classWriter;
@@ -49,6 +51,8 @@ public class InformationClassesWriter {
         classWriter.write(exceptionInfoClassTemplateFactory.create(
                 exceptionInfoClassFile, rootErrorClassFile, rootExceptionClassFile
         ));
+
+        //TODO change this?
 
         return informationClassFile;
     }

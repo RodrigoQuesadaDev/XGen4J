@@ -5,10 +5,12 @@ import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
+@Singleton
 public class ExceptionInfoClassTemplateFactory {
 
     @Inject InjectedFields injectedFields;

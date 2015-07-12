@@ -3,11 +3,13 @@ package com.rodrigodev.xgen.model.error.exception;
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate.InjectedFields;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
+@Singleton
 public class ExceptionClassTemplateFactory {
 
     @Inject InjectedFields injectedFields;

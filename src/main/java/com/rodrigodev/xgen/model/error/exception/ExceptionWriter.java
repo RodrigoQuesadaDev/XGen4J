@@ -5,11 +5,13 @@ import com.rodrigodev.xgen.model.error.configuration.ErrorDefinition;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
+@Singleton
 public class ExceptionWriter {
 
     @Inject ClassWriter classWriter;

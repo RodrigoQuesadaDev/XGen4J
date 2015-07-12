@@ -4,10 +4,12 @@ import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate.Injecte
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by Rodrigo Quesada on 10/07/15.
  */
+@Singleton
 public class ErrorInfoClassTemplateFactory {
 
     @Inject InjectedFields injectedFields;

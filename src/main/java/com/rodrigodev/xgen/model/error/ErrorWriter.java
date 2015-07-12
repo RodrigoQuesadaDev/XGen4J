@@ -6,11 +6,13 @@ import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import lombok.NonNull;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
+@Singleton
 public class ErrorWriter {
 
     @Inject ClassWriter classWriter;

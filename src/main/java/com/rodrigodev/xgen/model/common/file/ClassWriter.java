@@ -4,12 +4,14 @@ import com.rodrigodev.xgen.model.common.clazz.ClassFile;
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.io.File;
 import java.io.Writer;
 
 /**
  * Created by Rodrigo Quesada on 26/05/15.
  */
+@Singleton
 public class ClassWriter {
 
     @Inject FileService fileService;
