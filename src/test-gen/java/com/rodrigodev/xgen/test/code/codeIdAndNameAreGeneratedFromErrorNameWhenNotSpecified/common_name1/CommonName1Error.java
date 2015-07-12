@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenN
 
 
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.ErrorCode;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameException;
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameException.ExceptionType;
 
 /**

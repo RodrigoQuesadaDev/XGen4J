@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.test.integration.common.room.RoomError;
 import java.lang.String;
 
 import com.rodrigodev.xgen.test.integration.ErrorCode;
+import com.rodrigodev.xgen.test.integration.HouseException;
 import com.rodrigodev.xgen.test.integration.HouseException.ExceptionType;
 
 /**

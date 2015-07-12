@@ -13,7 +13,7 @@ public class RootErrorDefinition extends ErrorDefinition {
     private static final Pattern VALID_PACKAGE_PATTERN = Pattern.compile(
             String.format("%1$s(?:\\.%1$s)*", VALID_PACKAGE_PART_REGEX), Pattern.UNICODE_CASE);
 
-    protected RootErrorDefinition(ErrorDefinitionBuilder builder) {
+    protected RootErrorDefinition(ErrorDefinitionBuilder<?, ?> builder) {
         super(builder);
     }
 
@@ -21,7 +21,7 @@ public class RootErrorDefinition extends ErrorDefinition {
         return new RootErrorDefinitionBuilder(name);
     }
 
-    public static class RootErrorDefinitionBuilder extends ErrorDefinitionBuilder<RootErrorDefinitionBuilder> {
+    public static class RootErrorDefinitionBuilder extends ErrorDefinitionBuilder<RootErrorDefinition, RootErrorDefinitionBuilder> {
 
         protected RootErrorDefinitionBuilder(String name) {
             super(name);
@@ -32,14 +32,19 @@ public class RootErrorDefinition extends ErrorDefinition {
             return this;
         }
 
-        public ErrorDefinitionBuilder basePackage(String basePackage) {
+        public RootErrorDefinitionBuilder basePackage(String basePackage) {
             checkArgument(
                     VALID_PACKAGE_PATTERN.matcher(basePackage).matches(),
                     String.format("Base package '%s' has invalid format.", basePackage)
             );
 
             packagePath(basePackage);
-            return self();
+            return this;
+        }
+
+        @Override
+        protected RootErrorDefinition createErrorDefinition() {
+            return new RootErrorDefinition(this);
         }
     }
 }

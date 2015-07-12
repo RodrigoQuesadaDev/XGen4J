@@ -2,10 +2,10 @@ package com.rodrigodev.xgen.model.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
 import lombok.NonNull;
 import lombok.Setter;
@@ -22,7 +22,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
     private ErrorDescriptionModel description;
     @NonNull private ErrorCodeModel code;
-    @NonNull private String exceptionName;
+    @NonNull private ExceptionModel exception;
     @NonNull private RootTemplateModel root;
     private boolean common;
 
@@ -32,6 +32,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
             CustomMessageGeneratorDefinition generator,
             @NonNull ErrorCodeDefinition code,
             @NonNull String exceptionName,
+            boolean exceptionIsCheckedException,
             ErrorClassDefinition root,
             ExceptionClassDefinition rootException,
             boolean common
@@ -41,7 +42,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
                 ? new ErrorDescriptionModel(description)
                 : generator != null ? new ErrorDescriptionModel(generator) : null;
         this.code = new ErrorCodeModel(code);
-        this.exceptionName = exceptionName;
+        this.exception = new ExceptionModel(exceptionName, exceptionIsCheckedException);
         this.root = root != null ? new RootTemplateModel(root, rootException) : null;
         this.common = common;
     }
@@ -52,6 +53,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
              builder.generator,
              builder.code,
              builder.exceptionName,
+             builder.exceptionIsCheckedException,
              builder.root,
              builder.rootException,
              builder.common
@@ -78,6 +80,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
         private CustomMessageGeneratorDefinition generator;
         private ErrorCodeDefinition code;
         private String exceptionName;
+        private boolean exceptionIsCheckedException;
         private ErrorClassDefinition root;
         private ExceptionClassDefinition rootException;
         private boolean common;
@@ -149,7 +152,7 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
     }
 
     @Value
-    public class RootTemplateModel extends TypeTemplateModel {
+    public static class RootTemplateModel extends TypeTemplateModel {
 
         @NonNull private TypeTemplateModel exception;
 
@@ -157,5 +160,12 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
             super(error);
             exception = new TypeTemplateModel(rootException);
         }
+    }
+
+    @Value
+    public static class ExceptionModel {
+
+        @NonNull private String name;
+        private boolean checkedException;
     }
 }

@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootErr
 
 
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.ErrorCode;
+import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootException;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootException.ExceptionType;
 
 /**

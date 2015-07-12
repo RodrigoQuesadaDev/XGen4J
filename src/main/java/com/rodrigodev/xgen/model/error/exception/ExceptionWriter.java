@@ -1,5 +1,6 @@
 package com.rodrigodev.xgen.model.error.exception;
 
+import com.rodrigodev.xgen.GenerationOptions;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import lombok.NonNull;
@@ -25,9 +26,10 @@ public class ExceptionWriter {
             @NonNull String sourceDirPath,
             @NonNull Optional<ExceptionClassFile> rootExceptionClassFile,
             @NonNull ErrorDefinition errorDefinition,
-            @NonNull Optional<ExceptionClassFile> parentClassFile
+            @NonNull Optional<ExceptionClassFile> parentClassFile,
+            @NonNull GenerationOptions generationOptions
     ) {
-        ExceptionClassDefinition exceptionClass = new ExceptionClassDefinition(errorDefinition);
+        ExceptionClassDefinition exceptionClass = new ExceptionClassDefinition(errorDefinition, generationOptions);
         ExceptionClassFile exceptionClassFile = new ExceptionClassFile(sourceDirPath, exceptionClass);
         classWriter.write(exceptionClassTemplateFactory.create(
                 rootExceptionClassFile, exceptionClassFile, parentClassFile

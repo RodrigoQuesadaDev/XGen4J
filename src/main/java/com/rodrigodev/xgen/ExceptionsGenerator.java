@@ -6,6 +6,7 @@ import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.ErrorWriter;
 import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
 import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
 import com.rodrigodev.xgen.model.information.InformationClassesWriter;
@@ -43,6 +44,7 @@ public class ExceptionsGenerator {
     private Optional<ErrorClassFile> rootErrorClassFile;
     private Optional<ExceptionClassFile> rootExceptionClassFile;
     private List<ErrorExceptionClassDefinitionPair> errorExceptionPairs;
+    private GenerationOptions options;
 
     ExceptionsGenerator(
             InjectedFields injectedFields,
@@ -50,13 +52,14 @@ public class ExceptionsGenerator {
     ) {
         this.inj = injectedFields;
         this.sourceDirPath = sourceDirPath;
-        init();
+        init(options);
     }
 
-    private void init() {
+    private void init(GenerationOptions options) {
         rootErrorClassFile = Optional.empty();
         rootExceptionClassFile = Optional.empty();
         errorExceptionPairs = new ArrayList<>();
+        this.options = options;
     }
 
     public ExceptionsGenerator(@NonNull String sourceDirPath) {
@@ -68,18 +71,22 @@ public class ExceptionsGenerator {
                 .build().inject(this);
     }
 
-    public void generate(@NonNull ErrorDefinition rootError) {
-        init();
+    public void generate(@NonNull RootErrorDefinition rootError, @NonNull GenerationOptions options) {
+        init(options);
         generateBaseClasses(rootError);
         generateErrors(rootError, Optional.empty(), Optional.empty());
         generateInformationClasses();
     }
 
-    private void generateBaseClasses(ErrorDefinition rootError) {
+    public void generate(@NonNull RootErrorDefinition rootError) {
+        generate(rootError, GenerationOptions.builder().build());
+    }
+
+    private void generateBaseClasses(RootErrorDefinition rootError) {
         generateErrorCodeClass(rootError);
     }
 
-    private void generateErrorCodeClass(ErrorDefinition rootError) {
+    private void generateErrorCodeClass(RootErrorDefinition rootError) {
         inj.errorCodeWriter.write(sourceDirPath, rootError, rootError.code().number().isPresent());
     }
 
@@ -89,7 +96,7 @@ public class ExceptionsGenerator {
             Optional<ExceptionClassFile> parentExceptionClassFile
     ) {
         ExceptionClassFile exceptionClassFile = inj.exceptionWriter.write(
-                sourceDirPath, rootExceptionClassFile, error, parentExceptionClassFile
+                sourceDirPath, rootExceptionClassFile, error, parentExceptionClassFile, options
         );
         ErrorClassFile errorClassFile = inj.errorWriter.write(
                 sourceDirPath,

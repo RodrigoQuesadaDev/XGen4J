@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpeci
 
 
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.ErrorCode;
+import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.RootException;
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.RootException.ExceptionType;
 
 /**

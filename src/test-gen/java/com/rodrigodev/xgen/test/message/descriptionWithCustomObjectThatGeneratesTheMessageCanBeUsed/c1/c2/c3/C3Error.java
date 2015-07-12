@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGenerates
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 
 import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.ErrorCode;
+import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.RootException;
 import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.RootException.ExceptionType;
 
 /**

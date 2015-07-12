@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.A
 
 
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCode;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException;
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException.ExceptionType;
 
 /**

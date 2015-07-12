@@ -7,6 +7,7 @@ import java.lang.Integer;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 
 import com.rodrigodev.xgen.test.throwing.ErrorCode;
+import com.rodrigodev.xgen.test.throwing.RootException;
 import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
 
 /**

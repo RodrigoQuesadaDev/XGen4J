@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllow
 
 
 import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.ErrorCode;
+import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.RootException;
 import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.RootException.ExceptionType;
 
 /**

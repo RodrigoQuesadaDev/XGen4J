@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.test.info_generation.c1.c2.C2Error;
 import com.rodrigodev.xgen.test.info_generation.InfoGenerationTests.TestMessageGeneratorObject1;
 
 import com.rodrigodev.xgen.test.info_generation.ErrorCode;
+import com.rodrigodev.xgen.test.info_generation.RootException;
 import com.rodrigodev.xgen.test.info_generation.RootException.ExceptionType;
 
 /**

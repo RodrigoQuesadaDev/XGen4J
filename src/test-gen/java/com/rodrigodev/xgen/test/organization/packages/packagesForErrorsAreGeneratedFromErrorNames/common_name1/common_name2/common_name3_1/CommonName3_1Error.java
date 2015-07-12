@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGenera
 
 
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.ErrorCode;
+import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameException;
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameException.ExceptionType;
 
 /**

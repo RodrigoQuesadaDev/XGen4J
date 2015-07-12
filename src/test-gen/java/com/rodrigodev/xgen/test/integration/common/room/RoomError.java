@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.integration.common.CommonError;
 
 
 import com.rodrigodev.xgen.test.integration.ErrorCode;
+import com.rodrigodev.xgen.test.integration.HouseException;
 import com.rodrigodev.xgen.test.integration.HouseException.ExceptionType;
 
 /**

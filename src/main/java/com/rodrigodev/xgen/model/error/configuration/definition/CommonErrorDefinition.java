@@ -5,7 +5,7 @@ package com.rodrigodev.xgen.model.error.configuration.definition;
  */
 public class CommonErrorDefinition extends ErrorDefinition {
 
-    protected CommonErrorDefinition(ErrorDefinitionBuilder<?> builder) {
+    protected CommonErrorDefinition(ErrorDefinitionBuilder<?, ?> builder) {
         super(builder);
     }
 
@@ -13,7 +13,7 @@ public class CommonErrorDefinition extends ErrorDefinition {
         return new CommonErrorDefinitionBuilder(name);
     }
 
-    public static class CommonErrorDefinitionBuilder extends ErrorDefinitionBuilder<CommonErrorDefinitionBuilder> {
+    public static class CommonErrorDefinitionBuilder extends ErrorDefinitionBuilder<CommonErrorDefinition, CommonErrorDefinitionBuilder> {
 
         protected CommonErrorDefinitionBuilder(String name) {
             super(name);
@@ -23,6 +23,11 @@ public class CommonErrorDefinition extends ErrorDefinition {
         @Override
         protected CommonErrorDefinitionBuilder self() {
             return this;
+        }
+
+        @Override
+        protected CommonErrorDefinition createErrorDefinition() {
+            return new CommonErrorDefinition(this);
         }
     }
 }

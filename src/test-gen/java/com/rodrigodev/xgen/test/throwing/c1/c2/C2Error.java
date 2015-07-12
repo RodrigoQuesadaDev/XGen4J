@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.throwing.c1.C1Error;
 
 
 import com.rodrigodev.xgen.test.throwing.ErrorCode;
+import com.rodrigodev.xgen.test.throwing.RootException;
 import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
 
 /**

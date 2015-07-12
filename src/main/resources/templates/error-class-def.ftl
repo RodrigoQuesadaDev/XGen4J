@@ -14,10 +14,11 @@ import ${description.generator.type.canonicalName};
 <#if root??>
 import ${root.packagePath}.ErrorCode;
 <#if common>
+import ${root.exception.canonicalName};
 import ${root.exception.canonicalName}.ExceptionType;
 </#if>
 <#else>
-import ${packagePath}.${exceptionName}.ExceptionType;
+import ${packagePath}.${exception.name}.ExceptionType;
 </#if>
 
 /**
@@ -39,20 +40,20 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
         return String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>);
     }
 
-    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
-        throw new ${exceptionName}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
+    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) <#if exception.checkedException>throws ${exception.name} </#if>{
+        throw new ${exception.name}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
     }
 
-    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}, </#list>Throwable cause) {
-        throw new ${exceptionName}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
+    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}, </#list>Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
+        throw new ${exception.name}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
     }
 
     <#if common>
-    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) {
+    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) <#if exception.checkedException>throws ${root.exception.name} </#if>{
         throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
     }
 
-    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>, Throwable cause) {
+    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>, Throwable cause) <#if exception.checkedException>throws ${root.exception.name} </#if>{
         throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
     }
     </#if>
@@ -63,20 +64,20 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
         return ${description.generator.name}.message();
     }
 
-    public static void throwException(${description.generator.type.name} ${description.generator.name}) {
-        throw new ${exceptionName}(createMessage(${description.generator.name}));
+    public static void throwException(${description.generator.type.name} ${description.generator.name}) <#if exception.checkedException>throws ${exception.name} </#if>{
+        throw new ${exception.name}(createMessage(${description.generator.name}));
     }
 
-    public static void throwException(${description.generator.type.name} ${description.generator.name}, Throwable cause) {
-        throw new ${exceptionName}(createMessage(${description.generator.name}), cause);
+    public static void throwException(${description.generator.type.name} ${description.generator.name}, Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
+        throw new ${exception.name}(createMessage(${description.generator.name}), cause);
     }
 
     <#if common>
-    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) {
+    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) <#if exception.checkedException>throws ${root.exception.name} </#if>{
         throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}));
     }
 
-    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}, Throwable cause) {
+    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}, Throwable cause) <#if exception.checkedException>throws ${root.exception.name} </#if>{
         throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}), cause);
     }
     </#if>
@@ -84,13 +85,13 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
 </#if>
 
 <#if !root??>
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) {
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) <#if exception.checkedException>throws ${exception.name} </#if>{
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
         throw exceptionType.createException(message);
     }
 
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) {
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
         throw exceptionType.createException(message, cause);

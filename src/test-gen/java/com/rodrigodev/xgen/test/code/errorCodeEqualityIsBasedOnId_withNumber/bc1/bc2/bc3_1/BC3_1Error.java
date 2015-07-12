@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1
 
 
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorCode;
+import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException;
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException.ExceptionType;
 
 /**

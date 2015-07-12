@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.organization.hierarchy.c1.c2.C2Error;
 
 
 import com.rodrigodev.xgen.test.organization.hierarchy.ErrorCode;
+import com.rodrigodev.xgen.test.organization.hierarchy.RootException;
 import com.rodrigodev.xgen.test.organization.hierarchy.RootException.ExceptionType;
 
 /**

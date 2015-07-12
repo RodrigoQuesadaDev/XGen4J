@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGenerates
 import com.rodrigodev.xgen.test.message.MessageTests.TestMessageGeneratorObjectChild;
 
 import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.ErrorCode;
+import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.RootException;
 import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.RootException.ExceptionType;
 
 /**

@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.
 
 
 import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.ErrorCode;
+import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootException;
 import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootException.ExceptionType;
 
 /**

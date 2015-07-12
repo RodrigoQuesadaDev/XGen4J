@@ -61,7 +61,7 @@ public class ErrorDefinition {
         this.isRoot = isRoot;
     }
 
-    protected ErrorDefinition(ErrorDefinitionBuilder<?> builder) {
+    protected ErrorDefinition(ErrorDefinitionBuilder<?, ?> builder) {
         this(builder.name,
              builder.codeBuilder.build(),
              builder.description,
@@ -77,7 +77,7 @@ public class ErrorDefinition {
     }
 
     @Accessors(fluent = true)
-    public static abstract class ErrorDefinitionBuilder<B extends ErrorDefinitionBuilder<B>> {
+    public static abstract class ErrorDefinitionBuilder<D extends ErrorDefinition, B extends ErrorDefinitionBuilder<D, B>> {
 
         private static final String DOT = ".";
 
@@ -152,7 +152,7 @@ public class ErrorDefinition {
             return self();
         }
 
-        public ErrorDefinition build() {
+        public D build() {
             parent.ifPresent(p -> {
                 codeBuilder.parent(p.codeBuilder);
                 packagePath = generatePackagePath(p);
@@ -163,15 +163,17 @@ public class ErrorDefinition {
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
 
-            return new ErrorDefinition(this);
+            return createErrorDefinition();
         }
+
+        protected abstract D createErrorDefinition();
 
         private String generatePackagePath(ErrorDefinitionBuilder parent) {
             return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
         }
     }
 
-    private static class NormalErrorDefinitionBuilder extends ErrorDefinitionBuilder<NormalErrorDefinitionBuilder> {
+    private static class NormalErrorDefinitionBuilder extends ErrorDefinitionBuilder<ErrorDefinition, NormalErrorDefinitionBuilder> {
 
         protected NormalErrorDefinitionBuilder(String name) {
             super(name);
@@ -180,6 +182,11 @@ public class ErrorDefinition {
         @Override
         protected NormalErrorDefinitionBuilder self() {
             return this;
+        }
+
+        @Override
+        protected ErrorDefinition createErrorDefinition() {
+            return new ErrorDefinition(this);
         }
     }
 }

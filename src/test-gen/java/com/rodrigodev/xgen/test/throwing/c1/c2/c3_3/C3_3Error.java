@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.test.throwing.c1.c2.C2Error;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 
 import com.rodrigodev.xgen.test.throwing.ErrorCode;
+import com.rodrigodev.xgen.test.throwing.RootException;
 import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
 
 /**

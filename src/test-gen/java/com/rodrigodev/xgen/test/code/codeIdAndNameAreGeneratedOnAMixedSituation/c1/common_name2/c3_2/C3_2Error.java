@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.
 
 
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.ErrorCode;
+import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameException;
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameException.ExceptionType;
 
 /**
