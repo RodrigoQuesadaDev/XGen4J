@@ -21,7 +21,7 @@ public class ErrorConfiguration {
         return CommonErrorDefinition.builder(name);
     }
 
-    public static ErrorDefinitionBuilder error(@NonNull String name) {
+    public static ErrorDefinitionBuilder<?, ?> error(@NonNull String name) {
         return ErrorDefinition.builder(name);
     }
 }

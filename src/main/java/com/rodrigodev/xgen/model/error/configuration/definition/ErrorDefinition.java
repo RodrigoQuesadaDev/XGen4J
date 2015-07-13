@@ -9,9 +9,12 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
@@ -24,8 +27,6 @@ import static com.google.common.base.Preconditions.*;
 @Accessors(fluent = true)
 @NonFinal
 public class ErrorDefinition {
-
-    private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
 
     @NonNull private String name;
     @NonNull private ErrorCodeDefinition code;
@@ -72,7 +73,7 @@ public class ErrorDefinition {
              !builder.parent.isPresent());
     }
 
-    public static ErrorDefinitionBuilder builder(String name) {
+    public static ErrorDefinitionBuilder<?, ?> builder(String name) {
         return new NormalErrorDefinitionBuilder(name);
     }
 
@@ -80,16 +81,21 @@ public class ErrorDefinition {
     public static abstract class ErrorDefinitionBuilder<D extends ErrorDefinition, B extends ErrorDefinitionBuilder<D, B>> {
 
         private static final String DOT = ".";
+        private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
+        private static final String DUPLICATED_NAME_ANCESTOR_DESCENDANT = "Error cannot have name '%s' because an ancestor error has '%s' as name.";
+        private static final String DUPLICATED_NAME_SIBLINGS = "Error cannot have name '%s' because a sibling error has '%s' as name.";
 
         private String name;
         private ErrorCodeDefinitionBuilder codeBuilder;
         private Optional<ErrorDescriptionDefinition> description;
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
-        private ErrorDefinitionBuilder[] errorBuilders;
+        private ErrorDefinitionBuilder<?, ?>[] errorBuilders;
         private ErrorDefinition[] errors;
         @NonNull @Setter(AccessLevel.PROTECTED) private String packagePath;
         @Setter(AccessLevel.PROTECTED) private boolean isCommon;
-        @NonNull private Optional<ErrorDefinitionBuilder> parent;
+        @NonNull private Optional<ErrorDefinitionBuilder<?, ?>> parent;
+        private Map<String, NameContainer> ancestorNamesMap;
+        private Map<String, NameContainer> childrenNamesMap;
 
         protected ErrorDefinitionBuilder(String name) {
             codeBuilder = ErrorCodeDefinition.builder();
@@ -97,6 +103,8 @@ public class ErrorDefinition {
             customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
             parent = Optional.empty();
+            ancestorNamesMap = new HashMap<>();
+            childrenNamesMap = new HashMap<>();
             setName(name);
         }
 
@@ -142,24 +150,31 @@ public class ErrorDefinition {
             return self();
         }
 
-        public B errors(ErrorDefinitionBuilder... errorBuilders) {
+        public B errors(ErrorDefinitionBuilder<?, ?>... errorBuilders) {
             this.errorBuilders = errorBuilders;
             return self();
         }
 
-        private B parent(ErrorDefinitionBuilder parent) {
+        private void parent(ErrorDefinitionBuilder<?, ?> parent) {
             this.parent = Optional.of(parent);
-            return self();
         }
 
-        public D build() {
+        private void addAncestorNames(Map<String, NameContainer> ancestorNames) {
+            this.ancestorNamesMap.putAll(ancestorNames);
+        }
+
+        protected D build() {
+            checkName();
             parent.ifPresent(p -> {
                 codeBuilder.parent(p.codeBuilder);
                 packagePath = generatePackagePath(p);
                 isCommon = isCommon || p.isCommon;
             });
             errors = Arrays.stream(errorBuilders)
-                    .peek(e -> e.parent(this))
+                    .peek(e -> {
+                        e.parent(this);
+                        e.addAncestorNames(ancestorNamesMap);
+                    })
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
 
@@ -168,8 +183,26 @@ public class ErrorDefinition {
 
         protected abstract D createErrorDefinition();
 
-        private String generatePackagePath(ErrorDefinitionBuilder parent) {
+        private String generatePackagePath(ErrorDefinitionBuilder<?, ?> parent) {
             return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
+        }
+
+        private void checkName() {
+            NameContainer nameContainer = new NameContainer(name);
+            checkState(
+                    ancestorNamesMap.putIfAbsent(nameContainer.normalizedName, nameContainer) == null,
+                    String.format(DUPLICATED_NAME_ANCESTOR_DESCENDANT,
+                                  name, ancestorNamesMap.get(nameContainer.normalizedName).name
+                    )
+            );
+            parent.ifPresent(
+                    p -> checkState(
+                            p.childrenNamesMap.putIfAbsent(nameContainer.normalizedName, nameContainer) == null,
+                            String.format(DUPLICATED_NAME_SIBLINGS,
+                                          name, p.childrenNamesMap.get(nameContainer.normalizedName).name
+                            )
+                    ));
+            //TODO refactor this out?
         }
     }
 
@@ -187,6 +220,22 @@ public class ErrorDefinition {
         @Override
         protected ErrorDefinition createErrorDefinition() {
             return new ErrorDefinition(this);
+        }
+    }
+
+    @FieldDefaults(makeFinal = true)
+    public static class NameContainer {
+
+        private String name;
+        private String normalizedName;
+
+        public NameContainer(@NonNull String name) {
+            this.name = name;
+            this.normalizedName = normalizeName(name);
+        }
+
+        private String normalizeName(String name) {
+            return ErrorNameToPackagePartConverter.convert(name);
         }
     }
 }

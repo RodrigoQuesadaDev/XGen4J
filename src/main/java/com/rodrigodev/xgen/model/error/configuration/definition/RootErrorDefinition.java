@@ -46,5 +46,10 @@ public class RootErrorDefinition extends ErrorDefinition {
         protected RootErrorDefinition createErrorDefinition() {
             return new RootErrorDefinition(this);
         }
+
+        @Override
+        public RootErrorDefinition build() {
+            return super.build();
+        }
     }
 }
