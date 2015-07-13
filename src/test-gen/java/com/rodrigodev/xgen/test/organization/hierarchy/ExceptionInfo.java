@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.organization.hierarchy;
 
 import com.rodrigodev.xgen.test.organization.hierarchy.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

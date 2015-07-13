@@ -14,7 +14,7 @@ import java.util.Optional;
  */
 public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTemplateModel, ErrorClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "error-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "error-class-def.ftl";
 
     public ErrorClassTemplate(
             InjectedFields injectedFields,

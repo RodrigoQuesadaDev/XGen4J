@@ -16,6 +16,10 @@ public class InMemoryFileService extends FileService {
     private List<StringBuffer> files;
 
     public InMemoryFileService() {
+        reset();
+    }
+
+    public void reset() {
         this.files = new ArrayList<>();
     }
 

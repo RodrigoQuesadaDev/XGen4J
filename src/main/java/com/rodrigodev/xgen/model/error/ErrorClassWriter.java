@@ -14,13 +14,13 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 21/06/15.
  */
 @Singleton
-public class ErrorWriter {
+public class ErrorClassWriter {
 
     @Inject ClassWriter classWriter;
     @Inject ErrorClassTemplateFactory errorClassTemplateFactory;
 
     @Inject
-    public ErrorWriter() {
+    public ErrorClassWriter() {
     }
 
     public ErrorClassFile write(

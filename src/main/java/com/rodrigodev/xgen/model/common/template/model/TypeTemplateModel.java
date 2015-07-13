@@ -32,6 +32,10 @@ public class TypeTemplateModel {
         this(Optional.empty(), name, canonicalName);
     }
 
+    public TypeTemplateModel(Class<?> type) {
+        this(type.getPackage().getName(), type.getSimpleName(), type.getCanonicalName());
+    }
+
     public TypeTemplateModel(ClassDefinition classDefinition) {
         this(classDefinition.packagePath(), classDefinition.name(), classDefinition.fullyQualifiedName());
     }

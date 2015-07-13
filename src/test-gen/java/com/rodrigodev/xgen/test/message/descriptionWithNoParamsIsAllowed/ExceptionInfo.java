@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed;
 
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

@@ -9,7 +9,7 @@ import java.util.Optional;
  */
 public class ErrorCodeClassTemplate extends FreemarkerClassTemplate<ErrorCodeClassTemplateModel, ErrorCodeClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "error-code-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "error-code-class-def.ftl";
 
     public ErrorCodeClassTemplate(InjectedFields injectedFields, ErrorCodeClassFile errorCodeClassFile) {
         super(

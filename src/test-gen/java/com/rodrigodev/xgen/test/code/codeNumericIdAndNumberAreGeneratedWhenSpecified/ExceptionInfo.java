@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified;
 
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_;
 
 import com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

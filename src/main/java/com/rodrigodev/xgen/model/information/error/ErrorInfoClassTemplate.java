@@ -11,7 +11,7 @@ import java.util.Optional;
  */
 public class ErrorInfoClassTemplate extends FreemarkerClassTemplate<ErrorInfoClassTemplateModel, ErrorInfoClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "error-info-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "error-info-class-def.ftl";
 
     public ErrorInfoClassTemplate(
             InjectedFields injectedFields,
@@ -21,7 +21,9 @@ public class ErrorInfoClassTemplate extends FreemarkerClassTemplate<ErrorInfoCla
         super(
                 injectedFields,
                 TEMPLATE_FILE_NAME,
-                ErrorInfoClassTemplateModel.builder().rootErrorClassFile(rootErrorClassFile),
+                ErrorInfoClassTemplateModel.builder()
+                        .errorInfoClassFile(errorInfoClassFile)
+                        .rootErrorClassFile(rootErrorClassFile),
                 errorInfoClassFile,
                 Optional.empty()
         );

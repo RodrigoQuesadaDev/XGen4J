@@ -288,6 +288,4 @@ public class InfoGenerationTests {
             return String.format("Custom Message3: {value1: '%s', value2: %d}", value1, value2);
         }
     }
-
-    //TODO Optional class is for Java 1.8
 }

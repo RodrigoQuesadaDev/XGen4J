@@ -13,13 +13,13 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 21/06/15.
  */
 @Singleton
-public class ExceptionWriter {
+public class ExceptionClassWriter {
 
     @Inject ClassWriter classWriter;
     @Inject ExceptionClassTemplateFactory exceptionClassTemplateFactory;
 
     @Inject
-    public ExceptionWriter() {
+    public ExceptionClassWriter() {
     }
 
     public ExceptionClassFile write(

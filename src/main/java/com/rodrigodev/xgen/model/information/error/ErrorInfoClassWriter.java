@@ -1,5 +1,6 @@
 package com.rodrigodev.xgen.model.information.error;
 
+import com.rodrigodev.xgen.GenerationOptions;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import lombok.NonNull;
@@ -20,9 +21,13 @@ public class ErrorInfoClassWriter {
     public ErrorInfoClassWriter() {
     }
 
-    public void write(@NonNull String sourceDirPath, @NonNull ErrorClassFile rootErrorClassFile) {
+    public void write(
+            @NonNull String sourceDirPath,
+            @NonNull ErrorClassFile rootErrorClassFile,
+            @NonNull GenerationOptions generationOptions
+    ) {
         String rootPackagePath = rootErrorClassFile.classDefinition().packagePath();
-        ErrorInfoClassDefinition errorInfoClass = new ErrorInfoClassDefinition(rootPackagePath);
+        ErrorInfoClassDefinition errorInfoClass = new ErrorInfoClassDefinition(rootPackagePath, generationOptions);
         ErrorInfoClassFile errorInfoClassFile = new ErrorInfoClassFile(sourceDirPath, errorInfoClass);
         classWriter.write(errorInfoClassTemplateFactory.create(errorInfoClassFile, rootErrorClassFile));
     }

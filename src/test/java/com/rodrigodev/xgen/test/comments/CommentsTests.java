@@ -10,15 +10,14 @@ import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileService;
 import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeModule;
 import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeService;
 import dagger.Component;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.time.LocalDateTime;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.commonError;
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.error;
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.rootError;
+import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -58,6 +57,11 @@ public class CommentsTests {
         this.timeService = (FakeTimeService) timeService;
     }
 
+    @Before
+    public void setUp() {
+        fileService.reset();
+    }
+
     @Test
     public void currentDateIsAddedToTemplateComments() {
         ExceptionsGenerator xgen = exceptionsGeneratorComponent.generator();
@@ -76,8 +80,8 @@ public class CommentsTests {
         ).basePackage("com.rodrigodev.xgen.test.comments.currentDateIsAddedToTemplateComments").build());
         // @formatter:on
 
-        for (StringBuffer output : fileService.files()) {
-            assertThat(output).contains("November 13, 1234");
+        for (StringBuffer file : fileService.files()) {
+            assertThat(file).contains("November 13, 1234");
         }
     }
 

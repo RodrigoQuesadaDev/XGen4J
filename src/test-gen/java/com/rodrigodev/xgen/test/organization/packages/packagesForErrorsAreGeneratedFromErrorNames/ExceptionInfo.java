@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames;
 
 import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameException.ExceptionType;
-
 import java.util.Optional;
 
 /**

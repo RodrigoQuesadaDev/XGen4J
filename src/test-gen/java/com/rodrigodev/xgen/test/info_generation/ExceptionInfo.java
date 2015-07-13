@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.info_generation;
 
 import com.rodrigodev.xgen.test.info_generation.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores;
 
 import com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores.Root_name7Exception.ExceptionType;
-
 import java.util.Optional;
 
 /**

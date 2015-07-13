@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore;
 
 import com.rodrigodev.xgen.test.organization.packages._basePackagePartsCanBeginWithLetterOrUnderscore.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

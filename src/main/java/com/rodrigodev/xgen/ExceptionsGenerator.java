@@ -3,13 +3,15 @@ package com.rodrigodev.xgen;
 import com.google.common.collect.ImmutableList;
 import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.ErrorWriter;
-import com.rodrigodev.xgen.model.error.code.ErrorCodeWriter;
+import com.rodrigodev.xgen.model.error.ErrorClassWriter;
+import com.rodrigodev.xgen.model.error.code.ErrorCodeClassWriter;
 import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionWriter;
+import com.rodrigodev.xgen.model.error.exception.ExceptionClassWriter;
 import com.rodrigodev.xgen.model.information.InformationClassesWriter;
+import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen.model.support.optional.OptionalClassWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;
@@ -28,10 +30,11 @@ public class ExceptionsGenerator {
 
     public static class InjectedFields {
 
-        @Inject ErrorCodeWriter errorCodeWriter;
-        @Inject ErrorWriter errorWriter;
-        @Inject ExceptionWriter exceptionWriter;
+        @Inject ErrorCodeClassWriter errorCodeClassWriter;
+        @Inject ErrorClassWriter errorClassWriter;
+        @Inject ExceptionClassWriter exceptionClassWriter;
         @Inject InformationClassesWriter informationClassesWriter;
+        @Inject OptionalClassWriter optionalClassWriter;
 
         @Inject
         public InjectedFields() {
@@ -77,6 +80,7 @@ public class ExceptionsGenerator {
         generateBaseClasses(rootError);
         generateErrors(rootError, Optional.empty(), Optional.empty());
         generateInformationClasses();
+        generateSupportClasses();
     }
 
     public void generate(@NonNull RootErrorDefinition rootError) {
@@ -88,7 +92,7 @@ public class ExceptionsGenerator {
     }
 
     private void generateErrorCodeClass(RootErrorDefinition rootError) {
-        inj.errorCodeWriter.write(sourceDirPath, rootError, rootError.code().number().isPresent());
+        inj.errorCodeClassWriter.write(sourceDirPath, rootError, rootError.code().number().isPresent());
     }
 
     private void generateErrors(
@@ -96,10 +100,10 @@ public class ExceptionsGenerator {
             Optional<ErrorClassFile> parentErrorClassFile,
             Optional<ExceptionClassFile> parentExceptionClassFile
     ) {
-        ExceptionClassFile exceptionClassFile = inj.exceptionWriter.write(
+        ExceptionClassFile exceptionClassFile = inj.exceptionClassWriter.write(
                 sourceDirPath, rootExceptionClassFile, error, parentExceptionClassFile, options
         );
-        ErrorClassFile errorClassFile = inj.errorWriter.write(
+        ErrorClassFile errorClassFile = inj.errorClassWriter.write(
                 sourceDirPath,
                 rootErrorClassFile,
                 rootExceptionClassFile,
@@ -138,7 +142,16 @@ public class ExceptionsGenerator {
                 sourceDirPath,
                 rootErrorClassFile.get(),
                 rootExceptionClassFile.get(),
-                ImmutableList.copyOf(errorExceptionPairs)
+                ImmutableList.copyOf(errorExceptionPairs),
+                options
         );
     }
+
+    private void generateSupportClasses() {
+        if (options.optionalClassType() == OptionalClassType.CUSTOM) {
+            inj.optionalClassWriter.write(sourceDirPath, rootErrorClassFile.get());
+        }
+    }
+
+    //TODO refactor this class, it seems to be huge?
 }

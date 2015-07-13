@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter;
 
 import com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameException.ExceptionType;
-
 import java.util.Optional;
 
 /**

@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.information.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen.model.common.template.model.OptionalTypeTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import lombok.NonNull;
@@ -15,16 +16,23 @@ import lombok.experimental.Accessors;
 public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
 
     @NonNull private TypeTemplateModel rootError;
+    @NonNull private OptionalTypeTemplateModel optionalType;
 
     private ErrorInfoClassTemplateModel(
-            ErrorInfoClassTemplateModelBuilder builder, @NonNull ErrorClassFile rootErrorClassFile
+            ErrorInfoClassTemplateModelBuilder builder,
+            @NonNull ErrorInfoClassFile errorInfoClassFile,
+            @NonNull ErrorClassFile rootErrorClassFile
     ) {
         super(builder);
         this.rootError = new TypeTemplateModel(rootErrorClassFile.classDefinition());
+        this.optionalType = OptionalTypeTemplateModel.builder()
+                .rootErrorClassFile(rootErrorClassFile)
+                .optionalClassType(errorInfoClassFile.classDefinition().optionalClassType())
+                .build();
     }
 
     protected ErrorInfoClassTemplateModel(ErrorInfoClassTemplateModelBuilder builder) {
-        this(builder, builder.rootErrorClassFile);
+        this(builder, builder.errorInfoClassFile, builder.rootErrorClassFile);
     }
 
     public static ErrorInfoClassTemplateModelBuilder builder() {
@@ -35,6 +43,7 @@ public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ErrorInfoClassTemplateModelBuilder extends ClassTemplateModelBuilder<ErrorInfoClassTemplateModel, ErrorInfoClassTemplateModelBuilder> {
 
+        private ErrorInfoClassFile errorInfoClassFile;
         private ErrorClassFile rootErrorClassFile;
 
         @Override

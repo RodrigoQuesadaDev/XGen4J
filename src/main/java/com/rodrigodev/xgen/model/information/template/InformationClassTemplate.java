@@ -13,7 +13,7 @@ import java.util.Optional;
  */
 public class InformationClassTemplate extends FreemarkerClassTemplate<InformationClassTemplateModel, InformationClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "information-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "information-class-def.ftl";
 
     public InformationClassTemplate(
             InjectedFields injectedFields,

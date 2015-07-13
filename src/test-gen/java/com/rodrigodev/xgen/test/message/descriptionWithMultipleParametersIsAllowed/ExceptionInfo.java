@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed;
 
 import com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

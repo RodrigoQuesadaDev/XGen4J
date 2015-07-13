@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed;
 
 import com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.RootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionClassTemplateModel, ExceptionClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "exception-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "exception-class-def.ftl";
 
     public ExceptionClassTemplate(
             InjectedFields injectedFields,

@@ -1,7 +1,6 @@
 package com.rodrigodev.xgen.test.generation_options.checkedExceptionsAreGeneratedWhenCorrespondingOptionIsSet;
 
 import com.rodrigodev.xgen.test.generation_options.checkedExceptionsAreGeneratedWhenCorrespondingOptionIsSet.CRootException.ExceptionType;
-
 import java.util.Optional;
 
 /**

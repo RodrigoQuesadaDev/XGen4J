@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.information;
 
 import com.google.common.collect.ImmutableList;
+import com.rodrigodev.xgen.GenerationOptions;
 import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
@@ -29,10 +30,11 @@ public class InformationClassesWriter {
             @NonNull String sourceDirPath,
             @NonNull ErrorClassFile rootErrorClassFile,
             @NonNull ExceptionClassFile rootExceptionClassFile,
-            ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs
+            ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs,
+            @NonNull GenerationOptions generationOptions
     ) {
         informationClassWriter.write(sourceDirPath, rootErrorClassFile, errorExceptionPairs);
-        errorInfoClassWriter.write(sourceDirPath, rootErrorClassFile);
-        exceptionInfoClassWriter.write(sourceDirPath, rootErrorClassFile, rootExceptionClassFile);
+        errorInfoClassWriter.write(sourceDirPath, rootErrorClassFile, generationOptions);
+        exceptionInfoClassWriter.write(sourceDirPath, rootErrorClassFile, rootExceptionClassFile, generationOptions);
     }
 }

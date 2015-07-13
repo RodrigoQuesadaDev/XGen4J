@@ -1,5 +1,6 @@
 package com.rodrigodev.xgen.model.information.exception;
 
+import com.rodrigodev.xgen.GenerationOptions;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
@@ -25,10 +26,12 @@ public class ExceptionInfoClassWriter {
     public void write(
             @NonNull String sourceDirPath,
             @NonNull ErrorClassFile rootErrorClassFile,
-            @NonNull ExceptionClassFile rootExceptionClassFile
+            @NonNull ExceptionClassFile rootExceptionClassFile,
+            @NonNull GenerationOptions generationOptions
     ) {
         String rootPackagePath = rootErrorClassFile.classDefinition().packagePath();
-        ExceptionInfoClassDefinition exceptionInfoClass = new ExceptionInfoClassDefinition(rootPackagePath);
+        ExceptionInfoClassDefinition exceptionInfoClass
+                = new ExceptionInfoClassDefinition(rootPackagePath, generationOptions);
         ExceptionInfoClassFile exceptionInfoClassFile = new ExceptionInfoClassFile(sourceDirPath, exceptionInfoClass);
         classWriter.write(exceptionInfoClassTemplateFactory.create(
                 exceptionInfoClassFile, rootErrorClassFile, rootExceptionClassFile

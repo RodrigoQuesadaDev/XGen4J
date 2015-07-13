@@ -5,7 +5,6 @@ import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassDefinition;
 import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassFile;
-import com.rodrigodev.xgen.model.information.exception.template.ExceptionInfoClassTemplateModel.ExceptionInfoClassTemplateModelBuilder;
 import lombok.NonNull;
 
 import java.util.Optional;
@@ -15,7 +14,7 @@ import java.util.Optional;
  */
 public class ExceptionInfoClassTemplate extends FreemarkerClassTemplate<ExceptionInfoClassTemplateModel, ExceptionInfoClassDefinition> {
 
-    public static final String TEMPLATE_FILE_NAME = "exception-info-class-def.ftl";
+    private static final String TEMPLATE_FILE_NAME = "exception-info-class-def.ftl";
 
     public ExceptionInfoClassTemplate(
             InjectedFields injectedFields,
@@ -26,18 +25,12 @@ public class ExceptionInfoClassTemplate extends FreemarkerClassTemplate<Exceptio
         super(
                 injectedFields,
                 TEMPLATE_FILE_NAME,
-                modelBuilder(rootErrorClassFile, rootExceptionClassFile),
+                ExceptionInfoClassTemplateModel.builder()
+                        .exceptionInfoClassFile(exceptionInfoClassFile)
+                        .rootErrorClassFile(rootErrorClassFile)
+                        .rootExceptionClassFile(rootExceptionClassFile),
                 exceptionInfoClassFile,
                 Optional.empty()
         );
-    }
-
-    private static ExceptionInfoClassTemplateModelBuilder modelBuilder(
-            ErrorClassFile rootErrorClassFile,
-            ExceptionClassFile rootExceptionClassFile
-    ) {
-        return ExceptionInfoClassTemplateModel.builder()
-                .rootErrorClassFile(rootErrorClassFile)
-                .rootExceptionClassFile(rootExceptionClassFile);
     }
 }

@@ -11,13 +11,13 @@ import javax.inject.Singleton;
  * Created by Rodrigo Quesada on 21/06/15.
  */
 @Singleton
-public class ErrorCodeWriter {
+public class ErrorCodeClassWriter {
 
     @Inject ClassWriter classWriter;
     @Inject ErrorCodeClassTemplateFactory errorClassTemplateFactory;
 
     @Inject
-    public ErrorCodeWriter() {
+    public ErrorCodeClassWriter() {
     }
 
     public ErrorCodeClassFile write(@NonNull String sourceDirPath, @NonNull ErrorDefinition rootError, boolean generateNumber) {
