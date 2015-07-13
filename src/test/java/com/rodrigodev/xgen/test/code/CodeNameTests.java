@@ -353,8 +353,4 @@ public class CodeNameTests {
         assertThat(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.CODE.id()).isEqualTo("code-name-root.code-name-e1.code-name-e2.code-name-e3-3");
         // @formatter:on
     }
-
-    //TODO test when all errors use same name? (so that full qualified name must be used)
-
-    //TODO at least for Information class?
 }

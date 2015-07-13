@@ -23,16 +23,10 @@ public class ExceptionClassTemplate extends FreemarkerClassTemplate<ExceptionCla
 
     private static ExceptionClassTemplateModelBuilder modelBuilder(
             Optional<ExceptionClassFile> rootClassFile,
-            ExceptionClassFile classFile
+            ExceptionClassFile errorClassFile
     ) {
-        ExceptionClassDefinition classDefinition = classFile.classDefinition();
-
-        ExceptionClassTemplateModelBuilder modelBuilder = ExceptionClassTemplateModel.builder();
-        rootClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
-        modelBuilder.common(classDefinition.errorDefinition().isCommon());
-        modelBuilder.hasType(classDefinition.hasType());
-        modelBuilder.checkedException(classDefinition.isCheckedException());
-
-        return modelBuilder;
+        return ExceptionClassTemplateModel.builder()
+                .rootClassFile(rootClassFile)
+                .errorClassFile(errorClassFile);
     }
 }

@@ -1,9 +1,10 @@
-package com.rodrigodev.xgen.model.information;
+package com.rodrigodev.xgen.model.information.template;
 
 import com.google.common.collect.ImmutableList;
 import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
-import com.rodrigodev.xgen.model.information.InformationClassTemplateModel.InformationClassTemplateModelBuilder;
+import com.rodrigodev.xgen.model.information.InformationClassDefinition;
+import com.rodrigodev.xgen.model.information.InformationClassFile;
 
 import java.util.Optional;
 
@@ -22,17 +23,9 @@ public class InformationClassTemplate extends FreemarkerClassTemplate<Informatio
         super(
                 injectedFields,
                 TEMPLATE_FILE_NAME,
-                modelBuilder(errorExceptionPairs),
+                InformationClassTemplateModel.builder().errorExceptionPairs(errorExceptionPairs),
                 informationClassFile,
                 Optional.empty()
         );
-    }
-
-    private static InformationClassTemplateModelBuilder modelBuilder(
-            ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs
-    ) {
-        InformationClassTemplateModelBuilder modelBuilder = InformationClassTemplateModel.builder();
-        modelBuilder.errorExceptionPairs(errorExceptionPairs);
-        return modelBuilder;
     }
 }

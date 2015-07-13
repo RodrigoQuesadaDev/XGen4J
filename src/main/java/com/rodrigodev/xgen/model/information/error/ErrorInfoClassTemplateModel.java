@@ -2,7 +2,7 @@ package com.rodrigodev.xgen.model.information.error;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
+import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -17,14 +17,14 @@ public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
     @NonNull private TypeTemplateModel rootError;
 
     private ErrorInfoClassTemplateModel(
-            ErrorInfoClassTemplateModelBuilder builder, @NonNull ErrorClassDefinition rootError
+            ErrorInfoClassTemplateModelBuilder builder, @NonNull ErrorClassFile rootErrorClassFile
     ) {
         super(builder);
-        this.rootError = new TypeTemplateModel(rootError);
+        this.rootError = new TypeTemplateModel(rootErrorClassFile.classDefinition());
     }
 
     protected ErrorInfoClassTemplateModel(ErrorInfoClassTemplateModelBuilder builder) {
-        this(builder, builder.rootError);
+        this(builder, builder.rootErrorClassFile);
     }
 
     public static ErrorInfoClassTemplateModelBuilder builder() {
@@ -35,7 +35,7 @@ public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ErrorInfoClassTemplateModelBuilder extends ClassTemplateModelBuilder<ErrorInfoClassTemplateModel, ErrorInfoClassTemplateModelBuilder> {
 
-        private ErrorClassDefinition rootError;
+        private ErrorClassFile rootErrorClassFile;
 
         @Override
         public ErrorInfoClassTemplateModel build() {

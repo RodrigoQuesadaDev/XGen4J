@@ -1,10 +1,10 @@
-package com.rodrigodev.xgen.model.error;
+package com.rodrigodev.xgen.model.error.template;
 
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
-import com.rodrigodev.xgen.model.error.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
+import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
+import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen.model.error.template.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
 import lombok.NonNull;
 
 import java.util.Optional;
@@ -40,19 +40,9 @@ public class ErrorClassTemplate extends FreemarkerClassTemplate<ErrorClassTempla
             ExceptionClassFile exceptionClassFile
     ) {
         ErrorClassTemplateModelBuilder modelBuilder = ErrorClassTemplateModel.builder();
-        ErrorDefinition errorDefinition = errorClassFile.classDefinition().errorDefinition();
-        ExceptionClassDefinition exceptionClassDefinition = exceptionClassFile.classDefinition();
-
-        errorDefinition.description().ifPresent(modelBuilder::description);
-        errorDefinition.customMessageGenerator().ifPresent(modelBuilder::generator);
-        modelBuilder.code(errorDefinition.code());
-        modelBuilder.exceptionName(exceptionClassDefinition.name());
-        modelBuilder.exceptionIsCheckedException(exceptionClassDefinition.isCheckedException());
-        rootErrorClassFile.ifPresent(r -> modelBuilder.root(r.classDefinition()));
-        rootExceptionClassFile.ifPresent(r -> modelBuilder.rootException(r.classDefinition()));
-        modelBuilder.common(errorDefinition.isCommon());
-        return modelBuilder;
-
-        //TODO refactor this code
+        rootErrorClassFile.ifPresent(modelBuilder::rootErrorClassFile);
+        rootExceptionClassFile.ifPresent(modelBuilder::rootExceptionClassFile);
+        return modelBuilder.errorClassFile(errorClassFile)
+                .exceptionClassFile(exceptionClassFile);
     }
 }

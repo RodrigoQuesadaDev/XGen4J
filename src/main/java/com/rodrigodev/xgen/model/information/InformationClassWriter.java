@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import com.rodrigodev.xgen.model.information.template.InformationClassTemplateFactory;
 import lombok.NonNull;
 
 import javax.inject.Inject;

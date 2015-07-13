@@ -1,6 +1,7 @@
-package com.rodrigodev.xgen.model.error;
+package com.rodrigodev.xgen.model.error.template;
 
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplateFactory;
+import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 
 import javax.inject.Inject;

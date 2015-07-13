@@ -80,4 +80,6 @@ public class CommentsTests {
             assertThat(output).contains("November 13, 1234");
         }
     }
+
+    //TODO refactor all tests to use constant time (so that files do not change every time the date is different)
 }

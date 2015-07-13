@@ -2,9 +2,12 @@ package com.rodrigodev.xgen.model.error.exception;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
+
+import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 20/06/15.
@@ -19,20 +22,21 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
     private ExceptionClassTemplateModel(
             ExceptionClassTemplateModelBuilder builder,
-            ExceptionClassDefinition root,
-            boolean common,
-            boolean hasType,
-            boolean checkedException
+            @NonNull Optional<ExceptionClassFile> rootClassFile,
+            @NonNull ExceptionClassFile errorClassFile
     ) {
         super(builder);
-        this.root = root != null ? new TypeTemplateModel(root) : null;
-        this.common = common;
-        this.hasType = hasType;
-        this.checkedException = checkedException;
+
+        ExceptionClassDefinition classDefinition = errorClassFile.classDefinition();
+
+        this.root = rootClassFile.isPresent() ? new TypeTemplateModel(rootClassFile.get().classDefinition()) : null;
+        this.common = classDefinition.errorDefinition().isCommon();
+        this.hasType = classDefinition.hasType();
+        this.checkedException = classDefinition.isCheckedException();
     }
 
     protected ExceptionClassTemplateModel(ExceptionClassTemplateModelBuilder builder) {
-        this(builder, builder.root, builder.common, builder.hasType, builder.checkedException);
+        this(builder, builder.rootClassFile, builder.errorClassFile);
     }
 
     public static ExceptionClassTemplateModelBuilder builder() {
@@ -43,10 +47,8 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ExceptionClassTemplateModelBuilder extends ClassTemplateModelBuilder<ExceptionClassTemplateModel, ExceptionClassTemplateModelBuilder> {
 
-        private ExceptionClassDefinition root;
-        private boolean common;
-        private boolean hasType;
-        private boolean checkedException;
+        private Optional<ExceptionClassFile> rootClassFile;
+        private ExceptionClassFile errorClassFile;
 
         @Override
         public ExceptionClassTemplateModel build() {

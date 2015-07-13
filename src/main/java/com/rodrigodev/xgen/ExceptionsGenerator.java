@@ -55,13 +55,6 @@ public class ExceptionsGenerator {
         init(options);
     }
 
-    private void init(GenerationOptions options) {
-        rootErrorClassFile = Optional.empty();
-        rootExceptionClassFile = Optional.empty();
-        errorExceptionPairs = new ArrayList<>();
-        this.options = options;
-    }
-
     public ExceptionsGenerator(@NonNull String sourceDirPath) {
         checkArgument(Files.exists(Paths.get(sourceDirPath)), "Source directory doesn't exist.");
 
@@ -69,6 +62,14 @@ public class ExceptionsGenerator {
         DaggerExceptionsGeneratorComponent.builder()
                 .mainModule(new MainModule(sourceDirPath))
                 .build().inject(this);
+        init(options);
+    }
+
+    private void init(GenerationOptions options) {
+        rootErrorClassFile = Optional.empty();
+        rootExceptionClassFile = Optional.empty();
+        errorExceptionPairs = new ArrayList<>();
+        this.options = options;
     }
 
     public void generate(@NonNull RootErrorDefinition rootError, @NonNull GenerationOptions options) {

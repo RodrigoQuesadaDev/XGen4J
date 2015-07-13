@@ -1,9 +1,11 @@
-package com.rodrigodev.xgen.model.information.exception;
+package com.rodrigodev.xgen.model.information.exception.template;
 
 import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassTemplateModel.ExceptionInfoClassTemplateModelBuilder;
+import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassDefinition;
+import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassFile;
+import com.rodrigodev.xgen.model.information.exception.template.ExceptionInfoClassTemplateModel.ExceptionInfoClassTemplateModelBuilder;
 import lombok.NonNull;
 
 import java.util.Optional;
@@ -34,9 +36,8 @@ public class ExceptionInfoClassTemplate extends FreemarkerClassTemplate<Exceptio
             ErrorClassFile rootErrorClassFile,
             ExceptionClassFile rootExceptionClassFile
     ) {
-        ExceptionInfoClassTemplateModelBuilder modelBuilder = ExceptionInfoClassTemplateModel.builder();
-        modelBuilder.rootError(rootErrorClassFile.classDefinition())
-                .rootException(rootExceptionClassFile.classDefinition());
-        return modelBuilder;
+        return ExceptionInfoClassTemplateModel.builder()
+                .rootErrorClassFile(rootErrorClassFile)
+                .rootExceptionClassFile(rootExceptionClassFile);
     }
 }

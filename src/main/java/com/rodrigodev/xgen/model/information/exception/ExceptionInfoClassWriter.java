@@ -3,6 +3,7 @@ package com.rodrigodev.xgen.model.information.exception;
 import com.rodrigodev.xgen.model.common.file.ClassWriter;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen.model.information.exception.template.ExceptionInfoClassTemplateFactory;
 import lombok.NonNull;
 
 import javax.inject.Inject;

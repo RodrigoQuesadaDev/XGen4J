@@ -4,19 +4,17 @@ import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDe
 import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
 import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import com.rodrigodev.xgen.model.error.configuration.definition.name.ErrorNameChecker;
+import com.rodrigodev.xgen.model.error.configuration.definition.name.ErrorNameConverter;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
-import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
 
@@ -80,11 +78,6 @@ public class ErrorDefinition {
     @Accessors(fluent = true)
     public static abstract class ErrorDefinitionBuilder<D extends ErrorDefinition, B extends ErrorDefinitionBuilder<D, B>> {
 
-        private static final String DOT = ".";
-        private static final Pattern VALID_NAME_PATTERN = Pattern.compile("\\p{Upper}[\\w\\-]*", Pattern.UNICODE_CASE);
-        private static final String DUPLICATED_NAME_ANCESTOR_DESCENDANT = "Error cannot have name '%s' because an ancestor error has '%s' as name.";
-        private static final String DUPLICATED_NAME_SIBLINGS = "Error cannot have name '%s' because a sibling error has '%s' as name.";
-
         private String name;
         private ErrorCodeDefinitionBuilder codeBuilder;
         private Optional<ErrorDescriptionDefinition> description;
@@ -94,8 +87,7 @@ public class ErrorDefinition {
         @NonNull @Setter(AccessLevel.PROTECTED) private String packagePath;
         @Setter(AccessLevel.PROTECTED) private boolean isCommon;
         @NonNull private Optional<ErrorDefinitionBuilder<?, ?>> parent;
-        private Map<String, NameContainer> ancestorNamesMap;
-        private Map<String, NameContainer> childrenNamesMap;
+        private ErrorNameChecker nameChecker;
 
         protected ErrorDefinitionBuilder(String name) {
             codeBuilder = ErrorCodeDefinition.builder();
@@ -103,18 +95,14 @@ public class ErrorDefinition {
             customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
             parent = Optional.empty();
-            ancestorNamesMap = new HashMap<>();
-            childrenNamesMap = new HashMap<>();
+            nameChecker = new ErrorNameChecker(name);
             setName(name);
         }
 
         protected abstract B self();
 
         private void setName(String name) {
-            checkArgument(
-                    VALID_NAME_PATTERN.matcher(name).matches(),
-                    String.format("Error name '%s' has invalid format.", name)
-            );
+            nameChecker.checkIsValid();
 
             this.name = name;
             if (!codeBuilder.nameIsSet()) codeBuilder.nameFromText(name);
@@ -159,21 +147,17 @@ public class ErrorDefinition {
             this.parent = Optional.of(parent);
         }
 
-        private void addAncestorNames(Map<String, NameContainer> ancestorNames) {
-            this.ancestorNamesMap.putAll(ancestorNames);
-        }
-
         protected D build() {
-            checkName();
+            nameChecker.checkIsNotDuplicate();
             parent.ifPresent(p -> {
                 codeBuilder.parent(p.codeBuilder);
-                packagePath = generatePackagePath(p);
+                packagePath = ErrorNameConverter.addPackagePartFromName(p.packagePath, name);
                 isCommon = isCommon || p.isCommon;
             });
             errors = Arrays.stream(errorBuilders)
                     .peek(e -> {
                         e.parent(this);
-                        e.addAncestorNames(ancestorNamesMap);
+                        e.nameChecker.setParent(nameChecker);
                     })
                     .map(ErrorDefinitionBuilder::build)
                     .toArray(ErrorDefinition[]::new);
@@ -182,28 +166,6 @@ public class ErrorDefinition {
         }
 
         protected abstract D createErrorDefinition();
-
-        private String generatePackagePath(ErrorDefinitionBuilder<?, ?> parent) {
-            return parent.packagePath + DOT + ErrorNameToPackagePartConverter.convert(name);
-        }
-
-        private void checkName() {
-            NameContainer nameContainer = new NameContainer(name);
-            checkState(
-                    ancestorNamesMap.putIfAbsent(nameContainer.normalizedName, nameContainer) == null,
-                    String.format(DUPLICATED_NAME_ANCESTOR_DESCENDANT,
-                                  name, ancestorNamesMap.get(nameContainer.normalizedName).name
-                    )
-            );
-            parent.ifPresent(
-                    p -> checkState(
-                            p.childrenNamesMap.putIfAbsent(nameContainer.normalizedName, nameContainer) == null,
-                            String.format(DUPLICATED_NAME_SIBLINGS,
-                                          name, p.childrenNamesMap.get(nameContainer.normalizedName).name
-                            )
-                    ));
-            //TODO refactor this out?
-        }
     }
 
     private static class NormalErrorDefinitionBuilder extends ErrorDefinitionBuilder<ErrorDefinition, NormalErrorDefinitionBuilder> {
@@ -220,22 +182,6 @@ public class ErrorDefinition {
         @Override
         protected ErrorDefinition createErrorDefinition() {
             return new ErrorDefinition(this);
-        }
-    }
-
-    @FieldDefaults(makeFinal = true)
-    public static class NameContainer {
-
-        private String name;
-        private String normalizedName;
-
-        public NameContainer(@NonNull String name) {
-            this.name = name;
-            this.normalizedName = normalizeName(name);
-        }
-
-        private String normalizeName(String name) {
-            return ErrorNameToPackagePartConverter.convert(name);
         }
     }
 }

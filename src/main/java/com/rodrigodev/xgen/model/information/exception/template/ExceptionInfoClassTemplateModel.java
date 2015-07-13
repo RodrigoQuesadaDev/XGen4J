@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen.model.information.exception;
+package com.rodrigodev.xgen.model.information.exception.template;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
-import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
+import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen.model.information.exception.template.model.RootErrorTemplateModel;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -19,15 +19,18 @@ public class ExceptionInfoClassTemplateModel extends ClassTemplateModel {
 
     private ExceptionInfoClassTemplateModel(
             ExceptionInfoClassTemplateModelBuilder builder,
-            @NonNull ErrorClassDefinition rootError,
-            @NonNull ExceptionClassDefinition rootException
+            @NonNull ErrorClassFile rootErrorClassFile,
+            @NonNull ExceptionClassFile rootExceptionClassFile
     ) {
         super(builder);
-        this.rootError = new RootErrorTemplateModel(rootError, rootException);
+        this.rootError = new RootErrorTemplateModel(
+                rootErrorClassFile.classDefinition(),
+                rootExceptionClassFile.classDefinition()
+        );
     }
 
     protected ExceptionInfoClassTemplateModel(ExceptionInfoClassTemplateModelBuilder builder) {
-        this(builder, builder.rootError, builder.rootException);
+        this(builder, builder.rootErrorClassFile, builder.rootExceptionClassFile);
     }
 
     public static ExceptionInfoClassTemplateModelBuilder builder() {
@@ -38,24 +41,12 @@ public class ExceptionInfoClassTemplateModel extends ClassTemplateModel {
     @Accessors(fluent = true)
     public static class ExceptionInfoClassTemplateModelBuilder extends ClassTemplateModelBuilder<ExceptionInfoClassTemplateModel, ExceptionInfoClassTemplateModelBuilder> {
 
-        private ErrorClassDefinition rootError;
-        private ExceptionClassDefinition rootException;
+        private ErrorClassFile rootErrorClassFile;
+        private ExceptionClassFile rootExceptionClassFile;
 
         @Override
         public ExceptionInfoClassTemplateModel build() {
             return new ExceptionInfoClassTemplateModel(this);
-        }
-    }
-
-    @Value
-    public class RootErrorTemplateModel extends TypeTemplateModel {
-
-        @NonNull private TypeTemplateModel exception;
-
-        public RootErrorTemplateModel(@NonNull ErrorClassDefinition error,
-                                      @NonNull ExceptionClassDefinition rootException) {
-            super(error);
-            exception = new TypeTemplateModel(rootException);
         }
     }
 }
