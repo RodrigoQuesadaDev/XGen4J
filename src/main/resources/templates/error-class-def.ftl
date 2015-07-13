@@ -29,72 +29,98 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     public static final ErrorCode CODE = new ErrorCode("${code.name}"<#if code.number??>, ${code.number}</#if><#if parent??>, ${parent.name}.CODE</#if>);
 
 <#if concrete>
-    <#if description.format??>
+<#if description.format??>
     private static String MESSAGE_FORMAT = "${description.format}";
 
-    private static String createMessage(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) {
+    private static String createMessage(<@descriptionParamsDef/>) {
         <#list description.params as param>
         if(${param.name} == null) throw new NullPointerException("${param.name}");
         </#list>
 
-        return String.format(MESSAGE_FORMAT<#list description.params as param>, ${param.name}</#list>);
+        return String.format(MESSAGE_FORMAT<@descriptionParams startingComma=true/>);
     }
 
-    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}<#if param_has_next>, </#if></#list>) <#if exception.checkedException>throws ${exception.name} </#if>{
-        throw new ${exception.name}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
-    }
+    <@throwException/>
 
-    public static void throwException(<#list description.params as param>${param.type.name} ${param.name}, </#list>Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
-        throw new ${exception.name}(createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
+    <@throwException cause=true/>
+    <#---->
+    <#macro throwException cause=false>
+    public static void throwException(<@descriptionParamsDef endingComma=cause/><#if cause>Throwable cause</#if>) <@throwClause/>{
+        throw new ${exception.name}(createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
     }
-
-    <#if common>
-    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>) <#if exception.checkedException>throws ${root.exception.name} </#if>{
-        throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>));
-    }
-
-    public static void throwException(ExceptionType exceptionType<#list description.params as param>, ${param.type.name} ${param.name}</#list>, Throwable cause) <#if exception.checkedException>throws ${root.exception.name} </#if>{
-        throwExceptionForCommonError(exceptionType, createMessage(<#list description.params as param>${param.name}<#if param_has_next>, </#if></#list>), cause);
-    }
-    </#if>
-    <#else>
-    private static String createMessage(${description.generator.type.name} ${description.generator.name}) {
-        if(${description.generator.name} == null) throw new NullPointerException("${description.generator.name}");
-
-        return ${description.generator.name}.message();
-    }
-
-    public static void throwException(${description.generator.type.name} ${description.generator.name}) <#if exception.checkedException>throws ${exception.name} </#if>{
-        throw new ${exception.name}(createMessage(${description.generator.name}));
-    }
-
-    public static void throwException(${description.generator.type.name} ${description.generator.name}, Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
-        throw new ${exception.name}(createMessage(${description.generator.name}), cause);
-    }
+    </#macro>
 
     <#if common>
-    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}) <#if exception.checkedException>throws ${root.exception.name} </#if>{
-        throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}));
+    <@throwExceptionForCommonError/>
+
+    <@throwExceptionForCommonError cause=true/>
+    <#---->
+    <#macro throwExceptionForCommonError cause=false>
+    public static void throwException(ExceptionType exceptionType<@descriptionParamsDef startingComma=true/><#if cause>, Throwable cause</#if>) <@throwClause rootException=true/>{
+        throwExceptionForCommonError(exceptionType, createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
+    }
+    </#macro>
+    </#if>
+<#else>
+    private static String createMessage(<@messageGeneratorDef/>) {
+        if(<@messageGenerator/> == null) throw new NullPointerException("<@messageGenerator/>");
+
+        return <@messageGenerator/>.message();
     }
 
-    public static void throwException(ExceptionType exceptionType, ${description.generator.type.name} ${description.generator.name}, Throwable cause) <#if exception.checkedException>throws ${root.exception.name} </#if>{
-        throwExceptionForCommonError(exceptionType, createMessage(${description.generator.name}), cause);
+    <@throwExceptionUsingGenerator/>
+
+    <@throwExceptionUsingGenerator cause=true/>
+    <#---->
+    <#macro throwExceptionUsingGenerator cause=false>
+    public static void throwException(<@messageGeneratorDef/><#if cause>, Throwable cause</#if>) <@throwClause/>{
+        throw new ${exception.name}(createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
     }
+    </#macro>
+
+    <#if common>
+    <@throwExceptionForCommonErrorUsingGenerator/>
+
+    <@throwExceptionForCommonErrorUsingGenerator cause=true/>
+    <#---->
+    <#macro throwExceptionForCommonErrorUsingGenerator cause=false>
+    public static void throwException(ExceptionType exceptionType, <@messageGeneratorDef/><#if cause>, Throwable cause</#if>) <@throwClause rootException=true/>{
+        throwExceptionForCommonError(exceptionType, createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
+    }
+    </#macro>
     </#if>
-    </#if>
+</#if>
 </#if>
 
 <#if !root??>
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) <#if exception.checkedException>throws ${exception.name} </#if>{
+    <@rootThrowExceptionForCommonError/>
+
+    <@rootThrowExceptionForCommonError cause=true/>
+    <#---->
+    <#macro rootThrowExceptionForCommonError cause=false>
+    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message<#if cause>, Throwable cause</#if>) <@throwClause/>{
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message);
+        throw exceptionType.createException(message<#if cause>, cause</#if>);
     }
-
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) <#if exception.checkedException>throws ${exception.name} </#if>{
-        if(exceptionType == null) throw new NullPointerException("exceptionType");
-
-        throw exceptionType.createException(message, cause);
-    }
+    </#macro>
 </#if>
 }
+<#--
+
+ Other macros
+
+-->
+<#macro throwClause rootException=false>
+    <#if exception.checkedException>throws <#if rootException>${root.exception.name}<#else>${exception.name}</#if> </#if><#t>
+</#macro>
+<#---->
+<#macro descriptionParams startingComma=false endingComma=false definition=false>
+    <#if startingComma && description.params?has_content>, </#if><#list description.params as param><#if definition>${param.type.name} </#if>${param.name}<#if param_has_next>, </#if></#list><#if endingComma && description.params?has_content>, </#if><#t>
+</#macro>
+<#macro descriptionParamsDef startingComma=false endingComma=false><@descriptionParams startingComma=startingComma endingComma=endingComma definition=true/></#macro>
+<#---->
+<#macro messageGenerator definition=false>
+    <#if definition>${description.generator.type.name} </#if>${description.generator.name}<#t>
+</#macro>
+<#macro messageGeneratorDef><@messageGenerator definition=true/></#macro>

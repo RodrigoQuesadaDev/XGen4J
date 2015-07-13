@@ -290,6 +290,4 @@ public class InfoGenerationTests {
     }
 
     //TODO Optional class is for Java 1.8
-
-    //TODO add support for checked exceptions!!!
 }
