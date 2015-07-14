@@ -2,6 +2,7 @@ package com.rodrigodev.xgen.test.generation_options;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.GenerationOptions;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.generation_options.checkedExceptionsAreGeneratedWhenCorrespondingOptionIsSet.CRootException;
@@ -38,7 +39,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 12/07/15.
  */
-public class CheckedExceptionsOptionTests {
+public class CheckedExceptionsOptionTests extends TestSpecification {
 
     private void assert_thrownExceptionIsUnchecked(
             ThrowingCallable throwingCallable, Class<? extends Exception> rootExceptionType
@@ -50,7 +51,7 @@ public class CheckedExceptionsOptionTests {
 
     @Test
     public void uncheckedExceptionsAreGeneratedWhenCorrespondingOptionIsNotSetOrIsSetAsFalse() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
         // @formatter:off
         xgen.generate(rootError("URoot").errors(
                 commonError("UC1").errors(
@@ -140,9 +141,8 @@ public class CheckedExceptionsOptionTests {
 
     @Test
     public void checkedExceptionsAreGeneratedWhenCorrespondingOptionIsSet() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("CRoot").errors(
+        generator().generate(rootError("CRoot").errors(
                 commonError("CC1").errors(
                         error("CC2").errors(
                                 error("CC3_1").description("Message for C3_1 error."),

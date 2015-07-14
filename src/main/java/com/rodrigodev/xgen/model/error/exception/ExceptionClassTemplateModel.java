@@ -2,6 +2,7 @@ package com.rodrigodev.xgen.model.error.exception;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -13,6 +14,7 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 20/06/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
     private TypeTemplateModel root;

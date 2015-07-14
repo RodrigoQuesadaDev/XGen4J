@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen.test.message;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
-public class MessageTests {
+public class MessageTests extends TestSpecification {
 
     @Test
     public void descriptionMustNotBeEmpty() {
@@ -38,8 +38,7 @@ public class MessageTests {
 
     @Test
     public void descriptionWithNoParamsIsAllowed() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3").description("Some description.")
@@ -62,9 +61,8 @@ public class MessageTests {
 
     @Test
     public void descriptionWithMultipleParametersIsAllowed() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3"))
@@ -98,9 +96,8 @@ public class MessageTests {
 
     @Test
     public void descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3").description(TestMessageGeneratorObject.class, "generator")
@@ -143,9 +140,8 @@ public class MessageTests {
 
     @Test
     public void descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3").description(TestMessageGeneratorObjectChild.class, "generator")
@@ -189,10 +185,9 @@ public class MessageTests {
 
     @Test
     public void customObjectThatGeneratesTheMessageForDescriptionMustHavePublicMessageMethod() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         assertThatThrownBy(
                 // @formatter:off
-                () -> xgen.generate(rootError("Root").errors(
+                () -> generator().generate(rootError("Root").errors(
                         error("E1").errors(
                                 error("E2").errors(
                                         error("E3").description(TestBadMessageGeneratorObject.class, "generator")
@@ -207,10 +202,9 @@ public class MessageTests {
     public void assert_onlyTextBasedDescriptionOrCustomMessageGeneratorCanBeSpecifyNotBoth(
             Supplier<ErrorDefinitionBuilder> errorMethodCall
     ) {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         assertThatThrownBy(
                 // @formatter:off
-                () -> xgen.generate(rootError("Root").errors(
+                () -> generator().generate(rootError("Root").errors(
                         error("E1").errors(
                                 error("E2").errors(
                                         errorMethodCall.get()

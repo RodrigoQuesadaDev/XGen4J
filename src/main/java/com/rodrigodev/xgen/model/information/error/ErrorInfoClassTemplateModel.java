@@ -4,6 +4,7 @@ import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.OptionalTypeTemplateModel;
 import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -13,6 +14,7 @@ import lombok.experimental.Accessors;
  * Created by Rodrigo Quesada on 10/07/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ErrorInfoClassTemplateModel extends ClassTemplateModel {
 
     @NonNull private TypeTemplateModel rootError;

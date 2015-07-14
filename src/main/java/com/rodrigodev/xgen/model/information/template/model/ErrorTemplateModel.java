@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
 import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Value;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 13/07/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ErrorTemplateModel extends TypeTemplateModel {
 
     @NonNull private ExceptionTemplateModel exception;

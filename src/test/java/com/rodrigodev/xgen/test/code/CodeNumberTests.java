@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.test.code;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.RootError;
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.c1.C1Error;
 import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.c1.c2.C2Error;
@@ -21,7 +22,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 25/06/15.
  */
-public class CodeNumberTests {
+public class CodeNumberTests extends TestSpecification {
 
     public CodeNumberTests() {
         generateErrorsForCodeNumericIdAndNumberAreGeneratedWhenSpecifiedTests();
@@ -36,7 +37,7 @@ public class CodeNumberTests {
 
     @Test
     public void ifRootErrorHasCodeNumberThenAllDescendantsMustAlsoHaveIt() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assert_ifRootErrorHasCodeNumberThenAllDescendantsMustAlsoHaveIt(
                 () ->
@@ -113,7 +114,7 @@ public class CodeNumberTests {
 
     @Test
     public void ifRootErrorDoesNotHaveCodeNumberThenDescendantDoNotHaveItEither() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assert_ifRootErrorDoesNotHaveCodeNumberThenDescendantDoNotHaveItEither(
                 () ->
@@ -182,9 +183,8 @@ public class CodeNumberTests {
     }
 
     private void generateErrorsForCodeNumericIdAndNumberAreGeneratedWhenSpecifiedTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").code(123).errors(
+        generator().generate(rootError("Root").code(123).errors(
                 commonError("C1").code(234).errors(
                         error("C2").code(345).errors(
                                 error("C3_1").code(456).description("ABCDE"),
@@ -239,9 +239,8 @@ public class CodeNumberTests {
     }
 
     private void generateErrorsForCodeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecifiedTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").code("code-name-1", 123).errors(
+        generator().generate(rootError("Root").code("code-name-1", 123).errors(
                 error("E1").code("code-name-2", 234).errors(
                         error("E2").code("code-name-3", 345).errors(
                                 error("E3_1").code("code-name-4-1", 456).description("ABCDE"),

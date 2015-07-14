@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.test.organization;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.organization.hierarchy.RootError;
 import com.rodrigodev.xgen.test.organization.hierarchy.RootException;
 import com.rodrigodev.xgen.test.organization.hierarchy.c1.C1Error;
@@ -69,7 +70,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 21/06/15.
  */
-public class OrganizationTests {
+public class OrganizationTests extends TestSpecification {
 
     public static class HierarchyTests {
 
@@ -78,11 +79,8 @@ public class OrganizationTests {
         }
 
         private void generateErrorsForHierarchyTests() {
-
-            ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-
             // @formatter:off
-            xgen.generate(rootError("Root").errors(
+            generator().generate(rootError("Root").errors(
                     commonError("C1").errors(
                             error("C2").errors(
                                     error("C3_1").description("ABCDE"),
@@ -161,7 +159,7 @@ public class OrganizationTests {
         }
 
         private void assert_basePackagePartsCanBeginWithLetterOrUnderscore() {
-            ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+            ExceptionsGenerator xgen = generator();
             // @formatter:off
             xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore").build());
             xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore").build());
@@ -181,7 +179,7 @@ public class OrganizationTests {
         }
 
         private void assert_basePackagePartsCanContainLettersNumbersOrUnderscores() {
-            ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+            ExceptionsGenerator xgen = generator();
             // @formatter:off
             xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContainLettersNumbersOrUnderscores").build());
             xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1").build());
@@ -202,11 +200,8 @@ public class OrganizationTests {
         }
 
         private void generateErrorsForPackageGeneratedFromErrorNameTests() {
-
-            ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-
             // @formatter:off
-            xgen.generate(rootError("RootName").errors(
+            generator().generate(rootError("RootName").errors(
                     commonError("CommonName1").errors(
                             error("CommonName2").errors(
                                     error("CommonName3_1").description("ABCDE"),
@@ -282,11 +277,8 @@ public class OrganizationTests {
         }
 
         private void generateErrorsForPackageGeneratedFromErrorNameTests_specialCases() {
-
-            ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-
             // @formatter:off
-            xgen.generate(rootError("RootName").errors(
+            generator().generate(rootError("RootName").errors(
                     error("ErrorName1").errors(
                             error("ErrorName2").errors(
                                     error("Error_Name3_1_"),

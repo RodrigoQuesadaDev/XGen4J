@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.model.error.code;
 
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -10,6 +11,7 @@ import lombok.experimental.Accessors;
  * Created by Rodrigo Quesada on 25/06/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ErrorCodeClassTemplateModel extends ClassTemplateModel {
 
     private boolean hasNumber;

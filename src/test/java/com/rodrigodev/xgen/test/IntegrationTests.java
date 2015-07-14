@@ -1,6 +1,5 @@
 package com.rodrigodev.xgen.test;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.test.integration.bedroom.BedroomError;
 import com.rodrigodev.xgen.test.integration.bedroom.BedroomException;
 import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundError;
@@ -54,18 +53,15 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 12/05/15.
  */
-public class IntegrationTests {
+public class IntegrationTests extends TestSpecification {
 
     public IntegrationTests() {
         createExceptions();
     }
 
     private void createExceptions() {
-
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-
         // @formatter:off
-        xgen.generate(rootError("House").errors(
+        generator().generate(rootError("House").errors(
                 commonError("Common").errors(
                         error("Room").errors(
                                 error("Dirty").description("%s is dirty!", p(String.class, "roomName")),

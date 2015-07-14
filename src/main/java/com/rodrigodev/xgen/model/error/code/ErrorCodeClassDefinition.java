@@ -13,9 +13,9 @@ public class ErrorCodeClassDefinition extends ClassDefinition {
 
     private static final String NAME = "ErrorCode";
 
-    @NonNull @Getter private boolean hasNumber;
+    @Getter private boolean hasNumber;
 
-    public ErrorCodeClassDefinition(String packagePath, @NonNull boolean hasNumber) {
+    public ErrorCodeClassDefinition(String packagePath, boolean hasNumber) {
         super(NAME, packagePath);
         this.hasNumber = hasNumber;
     }

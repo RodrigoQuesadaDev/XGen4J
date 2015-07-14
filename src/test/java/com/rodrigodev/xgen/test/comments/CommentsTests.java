@@ -5,6 +5,7 @@ import com.rodrigodev.xgen.ExceptionsGeneratorComponent;
 import com.rodrigodev.xgen.MainModule;
 import com.rodrigodev.xgen.model.common.file.FileService;
 import com.rodrigodev.xgen.service.time.TimeService;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileModule;
 import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileService;
 import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeModule;
@@ -23,7 +24,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 26/06/15.
  */
-public class CommentsTests {
+public class CommentsTests extends TestSpecification {
 
     @Singleton
     @Component(modules = {MainModule.class})
@@ -38,7 +39,7 @@ public class CommentsTests {
 
     public CommentsTests() {
         exceptionsGeneratorComponent = DaggerCommentsTests_TestExceptionsGeneratorComponent.builder()
-                .mainModule(new MainModule("src/test-gen/java"))
+                .mainModule(new MainModule(SRC_DIR_PATH))
                 .fileModule(new InMemoryFileModule())
                 .timeModule(new FakeTimeModule())
                 .build();
@@ -84,6 +85,4 @@ public class CommentsTests {
             assertThat(file).contains("November 13, 1234");
         }
     }
-
-    //TODO refactor all tests to use constant time (so that files do not change every time the date is different)
 }

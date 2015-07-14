@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.test.code;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameError;
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Error;
 import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Error;
@@ -32,7 +33,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 01/07/15.
  */
-public class CodeNameTests {
+public class CodeNameTests extends TestSpecification {
 
     public CodeNameTests() {
         generateErrorsForCodeIdAndNameAreGeneratedWhenSpecifiedTests();
@@ -67,9 +68,8 @@ public class CodeNameTests {
     }
 
     private void generateErrorsForCodeIdAndNameAreGeneratedWhenSpecifiedTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").code("code-name-root").errors(
+        generator().generate(rootError("Root").code("code-name-root").errors(
                 commonError("C1").code("code-name-c1").errors(
                         error("C2").code("code-name-c2").errors(
                                 error("C3_1").code("code-name-c3-1").description("ABCDE"),
@@ -123,9 +123,8 @@ public class CodeNameTests {
     }
 
     private void generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("RootName").errors(
+        generator().generate(rootError("RootName").errors(
                 commonError("CommonName1").errors(
                         error("CommonName2").errors(
                                 error("CommonName3_1").description("ABCDE"),
@@ -183,7 +182,7 @@ public class CodeNameTests {
     }
 
     private void generateErrorsForCodeIdAndNameAreGeneratedFromErrorNameWhenNotSpecifiedTests_specialCases() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
         // @formatter:off
         xgen.generate(rootError("Root_Name1").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
         xgen.generate(rootError("Root-Name2").basePackage("com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases").build());
@@ -234,9 +233,8 @@ public class CodeNameTests {
     }
 
     private void generateErrorsForCodeIdAndNameAreGeneratedOnAMixedSituationTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("RootName").errors(
+        generator().generate(rootError("RootName").errors(
                 commonError("C1").code("code-name-c1").errors(
                         error("CommonName2").errors(
                                 error("CommonName3_1").description("ABCDE"),
@@ -316,9 +314,8 @@ public class CodeNameTests {
     }
 
     public void generateErrorsForCodeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecifiedTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").code("code-name-root", 1).errors(
+        generator().generate(rootError("Root").code("code-name-root", 1).errors(
                 error("E1").code("code-name-e1", 2).errors(
                         error("E2").code("code-name-e2", 3).errors(
                                 error("E3_1").code("code-name-e3-1", 4).description("ABCDE"),

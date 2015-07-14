@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen.test.info_generation;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.info_generation.ErrorInfo.CustomMessageGeneratorErrorDescription;
 import com.rodrigodev.xgen.test.info_generation.ErrorInfo.ErrorDescription;
@@ -47,16 +47,15 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 09/07/15.
  */
-public class InfoGenerationTests {
+public class InfoGenerationTests extends TestSpecification {
 
     public InfoGenerationTests() {
         generateErrors();
     }
 
     private void generateErrors() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").description("Message for C1 error.").errors(
                         error("C2").errors(
                                 error("C3_1").description("Message for C3_1 error."),

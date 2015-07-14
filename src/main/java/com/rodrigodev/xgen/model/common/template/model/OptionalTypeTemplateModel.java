@@ -2,6 +2,7 @@ package com.rodrigodev.xgen.model.common.template.model;
 
 import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.Value;
 import lombok.experimental.Accessors;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 13/07/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class OptionalTypeTemplateModel extends TypeTemplateModel {
 
     private String emptyMethod;

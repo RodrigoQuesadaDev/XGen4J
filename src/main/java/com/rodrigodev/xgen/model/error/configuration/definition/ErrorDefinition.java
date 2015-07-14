@@ -33,7 +33,7 @@ public class ErrorDefinition {
     @NonNull private ErrorDefinition[] errors;
     @NonNull private String packagePath;
     private boolean isCommon;
-    @NonNull private boolean isRoot;
+    private boolean isRoot;
 
     private ErrorDefinition(
             @NonNull String name,

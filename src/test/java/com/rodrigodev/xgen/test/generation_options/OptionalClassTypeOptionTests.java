@@ -7,6 +7,7 @@ import com.rodrigodev.xgen.MainModule;
 import com.rodrigodev.xgen.model.common.file.FileService;
 import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
 import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileModule;
@@ -27,7 +28,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 13/07/15.
  */
-public class OptionalClassTypeOptionTests {
+public class OptionalClassTypeOptionTests extends TestSpecification {
 
     @Singleton
     @Component(modules = {MainModule.class})
@@ -41,7 +42,7 @@ public class OptionalClassTypeOptionTests {
 
     public OptionalClassTypeOptionTests() {
         exceptionsGeneratorComponent = DaggerOptionalClassTypeOptionTests_TestExceptionsGeneratorComponent.builder()
-                .mainModule(new MainModule("src/test-gen/java"))
+                .mainModule(new MainModule(SRC_DIR_PATH))
                 .fileModule(new InMemoryFileModule())
                 .build();
         exceptionsGeneratorComponent.inject(this);
@@ -75,7 +76,7 @@ public class OptionalClassTypeOptionTests {
             Optional<OptionalClassType> optionalClassType
     ) {
         //test compilation
-        generateClasses(new ExceptionsGenerator("src/test-gen/java"), rootError, optionalClassType);
+        generateClasses(generator(), rootError, optionalClassType);
 
         //verify correct Optional class was written
         generateClasses(exceptionsGeneratorComponent.generator(), rootError, optionalClassType);

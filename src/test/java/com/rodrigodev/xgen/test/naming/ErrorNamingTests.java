@@ -2,6 +2,7 @@ package com.rodrigodev.xgen.test.naming;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores.*;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 23/06/15.
  */
-public class ErrorNamingTests {
+public class ErrorNamingTests extends TestSpecification {
 
     private void assert_errorNameHasInvalidFormat(Consumer<String> methodCall, String invalidName) {
         assertThatThrownBy(() -> methodCall.accept(invalidName))
@@ -37,9 +38,8 @@ public class ErrorNamingTests {
     }
 
     private void assert_errorNameCanBeginWithUpperCaseLetter() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter").build());
+        generator().generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter").build());
         // @formatter:on
 
         //Next code should compile
@@ -59,7 +59,7 @@ public class ErrorNamingTests {
     }
 
     private void assert_errorNameCanContainLettersNumbersHyphensOrUnderscores() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
         // @formatter:off
         xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
         xgen.generate(rootError("Root1Name1").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
@@ -84,7 +84,7 @@ public class ErrorNamingTests {
 
     @Test
     public void ifErrorNameHasHyphensTheyAreConvertedToUnderscores() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
         // @formatter:off
         xgen.generate(rootError("Root_Name1_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
         xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
@@ -107,7 +107,7 @@ public class ErrorNamingTests {
 
     @Test
     public void errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assertThatThrownBy(
                 () ->
@@ -173,7 +173,7 @@ public class ErrorNamingTests {
 
     @Test
     public void errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assertThatThrownBy(
                 () ->
@@ -249,9 +249,8 @@ public class ErrorNamingTests {
 
     @Test
     public void errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("RootName").errors(
+        generator().generate(rootError("RootName").errors(
                 commonError("CName1").errors(
                         error("SameName2").errors(
                                 error("SameName3_1").description("ABCDE"),

@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen.test.throwing;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
 import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
@@ -31,18 +31,15 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 03/07/15.
  */
-public class ThrowTests {
+public class ThrowTests extends TestSpecification {
 
     public ThrowTests() {
         generateErrorsForThrowTests();
     }
 
     private void generateErrorsForThrowTests() {
-
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
-
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3_1").description("Message for C3_1 error."),

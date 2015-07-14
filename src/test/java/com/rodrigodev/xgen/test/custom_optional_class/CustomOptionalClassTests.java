@@ -1,8 +1,8 @@
 package com.rodrigodev.xgen.test.custom_optional_class;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
 import com.rodrigodev.xgen.GenerationOptions;
 import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen.test.TestSpecification;
 import lombok.Value;
 import org.junit.Test;
 
@@ -14,16 +14,15 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 13/07/15.
  */
-public class CustomOptionalClassTests {
+public class CustomOptionalClassTests extends TestSpecification {
 
     public CustomOptionalClassTests() {
         generateOptionalClassForTests();
     }
 
     private void generateOptionalClassForTests() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.custom_optional_class").build(),
+        generator().generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.custom_optional_class").build(),
                       GenerationOptions.builder().optionalClassType(OptionalClassType.CUSTOM).build());
         // @formatter:on
     }

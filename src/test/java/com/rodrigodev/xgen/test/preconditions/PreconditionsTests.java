@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.test.preconditions;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -8,14 +9,14 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 24/06/15.
  */
-public class PreconditionsTests {
+public class PreconditionsTests extends TestSpecification {
 
     @Test
     public void sourceDirectoryMustExist() {
         assertThatThrownBy(
                 () -> {
                     // @formatter:off
-                    new ExceptionsGenerator("src/test-gen/java/com/rodrigodev/xgen/test/preconditions/sourceDirectoryMustExist");
+                    new ExceptionsGenerator(SRC_DIR_PATH + "/java/com/rodrigodev/xgen/test/preconditions/sourceDirectoryMustExist");
                     // @formatter:on
                 }
         ).isInstanceOf(IllegalArgumentException.class)

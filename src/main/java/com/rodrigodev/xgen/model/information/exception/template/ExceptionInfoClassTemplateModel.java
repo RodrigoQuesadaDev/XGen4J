@@ -6,6 +6,7 @@ import com.rodrigodev.xgen.model.error.ErrorClassFile;
 import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassFile;
 import com.rodrigodev.xgen.model.information.exception.template.model.RootErrorTemplateModel;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -15,6 +16,7 @@ import lombok.experimental.Accessors;
  * Created by Rodrigo Quesada on 10/07/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ExceptionInfoClassTemplateModel extends ClassTemplateModel {
 
     @NonNull private RootErrorTemplateModel rootError;

@@ -1,6 +1,7 @@
 package com.rodrigodev.xgen.test.code;
 
 import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError;
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCodeATestFactory;
 import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error;
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 07/07/15.
  */
-public class CodeUniquenessTests {
+public class CodeUniquenessTests extends TestSpecification {
 
     @Inject ErrorCodeATestFactory errorCodeATestFactory;
     @Inject ErrorCodeBTestFactory errorCodeBTestFactory;
@@ -44,7 +45,7 @@ public class CodeUniquenessTests {
 
     @Test
     public void codeNumberMustBeUniqueAmongSiblingErrors() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assert_codeNumberMustBeUniqueAmongSiblingErrors(
                 () ->
@@ -125,7 +126,7 @@ public class CodeUniquenessTests {
 
     @Test
     public void codeNameMustBeUniqueAmongSiblingErrors_specifiedName() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assert_codeNameMustBeUniqueAmongSiblingErrors(
                 () ->
@@ -200,7 +201,7 @@ public class CodeUniquenessTests {
 
     @Test
     public void codeNameMustBeUniqueAmongSiblingErrors_mixedCase() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
 
         assert_codeNameMustBeUniqueAmongSiblingErrors(
                 () ->
@@ -275,7 +276,7 @@ public class CodeUniquenessTests {
 
     @Test
     public void errorCodeEqualityIsBasedOnId() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
+        ExceptionsGenerator xgen = generator();
         // @formatter:off
         xgen.generate(rootError("ARoot").code("root").errors(
                 commonError("AC1").code("c1").errors(

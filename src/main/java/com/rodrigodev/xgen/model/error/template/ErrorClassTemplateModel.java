@@ -11,6 +11,7 @@ import com.rodrigodev.xgen.model.error.template.model.ErrorCodeModel;
 import com.rodrigodev.xgen.model.error.template.model.ErrorDescriptionModel;
 import com.rodrigodev.xgen.model.error.template.model.ExceptionModel;
 import com.rodrigodev.xgen.model.error.template.model.RootTemplateModel;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -22,6 +23,7 @@ import java.util.Optional;
  * Created by Rodrigo Quesada on 20/06/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class ErrorClassTemplateModel extends ClassTemplateModel {
 
     private ErrorDescriptionModel description;

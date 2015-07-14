@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen.test.instantiation;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
+import com.rodrigodev.xgen.test.TestSpecification;
 import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootError;
 import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error;
 import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error;
@@ -17,13 +17,12 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 22/06/15.
  */
-public class InstantiationTests {
+public class InstantiationTests extends TestSpecification {
 
     @Test
     public void errorsClassesAreAbstract() {
-        ExceptionsGenerator xgen = new ExceptionsGenerator("src/test-gen/java");
         // @formatter:off
-        xgen.generate(rootError("Root").errors(
+        generator().generate(rootError("Root").errors(
                 commonError("C1").errors(
                         error("C2").errors(
                                 error("C3").description("ABCDE")

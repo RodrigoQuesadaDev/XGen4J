@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
 import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
 import com.rodrigodev.xgen.model.information.template.model.ErrorTemplateModel;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.Value;
@@ -13,6 +14,7 @@ import lombok.experimental.Accessors;
  * Created by Rodrigo Quesada on 10/07/15.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class InformationClassTemplateModel extends ClassTemplateModel {
 
     private ImmutableList<ErrorTemplateModel> errors;
