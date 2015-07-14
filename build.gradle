@@ -1,78 +1,13 @@
-buildscript {
-    ext {
-        freemarkerVersion = '2.3.22'
-        guavaVersion = '18.0'
-        protonpackVersion = '1.4'
-        lombokVersion = '1.16.4'
-        daggerVersion = '2.0.1'
-
-        //Testing
-        junitVersion = '4.12'
-        assertjCoreVersion = '3.0.0'
-    }
-    repositories {
-        mavenCentral()
-    }
-}
-
 apply plugin: 'java'
-apply plugin: 'idea'
 
-jar {
-    baseName = 'xgen'
-    version = '0.0.1-SNAPSHOT'
-}
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 group = 'com.rodrigodev'
 version = '1.0'
 
 repositories {
     mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
-configurations {
-    provided
-    compile.extendsFrom provided
-}
-
-sourceSets {
-    main {
-        compileClasspath += [configurations.provided]
-
-        java {
-            srcDir 'generated'
-        }
-    }
-    test {
-        compileClasspath += [configurations.provided]
-
-        java {
-            srcDirs += ['src/test-gen/java', 'generated_tests']
-        }
-    }
-}
-
-idea {
-    module {
-        scopes.PROVIDED.plus += [configurations.provided]
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile("org.freemarker:freemarker:${freemarkerVersion}")
-    compile("com.google.guava:guava:${guavaVersion}")
-    compile("com.codepoetics:protonpack:${protonpackVersion}")
-    provided("org.projectlombok:lombok:${lombokVersion}")
-    compile("com.google.dagger:dagger:${daggerVersion}")
-    provided("com.google.dagger:dagger-compiler:${daggerVersion}")
-
-    //TODO remove factories and use AutoFactory instead :https://github.com/google/dagger/issues/172
-
-    /* Testing */
-    testCompile("junit:junit:${junitVersion}")
-    testCompile("org.assertj:assertj-core:${assertjCoreVersion}")
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
 }

@@ -1,2 +1,4 @@
 rootProject.name = 'exceptions-generator'
 
+include 'xgen4j'
+include 'table-generator'

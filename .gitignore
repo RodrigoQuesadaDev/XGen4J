@@ -10,5 +10,5 @@
 .idea
 *.iml
 *.jar
-/generated
-/generated_tests
+**/generated
+**/generated_tests
