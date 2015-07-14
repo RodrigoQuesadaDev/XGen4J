@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.error.configuration.definition.name;
+package com.rodrigodev.xgen4j.model.error.configuration.definition.name;
 
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;

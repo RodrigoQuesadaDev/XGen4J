@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.error.exception;
+package com.rodrigodev.xgen4j.model.error.exception;
 
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate.InjectedFields;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate.InjectedFields;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

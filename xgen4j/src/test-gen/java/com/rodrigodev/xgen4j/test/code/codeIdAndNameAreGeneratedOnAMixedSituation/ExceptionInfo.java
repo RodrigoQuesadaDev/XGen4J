@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation;
+package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedOnAMixedSituation;
 
-import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameException.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedOnAMixedSituation.RootNameException.ExceptionType;
 import java.util.Optional;
 
 /**

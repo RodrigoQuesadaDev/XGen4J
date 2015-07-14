@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.error.code;
+package com.rodrigodev.xgen4j.model.error.code;
 
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate;
 
 import java.util.Optional;
 

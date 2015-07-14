@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.error.template.model;
+package com.rodrigodev.xgen4j.model.error.template.model;
 
-import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import lombok.NonNull;
 import lombok.Value;
 

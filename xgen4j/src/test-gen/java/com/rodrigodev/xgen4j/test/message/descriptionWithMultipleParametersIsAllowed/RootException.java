@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed;
+package com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed;
 
 
 

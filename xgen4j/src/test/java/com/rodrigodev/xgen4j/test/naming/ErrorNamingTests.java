@@ -1,15 +1,15 @@
-package com.rodrigodev.xgen.test.naming;
+package com.rodrigodev.xgen4j.test.naming;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration;
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores.*;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores.*;
 import org.junit.Test;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -39,11 +39,11 @@ public class ErrorNamingTests extends TestSpecification {
 
     private void assert_errorNameCanBeginWithUpperCaseLetter() {
         // @formatter:off
-        generator().generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter").build());
+        generator().generate(rootError("RootName").basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter").build());
         // @formatter:on
 
         //Next code should compile
-        com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.class.getName();
     }
 
     @Test
@@ -61,17 +61,17 @@ public class ErrorNamingTests extends TestSpecification {
     private void assert_errorNameCanContainLettersNumbersHyphensOrUnderscores() {
         ExceptionsGenerator xgen = generator();
         // @formatter:off
-        xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root1Name1").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
-        xgen.generate(rootError("Root_Name3_").basePackage("com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("RootName").basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root1Name1").basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
+        xgen.generate(rootError("Root_Name3_").basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores").build());
         // @formatter:on
 
         //Next code should compile
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root1Name1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name2_Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name3_Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.RootNameError.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root1Name1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name2_Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name3_Error.class.getName();
     }
 
     @Test
@@ -86,13 +86,13 @@ public class ErrorNamingTests extends TestSpecification {
     public void ifErrorNameHasHyphensTheyAreConvertedToUnderscores() {
         ExceptionsGenerator xgen = generator();
         // @formatter:off
-        xgen.generate(rootError("Root_Name1_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root__Name3__").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root--Name4--").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root_-_Name5_-_").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root_name6").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
-        xgen.generate(rootError("Root-name7").basePackage("com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_Name1_").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root-Name2-").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root__Name3__").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root--Name4--").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_-_Name5_-_").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root_name6").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
+        xgen.generate(rootError("Root-name7").basePackage("com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores").build());
         // @formatter:on
 
         //Next code should compile
@@ -120,7 +120,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'EName1' because an ancestor error has 'EName1' as name.");
@@ -135,7 +135,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'RootName' because an ancestor error has 'RootName' as name.");
@@ -150,7 +150,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'E-Name1' because an ancestor error has 'E_Name1' as name.");
@@ -165,7 +165,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesInTheSameHierarchyPath").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'Root-Name' because an ancestor error has 'Root_Name' as name.");
@@ -186,7 +186,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3_1").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'EName3_1' because a sibling error has 'EName3_1' as name.");
@@ -206,7 +206,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName4_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'EName2' because a sibling error has 'EName2' as name.");
@@ -221,7 +221,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName3-1").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'EName3-1' because a sibling error has 'EName3_1' as name.");
@@ -241,7 +241,7 @@ public class ErrorNamingTests extends TestSpecification {
                                                 error("EName4_3").description("ABCDE")
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCannotBeTheSameOrGenerateTheSamePackagePartForTwoGivenSiblingErrorClasses").build())
                         // @formatter:on
         ).isInstanceOf(IllegalStateException.class)
                 .hasMessage("Error cannot have name 'E-Name2' because a sibling error has 'E_Name2' as name.");
@@ -273,26 +273,26 @@ public class ErrorNamingTests extends TestSpecification {
                                 error("SameName3_3").description("ABCDE")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship").build());
 
         //Next code should compile
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.RootNameError.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.CName1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.SameName2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_1.SameName3_1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_2.SameName3_2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_3.SameName3_3Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_4.SameName3_4Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.SameName3_4Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.SameName2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_1.SameName3_1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_2.SameName3_2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_3.SameName3_3Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.E2Name1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.SameName2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_1.SameName3_1Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_2.SameName3_2Error.class.getName();
-        com.rodrigodev.xgen.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_3.SameName3_3Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.RootNameError.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.CName1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.SameName2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_1.SameName3_1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_2.SameName3_2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_3.SameName3_3Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.cname1.same_name2.same_name3_4.SameName3_4Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.SameName3_4Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.SameName2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_1.SameName3_1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_2.SameName3_2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.same_name3_4.same_name2.same_name3_3.SameName3_3Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.E2Name1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.SameName2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_1.SameName3_1Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_2.SameName3_2Error.class.getName();
+        com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSamePackagePartForTwoGivenErrorClassesAsLongAsTheyDoNotHaveAnAncestorDescendantOrSiblingRelationship.e2name1.same_name2.same_name3_3.SameName3_3Error.class.getName();
         // @formatter:on
     }
 }

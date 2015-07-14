@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
 import lombok.experimental.FieldDefaults;
 

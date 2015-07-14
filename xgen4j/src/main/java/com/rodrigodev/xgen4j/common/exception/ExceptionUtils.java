@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.common.exception;
+package com.rodrigodev.xgen4j.common.exception;
 
-import com.rodrigodev.xgen.common.function.ExceptionSupplier;
-import com.rodrigodev.xgen.common.function.ThrowableMethodCallWithReturn;
+import com.rodrigodev.xgen4j.common.function.ExceptionSupplier;
+import com.rodrigodev.xgen4j.common.function.ThrowableMethodCallWithReturn;
 
 /**
  * Created by Rodrigo Quesada on 12/04/15.

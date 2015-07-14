@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter;
+package com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter;
 
 
 

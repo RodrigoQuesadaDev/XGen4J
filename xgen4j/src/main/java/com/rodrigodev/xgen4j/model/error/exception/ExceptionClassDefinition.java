@@ -1,8 +1,8 @@
-package com.rodrigodev.xgen.model.error.exception;
+package com.rodrigodev.xgen4j.model.error.exception;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.error.ClassDefinitionForError;
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.error.ClassDefinitionForError;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
 import lombok.NonNull;
 
 /**

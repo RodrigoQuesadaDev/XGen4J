@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_;
+package com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_;
 
-import com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +25,9 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootException.class),
-                com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootError.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootException.class),
+                com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain_LettersNumbersOrUnderscores_.RootError.CODE,
                 false
             ));
 

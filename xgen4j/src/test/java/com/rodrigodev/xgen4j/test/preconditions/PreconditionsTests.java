@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.preconditions;
+package com.rodrigodev.xgen4j.test.preconditions;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.test.TestSpecification;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.test.TestSpecification;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;

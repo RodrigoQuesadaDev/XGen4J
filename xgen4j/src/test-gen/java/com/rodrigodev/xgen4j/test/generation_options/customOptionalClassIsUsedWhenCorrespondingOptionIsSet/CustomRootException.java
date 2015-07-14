@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet;
+package com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet;
 
 
 

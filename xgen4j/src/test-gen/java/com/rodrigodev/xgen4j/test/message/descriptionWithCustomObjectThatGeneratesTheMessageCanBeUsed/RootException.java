@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed;
+package com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed;
 
 
 

@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores;
+package com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores;
 
-import com.rodrigodev.xgen.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name3_Exception.ExceptionType;
+import com.rodrigodev.xgen4j.test.naming.errorNameCanContainLettersNumbersHyphensOrUnderscores.Root_Name3_Exception.ExceptionType;
 import java.util.Optional;
 
 /**

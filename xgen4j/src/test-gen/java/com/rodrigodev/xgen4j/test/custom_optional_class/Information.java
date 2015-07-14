@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.custom_optional_class;
+package com.rodrigodev.xgen4j.test.custom_optional_class;
 
-import com.rodrigodev.xgen.test.custom_optional_class.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.custom_optional_class.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.custom_optional_class.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.custom_optional_class.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +25,9 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.custom_optional_class.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.custom_optional_class.RootException.class),
-                com.rodrigodev.xgen.test.custom_optional_class.RootError.CODE,
+                com.rodrigodev.xgen4j.test.custom_optional_class.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.custom_optional_class.RootException.class),
+                com.rodrigodev.xgen4j.test.custom_optional_class.RootError.CODE,
                 false
             ));
 

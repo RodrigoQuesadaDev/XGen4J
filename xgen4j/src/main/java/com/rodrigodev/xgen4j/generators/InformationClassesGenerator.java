@@ -1,11 +1,11 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
 import com.google.common.collect.ImmutableList;
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.information.InformationClassesWriter;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen4j.model.information.InformationClassesWriter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 

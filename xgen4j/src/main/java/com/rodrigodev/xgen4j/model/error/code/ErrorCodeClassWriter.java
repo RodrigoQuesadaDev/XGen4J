@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.error.code;
+package com.rodrigodev.xgen4j.model.error.code;
 
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
-import com.rodrigodev.xgen.model.common.file.ClassWriter;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
+import com.rodrigodev.xgen4j.model.common.file.ClassWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;

@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract;
+package com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract;
 
-import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.RootException.ExceptionType;
 import java.util.Optional;
 
 /**

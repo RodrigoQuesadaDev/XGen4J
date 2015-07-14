@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.common.clazz;
+package com.rodrigodev.xgen4j.model.common.clazz;
 
-import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
+import com.rodrigodev.xgen4j.model.error.ErrorClassDefinition;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassDefinition;
 import lombok.Value;
 import lombok.experimental.Accessors;
 

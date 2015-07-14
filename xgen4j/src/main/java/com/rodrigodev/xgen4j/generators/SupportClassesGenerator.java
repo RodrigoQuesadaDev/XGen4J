@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
-import com.rodrigodev.xgen.model.support.optional.OptionalClassWriter;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassWriter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 

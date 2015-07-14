@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.throwing;
+package com.rodrigodev.xgen4j.test.throwing;
 
 
 

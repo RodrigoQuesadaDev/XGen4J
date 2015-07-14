@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases;
+package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases;
 
-import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +25,9 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Exception.class),
-                com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.CODE,
                 false
             ));
 

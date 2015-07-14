@@ -1,10 +1,10 @@
-package com.rodrigodev.xgen.model.information.template.model;
+package com.rodrigodev.xgen4j.model.information.template.model;
 
-import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
-import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.template.model.TypeTemplateModel;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Value;

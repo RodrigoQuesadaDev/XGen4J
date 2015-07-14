@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.integration;
+package com.rodrigodev.xgen4j.test.integration;
 
 
 

@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet;
+package com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet;
 
-import com.rodrigodev.xgen.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.Java8RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.Java8RootException.ExceptionType;
 import java.util.Optional;
 
 /**

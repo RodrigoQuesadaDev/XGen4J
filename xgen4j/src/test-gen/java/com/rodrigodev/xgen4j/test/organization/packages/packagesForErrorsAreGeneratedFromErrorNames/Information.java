@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames;
+package com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames;
 
-import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,74 +25,74 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameException.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameError.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameException.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.RootNameError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.CommonName1Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.CommonName2Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_1.CommonName3_1Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_2.CommonName3_2Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.common_name1.common_name2.common_name3_3.CommonName3_3Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Exception.TYPE, com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Exception.TYPE, com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.ErrorName1Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Exception.TYPE, com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Exception.TYPE, com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.ErrorName2Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.TYPE, com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.TYPE, com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_1.ErrorName3_1Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.TYPE, com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.TYPE, com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_2.ErrorName3_2Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.TYPE, com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.class),
-                com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Error.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.TYPE, com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.class),
+                com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames.error_name1.error_name2.error_name3_3.ErrorName3_3Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));

@@ -1,10 +1,10 @@
-package com.rodrigodev.xgen.model.error.template;
+package com.rodrigodev.xgen4j.model.error.template;
 
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
-import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.error.template.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen4j.model.error.ErrorClassDefinition;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen4j.model.error.template.ErrorClassTemplateModel.ErrorClassTemplateModelBuilder;
 import lombok.NonNull;
 
 import java.util.Optional;

@@ -1,53 +1,53 @@
-package com.rodrigodev.xgen.test;
+package com.rodrigodev.xgen4j.test;
 
-import com.rodrigodev.xgen.test.integration.bedroom.BedroomError;
-import com.rodrigodev.xgen.test.integration.bedroom.BedroomException;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundError;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundException;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.shut_up.ShutUpError;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.shut_up.ShutUpException;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.too_early.TooEarlyError;
-import com.rodrigodev.xgen.test.integration.bedroom.alarm_clock.too_early.TooEarlyException;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.BedError;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.BedException;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.bed_is_warm.BedIsWarmError;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.bed_is_warm.BedIsWarmException;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.bugs_infestation.BugsInfestationError;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.bugs_infestation.BugsInfestationException;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.pillow_not_found.PillowNotFoundError;
-import com.rodrigodev.xgen.test.integration.bedroom.bed.pillow_not_found.PillowNotFoundException;
-import com.rodrigodev.xgen.test.integration.common.appliance.ApplianceError;
-import com.rodrigodev.xgen.test.integration.common.appliance.ApplianceException;
-import com.rodrigodev.xgen.test.integration.common.appliance.damaged.DamagedError;
-import com.rodrigodev.xgen.test.integration.common.appliance.damaged.DamagedException;
-import com.rodrigodev.xgen.test.integration.common.appliance.discharged.DischargedError;
-import com.rodrigodev.xgen.test.integration.common.appliance.discharged.DischargedException;
-import com.rodrigodev.xgen.test.integration.common.appliance.scratches.ScratchesError;
-import com.rodrigodev.xgen.test.integration.common.appliance.scratches.ScratchesException;
-import com.rodrigodev.xgen.test.integration.common.room.bad_smell.BadSmellError;
-import com.rodrigodev.xgen.test.integration.common.room.bad_smell.BadSmellException;
-import com.rodrigodev.xgen.test.integration.common.room.dirty.DirtyError;
-import com.rodrigodev.xgen.test.integration.common.room.dirty.DirtyException;
-import com.rodrigodev.xgen.test.integration.common.room.too_small.TooSmallError;
-import com.rodrigodev.xgen.test.integration.common.room.too_small.TooSmallException;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.food_not_found.FoodNotFoundError;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.food_not_found.FoodNotFoundException;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.frozen_food.FrozenFoodError;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.frozen_food.FrozenFoodException;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.rotten_food.RottenFoodError;
-import com.rodrigodev.xgen.test.integration.kitchen.fridge.rotten_food.RottenFoodException;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.OvenError;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.OvenException;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.burned_food.BurnedFoodError;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.burned_food.BurnedFoodException;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.too_much_smoke.TooMuchSmokeError;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.too_much_smoke.TooMuchSmokeException;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.undercooked.UndercookedError;
-import com.rodrigodev.xgen.test.integration.kitchen.oven.undercooked.UndercookedException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.BedroomError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.BedroomException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.did_not_sound.DidNotSoundException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.shut_up.ShutUpError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.shut_up.ShutUpException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.too_early.TooEarlyError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.alarm_clock.too_early.TooEarlyException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.BedError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.BedException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.bed_is_warm.BedIsWarmError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.bed_is_warm.BedIsWarmException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.bugs_infestation.BugsInfestationError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.bugs_infestation.BugsInfestationException;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.pillow_not_found.PillowNotFoundError;
+import com.rodrigodev.xgen4j.test.integration.bedroom.bed.pillow_not_found.PillowNotFoundException;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.ApplianceError;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.ApplianceException;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.damaged.DamagedError;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.damaged.DamagedException;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.discharged.DischargedError;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.discharged.DischargedException;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.scratches.ScratchesError;
+import com.rodrigodev.xgen4j.test.integration.common.appliance.scratches.ScratchesException;
+import com.rodrigodev.xgen4j.test.integration.common.room.bad_smell.BadSmellError;
+import com.rodrigodev.xgen4j.test.integration.common.room.bad_smell.BadSmellException;
+import com.rodrigodev.xgen4j.test.integration.common.room.dirty.DirtyError;
+import com.rodrigodev.xgen4j.test.integration.common.room.dirty.DirtyException;
+import com.rodrigodev.xgen4j.test.integration.common.room.too_small.TooSmallError;
+import com.rodrigodev.xgen4j.test.integration.common.room.too_small.TooSmallException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.food_not_found.FoodNotFoundError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.food_not_found.FoodNotFoundException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.frozen_food.FrozenFoodError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.frozen_food.FrozenFoodException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.rotten_food.RottenFoodError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.fridge.rotten_food.RottenFoodException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.OvenError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.OvenException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.burned_food.BurnedFoodError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.burned_food.BurnedFoodException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.too_much_smoke.TooMuchSmokeError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.too_much_smoke.TooMuchSmokeException;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.undercooked.UndercookedError;
+import com.rodrigodev.xgen4j.test.integration.kitchen.oven.undercooked.UndercookedException;
 import org.junit.Test;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -98,7 +98,7 @@ public class IntegrationTests extends TestSpecification {
                                 error("DidNotSound").description("Oh shooooot!!! Now WTF am I supposed to do? %s is going to fire me!", p(String.class, "bossName"))
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.integration").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.integration").build());
         // @formatter:on
     }
 

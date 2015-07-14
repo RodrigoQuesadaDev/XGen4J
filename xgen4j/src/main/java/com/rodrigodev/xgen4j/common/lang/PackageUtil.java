@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.common.lang;
+package com.rodrigodev.xgen4j.common.lang;
 
 import java.io.File;
 

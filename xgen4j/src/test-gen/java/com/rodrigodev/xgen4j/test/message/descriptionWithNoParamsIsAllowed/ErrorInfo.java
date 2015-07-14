@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed;
+package com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed;
 
 import java.util.Optional;
 

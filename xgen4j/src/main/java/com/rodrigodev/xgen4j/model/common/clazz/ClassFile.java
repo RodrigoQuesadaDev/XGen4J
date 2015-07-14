@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.common.clazz;
+package com.rodrigodev.xgen4j.model.common.clazz;
 
-import com.rodrigodev.xgen.common.lang.PackageUtil;
+import com.rodrigodev.xgen4j.common.lang.PackageUtil;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.Accessors;

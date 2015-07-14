@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract;
+package com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract;
 
 import java.util.Optional;
 

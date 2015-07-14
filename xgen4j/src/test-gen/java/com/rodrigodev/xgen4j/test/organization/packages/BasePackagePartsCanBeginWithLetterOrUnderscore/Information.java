@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore;
+package com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore;
 
-import com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +25,9 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootException.class),
-                com.rodrigodev.xgen.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootError.CODE,
+                com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootException.class),
+                com.rodrigodev.xgen4j.test.organization.packages.BasePackagePartsCanBeginWithLetterOrUnderscore.RootError.CODE,
                 false
             ));
 

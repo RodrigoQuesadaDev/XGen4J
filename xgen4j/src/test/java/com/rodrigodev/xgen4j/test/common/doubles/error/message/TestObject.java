@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.common.doubles.error.message;
+package com.rodrigodev.xgen4j.test.common.doubles.error.message;
 
 /**
  * Created by Rodrigo Quesada on 09/07/15.

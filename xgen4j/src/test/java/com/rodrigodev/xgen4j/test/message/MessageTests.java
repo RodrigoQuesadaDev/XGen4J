@@ -1,19 +1,19 @@
-package com.rodrigodev.xgen.test.message;
+package com.rodrigodev.xgen4j.test.message;
 
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception;
 import lombok.Value;
 import org.junit.Test;
 
 import java.util.function.Supplier;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -49,7 +49,7 @@ public class MessageTests extends TestSpecification {
                                 error("E3").description("Some description.")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed").build());
 
         assertThatThrownBy(E3Error::throwException)
                 .hasMessage("Some description.");
@@ -73,23 +73,23 @@ public class MessageTests extends TestSpecification {
                                 error("E3").description("{param1: '%s', param2: %.3f, param3: '%s'}", p(String.class, "param1"), p(Double.class, "param2"), p(TestObject.class, "param3"))
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed").build());
         // @formatter:on
         String expectedMessage = "{param1: 'Abcde', param2: 123.456, param3: 'A test object.'}";
 
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
                         .throwException("Abcde", 123.456, new TestObject())
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.c1.c2.c3.C3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed.c1.c2.c3.C3Error
                         .throwException(
-                                com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Exception.TYPE,
+                                com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Exception.TYPE,
                                 "Abcde", 123.456, new TestObject()
                         )
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAllowed.e1.e2.e3.E3Error
                         .throwException("Abcde", 123.456, new TestObject(), new NullPointerException())
         ).hasMessage(expectedMessage);
     }
@@ -108,23 +108,23 @@ public class MessageTests extends TestSpecification {
                                 error("E3").description(TestMessageGeneratorObject.class, "generator")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed").build());
         // @formatter:on
         String expectedMessage = "Custom Message: {value1: 'Some text goes here.', value2: 123}";
 
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
                         .throwException(new TestMessageGeneratorObject("Some text goes here.", 123))
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.c1.c2.c3.C3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.c1.c2.c3.C3Error
                         .throwException(
-                                com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Exception.TYPE,
+                                com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Exception.TYPE,
                                 new TestMessageGeneratorObject("Some text goes here.", 123)
                         )
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed.e1.e2.e3.E3Error
                         .throwException(
                                 new TestMessageGeneratorObject("Some text goes here.", 123), new NullPointerException()
                         )
@@ -152,23 +152,23 @@ public class MessageTests extends TestSpecification {
                                 error("E3").description(TestMessageGeneratorObjectChild.class, "generator")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation").build());
         // @formatter:on
         String expectedMessage = "Custom Message: {value1: 'Some text goes here.', value2: 123}";
 
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
                         .throwException(new TestMessageGeneratorObjectChild("Some text goes here.", 123))
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.c1.c2.c3.C3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.c1.c2.c3.C3Error
                         .throwException(
-                                com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Exception.TYPE,
+                                com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Exception.TYPE,
                                 new TestMessageGeneratorObjectChild("Some text goes here.", 123)
                         )
         ).hasMessage(expectedMessage);
         assertThatThrownBy(
-                () -> com.rodrigodev.xgen.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
+                () -> com.rodrigodev.xgen4j.test.message.descriptionWithCustomObjectThatGeneratesTheMessageCanBeUsed_inheritedImplementation.e1.e2.e3.E3Error
                         .throwException(
                                 new TestMessageGeneratorObjectChild("Some text goes here.", 123),
                                 new NullPointerException()
@@ -193,7 +193,7 @@ public class MessageTests extends TestSpecification {
                                         error("E3").description(TestBadMessageGeneratorObject.class, "generator")
                                 )
                         )
-                ).basePackage("com.rodrigodev.xgen.test.message.customObjectThatGeneratesTheMessageForDescriptionMustHavePublicMessageMethod").build())
+                ).basePackage("com.rodrigodev.xgen4j.test.message.customObjectThatGeneratesTheMessageForDescriptionMustHavePublicMessageMethod").build())
                 // @formatter:on
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Custom message generator doesn't implement a non-private 'message' method.");
@@ -210,7 +210,7 @@ public class MessageTests extends TestSpecification {
                                         errorMethodCall.get()
                                 )
                         )
-                ).basePackage("com.rodrigodev.xgen.test.message.onlyTextBasedDescriptionOrCustomMessageGeneratorCanBeSpecifyNotBoth").build())
+                ).basePackage("com.rodrigodev.xgen4j.test.message.onlyTextBasedDescriptionOrCustomMessageGeneratorCanBeSpecifyNotBoth").build())
                 // @formatter:on
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(

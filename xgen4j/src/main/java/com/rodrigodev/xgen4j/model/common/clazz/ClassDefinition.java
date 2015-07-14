@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.common.clazz;
+package com.rodrigodev.xgen4j.model.common.clazz;
 
 import lombok.Getter;
 import lombok.NonNull;

@@ -1,11 +1,11 @@
-package com.rodrigodev.xgen.model.information.exception.template;
+package com.rodrigodev.xgen4j.model.information.exception.template;
 
-import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
-import com.rodrigodev.xgen.model.common.template.model.OptionalTypeTemplateModel;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassFile;
-import com.rodrigodev.xgen.model.information.exception.template.model.RootErrorTemplateModel;
+import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen4j.model.common.template.model.OptionalTypeTemplateModel;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen4j.model.information.exception.ExceptionInfoClassFile;
+import com.rodrigodev.xgen4j.model.information.exception.template.model.RootErrorTemplateModel;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;

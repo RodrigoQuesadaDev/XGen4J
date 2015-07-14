@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.common.doubles.service.time;
+package com.rodrigodev.xgen4j.test.common.doubles.service.time;
 
 import org.junit.Before;
 import org.junit.Test;

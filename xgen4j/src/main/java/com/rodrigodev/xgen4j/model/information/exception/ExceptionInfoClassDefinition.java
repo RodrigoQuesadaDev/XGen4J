@@ -1,8 +1,8 @@
-package com.rodrigodev.xgen.model.information.exception;
+package com.rodrigodev.xgen4j.model.information.exception;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
-import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassDefinition;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
 import lombok.NonNull;
 
 /**

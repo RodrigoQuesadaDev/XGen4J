@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores;
+package com.rodrigodev.xgen4j.test.naming.ifErrorNameHasHyphensTheyAreConvertedToUnderscores;
 
 
 

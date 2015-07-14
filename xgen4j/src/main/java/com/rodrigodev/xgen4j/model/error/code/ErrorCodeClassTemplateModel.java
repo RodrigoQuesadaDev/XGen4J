@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.error.code;
+package com.rodrigodev.xgen4j.model.error.code;
 
-import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;

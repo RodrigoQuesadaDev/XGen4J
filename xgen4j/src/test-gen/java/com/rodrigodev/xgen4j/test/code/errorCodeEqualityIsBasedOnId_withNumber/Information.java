@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber;
+package com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber;
 
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,27 +25,27 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.BC1Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.BC2Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error.CODE,
                 true
             ));
 

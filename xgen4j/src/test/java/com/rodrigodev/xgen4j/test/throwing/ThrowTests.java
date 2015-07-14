@@ -1,31 +1,31 @@
-package com.rodrigodev.xgen.test.throwing;
+package com.rodrigodev.xgen4j.test.throwing;
 
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
-import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Exception;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Exception;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error;
-import com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Exception;
-import com.rodrigodev.xgen.test.throwing.e1.E1Exception;
-import com.rodrigodev.xgen.test.throwing.e1.e2.E2Exception;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_1.E3_1Error;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_1.E3_1Exception;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Exception;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error;
-import com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Exception;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
+import com.rodrigodev.xgen4j.test.throwing.RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_1.C3_1Error;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_1.C3_1Exception;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Exception;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Error;
+import com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Exception;
+import com.rodrigodev.xgen4j.test.throwing.e1.E1Exception;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.E2Exception;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_1.E3_1Error;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_1.E3_1Exception;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Error;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Exception;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_3.E3_3Error;
+import com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_3.E3_3Exception;
 import lombok.Value;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -54,7 +54,7 @@ public class ThrowTests extends TestSpecification {
                                 error("E3_3").description(TestMessageGeneratorObject.class, "generator")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.throwing").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.throwing").build());
         // @formatter:on
     }
 
@@ -180,94 +180,94 @@ public class ThrowTests extends TestSpecification {
     public void generatedThrowExceptionMethodChecksParamsAreNoNull() {
 
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_1.C3_1Error
                         .throwException((ExceptionType) null)
                 , "exceptionType"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_1.C3_1Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_1.C3_1Error
                         .throwException(null, new NullPointerException())
                 , "exceptionType"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(null, "abc", 1, new TestObject())
                 , "exceptionType"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(null, "abc", 1, new TestObject(), new NullPointerException())
                 , "exceptionType"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Error
                         .throwException(null, new TestMessageGeneratorObject("abc", 1))
                 , "exceptionType"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Error
                         .throwException(null, new TestMessageGeneratorObject("abc", 1), new NullPointerException())
                 , "exceptionType"
         );
 
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Error
                         .throwException(null, 1, new TestObject())
                 , "param1"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Error
                         .throwException(null, 1, new TestObject(), new NullPointerException())
                 , "param1"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(E1Exception.TYPE, null, 1, new TestObject())
                 , "param1"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(E1Exception.TYPE, null, 1, new TestObject(), new NullPointerException())
                 , "param1"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Error
                         .throwException("abc", 1, null)
                 , "param3"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_2.E3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_2.E3_2Error
                         .throwException("abc", 1, null, new NullPointerException())
                 , "param3"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(E1Exception.TYPE, "abc", 1, null)
                 , "param3"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_2.C3_2Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_2.C3_2Error
                         .throwException(E1Exception.TYPE, "abc", 1, null, new NullPointerException())
                 , "param3"
         );
 
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_3.E3_3Error
                         .throwException(null)
                 , "generator"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.e1.e2.e3_3.E3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.e1.e2.e3_3.E3_3Error
                         .throwException(null, new NullPointerException())
                 , "generator"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Error
                         .throwException(E1Exception.TYPE, null)
                 , "generator"
         );
         assert_generatedThrowExceptionMethodChecksParamIsNoNull(
-                () -> com.rodrigodev.xgen.test.throwing.c1.c2.c3_3.C3_3Error
+                () -> com.rodrigodev.xgen4j.test.throwing.c1.c2.c3_3.C3_3Error
                         .throwException(E1Exception.TYPE, null, new NullPointerException())
                 , "generator"
         );

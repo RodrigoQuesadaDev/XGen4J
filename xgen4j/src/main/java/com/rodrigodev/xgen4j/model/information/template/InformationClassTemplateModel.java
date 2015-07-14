@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen.model.information.template;
+package com.rodrigodev.xgen4j.model.information.template;
 
 import com.google.common.collect.ImmutableList;
-import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
-import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
-import com.rodrigodev.xgen.model.information.template.model.ErrorTemplateModel;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen4j.model.information.template.model.ErrorTemplateModel;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;

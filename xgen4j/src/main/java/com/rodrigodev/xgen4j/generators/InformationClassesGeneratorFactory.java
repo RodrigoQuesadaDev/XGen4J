@@ -1,10 +1,10 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.generators.InformationClassesGenerator.InjectedFields;
-import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.generators.InformationClassesGenerator.InjectedFields;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

@@ -1,11 +1,11 @@
-package com.rodrigodev.xgen.model.error.configuration.definition;
+package com.rodrigodev.xgen4j.model.error.configuration.definition;
 
-import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.description.ErrorDescriptionDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.name.ErrorNameChecker;
-import com.rodrigodev.xgen.model.error.configuration.definition.name.ErrorNameConverter;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.code.ErrorCodeDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.name.ErrorNameChecker;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.name.ErrorNameConverter;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.Setter;

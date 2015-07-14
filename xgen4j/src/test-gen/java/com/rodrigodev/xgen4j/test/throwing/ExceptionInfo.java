@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.throwing;
+package com.rodrigodev.xgen4j.test.throwing;
 
-import com.rodrigodev.xgen.test.throwing.RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.throwing.RootException.ExceptionType;
 import java.util.Optional;
 
 /**

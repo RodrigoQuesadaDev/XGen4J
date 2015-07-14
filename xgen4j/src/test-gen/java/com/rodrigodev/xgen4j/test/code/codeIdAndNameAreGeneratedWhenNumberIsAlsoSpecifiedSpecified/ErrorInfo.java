@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified;
+package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified;
 
 import java.util.Optional;
 

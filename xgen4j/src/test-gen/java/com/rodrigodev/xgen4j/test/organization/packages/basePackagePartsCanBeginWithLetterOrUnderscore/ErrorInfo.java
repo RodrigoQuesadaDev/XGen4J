@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore;
+package com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanBeginWithLetterOrUnderscore;
 
 import java.util.Optional;
 

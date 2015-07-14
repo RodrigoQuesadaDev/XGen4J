@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.common.doubles.service.time;
+package com.rodrigodev.xgen4j.test.common.doubles.service.time;
 
-import com.rodrigodev.xgen.service.time.TimeModule;
-import com.rodrigodev.xgen.service.time.TimeService;
+import com.rodrigodev.xgen4j.service.time.TimeModule;
+import com.rodrigodev.xgen4j.service.time.TimeService;
 
 /**
  * Created by Rodrigo Quesada on 28/06/15.

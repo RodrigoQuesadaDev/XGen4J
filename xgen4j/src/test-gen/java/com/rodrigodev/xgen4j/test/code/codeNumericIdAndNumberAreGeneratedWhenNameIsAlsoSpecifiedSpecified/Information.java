@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified;
+package com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified;
 
-import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,41 +25,41 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootException.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootException.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Exception.TYPE, com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Exception.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Exception.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Exception.TYPE, com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Exception.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Exception.TYPE, com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Exception.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Exception.TYPE, com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Exception.class),
-                com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.CODE,
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Exception.class),
+                com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));

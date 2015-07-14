@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName;
+package com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName;
 
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException.ExceptionType;
 import java.util.Optional;
 
 /**

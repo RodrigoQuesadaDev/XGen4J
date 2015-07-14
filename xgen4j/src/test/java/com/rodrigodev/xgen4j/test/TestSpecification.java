@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen.test;
+package com.rodrigodev.xgen4j.test;
 
-import com.rodrigodev.xgen.DaggerExceptionsGeneratorComponent;
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.MainModule;
-import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeModule;
+import com.rodrigodev.xgen4j.DaggerExceptionsGeneratorComponent;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.MainModule;
+import com.rodrigodev.xgen4j.test.common.doubles.service.time.FakeTimeModule;
 
 /**
  * Created by Rodrigo Quesada on 14/07/15.

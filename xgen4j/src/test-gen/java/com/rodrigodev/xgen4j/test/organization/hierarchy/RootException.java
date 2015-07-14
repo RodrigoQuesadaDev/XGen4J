@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.organization.hierarchy;
+package com.rodrigodev.xgen4j.test.organization.hierarchy;
 
 
 

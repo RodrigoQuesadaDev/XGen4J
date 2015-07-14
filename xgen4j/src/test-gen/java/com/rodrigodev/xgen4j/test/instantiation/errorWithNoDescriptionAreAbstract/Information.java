@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract;
+package com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract;
 
-import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,46 +25,46 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootException.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.RootError.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.RootException.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.RootError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.C1Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.C2Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.c1.c2.c3.C3Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Exception.TYPE, com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Exception.TYPE, com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.E1Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.E2Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Exception.TYPE, com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Exception.class),
-                com.rodrigodev.xgen.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Error.CODE,
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Exception.TYPE, com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Exception.class),
+                com.rodrigodev.xgen4j.test.instantiation.errorWithNoDescriptionAreAbstract.e1.e2.e3.E3Error.CODE,
                 new PlainTextErrorDescription("ABCDE"),
                 false
             ));

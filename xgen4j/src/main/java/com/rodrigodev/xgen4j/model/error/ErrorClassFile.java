@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.error;
+package com.rodrigodev.xgen4j.model.error;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassFile;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassFile;
 
 /**
  * Created by Rodrigo Quesada on 25/05/15.

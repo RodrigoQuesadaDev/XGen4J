@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1;
+package com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1;
 
 
 

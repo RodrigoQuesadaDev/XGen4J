@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.service.time;
+package com.rodrigodev.xgen4j.service.time;
 
 import dagger.Module;
 import dagger.Provides;

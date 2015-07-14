@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.common.annotations;
+package com.rodrigodev.xgen4j.test.common.annotations;
 
 import javax.inject.Scope;
 

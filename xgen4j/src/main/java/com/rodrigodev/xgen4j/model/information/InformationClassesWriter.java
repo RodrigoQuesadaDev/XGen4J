@@ -1,12 +1,12 @@
-package com.rodrigodev.xgen.model.information;
+package com.rodrigodev.xgen4j.model.information;
 
 import com.google.common.collect.ImmutableList;
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.common.clazz.ErrorExceptionClassDefinitionPair;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen.model.information.error.ErrorInfoClassWriter;
-import com.rodrigodev.xgen.model.information.exception.ExceptionInfoClassWriter;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
+import com.rodrigodev.xgen4j.model.information.error.ErrorInfoClassWriter;
+import com.rodrigodev.xgen4j.model.information.exception.ExceptionInfoClassWriter;
 import lombok.NonNull;
 
 import javax.inject.Inject;

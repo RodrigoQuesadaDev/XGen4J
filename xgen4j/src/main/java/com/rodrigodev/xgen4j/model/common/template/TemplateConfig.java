@@ -1,13 +1,13 @@
-package com.rodrigodev.xgen.model.common.template;
+package com.rodrigodev.xgen4j.model.common.template;
 
-import com.rodrigodev.xgen.model.common.file.FileProperties;
+import com.rodrigodev.xgen4j.model.common.file.FileProperties;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.Version;
 
 import java.io.File;
 
-import static com.rodrigodev.xgen.common.exception.ExceptionUtils.unchecked;
+import static com.rodrigodev.xgen4j.common.exception.ExceptionUtils.unchecked;
 
 /**
  * Created by Rodrigo Quesada on 21/06/15.

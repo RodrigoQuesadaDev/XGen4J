@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.support.optional;
+package com.rodrigodev.xgen4j.model.support.optional;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassDefinition;
 import lombok.NonNull;
 
 /**

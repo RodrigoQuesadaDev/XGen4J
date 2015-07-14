@@ -1,8 +1,8 @@
-package com.rodrigodev.xgen.model.error.template.model;
+package com.rodrigodev.xgen4j.model.error.template.model;
 
-import com.rodrigodev.xgen.model.common.template.model.TypeTemplateModel;
-import com.rodrigodev.xgen.model.error.ErrorClassDefinition;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassDefinition;
+import com.rodrigodev.xgen4j.model.common.template.model.TypeTemplateModel;
+import com.rodrigodev.xgen4j.model.error.ErrorClassDefinition;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassDefinition;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Value;

@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases;
+package com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGeneratedFromErrorNames_specialCases;
 
 import java.util.Optional;
 

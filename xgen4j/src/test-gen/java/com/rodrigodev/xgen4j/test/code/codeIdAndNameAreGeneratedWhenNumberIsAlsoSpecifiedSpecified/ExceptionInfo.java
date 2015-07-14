@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified;
+package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified;
 
-import com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified.RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedWhenNumberIsAlsoSpecifiedSpecified.RootException.ExceptionType;
 import java.util.Optional;
 
 /**

@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.information.template.model;
+package com.rodrigodev.xgen4j.model.information.template.model;
 
 import lombok.Value;
 

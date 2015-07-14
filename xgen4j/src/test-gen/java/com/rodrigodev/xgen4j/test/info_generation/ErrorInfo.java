@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.info_generation;
+package com.rodrigodev.xgen4j.test.info_generation;
 
 import java.util.Optional;
 

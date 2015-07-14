@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.common.doubles.error.message;
+package com.rodrigodev.xgen4j.test.common.doubles.error.message;
 
 import lombok.Value;
 import lombok.experimental.NonFinal;

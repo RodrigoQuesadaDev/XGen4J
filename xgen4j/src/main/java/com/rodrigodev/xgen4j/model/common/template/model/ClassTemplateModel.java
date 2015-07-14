@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.common.template.model;
+package com.rodrigodev.xgen4j.model.common.template.model;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
-import com.rodrigodev.xgen.service.time.TimeService;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassDefinition;
+import com.rodrigodev.xgen4j.service.time.TimeService;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

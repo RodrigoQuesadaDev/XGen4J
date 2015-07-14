@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen4j;
 
-import com.rodrigodev.xgen.ExceptionsGenerator.InjectedFields;
-import com.rodrigodev.xgen.model.common.file.FileModule;
-import com.rodrigodev.xgen.model.common.template.TemplateModule;
-import com.rodrigodev.xgen.service.ServiceModule;
+import com.rodrigodev.xgen4j.ExceptionsGenerator.InjectedFields;
+import com.rodrigodev.xgen4j.model.common.file.FileModule;
+import com.rodrigodev.xgen4j.model.common.template.TemplateModule;
+import com.rodrigodev.xgen4j.service.ServiceModule;
 import dagger.Module;
 import dagger.Provides;
 

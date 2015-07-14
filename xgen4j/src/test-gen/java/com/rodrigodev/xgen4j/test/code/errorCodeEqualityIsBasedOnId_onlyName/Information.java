@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName;
+package com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName;
 
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,27 +25,27 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootException.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Exception.class),
-                com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.CODE,
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Exception.class),
+                com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.CODE,
                 true
             ));
 

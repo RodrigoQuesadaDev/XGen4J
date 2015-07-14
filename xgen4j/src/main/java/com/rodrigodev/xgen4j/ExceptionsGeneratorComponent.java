@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen4j;
 
 import dagger.Component;
 

@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.error.exception;
+package com.rodrigodev.xgen4j.model.error.exception;
 
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
-import com.rodrigodev.xgen.model.error.exception.ExceptionClassTemplateModel.ExceptionClassTemplateModelBuilder;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassTemplateModel.ExceptionClassTemplateModelBuilder;
 
 import java.util.Optional;
 

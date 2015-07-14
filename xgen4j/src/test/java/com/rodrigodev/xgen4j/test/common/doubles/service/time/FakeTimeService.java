@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.common.doubles.service.time;
+package com.rodrigodev.xgen4j.test.common.doubles.service.time;
 
-import com.rodrigodev.xgen.service.time.TimeService;
+import com.rodrigodev.xgen4j.service.time.TimeService;
 import lombok.NonNull;
 
 import java.time.LocalDateTime;

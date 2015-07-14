@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.integration;
+package com.rodrigodev.xgen4j.test.integration;
 
-import com.rodrigodev.xgen.test.integration.HouseException.ExceptionType;
+import com.rodrigodev.xgen4j.test.integration.HouseException.ExceptionType;
 import java.util.Optional;
 
 /**

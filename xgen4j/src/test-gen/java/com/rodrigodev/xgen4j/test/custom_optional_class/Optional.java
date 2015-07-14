@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.custom_optional_class;
+package com.rodrigodev.xgen4j.test.custom_optional_class;
 
 import java.util.NoSuchElementException;
 

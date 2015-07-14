@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber;
+package com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber;
 
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootException.ExceptionType;
 import java.util.Optional;
 
 /**

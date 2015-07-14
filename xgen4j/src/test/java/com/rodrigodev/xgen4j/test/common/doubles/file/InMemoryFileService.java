@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.common.doubles.file;
+package com.rodrigodev.xgen4j.test.common.doubles.file;
 
-import com.rodrigodev.xgen.model.common.file.FileService;
+import com.rodrigodev.xgen4j.model.common.file.FileService;
 
 import java.io.File;
 import java.io.StringWriter;

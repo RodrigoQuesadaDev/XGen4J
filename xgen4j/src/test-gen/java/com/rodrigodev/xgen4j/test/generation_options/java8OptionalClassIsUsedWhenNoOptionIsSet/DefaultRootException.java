@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.generation_options.java8OptionalClassIsUsedWhenNoOptionIsSet;
+package com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenNoOptionIsSet;
 
 
 

@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed;
+package com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed;
 
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,46 +25,46 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootException.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootError.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.RootError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.RootException.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.RootError.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.C1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.C1Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.C1Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.C1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.C1Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.C1Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.C2Error.CODE,
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.c1.c2.c3.C3Error.CODE,
                 new PlainTextErrorDescription("Some description."),
                 true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.E1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.E1Exception.TYPE, com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.E1Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.E1Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.E1Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.E1Exception.TYPE, com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.E1Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.E1Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.E2Error.CODE,
                 false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception.TYPE, com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception.class),
-                com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error.CODE,
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception.TYPE, com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Exception.class),
+                com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.e1.e2.e3.E3Error.CODE,
                 new PlainTextErrorDescription("Some description."),
                 false
             ));

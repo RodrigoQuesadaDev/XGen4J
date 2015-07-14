@@ -1,47 +1,47 @@
-package com.rodrigodev.xgen.test.info_generation;
+package com.rodrigodev.xgen4j.test.info_generation;
 
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
-import com.rodrigodev.xgen.test.info_generation.ErrorInfo.CustomMessageGeneratorErrorDescription;
-import com.rodrigodev.xgen.test.info_generation.ErrorInfo.ErrorDescription;
-import com.rodrigodev.xgen.test.info_generation.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.info_generation.c1.C1Error;
-import com.rodrigodev.xgen.test.info_generation.c1.C1Exception;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.C2Error;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.C2Exception;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_1.C3_1Error;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_1.C3_1Exception;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_2.C3_2Error;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_2.C3_2Exception;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_3.C3_3Error;
-import com.rodrigodev.xgen.test.info_generation.c1.c2.c3_3.C3_3Exception;
-import com.rodrigodev.xgen.test.info_generation.ea1.EA1Error;
-import com.rodrigodev.xgen.test.info_generation.ea1.EA1Exception;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.EA2Error;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.EA2Exception;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_1.EA3_1Error;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_1.EA3_1Exception;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_2.EA3_2Error;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_2.EA3_2Exception;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_3.EA3_3Error;
-import com.rodrigodev.xgen.test.info_generation.ea1.ea2.ea3_3.EA3_3Exception;
-import com.rodrigodev.xgen.test.info_generation.eb1.EB1Error;
-import com.rodrigodev.xgen.test.info_generation.eb1.EB1Exception;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.EB2Error;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.EB2Exception;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_1.EB3_1Error;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_1.EB3_1Exception;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_2.EB3_2Error;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_2.EB3_2Exception;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_3.EB3_3Error;
-import com.rodrigodev.xgen.test.info_generation.eb1.eb2.eb3_3.EB3_3Exception;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
+import com.rodrigodev.xgen4j.test.info_generation.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.info_generation.ErrorInfo.ErrorDescription;
+import com.rodrigodev.xgen4j.test.info_generation.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.info_generation.c1.C1Error;
+import com.rodrigodev.xgen4j.test.info_generation.c1.C1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.C2Error;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.C2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_1.C3_1Error;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_1.C3_1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_2.C3_2Error;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_2.C3_2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_3.C3_3Error;
+import com.rodrigodev.xgen4j.test.info_generation.c1.c2.c3_3.C3_3Exception;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.EA1Error;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.EA1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.EA2Error;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.EA2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_1.EA3_1Error;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_1.EA3_1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_2.EA3_2Error;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_2.EA3_2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_3.EA3_3Error;
+import com.rodrigodev.xgen4j.test.info_generation.ea1.ea2.ea3_3.EA3_3Exception;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.EB1Error;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.EB1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.EB2Error;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.EB2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_1.EB3_1Error;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_1.EB3_1Exception;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_2.EB3_2Error;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_2.EB3_2Exception;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_3.EB3_3Error;
+import com.rodrigodev.xgen4j.test.info_generation.eb1.eb2.eb3_3.EB3_3Exception;
 import lombok.Value;
 import org.junit.Test;
 
 import java.util.Comparator;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -77,7 +77,7 @@ public class InfoGenerationTests extends TestSpecification {
                                 error("EB3_3").description(TestMessageGeneratorObject3.class, "generator")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.info_generation").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.info_generation").build());
         // @formatter:on
     }
 

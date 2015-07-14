@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.service.time;
+package com.rodrigodev.xgen4j.service.time;
 
 import javax.inject.Singleton;
 import java.time.LocalDateTime;

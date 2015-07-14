@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName;
+package com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName;
 
 import javax.inject.Inject;
 

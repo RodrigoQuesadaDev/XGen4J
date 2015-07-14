@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.support.optional;
+package com.rodrigodev.xgen4j.model.support.optional;
 
 import lombok.NonNull;
 

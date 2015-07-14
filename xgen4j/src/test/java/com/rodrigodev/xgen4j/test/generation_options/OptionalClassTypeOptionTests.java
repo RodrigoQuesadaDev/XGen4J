@@ -1,17 +1,17 @@
-package com.rodrigodev.xgen.test.generation_options;
+package com.rodrigodev.xgen4j.test.generation_options;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.ExceptionsGeneratorComponent;
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.MainModule;
-import com.rodrigodev.xgen.model.common.file.FileService;
-import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
-import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestMessageGeneratorObject;
-import com.rodrigodev.xgen.test.common.doubles.error.message.TestObject;
-import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileModule;
-import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileService;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.ExceptionsGeneratorComponent;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.MainModule;
+import com.rodrigodev.xgen4j.model.common.file.FileService;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject;
+import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
+import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileModule;
+import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileService;
 import dagger.Component;
 import org.assertj.core.api.Condition;
 import org.junit.Before;
@@ -21,8 +21,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Optional;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
-import static com.rodrigodev.xgen.model.error.configuration.definition.ParameterDefinition.p;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -104,7 +104,7 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
                                 error(prefix + "E3_3").description(TestMessageGeneratorObject.class, "generator")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.generation_options." + namespace).build(), optionalClassType);
+        ).basePackage("com.rodrigodev.xgen4j.test.generation_options." + namespace).build(), optionalClassType);
         // @formatter:on
     }
 
@@ -166,7 +166,7 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
     private enum TestOptionalClassType {
         JAVA_8(Optional.class),
         GUAVA(com.google.common.base.Optional.class),
-        CUSTOM(com.rodrigodev.xgen.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet.Optional.class);
+        CUSTOM(com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet.Optional.class);
 
         private Class<?> type;
 

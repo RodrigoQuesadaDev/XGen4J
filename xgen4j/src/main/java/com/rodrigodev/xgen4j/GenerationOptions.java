@@ -1,11 +1,11 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen4j;
 
-import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
 import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
-import static com.rodrigodev.xgen.model.support.optional.OptionalClassType.JAVA_8;
+import static com.rodrigodev.xgen4j.model.support.optional.OptionalClassType.JAVA_8;
 
 /**
  * Created by Rodrigo Quesada on 12/07/15.

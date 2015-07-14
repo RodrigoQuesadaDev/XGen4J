@@ -1,20 +1,20 @@
-package com.rodrigodev.xgen.test.code;
+package com.rodrigodev.xgen4j.test.code;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCodeATestFactory;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorCodeBTestFactory;
-import com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCodeATestFactory;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorCodeBTestFactory;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error;
 import dagger.Component;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
 import javax.inject.Inject;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -54,7 +54,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 commonError("C1Name").code(234),
                                 error("E1Name").code(345),
                                 error("E2Name").code(234)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
                         // @formatter:on
                 , 234, "e-2-name"
         );
@@ -66,7 +66,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 error("E1Name").code(234),
                                 error("E2Name").code(345),
                                 error("E3Name").code(234)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
                         // @formatter:on
                 , 234, "e-3-name"
         );
@@ -89,7 +89,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3Name").code(876)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
                         // @formatter:on
                 , 456, "c-3-3-name"
         );
@@ -112,7 +112,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3Name").code(654)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberMustBeUniqueAmongSiblingErrors").build())
                         // @formatter:on
                 , 654, "e-3-3-name"
         );
@@ -135,7 +135,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 commonError("C1").code("c-1-name", 234),
                                 error("E1").code(345),
                                 error("C3").code("c-1-name", 456)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
                         // @formatter:on
                 , "c-1-name"
         );
@@ -147,7 +147,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 error("E1").code("e-1-name", 234),
                                 error("E2").code(345),
                                 error("E3").code("e-1-name", 456)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
                         // @formatter:on
                 , "e-1-name"
         );
@@ -170,7 +170,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3").code(876)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
                         // @formatter:on
                 , "c-3-1-name"
         );
@@ -193,7 +193,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3").code("e-3-1-name", 867)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_specifiedName").build())
                         // @formatter:on
                 , "e-3-1-name"
         );
@@ -210,7 +210,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 commonError("C1Name").code(234),
                                 error("E1").code(345),
                                 error("C3").code("c-1-name", 456)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
                         // @formatter:on
                 , "c-1-name"
         );
@@ -222,7 +222,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                 error("E1Name").code(234),
                                 error("E2").code(345),
                                 error("E3").code("e-1-name", 456)
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
                         // @formatter:on
                 , "e-1-name"
         );
@@ -245,7 +245,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3").code(876)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
                         // @formatter:on
                 , "c-3-1-name"
         );
@@ -268,7 +268,7 @@ public class CodeUniquenessTests extends TestSpecification {
                                                 error("E3_3").code("e-3-1-name", 867)
                                         )
                                 )
-                        ).basePackage("com.rodrigodev.xgen.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNameMustBeUniqueAmongSiblingErrors_mixedCase").build())
                         // @formatter:on
                 , "e-3-1-name"
         );
@@ -284,14 +284,14 @@ public class CodeUniquenessTests extends TestSpecification {
                                 error("AC3_1").code("c3-1")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_onlyName").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName").build());
         xgen.generate(rootError("BRoot").code("root", 1).errors(
                 commonError("BC1").code("c1", 2).errors(
                         error("BC2").code("c2", 3).errors(
                                 error("BC3_1").code("c3-1", 4)
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.code.errorCodeEqualityIsBasedOnId_withNumber").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber").build());
         // @formatter:on
 
         assertThat(ARootError.CODE).isEqualTo(errorCodeATestFactory.create("root"));

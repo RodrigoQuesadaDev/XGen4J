@@ -1,14 +1,14 @@
-package com.rodrigodev.xgen.test.custom_optional_class;
+package com.rodrigodev.xgen4j.test.custom_optional_class;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.model.support.optional.OptionalClassType;
-import com.rodrigodev.xgen.test.TestSpecification;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
+import com.rodrigodev.xgen4j.test.TestSpecification;
 import lombok.Value;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.rootError;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.rootError;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -22,7 +22,7 @@ public class CustomOptionalClassTests extends TestSpecification {
 
     private void generateOptionalClassForTests() {
         // @formatter:off
-        generator().generate(rootError("Root").basePackage("com.rodrigodev.xgen.test.custom_optional_class").build(),
+        generator().generate(rootError("Root").basePackage("com.rodrigodev.xgen4j.test.custom_optional_class").build(),
                       GenerationOptions.builder().optionalClassType(OptionalClassType.CUSTOM).build());
         // @formatter:on
     }

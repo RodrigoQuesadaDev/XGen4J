@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter;
+package com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter;
 
-import com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.ErrorInfo.PlainTextErrorDescription;
-import com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.ErrorInfo.PlainTextErrorDescription;
+import com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.ErrorInfo.CustomMessageGeneratorErrorDescription;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +25,9 @@ public class Information {
             errorInfoList = new ArrayList<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.class,
-                new ExceptionInfo(com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameException.class),
-                com.rodrigodev.xgen.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.CODE,
+                com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.class,
+                new ExceptionInfo(com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameException.class),
+                com.rodrigodev.xgen4j.test.naming.errorNameCanBeginWithUpperCaseLetter.RootNameError.CODE,
                 false
             ));
 

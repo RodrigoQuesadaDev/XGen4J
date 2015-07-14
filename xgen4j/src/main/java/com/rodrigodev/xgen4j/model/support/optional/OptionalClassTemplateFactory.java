@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.support.optional;
+package com.rodrigodev.xgen4j.model.support.optional;
 
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate.InjectedFields;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate.InjectedFields;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

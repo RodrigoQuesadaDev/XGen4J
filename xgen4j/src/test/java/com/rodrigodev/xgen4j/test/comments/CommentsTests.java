@@ -1,15 +1,15 @@
-package com.rodrigodev.xgen.test.comments;
+package com.rodrigodev.xgen4j.test.comments;
 
-import com.rodrigodev.xgen.ExceptionsGenerator;
-import com.rodrigodev.xgen.ExceptionsGeneratorComponent;
-import com.rodrigodev.xgen.MainModule;
-import com.rodrigodev.xgen.model.common.file.FileService;
-import com.rodrigodev.xgen.service.time.TimeService;
-import com.rodrigodev.xgen.test.TestSpecification;
-import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileModule;
-import com.rodrigodev.xgen.test.common.doubles.file.InMemoryFileService;
-import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeModule;
-import com.rodrigodev.xgen.test.common.doubles.service.time.FakeTimeService;
+import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.ExceptionsGeneratorComponent;
+import com.rodrigodev.xgen4j.MainModule;
+import com.rodrigodev.xgen4j.model.common.file.FileService;
+import com.rodrigodev.xgen4j.service.time.TimeService;
+import com.rodrigodev.xgen4j.test.TestSpecification;
+import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileModule;
+import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileService;
+import com.rodrigodev.xgen4j.test.common.doubles.service.time.FakeTimeModule;
+import com.rodrigodev.xgen4j.test.common.doubles.service.time.FakeTimeService;
 import dagger.Component;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.time.LocalDateTime;
 
-import static com.rodrigodev.xgen.model.error.configuration.ErrorConfiguration.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -78,7 +78,7 @@ public class CommentsTests extends TestSpecification {
                                 error("E3_1").code("code-name-e3-1").description("ABCDE")
                         )
                 )
-        ).basePackage("com.rodrigodev.xgen.test.comments.currentDateIsAddedToTemplateComments").build());
+        ).basePackage("com.rodrigodev.xgen4j.test.comments.currentDateIsAddedToTemplateComments").build());
         // @formatter:on
 
         for (StringBuffer file : fileService.files()) {

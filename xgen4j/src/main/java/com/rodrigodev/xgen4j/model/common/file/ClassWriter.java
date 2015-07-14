@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.model.common.file;
+package com.rodrigodev.xgen4j.model.common.file;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassFile;
-import com.rodrigodev.xgen.model.common.template.FreemarkerClassTemplate;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassFile;
+import com.rodrigodev.xgen4j.model.common.template.FreemarkerClassTemplate;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

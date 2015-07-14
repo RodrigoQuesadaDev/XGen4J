@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified;
+package com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified;
 
 
 

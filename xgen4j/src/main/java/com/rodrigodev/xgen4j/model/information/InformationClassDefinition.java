@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.information;
+package com.rodrigodev.xgen4j.model.information;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassDefinition;
 
 /**
  * Created by Rodrigo Quesada on 10/07/15.

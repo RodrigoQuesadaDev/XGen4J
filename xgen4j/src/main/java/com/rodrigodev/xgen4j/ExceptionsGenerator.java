@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen;
+package com.rodrigodev.xgen4j;
 
-import com.rodrigodev.xgen.generators.*;
-import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
+import com.rodrigodev.xgen4j.generators.*;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition;
 import lombok.NonNull;
 
 import javax.inject.Inject;

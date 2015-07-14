@@ -1,8 +1,8 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
-import com.rodrigodev.xgen.GenerationOptions;
-import com.rodrigodev.xgen.generators.SupportClassesGenerator.InjectedFields;
-import com.rodrigodev.xgen.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.GenerationOptions;
+import com.rodrigodev.xgen4j.generators.SupportClassesGenerator.InjectedFields;
+import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

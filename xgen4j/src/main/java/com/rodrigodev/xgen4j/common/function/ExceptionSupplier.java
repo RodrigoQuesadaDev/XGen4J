@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.common.function;
+package com.rodrigodev.xgen4j.common.function;
 
 /**
  * Created by Rodrigo Quesada on 12/04/15.

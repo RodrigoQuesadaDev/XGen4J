@@ -1,9 +1,9 @@
-package com.rodrigodev.xgen.model.common.template;
+package com.rodrigodev.xgen4j.model.common.template;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassDefinition;
-import com.rodrigodev.xgen.model.common.clazz.ClassFile;
-import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel;
-import com.rodrigodev.xgen.model.common.template.model.ClassTemplateModel.ClassTemplateModelBuilder;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassDefinition;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassFile;
+import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel.ClassTemplateModelBuilder;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import lombok.Getter;

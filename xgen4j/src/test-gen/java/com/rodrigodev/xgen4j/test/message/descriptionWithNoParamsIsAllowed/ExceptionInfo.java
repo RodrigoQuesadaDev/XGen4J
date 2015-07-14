@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed;
+package com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed;
 
-import com.rodrigodev.xgen.test.message.descriptionWithNoParamsIsAllowed.RootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.message.descriptionWithNoParamsIsAllowed.RootException.ExceptionType;
 import java.util.Optional;
 
 /**

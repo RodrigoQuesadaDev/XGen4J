@@ -1,11 +1,11 @@
-package com.rodrigodev.xgen.model.error.configuration;
+package com.rodrigodev.xgen4j.model.error.configuration;
 
-import com.rodrigodev.xgen.model.error.configuration.definition.CommonErrorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.CommonErrorDefinition.CommonErrorDefinitionBuilder;
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
-import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
-import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition.RootErrorDefinitionBuilder;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.CommonErrorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.CommonErrorDefinition.CommonErrorDefinitionBuilder;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition.RootErrorDefinitionBuilder;
 import lombok.NonNull;
 
 /**

@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.error.configuration.definition;
+package com.rodrigodev.xgen4j.model.error.configuration.definition;
 
 /**
  * Created by Rodrigo Quesada on 12/07/15.

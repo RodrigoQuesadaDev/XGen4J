@@ -1,7 +1,7 @@
-package com.rodrigodev.xgen.generators;
+package com.rodrigodev.xgen4j.generators;
 
-import com.rodrigodev.xgen.model.error.code.ErrorCodeClassWriter;
-import com.rodrigodev.xgen.model.error.configuration.definition.RootErrorDefinition;
+import com.rodrigodev.xgen4j.model.error.code.ErrorCodeClassWriter;
+import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 

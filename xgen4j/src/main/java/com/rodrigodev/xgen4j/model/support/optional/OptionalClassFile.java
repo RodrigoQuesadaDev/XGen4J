@@ -1,6 +1,6 @@
-package com.rodrigodev.xgen.model.support.optional;
+package com.rodrigodev.xgen4j.model.support.optional;
 
-import com.rodrigodev.xgen.model.common.clazz.ClassFile;
+import com.rodrigodev.xgen4j.model.common.clazz.ClassFile;
 
 /**
  * Created by Rodrigo Quesada on 13/07/15.

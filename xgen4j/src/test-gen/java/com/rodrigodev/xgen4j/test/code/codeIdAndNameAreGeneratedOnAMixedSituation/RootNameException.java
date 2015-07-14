@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.test.code.codeIdAndNameAreGeneratedOnAMixedSituation;
+package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedOnAMixedSituation;
 
 
 

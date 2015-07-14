@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen.model.common.template;
+package com.rodrigodev.xgen4j.model.common.template;
 
 import dagger.Module;
 import dagger.Provides;
