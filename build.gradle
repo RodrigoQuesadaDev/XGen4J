@@ -8,6 +8,25 @@ repositories {
     mavenCentral()
 }
 
+subprojects {
+    ext {
+        freemarkerVersion = '2.3.22'
+        guavaVersion = '18.0'
+        protonpackVersion = '1.4'
+        lombokVersion = '1.16.4'
+        daggerVersion = '2.0.1'
+        apachePoiVersion = ''
+        apachePoiVersion = '3.12'
+
+        //Testing
+        junitVersion = '4.12'
+        assertjCoreVersion = '3.0.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }
