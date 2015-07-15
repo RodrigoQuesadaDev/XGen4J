@@ -1,9 +1,10 @@
 package com.rodrigodev.xgen4j.model.information;
 
 import com.google.common.collect.ImmutableList;
-import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassFilePair;
 import com.rodrigodev.xgen4j.model.common.file.ClassWriter;
 import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.code.ErrorCodeClassFile;
 import com.rodrigodev.xgen4j.model.information.template.InformationClassTemplateFactory;
 import lombok.NonNull;
 
@@ -26,11 +27,14 @@ public class InformationClassWriter {
     public void write(
             @NonNull String sourceDirPath,
             @NonNull ErrorClassFile rootErrorClassFile,
-            ImmutableList<ErrorExceptionClassDefinitionPair> errorExceptionPairs
+            ImmutableList<ErrorExceptionClassFilePair> errorExceptionPairs,
+            ErrorCodeClassFile errorCodeClassFile
     ) {
         String rootPackagePath = rootErrorClassFile.classDefinition().packagePath();
         InformationClassDefinition errorCodeClass = new InformationClassDefinition(rootPackagePath);
         InformationClassFile informationClassFile = new InformationClassFile(sourceDirPath, errorCodeClass);
-        classWriter.write(informationClassTemplateFactory.create(informationClassFile, errorExceptionPairs));
+        classWriter.write(informationClassTemplateFactory.create(
+                informationClassFile, errorExceptionPairs, errorCodeClassFile
+        ));
     }
 }

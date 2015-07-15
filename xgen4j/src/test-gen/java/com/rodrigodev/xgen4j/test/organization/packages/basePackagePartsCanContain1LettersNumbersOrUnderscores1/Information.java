@@ -1,12 +1,9 @@
 package com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1;
 
-import com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.ErrorInfo.PlainTextErrorDescription;
 import com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.ErrorInfo.PlainTextErrorDescription;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -16,22 +13,26 @@ public class Information {
 
     private static List<ErrorInfo> errorInfoList;
     private static Map<String, ErrorInfo> idToErrorInfoMap;
-    private static Map<String, ErrorInfo> numericIdToErrorInfoMap;
 
     private static final AtomicBoolean loaded = new AtomicBoolean();
 
     private static void load() {
         if (loaded.compareAndSet(false, true)) {
             errorInfoList = new ArrayList<>();
+            idToErrorInfoMap = new HashMap<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootException.class),
-                com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootError.CODE,
-                false
+                    com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootError.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootException.class),
+                    com.rodrigodev.xgen4j.test.organization.packages.basePackagePartsCanContain1LettersNumbersOrUnderscores1.RootError.CODE,
+                    false
             ));
-
             errorInfoList = Collections.unmodifiableList(errorInfoList);
+
+            for (ErrorInfo errorInfo : errorInfoList) {
+                idToErrorInfoMap.put(errorInfo.code().id(), errorInfo);
+            }
+
             loaded.set(true);
         }
     }
@@ -48,10 +49,4 @@ public class Information {
         return idToErrorInfoMap.get(id);
     }
 
-    public static ErrorInfo forNumericId(String numericId) {
-        if (numericId == null) throw new IllegalArgumentException("numericId");
-
-        load();
-        return numericIdToErrorInfoMap.get(numericId);
-    }
 }

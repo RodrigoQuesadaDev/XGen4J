@@ -18,4 +18,8 @@ public class ErrorCodeClassDefinition extends ClassDefinition {
         super(NAME, packagePath);
         this.hasNumber = hasNumber;
     }
+
+    public boolean hasNumericId() {
+        return hasNumber;
+    }
 }

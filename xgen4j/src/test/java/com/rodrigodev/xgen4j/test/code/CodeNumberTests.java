@@ -13,6 +13,8 @@ import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenSpe
 import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.e1.e2.e3_1.E3_1Error;
 import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.e1.e2.e3_2.E3_2Error;
 import com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenSpecified.e1.e2.e3_3.E3_3Error;
+import com.rodrigodev.xgen4j.test.code.methodForRetrievingCodeNumericIdIsNotGeneratedWhenNumberIsNotSpecified.ErrorCode;
+import com.rodrigodev.xgen4j.test.common.assertion.clazz.conditions.MethodNamed;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
 
@@ -236,6 +238,21 @@ public class CodeNumberTests extends TestSpecification {
         assertThat(E3_1Error.CODE.numericId()).isEqualTo("123:432:543:654");
         assertThat(E3_2Error.CODE.numericId()).isEqualTo("123:432:543:765");
         assertThat(E3_3Error.CODE.numericId()).isEqualTo("123:432:543:876");
+    }
+
+    @Test
+    public void methodForRetrievingCodeNumericIdIsNotGeneratedWhenNumberIsNotSpecified() {
+        // @formatter:off
+        generator().generate(rootError("Root").errors(
+                commonError("C1").errors(
+                        error("C2").errors(
+                                error("C3_1").description("ABCDE")
+                        )
+                )
+        ).basePackage("com.rodrigodev.xgen4j.test.code.methodForRetrievingCodeNumericIdIsNotGeneratedWhenNumberIsNotSpecified").build());
+        // @formatter:on
+
+        assertThat(ErrorCode.class.getDeclaredMethods()).doNotHave(new MethodNamed("numericId"));
     }
 
     private void generateErrorsForCodeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecifiedTests() {

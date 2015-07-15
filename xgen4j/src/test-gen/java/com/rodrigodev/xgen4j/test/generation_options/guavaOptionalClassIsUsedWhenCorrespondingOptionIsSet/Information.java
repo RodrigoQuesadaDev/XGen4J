@@ -1,12 +1,9 @@
 package com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet;
 
-import com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.ErrorInfo.PlainTextErrorDescription;
 import com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.ErrorInfo.PlainTextErrorDescription;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -16,88 +13,92 @@ public class Information {
 
     private static List<ErrorInfo> errorInfoList;
     private static Map<String, ErrorInfo> idToErrorInfoMap;
-    private static Map<String, ErrorInfo> numericIdToErrorInfoMap;
 
     private static final AtomicBoolean loaded = new AtomicBoolean();
 
     private static void load() {
         if (loaded.compareAndSet(false, true)) {
             errorInfoList = new ArrayList<>();
+            idToErrorInfoMap = new HashMap<>();
 
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootError.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootException.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootError.CODE,
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootError.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootException.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootError.CODE,
+                    false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Error.CODE,
-                true
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.GuavaC1Error.CODE,
+                    true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Error.CODE,
-                true
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.GuavaC2Error.CODE,
+                    true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Error.CODE,
-                new PlainTextErrorDescription("Message for C3_1 error."),
-                true
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_1.GuavaC3_1Error.CODE,
+                    new PlainTextErrorDescription("Message for C3_1 error."),
+                    true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Error.CODE,
-                new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
-                true
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_2.GuavaC3_2Error.CODE,
+                    new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
+                    true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Error.CODE,
-                new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
-                true
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_c1.guava_c2.guava_c3_3.GuavaC3_3Error.CODE,
+                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
+                    true
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Error.CODE,
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.GuavaE1Error.CODE,
+                    false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Error.CODE,
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.GuavaE2Error.CODE,
+                    false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Error.CODE,
-                new PlainTextErrorDescription("Message for E3_1 error."),
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_1.GuavaE3_1Error.CODE,
+                    new PlainTextErrorDescription("Message for E3_1 error."),
+                    false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Error.CODE,
-                new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_2.GuavaE3_2Error.CODE,
+                    new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
+                    false
             ));
             errorInfoList.add(new ErrorInfo(
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Error.class,
-                new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Exception.class),
-                com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Error.CODE,
-                new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
-                false
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.guava_e1.guava_e2.guava_e3_3.GuavaE3_3Error.CODE,
+                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
+                    false
             ));
-
             errorInfoList = Collections.unmodifiableList(errorInfoList);
+
+            for (ErrorInfo errorInfo : errorInfoList) {
+                idToErrorInfoMap.put(errorInfo.code().id(), errorInfo);
+            }
+
             loaded.set(true);
         }
     }
@@ -114,10 +115,4 @@ public class Information {
         return idToErrorInfoMap.get(id);
     }
 
-    public static ErrorInfo forNumericId(String numericId) {
-        if (numericId == null) throw new IllegalArgumentException("numericId");
-
-        load();
-        return numericIdToErrorInfoMap.get(numericId);
-    }
 }

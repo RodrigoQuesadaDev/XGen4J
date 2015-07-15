@@ -45,7 +45,8 @@ public class ExceptionsGenerator {
     }
 
     public void generate(@NonNull RootErrorDefinition rootError, @NonNull GenerationOptions options) {
-        inj.baseClassesGeneratorFactory.create(sourceDirPath, rootError).generate();
+        BaseClassesGenerator baseClassesGenerator = inj.baseClassesGeneratorFactory.create(sourceDirPath, rootError);
+        baseClassesGenerator.generate();
         ErrorClassesGenerator errorClassesGenerator = inj.errorClassesGeneratorFactory.create(
                 sourceDirPath, rootError, options
         );
@@ -54,6 +55,7 @@ public class ExceptionsGenerator {
                 sourceDirPath,
                 errorClassesGenerator.rootErrorClassFile(),
                 errorClassesGenerator.rootExceptionClassFile(),
+                baseClassesGenerator.errorCodeClassFile(),
                 errorClassesGenerator.errorExceptionPairs(),
                 options
         ).generate();

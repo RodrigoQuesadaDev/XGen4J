@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.model.information.template.model;
 
-import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassFilePair;
 import com.rodrigodev.xgen4j.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
@@ -22,12 +22,12 @@ public class ErrorTemplateModel extends TypeTemplateModel {
     private boolean common;
     private DescriptionTemplateModel description;
 
-    public ErrorTemplateModel(@NonNull ErrorExceptionClassDefinitionPair errorExceptionPair) {
-        super(errorExceptionPair.error());
+    public ErrorTemplateModel(@NonNull ErrorExceptionClassFilePair errorExceptionPair) {
+        super(errorExceptionPair.error().classDefinition());
 
-        this.exception = new ExceptionTemplateModel(errorExceptionPair.exception());
+        this.exception = new ExceptionTemplateModel(errorExceptionPair.exception().classDefinition());
 
-        ErrorDefinition errorDefinition = errorExceptionPair.error().errorDefinition();
+        ErrorDefinition errorDefinition = errorExceptionPair.error().classDefinition().errorDefinition();
         this.common = errorDefinition.isCommon();
 
         Optional<ErrorDescriptionDefinition> descriptionDefinition = errorDefinition.description();

@@ -1,7 +1,7 @@
 package com.rodrigodev.xgen4j.generators;
 
 import com.rodrigodev.xgen4j.GenerationOptions;
-import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassFilePair;
 import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
 import com.rodrigodev.xgen4j.model.error.ErrorClassWriter;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
@@ -39,7 +39,7 @@ public class ErrorClassesGenerator extends ClassesGenerator {
     private RootErrorDefinition rootError;
     @NonFinal private Optional<ErrorClassFile> rootErrorClassFile;
     @NonFinal private Optional<ExceptionClassFile> rootExceptionClassFile;
-    @Getter private List<ErrorExceptionClassDefinitionPair> errorExceptionPairs;
+    @Getter private List<ErrorExceptionClassFilePair> errorExceptionPairs;
     private GenerationOptions options;
 
     protected ErrorClassesGenerator(
@@ -92,9 +92,7 @@ public class ErrorClassesGenerator extends ClassesGenerator {
             rootExceptionClassFile = Optional.of(exceptionClassFile);
         }
 
-        errorExceptionPairs.add(new ErrorExceptionClassDefinitionPair(
-                errorClassFile.classDefinition(), exceptionClassFile.classDefinition()
-        ));
+        errorExceptionPairs.add(new ErrorExceptionClassFilePair(errorClassFile, exceptionClassFile));
 
         ErrorDefinition[] subErrors = error.errors();
         for (ErrorDefinition subError : subErrors) {

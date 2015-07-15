@@ -1,12 +1,9 @@
 package ${packagePath};
 
-import ${packagePath}.ErrorInfo.PlainTextErrorDescription;
 import ${packagePath}.ErrorInfo.CustomMessageGeneratorErrorDescription;
+import ${packagePath}.ErrorInfo.PlainTextErrorDescription;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -16,29 +13,42 @@ public class ${name} {
 
     private static List<ErrorInfo> errorInfoList;
     private static Map<String, ErrorInfo> idToErrorInfoMap;
+    <#if errorCode.hasNumericId>
     private static Map<String, ErrorInfo> numericIdToErrorInfoMap;
+    </#if>
 
     private static final AtomicBoolean loaded = new AtomicBoolean();
 
     private static void load() {
         if (loaded.compareAndSet(false, true)) {
             errorInfoList = new ArrayList<>();
+            idToErrorInfoMap = new HashMap<>();
+            <#if errorCode.hasNumericId>
+            numericIdToErrorInfoMap = new HashMap<>();
+            </#if>
 
             <#list errors as error>
             errorInfoList.add(new ErrorInfo(
-                ${error.canonicalName}.class,
-                new ExceptionInfo(<#if error.exception.hasType>${error.exception.canonicalName}.TYPE, </#if>${error.exception.canonicalName}.class),
-                ${error.canonicalName}.CODE,
-                <#if error.description??><#if error.description.plainText>
-                new PlainTextErrorDescription("${error.description.content}"),
-                <#else>
-                new CustomMessageGeneratorErrorDescription<>(${error.description.content}),
-                </#if></#if>
-                ${error.common?c}
+                    ${error.canonicalName}.class,
+                    new ExceptionInfo(<#if error.exception.hasType>${error.exception.canonicalName}.TYPE, </#if>${error.exception.canonicalName}.class),
+                    ${error.canonicalName}.CODE,
+                    <#if error.description??><#if error.description.plainText>
+                    new PlainTextErrorDescription("${error.description.content}"),
+                    <#else>
+                    new CustomMessageGeneratorErrorDescription<>(${error.description.content}),
+                    </#if></#if>
+                    ${error.common?c}
             ));
             </#list>
-
             errorInfoList = Collections.unmodifiableList(errorInfoList);
+
+            for (ErrorInfo errorInfo : errorInfoList) {
+                idToErrorInfoMap.put(errorInfo.code().id(), errorInfo);
+                <#if errorCode.hasNumericId>
+                numericIdToErrorInfoMap.put(errorInfo.code().numericId(), errorInfo);
+                </#if>
+            }
+
             loaded.set(true);
         }
     }
@@ -55,10 +65,12 @@ public class ${name} {
         return idToErrorInfoMap.get(id);
     }
 
+    <#if errorCode.hasNumericId>
     public static ErrorInfo forNumericId(String numericId) {
         if (numericId == null) throw new IllegalArgumentException("numericId");
 
         load();
         return numericIdToErrorInfoMap.get(numericId);
     }
+    </#if>
 }

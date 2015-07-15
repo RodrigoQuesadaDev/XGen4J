@@ -2,8 +2,9 @@ package com.rodrigodev.xgen4j.generators;
 
 import com.google.common.collect.ImmutableList;
 import com.rodrigodev.xgen4j.GenerationOptions;
-import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassDefinitionPair;
+import com.rodrigodev.xgen4j.model.common.clazz.ErrorExceptionClassFilePair;
 import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
+import com.rodrigodev.xgen4j.model.error.code.ErrorCodeClassFile;
 import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
 import com.rodrigodev.xgen4j.model.information.InformationClassesWriter;
 import lombok.NonNull;
@@ -31,7 +32,8 @@ public class InformationClassesGenerator extends ClassesGenerator {
     private InjectedFields inj;
     private ErrorClassFile rootErrorClassFile;
     private ExceptionClassFile rootExceptionClassFile;
-    private List<ErrorExceptionClassDefinitionPair> errorExceptionPairs;
+    private ErrorCodeClassFile errorCodeClassFile;
+    private List<ErrorExceptionClassFilePair> errorExceptionPairs;
     private GenerationOptions options;
 
     protected InformationClassesGenerator(
@@ -39,13 +41,15 @@ public class InformationClassesGenerator extends ClassesGenerator {
             String sourceDirPath,
             @NonNull ErrorClassFile rootErrorClassFile,
             @NonNull ExceptionClassFile rootExceptionClassFile,
-            @NonNull List<ErrorExceptionClassDefinitionPair> errorExceptionPairs,
+            @NonNull ErrorCodeClassFile errorCodeClassFile,
+            @NonNull List<ErrorExceptionClassFilePair> errorExceptionPairs,
             @NonNull GenerationOptions options
     ) {
         super(sourceDirPath);
         this.inj = injectedFields;
         this.rootErrorClassFile = rootErrorClassFile;
         this.rootExceptionClassFile = rootExceptionClassFile;
+        this.errorCodeClassFile = errorCodeClassFile;
         this.errorExceptionPairs = errorExceptionPairs;
         this.options = options;
     }
@@ -58,6 +62,7 @@ public class InformationClassesGenerator extends ClassesGenerator {
                 sourceDirPath,
                 rootErrorClassFile,
                 rootExceptionClassFile,
+                errorCodeClassFile,
                 ImmutableList.copyOf(errorExceptionPairs),
                 options
         );
