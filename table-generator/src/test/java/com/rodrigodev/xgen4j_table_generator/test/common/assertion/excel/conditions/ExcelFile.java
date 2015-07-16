@@ -1,4 +1,4 @@
-package com.rodrigodev.xgen4j_table_generator.test.common.assertion.excel;
+package com.rodrigodev.xgen4j_table_generator.test.common.assertion.excel.conditions;
 
 import org.apache.poi.ss.usermodel.*;
 import org.assertj.core.api.Condition;
@@ -10,11 +10,11 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Created by Rodrigo Quesada on 14/07/15.
  */
-public class ExcelFileComparator extends Condition<InputStream> {
+public class ExcelFile extends Condition<InputStream> {
 
     private InputStream expectedInputStream;
 
-    public ExcelFileComparator(InputStream expectedInputStream) {
+    public ExcelFile(InputStream expectedInputStream) {
         this.expectedInputStream = expectedInputStream;
     }
 

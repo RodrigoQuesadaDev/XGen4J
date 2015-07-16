@@ -47,11 +47,13 @@ idea {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':xgen4j')
     compile("com.google.guava:guava:${guavaVersion}")
     compile("com.codepoetics:protonpack:${protonpackVersion}")
     provided("org.projectlombok:lombok:${lombokVersion}")
     compile("com.google.dagger:dagger:${daggerVersion}")
     provided("com.google.dagger:dagger-compiler:${daggerVersion}")
+    compile("commons-io:commons-io:${apacheCommonsIoVersion}")
     compile("org.apache.poi:poi:${apachePoiVersion}")
     compile("org.apache.poi:poi-ooxml:${apachePoiVersion}")
 

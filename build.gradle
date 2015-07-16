@@ -17,6 +17,7 @@ subprojects {
         daggerVersion = '2.0.1'
         apachePoiVersion = ''
         apachePoiVersion = '3.12'
+        apacheCommonsIoVersion = '2.4'
 
         //Testing
         junitVersion = '4.12'
