@@ -58,7 +58,7 @@ public class Information {
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Error.class,
                     new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Exception.class),
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Error.CODE,
-                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.WithoutNumericIdTests.TestMessageGeneratorObject1.class),
+                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject1.class),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
@@ -92,7 +92,7 @@ public class Information {
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Error.class,
                     new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Exception.class),
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Error.CODE,
-                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.WithoutNumericIdTests.TestMessageGeneratorObject2.class),
+                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject2.class),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
@@ -126,7 +126,7 @@ public class Information {
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Error.class,
                     new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Exception.class),
                     com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Error.CODE,
-                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.WithoutNumericIdTests.TestMessageGeneratorObject3.class),
+                    new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject3.class),
                     false
             ));
             errorInfoList = Collections.unmodifiableList(errorInfoList);

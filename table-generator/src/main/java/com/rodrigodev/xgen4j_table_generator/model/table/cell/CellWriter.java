@@ -17,12 +17,20 @@ public abstract class CellWriter {
         this.header = header;
     }
 
-    public void writeHeader(Row row) {
-        row.newCell().setCellValue(header);
+    protected boolean shouldWrite(ErrorInfoWrapper errorInfo) {
+        return true;
     }
 
-    public void writeContent(Row row, ErrorInfoWrapper errorInfo) {
-        writeToCell(row.newCell(), errorInfo);
+    final public void writeHeader(Row row, ErrorInfoWrapper errorInfo) {
+        if (shouldWrite(errorInfo)) {
+            row.newCell().setCellValue(header);
+        }
+    }
+
+    final public void writeContent(Row row, ErrorInfoWrapper errorInfo) {
+        if (shouldWrite(errorInfo)) {
+            writeToCell(row.newCell(), errorInfo);
+        }
     }
 
     protected abstract void writeToCell(Cell cell, ErrorInfoWrapper errorInfo);
