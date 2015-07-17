@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases;
 
-import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Exception.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name_9_name12Exception.ExceptionType;
 import java.util.Optional;
 
 /**
@@ -8,23 +8,23 @@ import java.util.Optional;
  */
 public class ExceptionInfo {
 
-    final private Class<? extends Root_name12Exception> clazz;
+    final private Class<? extends Root_name_9_name12Exception> clazz;
     final private Optional<ExceptionType> type;
 
-    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends Root_name12Exception> clazz) {
+    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends Root_name_9_name12Exception> clazz) {
         this.type = type;
         this.clazz = clazz;
     }
 
-    public ExceptionInfo(Class<? extends Root_name12Exception> clazz) {
+    public ExceptionInfo(Class<? extends Root_name_9_name12Exception> clazz) {
         this(Optional.empty(), clazz);
     }
 
-    public ExceptionInfo(ExceptionType type, Class<? extends Root_name12Exception> clazz) {
+    public ExceptionInfo(ExceptionType type, Class<? extends Root_name_9_name12Exception> clazz) {
         this(Optional.of(type), clazz);
     }
 
-    public Class<? extends Root_name12Exception> clazz() {
+    public Class<? extends Root_name_9_name12Exception> clazz() {
         return clazz;
     }
 

@@ -28,21 +28,21 @@ public class Information {
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.AC1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.AC1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.AC1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.AC1Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Exception.class),
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.AC2Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.AC2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.AC2Exception.class),
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.AC2Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.c3_1.AC3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.c3_1.AC3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.c3_1.AC3_1Error.CODE,
                     true
             ));
             errorInfoList = Collections.unmodifiableList(errorInfoList);

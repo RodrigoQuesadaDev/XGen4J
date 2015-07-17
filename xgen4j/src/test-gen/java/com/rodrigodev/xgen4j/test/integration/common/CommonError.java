@@ -12,7 +12,7 @@ import com.rodrigodev.xgen4j.test.integration.HouseException.ExceptionType;
  */
 public abstract class CommonError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("common", HouseError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("common");
 
 
 }

@@ -22,74 +22,74 @@ public class Information {
             idToErrorInfoMap = new HashMap<>();
 
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameError.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameException.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameError.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.Root9NameError.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.Root9NameException.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.Root9NameError.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.CommonName1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.Common9Name1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.Common9Name1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.Common9Name1Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.CommonName2Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.Common9Name2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.Common9Name2Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.Common9Name2Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_1.CommonName3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_1.CommonName3_1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_1.CommonName3_1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_1.Common9Name3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_1.Common9Name3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_1.Common9Name3_1Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_2.CommonName3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_2.CommonName3_2Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_2.CommonName3_2Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_2.Common9Name3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_2.Common9Name3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_2.Common9Name3_2Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_3.CommonName3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_3.CommonName3_3Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common_name1.common_name2.common_name3_3.CommonName3_3Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_3.Common9Name3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_3.Common9Name3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.common9_name1.common9_name2.common9_name3_3.Common9Name3_3Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.ErrorName1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.Error9Name1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.Error9Name1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.Error9Name1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.Error9Name1Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.ErrorName2Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.Error9Name2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.Error9Name2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.Error9Name2Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.Error9Name2Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_1.ErrorName3_1Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_1.Error9Name3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_1.Error9Name3_1Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_1.Error9Name3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_1.Error9Name3_1Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_2.ErrorName3_2Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_2.Error9Name3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_2.Error9Name3_2Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_2.Error9Name3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_2.Error9Name3_2Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error_name1.error_name2.error_name3_3.ErrorName3_3Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_3.Error9Name3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_3.Error9Name3_3Exception.TYPE, com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_3.Error9Name3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.error9_name1.error9_name2.error9_name3_3.Error9Name3_3Error.CODE,
                     new PlainTextErrorDescription("ABCDE"),
                     false
             ));

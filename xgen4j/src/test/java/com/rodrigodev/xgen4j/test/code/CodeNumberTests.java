@@ -227,17 +227,17 @@ public class CodeNumberTests extends TestSpecification {
     public void codeNumericIdIsGeneratedWhenSpecified() {
         assertThat(RootError.CODE.numericId()).isEqualTo("123");
 
-        assertThat(C1Error.CODE.numericId()).isEqualTo("123:234");
-        assertThat(C2Error.CODE.numericId()).isEqualTo("123:234:345");
-        assertThat(C3_1Error.CODE.numericId()).isEqualTo("123:234:345:456");
-        assertThat(C3_2Error.CODE.numericId()).isEqualTo("123:234:345:567");
-        assertThat(C3_3Error.CODE.numericId()).isEqualTo("123:234:345:678");
+        assertThat(C1Error.CODE.numericId()).isEqualTo("234");
+        assertThat(C2Error.CODE.numericId()).isEqualTo("234:345");
+        assertThat(C3_1Error.CODE.numericId()).isEqualTo("234:345:456");
+        assertThat(C3_2Error.CODE.numericId()).isEqualTo("234:345:567");
+        assertThat(C3_3Error.CODE.numericId()).isEqualTo("234:345:678");
 
-        assertThat(E1Error.CODE.numericId()).isEqualTo("123:432");
-        assertThat(E2Error.CODE.numericId()).isEqualTo("123:432:543");
-        assertThat(E3_1Error.CODE.numericId()).isEqualTo("123:432:543:654");
-        assertThat(E3_2Error.CODE.numericId()).isEqualTo("123:432:543:765");
-        assertThat(E3_3Error.CODE.numericId()).isEqualTo("123:432:543:876");
+        assertThat(E1Error.CODE.numericId()).isEqualTo("432");
+        assertThat(E2Error.CODE.numericId()).isEqualTo("432:543");
+        assertThat(E3_1Error.CODE.numericId()).isEqualTo("432:543:654");
+        assertThat(E3_2Error.CODE.numericId()).isEqualTo("432:543:765");
+        assertThat(E3_3Error.CODE.numericId()).isEqualTo("432:543:876");
     }
 
     @Test
@@ -273,11 +273,11 @@ public class CodeNumberTests extends TestSpecification {
     public void codeNumberIsGeneratedWhenNameIsAlsoSpecifiedSpecified() {
         // @formatter:off
         assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.CODE.number()).isEqualTo(123);
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.CODE.number()).isEqualTo(234);
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.CODE.number()).isEqualTo(345);
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.CODE.number()).isEqualTo(456);
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.CODE.number()).isEqualTo(567);
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.CODE.number()).isEqualTo(678);
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.E1Error.CODE.number()).isEqualTo(234);
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.E2Error.CODE.number()).isEqualTo(345);
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_1.E3_1Error.CODE.number()).isEqualTo(456);
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_2.E3_2Error.CODE.number()).isEqualTo(567);
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_3.E3_3Error.CODE.number()).isEqualTo(678);
         // @formatter:on
     }
 
@@ -285,11 +285,11 @@ public class CodeNumberTests extends TestSpecification {
     public void codeNumericIdIsGeneratedWhenNameIsAlsoSpecifiedSpecified() {
         // @formatter:off
         assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.RootError.CODE.numericId()).isEqualTo("123");
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.E1Error.CODE.numericId()).isEqualTo("123:234");
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.E2Error.CODE.numericId()).isEqualTo("123:234:345");
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_1.E3_1Error.CODE.numericId()).isEqualTo("123:234:345:456");
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_2.E3_2Error.CODE.numericId()).isEqualTo("123:234:345:567");
-        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.e1.e2.e3_3.E3_3Error.CODE.numericId()).isEqualTo("123:234:345:678");
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.E1Error.CODE.numericId()).isEqualTo("234");
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.E2Error.CODE.numericId()).isEqualTo("234:345");
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_1.E3_1Error.CODE.numericId()).isEqualTo("234:345:456");
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_2.E3_2Error.CODE.numericId()).isEqualTo("234:345:567");
+        assertThat(com.rodrigodev.xgen4j.test.code.codeNumericIdAndNumberAreGeneratedWhenNameIsAlsoSpecifiedSpecified.code_name_2.code_name_3.code_name_4_3.E3_3Error.CODE.numericId()).isEqualTo("234:345:678");
         // @formatter:on
     }
 }

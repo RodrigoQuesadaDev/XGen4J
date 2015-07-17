@@ -1,16 +1,14 @@
 package com.rodrigodev.xgen4j.model.error.template;
 
 import com.rodrigodev.xgen4j.model.common.template.model.ClassTemplateModel;
+import com.rodrigodev.xgen4j.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassDefinition;
 import com.rodrigodev.xgen4j.model.error.exception.ExceptionClassFile;
-import com.rodrigodev.xgen4j.model.error.template.model.ErrorCodeModel;
-import com.rodrigodev.xgen4j.model.error.template.model.ErrorDescriptionModel;
-import com.rodrigodev.xgen4j.model.error.template.model.ExceptionModel;
-import com.rodrigodev.xgen4j.model.error.template.model.RootTemplateModel;
+import com.rodrigodev.xgen4j.model.error.template.model.*;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Setter;
@@ -82,6 +80,11 @@ public class ErrorClassTemplateModel extends ClassTemplateModel {
 
     public ErrorDescriptionModel getDescription() {
         return description;
+    }
+
+    @Override
+    public TypeTemplateModel getParent() {
+        return super.getParent() != null ? new ParentModel(super.getParent(), root) : null;
     }
 
     @Accessors(fluent = true)

@@ -1,11 +1,11 @@
 package com.rodrigodev.xgen4j.model.error.configuration.definition;
 
+import com.rodrigodev.xgen4j.common.lang.PackageUtil;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.code.ErrorCodeDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.code.ErrorCodeDefinition.ErrorCodeDefinitionBuilder;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.name.ErrorNameChecker;
-import com.rodrigodev.xgen4j.model.error.configuration.definition.name.ErrorNameConverter;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.Setter;
@@ -17,6 +17,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import static com.google.common.base.Preconditions.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.package_path.PackagePathConverter.codeNameToPackagePart;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.package_path.PackagePathConverter.errorNameToPackagePart;
 
 /**
  * Created by Rodrigo Quesada on 12/05/15.
@@ -66,7 +68,7 @@ public class ErrorDefinition {
              builder.description,
              builder.customMessageGenerator,
              builder.errors,
-             builder.packagePath,
+             builder.packagePath.get(),
              builder.isCommon,
              !builder.parent.isPresent());
     }
@@ -84,7 +86,7 @@ public class ErrorDefinition {
         private Optional<CustomMessageGeneratorDefinition> customMessageGenerator;
         private ErrorDefinitionBuilder<?, ?>[] errorBuilders;
         private ErrorDefinition[] errors;
-        @NonNull @Setter(AccessLevel.PROTECTED) private String packagePath;
+        @NonNull private Optional<String> packagePath;
         @Setter(AccessLevel.PROTECTED) private boolean isCommon;
         @NonNull private Optional<ErrorDefinitionBuilder<?, ?>> parent;
         private ErrorNameChecker nameChecker;
@@ -94,6 +96,7 @@ public class ErrorDefinition {
             description = Optional.empty();
             customMessageGenerator = Optional.empty();
             errorBuilders = new ErrorDefinitionBuilder[0];
+            packagePath = Optional.empty();
             parent = Optional.empty();
             nameChecker = new ErrorNameChecker(name);
             setName(name);
@@ -110,6 +113,7 @@ public class ErrorDefinition {
 
         public B code(String codeName) {
             codeBuilder.name(codeName);
+            packagePath = Optional.of(codeNameToPackagePart(codeName));
             return self();
         }
 
@@ -119,7 +123,8 @@ public class ErrorDefinition {
         }
 
         public B code(String codeName, int codeNumber) {
-            codeBuilder.name(codeName).number(codeNumber);
+            code(codeName);
+            codeBuilder.number(codeNumber);
             return self();
         }
 
@@ -143,6 +148,10 @@ public class ErrorDefinition {
             return self();
         }
 
+        protected void packagePath(String packagePath) {
+            this.packagePath = Optional.of(packagePath);
+        }
+
         private void parent(ErrorDefinitionBuilder<?, ?> parent) {
             this.parent = Optional.of(parent);
         }
@@ -151,7 +160,9 @@ public class ErrorDefinition {
             nameChecker.checkIsNotDuplicate();
             parent.ifPresent(p -> {
                 codeBuilder.parent(p.codeBuilder);
-                packagePath = ErrorNameConverter.addPackagePartFromName(p.packagePath, name);
+                packagePath = Optional.of(PackageUtil.join(
+                        p.packagePath.get(), packagePath.orElse(errorNameToPackagePart(name))
+                ));
                 isCommon = isCommon || p.isCommon;
             });
             errors = Arrays.stream(errorBuilders)

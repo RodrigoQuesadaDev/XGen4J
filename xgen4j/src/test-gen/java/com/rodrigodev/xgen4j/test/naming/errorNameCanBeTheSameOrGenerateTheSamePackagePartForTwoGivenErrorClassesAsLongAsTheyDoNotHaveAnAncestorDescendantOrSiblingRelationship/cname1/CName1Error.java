@@ -12,7 +12,7 @@ import com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSameP
  */
 public abstract class CName1Error extends RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("c-name-1", RootNameError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("c-name-1");
 
 
 }

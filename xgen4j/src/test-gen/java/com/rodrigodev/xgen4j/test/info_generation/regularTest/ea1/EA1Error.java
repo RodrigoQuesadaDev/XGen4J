@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.info_generation.regularTest.ErrorCode;
  */
 public abstract class EA1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("e-a-1", 789, RootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("e-a-1", 789);
 
     private static String MESSAGE_FORMAT = "Message for EA1 error.";
 

@@ -7,14 +7,14 @@ import java.util.Optional;
  */
 public class ErrorInfo {
 
-    final private Class<? extends DefaultRootError> clazz;
+    final private Class<? extends RootError> clazz;
     final private ExceptionInfo exceptionInfo;
     final private ErrorCode code;
     final private Optional<ErrorDescription> description;
     final private boolean isCommon;
 
     private ErrorInfo(
-            Class<? extends DefaultRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             Optional<ErrorDescription> description,
@@ -28,7 +28,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends DefaultRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             boolean isCommon
@@ -37,7 +37,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends DefaultRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             ErrorDescription description,
@@ -46,7 +46,7 @@ public class ErrorInfo {
         this(clazz, exceptionInfo, code, Optional.of(description), isCommon);
     }
 
-    public Class<? extends DefaultRootError> clazz() {
+    public Class<? extends RootError> clazz() {
         return clazz;
     }
 

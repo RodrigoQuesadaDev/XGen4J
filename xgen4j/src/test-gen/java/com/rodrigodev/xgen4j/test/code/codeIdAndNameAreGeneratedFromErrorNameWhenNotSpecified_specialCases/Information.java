@@ -22,9 +22,9 @@ public class Information {
             idToErrorInfoMap = new HashMap<>();
 
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Exception.class),
-                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name12Error.CODE,
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name_9_name12Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name_9_name12Exception.class),
+                    com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified_specialCases.Root_name_9_name12Error.CODE,
                     false
             ));
             errorInfoList = Collections.unmodifiableList(errorInfoList);

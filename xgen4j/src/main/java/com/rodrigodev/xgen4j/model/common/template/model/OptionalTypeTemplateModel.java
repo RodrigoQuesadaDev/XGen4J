@@ -2,18 +2,20 @@ package com.rodrigodev.xgen4j.model.common.template.model;
 
 import com.rodrigodev.xgen4j.model.error.ErrorClassFile;
 import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.Setter;
-import lombok.Value;
+import lombok.ToString;
 import lombok.experimental.Accessors;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 13/07/15.
  */
-@Value
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@FieldDefaults(makeFinal = true)
+@ToString
 public class OptionalTypeTemplateModel extends TypeTemplateModel {
 
     private String emptyMethod;

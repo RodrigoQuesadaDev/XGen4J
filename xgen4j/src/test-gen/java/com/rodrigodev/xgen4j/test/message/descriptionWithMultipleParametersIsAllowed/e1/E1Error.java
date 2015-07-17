@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.message.descriptionWithMultipleParametersIsAll
  */
 public abstract class E1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("e-1", RootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("e-1");
 
 
 }

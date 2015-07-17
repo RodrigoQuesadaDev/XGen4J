@@ -12,7 +12,7 @@ public class ${name} {
     private final int number;
     </#if>
 
-    protected ${name}(String name<#if hasNumber>, int number</#if>){
+    public ${name}(String name<#if hasNumber>, int number</#if>){
         this.id = name;
         this.name = name;
         <#if hasNumber>

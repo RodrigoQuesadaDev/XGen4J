@@ -4,10 +4,10 @@ import com.rodrigodev.xgen4j.ExceptionsGenerator;
 import com.rodrigodev.xgen4j.test.TestSpecification;
 import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ARootError;
 import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ErrorCodeATestFactory;
-import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.ac1.ac2.ac3_1.AC3_1Error;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_onlyName.c1.c2.c3_1.AC3_1Error;
 import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.BRootError;
 import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.ErrorCodeBTestFactory;
-import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.bc1.bc2.bc3_1.BC3_1Error;
+import com.rodrigodev.xgen4j.test.code.errorCodeEqualityIsBasedOnId_withNumber.c1.c2.c3_1.BC3_1Error;
 import dagger.Component;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.Test;
@@ -274,6 +274,126 @@ public class CodeUniquenessTests extends TestSpecification {
         );
     }
 
+    private void assert_codeNumberCannotBeEqualToRootCodeForRootChildren(ThrowingCallable methodCall, String codeName) {
+        assertThatThrownBy(methodCall)
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage(
+                        String.format("Number for error code '%s' is equal to root error's code's number.", codeName)
+                );
+    }
+
+    @Test
+    public void codeNumberCannotBeEqualToRootCodeNumberForChildrenOfRootError() {
+        ExceptionsGenerator xgen = generator();
+
+        assert_codeNumberCannotBeEqualToRootCodeForRootChildren(
+                () ->
+                        // @formatter:off
+                        xgen.generate(rootError("RootName").code(123).errors(
+                                commonError("C1Name").code(123),
+                                error("E1Name").code(345),
+                                error("E2Name").code(456)
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberCannotBeEqualToRootCodeNumberForChildrenOfRootError").build())
+                        // @formatter:on
+                , "c-1-name"
+        );
+        assert_codeNumberCannotBeEqualToRootCodeForRootChildren(
+                () ->
+                        // @formatter:off
+                        xgen.generate(rootError("RootName").code(123).errors(
+                                commonError("C1Name").code(234),
+                                error("E1Name").code(123),
+                                error("E2Name").code(456)
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberCannotBeEqualToRootCodeNumberForChildrenOfRootError").build())
+                        // @formatter:on
+                , "e-1-name"
+        );
+
+        assert_codeNumberCannotBeEqualToRootCodeForRootChildren(
+                () ->
+                        // @formatter:off
+                        xgen.generate(rootError("RootName").code(123).errors(
+                                commonError("C1Name").code(123).errors(
+                                        error("C2Name").code(345).errors(
+                                                error("C3Name").code(456)
+                                        )
+                                ),
+                                error("E1Name").code(567).errors(
+                                        error("E2Name").code(678).errors(
+                                                error("E3Name").code(789)
+                                        )
+                                ),
+                                error("EB1Name").code(890).errors(
+                                        error("EB2Name").code(1234).errors(
+                                                error("EB3Name").code(2345)
+                                        )
+                                )
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberCannotBeEqualToRootCodeNumberForChildrenOfRootError").build())
+                        // @formatter:on
+                , "c-1-name"
+        );
+        assert_codeNumberCannotBeEqualToRootCodeForRootChildren(
+                () ->
+                        // @formatter:off
+                        xgen.generate(rootError("RootName").code(123).errors(
+                                commonError("C1Name").code(234).errors(
+                                        error("C2Name").code(345).errors(
+                                                error("C3Name").code(456)
+                                        )
+                                ),
+                                error("E1Name").code(123).errors(
+                                        error("E2Name").code(678).errors(
+                                                error("E3Name").code(789)
+                                        )
+                                ),
+                                error("EB1Name").code(890).errors(
+                                        error("EB2Name").code(1234).errors(
+                                                error("EB3Name").code(2345)
+                                        )
+                                )
+                        ).basePackage("com.rodrigodev.xgen4j.test.code.codeNumberCannotBeEqualToRootCodeNumberForChildrenOfRootError").build())
+                        // @formatter:on
+                , "e-1-name"
+        );
+    }
+
+    @Test
+    public void codeNumberCanBeEqualToRootCodeNumberForErrorsThatAreNotChildrenOfRootError() {
+        String basePackage = "com.rodrigodev.xgen4j.test.code.codeNumberCanBeEqualToRootCodeNumberForErrorsThatAreNotChildrenOfRootError";
+        // @formatter:off
+        generator().generate(rootError("Root").code(123).errors(
+                commonError("C1").code(234).errors(
+                        error("C2").code(123).errors(
+                                error("C3").code(123)
+                        )
+                ),
+                error("E1").code(345).errors(
+                        error("E2").code(123).errors(
+                                error("E3").code(123)
+                        )
+                ),
+                error("EB1").code(456).errors(
+                        error("EB2").code(123).errors(
+                                error("EB3").code(123)
+                        )
+                )
+        ).basePackage(basePackage).build());
+        // @formatter:on
+
+        assertThatErrorAndExceptionClassExist(basePackage, "Root");
+        assertThatErrorAndExceptionClassExist(basePackage, "c1.C1");
+        assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.C2");
+        assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.c3.C3");
+        assertThatErrorAndExceptionClassExist(basePackage, "e1.E1");
+        assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.E2");
+        assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3.E3");
+        assertThatErrorAndExceptionClassExist(basePackage, "eb1.EB1");
+        assertThatErrorAndExceptionClassExist(basePackage, "eb1.eb2.EB2");
+        assertThatErrorAndExceptionClassExist(basePackage, "eb1.eb2.eb3.EB3");
+    }
+
+    //TODO also test code name equal to root's
+
     @Test
     public void errorCodeEqualityIsBasedOnId() {
         ExceptionsGenerator xgen = generator();
@@ -296,12 +416,12 @@ public class CodeUniquenessTests extends TestSpecification {
 
         assertThat(ARootError.CODE).isEqualTo(errorCodeATestFactory.create("root"));
         assertThat(ARootError.CODE).isNotEqualTo(errorCodeATestFactory.create("different"));
-        assertThat(AC3_1Error.CODE).isEqualTo(errorCodeATestFactory.create("root.c1.c2.c3-1"));
-        assertThat(AC3_1Error.CODE).isNotEqualTo(errorCodeATestFactory.create("root.c1.c2.different"));
+        assertThat(AC3_1Error.CODE).isEqualTo(errorCodeATestFactory.create("c1.c2.c3-1"));
+        assertThat(AC3_1Error.CODE).isNotEqualTo(errorCodeATestFactory.create("c1.c2.different"));
 
         assertThat(BRootError.CODE).isEqualTo(errorCodeBTestFactory.create("root", 123));
         assertThat(BRootError.CODE).isNotEqualTo(errorCodeBTestFactory.create("different", 123));
-        assertThat(BC3_1Error.CODE).isEqualTo(errorCodeBTestFactory.create("root.c1.c2.c3-1", 123));
-        assertThat(BC3_1Error.CODE).isNotEqualTo(errorCodeBTestFactory.create("root.c1.c2.different", 123));
+        assertThat(BC3_1Error.CODE).isEqualTo(errorCodeBTestFactory.create("c1.c2.c3-1", 123));
+        assertThat(BC3_1Error.CODE).isNotEqualTo(errorCodeBTestFactory.create("c1.c2.different", 123));
     }
 }

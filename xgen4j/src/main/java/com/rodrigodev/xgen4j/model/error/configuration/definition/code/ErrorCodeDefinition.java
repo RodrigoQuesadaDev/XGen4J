@@ -61,6 +61,10 @@ public class ErrorCodeDefinition {
             return this;
         }
 
+        public boolean isRoot() {
+            return !parent.isPresent();
+        }
+
         public void nameFromText(String text) {
             name = TextToCodeNameConverter.convert(text);
         }
@@ -93,27 +97,26 @@ public class ErrorCodeDefinition {
 
         private void checkNumber() {
             checkNumberPresence();
-            checkNumberUniqueness();
+            checkNumberUniquenessAmongSiblings();
+            checkNumberNotEqualToRootNumber();
         }
 
         private void checkNumberPresence() {
-            parent.ifPresent(
-                    p -> {
-                        boolean codeNumberPresent = number.isPresent();
-                        checkState(
-                                codeNumberPresent == p.number.isPresent(),
-                                String.format(
-                                        codeNumberPresent
-                                                ? "Error code '%s' can't have a code number."
-                                                : "Code number is missing for error code '%s'."
-                                        , name
-                                )
-                        );
-                    }
-            );
+            parent.ifPresent(p -> {
+                boolean codeNumberPresent = number.isPresent();
+                checkState(
+                        codeNumberPresent == p.number.isPresent(),
+                        String.format(
+                                codeNumberPresent
+                                        ? "Error code '%s' can't have a code number."
+                                        : "Code number is missing for error code '%s'."
+                                , name
+                        )
+                );
+            });
         }
 
-        private void checkNumberUniqueness() {
+        private void checkNumberUniquenessAmongSiblings() {
             if (number.isPresent() && parent.isPresent()) {
                 Set<Integer> parentChildrenNumbers = parent.get().childrenNumbers;
                 int number = this.number.get();
@@ -122,6 +125,20 @@ public class ErrorCodeDefinition {
                         String.format("Duplicated code number '%d' for error code '%s'.", number, name)
                 );
             }
+        }
+
+        private void checkNumberNotEqualToRootNumber() {
+            parent.ifPresent(p -> {
+                if (p.isRoot() && number.isPresent()) {
+                    checkState(
+                            !number.get().equals(p.number.get()),
+                            String.format(
+                                    "Number for error code '%s' is equal to root error's code's number."
+                                    , name
+                            )
+                    );
+                }
+            });
         }
     }
 }

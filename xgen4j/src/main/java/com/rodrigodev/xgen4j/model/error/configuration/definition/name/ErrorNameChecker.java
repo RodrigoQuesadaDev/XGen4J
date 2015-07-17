@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.*;
+import static com.rodrigodev.xgen4j.model.error.configuration.definition.package_path.PackagePathConverter.errorNameToPackagePart;
 
 /**
  * Created by Rodrigo Quesada on 12/07/15.
@@ -26,9 +27,9 @@ public class ErrorNameChecker {
 
     public ErrorNameChecker(String name) {
         this.nameContainer = new NameContainer(name);
-        ancestorNamesMap = new HashMap<>();
-        childrenNamesMap = new HashMap<>();
-        parent = Optional.empty();
+        this.ancestorNamesMap = new HashMap<>();
+        this.childrenNamesMap = new HashMap<>();
+        this.parent = Optional.empty();
     }
 
     public void setParent(ErrorNameChecker parent) {
@@ -73,7 +74,7 @@ public class ErrorNameChecker {
         }
 
         private String normalizeName(String name) {
-            return ErrorNameConverter.convertToPackagePart(name);
+            return errorNameToPackagePart(name);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified;
 
-import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.RootNameException.ExceptionType;
+import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedFromErrorNameWhenNotSpecified.Root9NameException.ExceptionType;
 import java.util.Optional;
 
 /**
@@ -8,23 +8,23 @@ import java.util.Optional;
  */
 public class ExceptionInfo {
 
-    final private Class<? extends RootNameException> clazz;
+    final private Class<? extends Root9NameException> clazz;
     final private Optional<ExceptionType> type;
 
-    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends RootNameException> clazz) {
+    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends Root9NameException> clazz) {
         this.type = type;
         this.clazz = clazz;
     }
 
-    public ExceptionInfo(Class<? extends RootNameException> clazz) {
+    public ExceptionInfo(Class<? extends Root9NameException> clazz) {
         this(Optional.empty(), clazz);
     }
 
-    public ExceptionInfo(ExceptionType type, Class<? extends RootNameException> clazz) {
+    public ExceptionInfo(ExceptionType type, Class<? extends Root9NameException> clazz) {
         this(Optional.of(type), clazz);
     }
 
-    public Class<? extends RootNameException> clazz() {
+    public Class<? extends Root9NameException> clazz() {
         return clazz;
     }
 

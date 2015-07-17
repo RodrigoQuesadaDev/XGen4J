@@ -75,46 +75,68 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
             RootErrorDefinition rootError,
             Optional<OptionalClassType> optionalClassType
     ) {
-        //test compilation
-        generateClasses(generator(), rootError, optionalClassType);
+        try {
+            //generate for testing compilation
+            generateClasses(generator(), rootError, optionalClassType);
 
-        //verify correct Optional class was written
-        generateClasses(exceptionsGeneratorComponent.generator(), rootError, optionalClassType);
-        assertThat(fileService.files()).have(new DoesNotContainNonSelectedOptionalTypes(optionalClassType));
-        assertThat(fileService.files()).haveAtLeastOne(new ContainsSelectedOptionalType(optionalClassType));
+            //verify correct Optional class was written
+            generateClasses(exceptionsGeneratorComponent.generator(), rootError, optionalClassType);
+            assertThat(fileService.files()).have(new DoesNotContainNonSelectedOptionalTypes(optionalClassType));
+            assertThat(fileService.files()).haveAtLeastOne(new ContainsSelectedOptionalType(optionalClassType));
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void assert_correctOptionalClassIsUsed(
-            String prefix, Optional<OptionalClassType> optionalClassType, String namespace
-    ) {
-        setUp();
-        // @formatter:off
-        assert_correctOptionalClassWasWrittenToGeneratedFiles(rootError(prefix + "Root").errors(
-                commonError(prefix + "C1").errors(
-                        error(prefix + "C2").errors(
-                                error(prefix + "C3_1").description("Message for C3_1 error."),
-                                error(prefix + "C3_2").description("{param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
-                                error(prefix + "C3_3").description(TestMessageGeneratorObject.class, "generator")
-                        )
-                ),
-                error(prefix + "E1").errors(
-                        error(prefix + "E2").errors(
-                                error(prefix + "E3_1").description("Message for E3_1 error."),
-                                error(prefix + "E3_2").description("{param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
-                                error(prefix + "E3_3").description(TestMessageGeneratorObject.class, "generator")
-                        )
-                )
-        ).basePackage("com.rodrigodev.xgen4j.test.generation_options." + namespace).build(), optionalClassType);
-        // @formatter:on
+    private void assert_correctOptionalClassIsUsed(Optional<OptionalClassType> optionalClassType, String namespace) {
+        try {
+            setUp();
+            String basePackage = "com.rodrigodev.xgen4j.test.generation_options." + namespace;
+            // @formatter:off
+            assert_correctOptionalClassWasWrittenToGeneratedFiles(rootError("Root").errors(
+                    commonError("C1").errors(
+                            error("C2").errors(
+                                    error("C3_1").description("Message for C3_1 error."),
+                                    error("C3_2").description("{param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                    error("C3_3").description(TestMessageGeneratorObject.class, "generator")
+                            )
+                    ),
+                    error("E1").errors(
+                            error("E2").errors(
+                                    error("E3_1").description("Message for E3_1 error."),
+                                    error("E3_2").description("{param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                    error("E3_3").description(TestMessageGeneratorObject.class, "generator")
+                            )
+                    )
+            ).basePackage(basePackage).build(), optionalClassType);
+            // @formatter:on
+
+            //Next code should not throw exception
+            assertThatErrorAndExceptionClassExist(basePackage, "Root");
+            assertThatErrorAndExceptionClassExist(basePackage, "c1.C1");
+            assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.C2");
+            assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.c3_1.C3_1");
+            assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.c3_2.C3_2");
+            assertThatErrorAndExceptionClassExist(basePackage, "c1.c2.c3_3.C3_3");
+            assertThatErrorAndExceptionClassExist(basePackage, "e1.E1");
+            assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.E2");
+            assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_1.E3_1");
+            assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_2.E3_2");
+            assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_3.E3_3");
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void correctOptionalClassIsUsedForCorrespondingOption() {
         // @formatter:off
-        assert_correctOptionalClassIsUsed("Default", Optional.empty(), "java8OptionalClassIsUsedWhenNoOptionIsSet");
-        assert_correctOptionalClassIsUsed("Java8", Optional.of(OptionalClassType.JAVA_8), "java8OptionalClassIsUsedWhenCorrespondingOptionIsSet");
-        assert_correctOptionalClassIsUsed("Guava", Optional.of(OptionalClassType.GUAVA), "guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet");
-        assert_correctOptionalClassIsUsed("Custom", Optional.of(OptionalClassType.CUSTOM), "customOptionalClassIsUsedWhenCorrespondingOptionIsSet");
+        assert_correctOptionalClassIsUsed(Optional.empty(), "java8OptionalClassIsUsedWhenNoOptionIsSet");
+        assert_correctOptionalClassIsUsed(Optional.of(OptionalClassType.JAVA_8), "java8OptionalClassIsUsedWhenCorrespondingOptionIsSet");
+        assert_correctOptionalClassIsUsed(Optional.of(OptionalClassType.GUAVA), "guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet");
+        assert_correctOptionalClassIsUsed(Optional.of(OptionalClassType.CUSTOM), "customOptionalClassIsUsedWhenCorrespondingOptionIsSet");
         // @formatter:on
     }
 

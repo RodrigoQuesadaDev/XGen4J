@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.integration.ErrorCode;
  */
 public abstract class KitchenError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("kitchen", HouseError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("kitchen");
 
 
 }

@@ -5,17 +5,19 @@ import com.rodrigodev.xgen4j.model.common.template.model.TypeTemplateModel;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.CustomMessageGeneratorDefinition;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.description.ErrorDescriptionDefinition;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NonNull;
-import lombok.Value;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Optional;
 
 /**
  * Created by Rodrigo Quesada on 13/07/15.
  */
-@Value
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@FieldDefaults(makeFinal = true)
+@ToString
 public class ErrorTemplateModel extends TypeTemplateModel {
 
     @NonNull private ExceptionTemplateModel exception;

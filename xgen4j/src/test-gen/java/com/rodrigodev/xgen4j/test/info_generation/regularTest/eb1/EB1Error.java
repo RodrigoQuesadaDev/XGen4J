@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.info_generation.regularTest.ErrorCode;
  */
 public abstract class EB1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("e-b-1", 4567, RootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("e-b-1", 4567);
 
     private static String MESSAGE_FORMAT = "Message for EB1 error.";
 

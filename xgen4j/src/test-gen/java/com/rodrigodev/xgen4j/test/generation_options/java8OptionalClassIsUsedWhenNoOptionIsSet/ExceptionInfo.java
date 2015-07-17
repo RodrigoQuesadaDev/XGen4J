@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenNoOptionIsSet;
 
-import com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenNoOptionIsSet.DefaultRootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenNoOptionIsSet.RootException.ExceptionType;
 import java.util.Optional;
 
 /**
@@ -8,23 +8,23 @@ import java.util.Optional;
  */
 public class ExceptionInfo {
 
-    final private Class<? extends DefaultRootException> clazz;
+    final private Class<? extends RootException> clazz;
     final private Optional<ExceptionType> type;
 
-    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends DefaultRootException> clazz) {
+    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends RootException> clazz) {
         this.type = type;
         this.clazz = clazz;
     }
 
-    public ExceptionInfo(Class<? extends DefaultRootException> clazz) {
+    public ExceptionInfo(Class<? extends RootException> clazz) {
         this(Optional.empty(), clazz);
     }
 
-    public ExceptionInfo(ExceptionType type, Class<? extends DefaultRootException> clazz) {
+    public ExceptionInfo(ExceptionType type, Class<? extends RootException> clazz) {
         this(Optional.of(type), clazz);
     }
 
-    public Class<? extends DefaultRootException> clazz() {
+    public Class<? extends RootException> clazz() {
         return clazz;
     }
 

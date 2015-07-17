@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.code.codeIdAndNameAreGeneratedWhenSpecified.Ro
  */
 public abstract class RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("code-name-root");
+    public static final ErrorCode CODE = new ErrorCode("code-9-name-root");
 
 
     protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) {

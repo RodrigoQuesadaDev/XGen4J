@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet;
 
-import com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.GuavaRootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.generation_options.guavaOptionalClassIsUsedWhenCorrespondingOptionIsSet.RootException.ExceptionType;
 import com.google.common.base.Optional;
 
 /**
@@ -8,23 +8,23 @@ import com.google.common.base.Optional;
  */
 public class ExceptionInfo {
 
-    final private Class<? extends GuavaRootException> clazz;
+    final private Class<? extends RootException> clazz;
     final private Optional<ExceptionType> type;
 
-    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends GuavaRootException> clazz) {
+    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends RootException> clazz) {
         this.type = type;
         this.clazz = clazz;
     }
 
-    public ExceptionInfo(Class<? extends GuavaRootException> clazz) {
+    public ExceptionInfo(Class<? extends RootException> clazz) {
         this(Optional.absent(), clazz);
     }
 
-    public ExceptionInfo(ExceptionType type, Class<? extends GuavaRootException> clazz) {
+    public ExceptionInfo(ExceptionType type, Class<? extends RootException> clazz) {
         this(Optional.of(type), clazz);
     }
 
-    public Class<? extends GuavaRootException> clazz() {
+    public Class<? extends RootException> clazz() {
         return clazz;
     }
 

@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAreGene
  */
 public abstract class ErrorName1Error extends RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("error-name-1", RootNameError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("error-name-1");
 
 
 }

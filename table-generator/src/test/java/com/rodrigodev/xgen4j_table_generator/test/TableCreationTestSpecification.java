@@ -1,6 +1,5 @@
 package com.rodrigodev.xgen4j_table_generator.test;
 
-import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
 import com.rodrigodev.xgen4j.test.TestSpecification;
 import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
@@ -49,35 +48,28 @@ public abstract class TableCreationTestSpecification extends TestSpecification {
         this.fileService = (InMemoryFileService) fileService;
     }
 
-    @SuppressWarnings("unchecked")
-    private <B extends ErrorDefinitionBuilder<?, ?>> B code(
-            B errorBuilder, String name, int number, boolean withNumericId
-    ) {
-        return (B) (withNumericId ? errorBuilder.code(name, number) : errorBuilder.code(name));
-    }
-
     private void generateErrorsForTests(boolean withNumericId, String namespace) {
         // @formatter:off
-        generator().generate(code(rootError("RootName"), "root-code-name", 1,withNumericId).errors(
+        generator().generate(code(rootError("RootName"), "root-code-name", 1, withNumericId).errors(
                 code(commonError("CName1"), "common-code-name-1", 2, withNumericId).description("Message for CName1 error.").errors(
-                        code(error("CName2"), "common-code-name-2", 3,withNumericId).errors(
-                                code(error("CName3_1"), "common-code-name-3-1", 4,withNumericId).description("Message for CName3_1 error."),
-                                code(error("CName3_2"), "common-code-name-3-2", 5,withNumericId).description("CName3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
-                                code(error("CName3_3"), "common-code-name-3-3", 6,withNumericId).description(TestMessageGeneratorObject1.class, "generator")
+                        code(error("CName2"), "common-code-name-2", 3, withNumericId).errors(
+                                code(error("CName3_1"), "common-code-name-3-1", 4, withNumericId).description("Message for CName3_1 error."),
+                                code(error("CName3_2"), "common-code-name-3-2", 5, withNumericId).description("CName3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                code(error("CName3_3"), "common-code-name-3-3", 6, withNumericId).description(TestMessageGeneratorObject1.class, "generator")
                         )
                 ),
-                code(error("EName1"), "error-code-name-1", 7,withNumericId).description("Message for EName1 error.").errors(
-                        code(error("EName2"), "error-code-name-2", 8,withNumericId).errors(
-                                code(error("EName3_1"), "error-code-name-3-1", 9,withNumericId).description("Message for EName3_1 error."),
-                                code(error("EName3_2"), "error-code-name-3-2", 10,withNumericId).description("EName3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
-                                code(error("EName3_3"), "error-code-name-3-3", 11,withNumericId).description(TestMessageGeneratorObject2.class, "generator")
+                code(error("EName1"), "error-code-name-1", 7, withNumericId).description("Message for EName1 error.").errors(
+                        code(error("EName2"), "error-code-name-2", 8, withNumericId).errors(
+                                code(error("EName3_1"), "error-code-name-3-1", 9, withNumericId).description("Message for EName3_1 error."),
+                                code(error("EName3_2"), "error-code-name-3-2", 10, withNumericId).description("EName3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                code(error("EName3_3"), "error-code-name-3-3", 11, withNumericId).description(TestMessageGeneratorObject2.class, "generator")
                         )
                 ),
-                code(error("E2Name1"), "error-2-code-name-1", 12,withNumericId).description("Message for E2Name1 error.").errors(
-                        code(error("E2Name2"), "error-2-code-name-2", 13,withNumericId).errors(
-                                code(error("E2Name3_1"), "error-2-code-name-3-1", 14,withNumericId).description("Message for E2Name3_1 error."),
-                                code(error("E2Name3_2"), "error-2-code-name-3-2", 15,withNumericId).description("E2Name3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
-                                code(error("E2Name3_3"), "error-2-code-name-3-3", 16,withNumericId).description(TestMessageGeneratorObject3.class, "generator")
+                code(error("E2Name1"), "error-2-code-name-1", 12, withNumericId).description("Message for E2Name1 error.").errors(
+                        code(error("E2Name2"), "error-2-code-name-2", 13, withNumericId).errors(
+                                code(error("E2Name3_1"), "error-2-code-name-3-1", 14, withNumericId).description("Message for E2Name3_1 error."),
+                                code(error("E2Name3_2"), "error-2-code-name-3-2", 15, withNumericId).description("E2Name3_2: {param1: '%s', param2: %d, param3: '%s'}", p(String.class, "param1"), p(Integer.class, "param2"), p(TestObject.class, "param3")),
+                                code(error("E2Name3_3"), "error-2-code-name-3-3", 16, withNumericId).description(TestMessageGeneratorObject3.class, "generator")
                         )
                 )
         ).basePackage("com.rodrigodev.xgen4j_table_generator.test." + namespace).build());

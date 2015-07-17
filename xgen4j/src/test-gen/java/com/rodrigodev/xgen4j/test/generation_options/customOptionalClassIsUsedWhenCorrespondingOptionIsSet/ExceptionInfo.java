@@ -1,6 +1,6 @@
 package com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet;
 
-import com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet.CustomRootException.ExceptionType;
+import com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet.RootException.ExceptionType;
 import com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWhenCorrespondingOptionIsSet.Optional;
 
 /**
@@ -8,23 +8,23 @@ import com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWh
  */
 public class ExceptionInfo {
 
-    final private Class<? extends CustomRootException> clazz;
+    final private Class<? extends RootException> clazz;
     final private Optional<ExceptionType> type;
 
-    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends CustomRootException> clazz) {
+    private ExceptionInfo(Optional<ExceptionType> type, Class<? extends RootException> clazz) {
         this.type = type;
         this.clazz = clazz;
     }
 
-    public ExceptionInfo(Class<? extends CustomRootException> clazz) {
+    public ExceptionInfo(Class<? extends RootException> clazz) {
         this(Optional.empty(), clazz);
     }
 
-    public ExceptionInfo(ExceptionType type, Class<? extends CustomRootException> clazz) {
+    public ExceptionInfo(ExceptionType type, Class<? extends RootException> clazz) {
         this(Optional.of(type), clazz);
     }
 
-    public Class<? extends CustomRootException> clazz() {
+    public Class<? extends RootException> clazz() {
         return clazz;
     }
 

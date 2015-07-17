@@ -12,7 +12,7 @@ import com.rodrigodev.xgen4j.test.throwing.RootException.ExceptionType;
  */
 public abstract class C1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("c-1", RootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("c-1");
 
 
 }

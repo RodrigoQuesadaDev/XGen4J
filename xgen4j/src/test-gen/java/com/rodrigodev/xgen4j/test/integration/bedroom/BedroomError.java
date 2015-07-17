@@ -11,7 +11,7 @@ import com.rodrigodev.xgen4j.test.integration.ErrorCode;
  */
 public abstract class BedroomError extends HouseError {
 
-    public static final ErrorCode CODE = new ErrorCode("bedroom", HouseError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("bedroom");
 
     private static String MESSAGE_FORMAT = "%s's bedroom is not a good place to sleep.";
 

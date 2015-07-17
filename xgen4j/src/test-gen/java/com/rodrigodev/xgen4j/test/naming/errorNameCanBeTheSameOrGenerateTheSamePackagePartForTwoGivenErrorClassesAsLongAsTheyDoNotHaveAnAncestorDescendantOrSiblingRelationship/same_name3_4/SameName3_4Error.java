@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.naming.errorNameCanBeTheSameOrGenerateTheSameP
  */
 public abstract class SameName3_4Error extends RootNameError {
 
-    public static final ErrorCode CODE = new ErrorCode("same-name-3-4", RootNameError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("same-name-3-4");
 
 
 }

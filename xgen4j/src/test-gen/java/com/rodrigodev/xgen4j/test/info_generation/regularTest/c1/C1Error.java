@@ -12,7 +12,7 @@ import com.rodrigodev.xgen4j.test.info_generation.regularTest.RootException.Exce
  */
 public abstract class C1Error extends RootError {
 
-    public static final ErrorCode CODE = new ErrorCode("c-1", 234, RootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("c-1", 234);
 
     private static String MESSAGE_FORMAT = "Message for C1 error.";
 

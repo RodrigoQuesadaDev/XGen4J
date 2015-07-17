@@ -7,14 +7,14 @@ import com.rodrigodev.xgen4j.test.generation_options.customOptionalClassIsUsedWh
  */
 public class ErrorInfo {
 
-    final private Class<? extends CustomRootError> clazz;
+    final private Class<? extends RootError> clazz;
     final private ExceptionInfo exceptionInfo;
     final private ErrorCode code;
     final private Optional<ErrorDescription> description;
     final private boolean isCommon;
 
     private ErrorInfo(
-            Class<? extends CustomRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             Optional<ErrorDescription> description,
@@ -28,7 +28,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends CustomRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             boolean isCommon
@@ -37,7 +37,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends CustomRootError> clazz,
+            Class<? extends RootError> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             ErrorDescription description,
@@ -46,7 +46,7 @@ public class ErrorInfo {
         this(clazz, exceptionInfo, code, Optional.of(description), isCommon);
     }
 
-    public Class<? extends CustomRootError> clazz() {
+    public Class<? extends RootError> clazz() {
         return clazz;
     }
 

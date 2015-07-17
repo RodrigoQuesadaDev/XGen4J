@@ -12,7 +12,7 @@ import com.rodrigodev.xgen4j.test.generation_options.checkedExceptionsAreGenerat
  */
 public abstract class CC1Error extends CRootError {
 
-    public static final ErrorCode CODE = new ErrorCode("c-c-1", CRootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("c-c-1");
 
 
 }

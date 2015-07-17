@@ -10,7 +10,7 @@ import com.rodrigodev.xgen4j.test.generation_options.uncheckedExceptionsAreGener
  */
 public abstract class UE1Error extends URootError {
 
-    public static final ErrorCode CODE = new ErrorCode("u-e-1", URootError.CODE);
+    public static final ErrorCode CODE = new ErrorCode("u-e-1");
 
 
 }

@@ -22,74 +22,74 @@ public class Information {
             idToErrorInfoMap = new HashMap<>();
 
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.Java8RootError.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.Java8RootException.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.Java8RootError.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.RootError.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.RootException.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.RootError.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.Java8C1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.Java8C1Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.Java8C1Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.C1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.C1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.C1Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.Java8C2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.Java8C2Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.Java8C2Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.C2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.C2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.C2Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_1.Java8C3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_1.Java8C3_1Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_1.Java8C3_1Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_1.C3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_1.C3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_1.C3_1Error.CODE,
                     new PlainTextErrorDescription("Message for C3_1 error."),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_2.Java8C3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_2.Java8C3_2Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_2.Java8C3_2Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_2.C3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_2.C3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_2.C3_2Error.CODE,
                     new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_3.Java8C3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_3.Java8C3_3Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8c1.java8c2.java8c3_3.Java8C3_3Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_3.C3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_3.C3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.c1.c2.c3_3.C3_3Error.CODE,
                     new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.Java8E1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.Java8E1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.Java8E1Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.Java8E1Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.E1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.E1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.E1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.E1Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.Java8E2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.Java8E2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.Java8E2Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.Java8E2Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.E2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.E2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.E2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.E2Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_1.Java8E3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_1.Java8E3_1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_1.Java8E3_1Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_1.Java8E3_1Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_1.E3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_1.E3_1Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_1.E3_1Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_1.E3_1Error.CODE,
                     new PlainTextErrorDescription("Message for E3_1 error."),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_2.Java8E3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_2.Java8E3_2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_2.Java8E3_2Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_2.Java8E3_2Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_2.E3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_2.E3_2Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_2.E3_2Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_2.E3_2Error.CODE,
                     new PlainTextErrorDescription("{param1: '%s', param2: %d, param3: '%s'}"),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_3.Java8E3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_3.Java8E3_3Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_3.Java8E3_3Exception.class),
-                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.java8e1.java8e2.java8e3_3.Java8E3_3Error.CODE,
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_3.E3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_3.E3_3Exception.TYPE, com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_3.E3_3Exception.class),
+                    com.rodrigodev.xgen4j.test.generation_options.java8OptionalClassIsUsedWhenCorrespondingOptionIsSet.e1.e2.e3_3.E3_3Error.CODE,
                     new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject.class),
                     false
             ));

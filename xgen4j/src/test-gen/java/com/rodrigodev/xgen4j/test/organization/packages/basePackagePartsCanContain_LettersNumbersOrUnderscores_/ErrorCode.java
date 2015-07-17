@@ -8,7 +8,7 @@ public class ErrorCode {
     private final String id;
     private final String name;
 
-    protected ErrorCode(String name){
+    public ErrorCode(String name){
         this.id = name;
         this.name = name;
     }

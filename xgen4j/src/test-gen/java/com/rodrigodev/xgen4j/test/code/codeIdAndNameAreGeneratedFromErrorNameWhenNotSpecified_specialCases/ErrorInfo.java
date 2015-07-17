@@ -7,14 +7,14 @@ import java.util.Optional;
  */
 public class ErrorInfo {
 
-    final private Class<? extends Root_name12Error> clazz;
+    final private Class<? extends Root_name_9_name12Error> clazz;
     final private ExceptionInfo exceptionInfo;
     final private ErrorCode code;
     final private Optional<ErrorDescription> description;
     final private boolean isCommon;
 
     private ErrorInfo(
-            Class<? extends Root_name12Error> clazz,
+            Class<? extends Root_name_9_name12Error> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             Optional<ErrorDescription> description,
@@ -28,7 +28,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends Root_name12Error> clazz,
+            Class<? extends Root_name_9_name12Error> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             boolean isCommon
@@ -37,7 +37,7 @@ public class ErrorInfo {
     }
 
     public ErrorInfo(
-            Class<? extends Root_name12Error> clazz,
+            Class<? extends Root_name_9_name12Error> clazz,
             ExceptionInfo exceptionInfo,
             ErrorCode code,
             ErrorDescription description,
@@ -46,7 +46,7 @@ public class ErrorInfo {
         this(clazz, exceptionInfo, code, Optional.of(description), isCommon);
     }
 
-    public Class<? extends Root_name12Error> clazz() {
+    public Class<? extends Root_name_9_name12Error> clazz() {
         return clazz;
     }
 

@@ -10,7 +10,7 @@ public class ErrorCode {
     private final String numericId;
     private final int number;
 
-    protected ErrorCode(String name, int number){
+    public ErrorCode(String name, int number){
         this.id = name;
         this.name = name;
         this.numericId = String.valueOf(number);
