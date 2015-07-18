@@ -24,19 +24,19 @@ public abstract class TooSmallError extends RoomError {
     }
 
     public static void throwException(String roomName) {
-        throw new TooSmallException(createMessage(roomName));
+        throw new TooSmallException(CODE, createMessage(roomName));
     }
 
     public static void throwException(String roomName, Throwable cause) {
-        throw new TooSmallException(createMessage(roomName), cause);
+        throw new TooSmallException(CODE, createMessage(roomName), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, String roomName) {
-        throwExceptionForCommonError(exceptionType, createMessage(roomName));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(roomName));
     }
 
     public static void throwException(ExceptionType exceptionType, String roomName, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(roomName), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(roomName), cause);
     }
 
 }

@@ -13,15 +13,15 @@ public abstract class CRootError {
     public static final ErrorCode CODE = new ErrorCode("c-root");
 
 
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) throws CRootException {
+    protected static void throwExceptionForCommonError(ErrorCode code, ExceptionType exceptionType, String message) throws CRootException {
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message);
+        throw exceptionType.createException(code, message);
     }
 
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) throws CRootException {
+    protected static void throwExceptionForCommonError(ErrorCode code, ExceptionType exceptionType, String message, Throwable cause) throws CRootException {
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message, cause);
+        throw exceptionType.createException(code, message, cause);
     }
 }

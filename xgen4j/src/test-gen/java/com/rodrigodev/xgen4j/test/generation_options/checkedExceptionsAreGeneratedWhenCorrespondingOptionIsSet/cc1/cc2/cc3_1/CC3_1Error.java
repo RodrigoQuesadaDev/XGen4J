@@ -22,19 +22,19 @@ public abstract class CC3_1Error extends CC2Error {
     }
 
     public static void throwException() throws CC3_1Exception {
-        throw new CC3_1Exception(createMessage());
+        throw new CC3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) throws CC3_1Exception {
-        throw new CC3_1Exception(createMessage(), cause);
+        throw new CC3_1Exception(CODE, createMessage(), cause);
     }
 
     public static void throwException(ExceptionType exceptionType) throws CRootException {
-        throwExceptionForCommonError(exceptionType, createMessage());
+        throwExceptionForCommonError(CODE, exceptionType, createMessage());
     }
 
     public static void throwException(ExceptionType exceptionType, Throwable cause) throws CRootException {
-        throwExceptionForCommonError(exceptionType, createMessage(), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(), cause);
     }
 
 }

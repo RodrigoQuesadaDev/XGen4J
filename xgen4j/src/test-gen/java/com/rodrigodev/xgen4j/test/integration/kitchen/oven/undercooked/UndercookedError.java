@@ -22,11 +22,11 @@ public abstract class UndercookedError extends OvenError {
     }
 
     public static void throwException(String model) {
-        throw new UndercookedException(createMessage(model));
+        throw new UndercookedException(CODE, createMessage(model));
     }
 
     public static void throwException(String model, Throwable cause) {
-        throw new UndercookedException(createMessage(model), cause);
+        throw new UndercookedException(CODE, createMessage(model), cause);
     }
 
 

@@ -20,11 +20,11 @@ public abstract class SameName3_3Error extends SameName2Error {
     }
 
     public static void throwException() {
-        throw new SameName3_3Exception(createMessage());
+        throw new SameName3_3Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new SameName3_3Exception(createMessage(), cause);
+        throw new SameName3_3Exception(CODE, createMessage(), cause);
     }
 
 

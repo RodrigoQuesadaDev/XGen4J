@@ -22,19 +22,19 @@ public abstract class C1Error extends RootError {
     }
 
     public static void throwException() {
-        throw new C1Exception(createMessage());
+        throw new C1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new C1Exception(createMessage(), cause);
+        throw new C1Exception(CODE, createMessage(), cause);
     }
 
     public static void throwException(ExceptionType exceptionType) {
-        throwExceptionForCommonError(exceptionType, createMessage());
+        throwExceptionForCommonError(CODE, exceptionType, createMessage());
     }
 
     public static void throwException(ExceptionType exceptionType, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(), cause);
     }
 
 }

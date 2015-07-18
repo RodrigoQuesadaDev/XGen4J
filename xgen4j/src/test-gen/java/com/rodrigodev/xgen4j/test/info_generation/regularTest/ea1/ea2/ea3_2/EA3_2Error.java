@@ -26,11 +26,11 @@ public abstract class EA3_2Error extends EA2Error {
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3) {
-        throw new EA3_2Exception(createMessage(param1, param2, param3));
+        throw new EA3_2Exception(CODE, createMessage(param1, param2, param3));
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3, Throwable cause) {
-        throw new EA3_2Exception(createMessage(param1, param2, param3), cause);
+        throw new EA3_2Exception(CODE, createMessage(param1, param2, param3), cause);
     }
 
 

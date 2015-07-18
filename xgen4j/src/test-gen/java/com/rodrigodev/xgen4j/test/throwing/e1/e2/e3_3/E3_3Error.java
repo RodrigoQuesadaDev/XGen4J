@@ -20,11 +20,11 @@ public abstract class E3_3Error extends E2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) {
-        throw new E3_3Exception(createMessage(generator));
+        throw new E3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) {
-        throw new E3_3Exception(createMessage(generator), cause);
+        throw new E3_3Exception(CODE, createMessage(generator), cause);
     }
 
 

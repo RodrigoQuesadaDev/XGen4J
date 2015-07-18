@@ -22,11 +22,11 @@ public abstract class RottenFoodError extends FridgeError {
     }
 
     public static void throwException(String foodName) {
-        throw new RottenFoodException(createMessage(foodName));
+        throw new RottenFoodException(CODE, createMessage(foodName));
     }
 
     public static void throwException(String foodName, Throwable cause) {
-        throw new RottenFoodException(createMessage(foodName), cause);
+        throw new RottenFoodException(CODE, createMessage(foodName), cause);
     }
 
 

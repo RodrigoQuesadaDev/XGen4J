@@ -20,11 +20,11 @@ public abstract class CE3_1Error extends CE2Error {
     }
 
     public static void throwException() throws CE3_1Exception {
-        throw new CE3_1Exception(createMessage());
+        throw new CE3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) throws CE3_1Exception {
-        throw new CE3_1Exception(createMessage(), cause);
+        throw new CE3_1Exception(CODE, createMessage(), cause);
     }
 
 

@@ -22,19 +22,19 @@ public abstract class C3Error extends C2Error {
     }
 
     public static void throwException(TestMessageGeneratorObjectChild generator) {
-        throw new C3Exception(createMessage(generator));
+        throw new C3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObjectChild generator, Throwable cause) {
-        throw new C3Exception(createMessage(generator), cause);
+        throw new C3Exception(CODE, createMessage(generator), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObjectChild generator) {
-        throwExceptionForCommonError(exceptionType, createMessage(generator));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator));
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObjectChild generator, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(generator), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator), cause);
     }
 
 }

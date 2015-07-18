@@ -22,19 +22,19 @@ public abstract class Common9Name3_1Error extends Common9Name2Error {
     }
 
     public static void throwException() {
-        throw new Common9Name3_1Exception(createMessage());
+        throw new Common9Name3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new Common9Name3_1Exception(createMessage(), cause);
+        throw new Common9Name3_1Exception(CODE, createMessage(), cause);
     }
 
     public static void throwException(ExceptionType exceptionType) {
-        throwExceptionForCommonError(exceptionType, createMessage());
+        throwExceptionForCommonError(CODE, exceptionType, createMessage());
     }
 
     public static void throwException(ExceptionType exceptionType, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(), cause);
     }
 
 }

@@ -26,11 +26,11 @@ public abstract class U2E3_2Error extends U2E2Error {
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3) {
-        throw new U2E3_2Exception(createMessage(param1, param2, param3));
+        throw new U2E3_2Exception(CODE, createMessage(param1, param2, param3));
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3, Throwable cause) {
-        throw new U2E3_2Exception(createMessage(param1, param2, param3), cause);
+        throw new U2E3_2Exception(CODE, createMessage(param1, param2, param3), cause);
     }
 
 

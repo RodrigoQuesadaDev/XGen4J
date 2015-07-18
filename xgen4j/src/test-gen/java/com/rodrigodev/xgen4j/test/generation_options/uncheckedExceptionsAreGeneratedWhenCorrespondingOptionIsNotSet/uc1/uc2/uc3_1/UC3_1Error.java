@@ -22,19 +22,19 @@ public abstract class UC3_1Error extends UC2Error {
     }
 
     public static void throwException() {
-        throw new UC3_1Exception(createMessage());
+        throw new UC3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new UC3_1Exception(createMessage(), cause);
+        throw new UC3_1Exception(CODE, createMessage(), cause);
     }
 
     public static void throwException(ExceptionType exceptionType) {
-        throwExceptionForCommonError(exceptionType, createMessage());
+        throwExceptionForCommonError(CODE, exceptionType, createMessage());
     }
 
     public static void throwException(ExceptionType exceptionType, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(), cause);
     }
 
 }

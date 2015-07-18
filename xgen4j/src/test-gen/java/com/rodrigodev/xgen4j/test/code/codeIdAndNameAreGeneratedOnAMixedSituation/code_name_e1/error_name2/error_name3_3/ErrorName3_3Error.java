@@ -20,11 +20,11 @@ public abstract class ErrorName3_3Error extends ErrorName2Error {
     }
 
     public static void throwException() {
-        throw new ErrorName3_3Exception(createMessage());
+        throw new ErrorName3_3Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new ErrorName3_3Exception(createMessage(), cause);
+        throw new ErrorName3_3Exception(CODE, createMessage(), cause);
     }
 
 

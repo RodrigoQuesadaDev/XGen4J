@@ -22,11 +22,11 @@ public abstract class BedIsWarmError extends BedError {
     }
 
     public static void throwException(Integer bedNumber) {
-        throw new BedIsWarmException(createMessage(bedNumber));
+        throw new BedIsWarmException(CODE, createMessage(bedNumber));
     }
 
     public static void throwException(Integer bedNumber, Throwable cause) {
-        throw new BedIsWarmException(createMessage(bedNumber), cause);
+        throw new BedIsWarmException(CODE, createMessage(bedNumber), cause);
     }
 
 

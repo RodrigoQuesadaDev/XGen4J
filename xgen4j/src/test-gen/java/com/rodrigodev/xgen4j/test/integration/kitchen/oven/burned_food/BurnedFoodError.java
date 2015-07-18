@@ -22,11 +22,11 @@ public abstract class BurnedFoodError extends OvenError {
     }
 
     public static void throwException(String model) {
-        throw new BurnedFoodException(createMessage(model));
+        throw new BurnedFoodException(CODE, createMessage(model));
     }
 
     public static void throwException(String model, Throwable cause) {
-        throw new BurnedFoodException(createMessage(model), cause);
+        throw new BurnedFoodException(CODE, createMessage(model), cause);
     }
 
 

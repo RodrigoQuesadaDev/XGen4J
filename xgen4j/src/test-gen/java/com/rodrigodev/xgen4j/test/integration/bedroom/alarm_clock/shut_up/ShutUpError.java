@@ -22,11 +22,11 @@ public abstract class ShutUpError extends AlarmClockError {
     }
 
     public static void throwException(String legendaryHero) {
-        throw new ShutUpException(createMessage(legendaryHero));
+        throw new ShutUpException(CODE, createMessage(legendaryHero));
     }
 
     public static void throwException(String legendaryHero, Throwable cause) {
-        throw new ShutUpException(createMessage(legendaryHero), cause);
+        throw new ShutUpException(CODE, createMessage(legendaryHero), cause);
     }
 
 

@@ -22,11 +22,11 @@ public abstract class DidNotSoundError extends AlarmClockError {
     }
 
     public static void throwException(String bossName) {
-        throw new DidNotSoundException(createMessage(bossName));
+        throw new DidNotSoundException(CODE, createMessage(bossName));
     }
 
     public static void throwException(String bossName, Throwable cause) {
-        throw new DidNotSoundException(createMessage(bossName), cause);
+        throw new DidNotSoundException(CODE, createMessage(bossName), cause);
     }
 
 

@@ -24,19 +24,19 @@ public abstract class ApplianceError extends CommonError {
     }
 
     public static void throwException(String applianceName) {
-        throw new ApplianceException(createMessage(applianceName));
+        throw new ApplianceException(CODE, createMessage(applianceName));
     }
 
     public static void throwException(String applianceName, Throwable cause) {
-        throw new ApplianceException(createMessage(applianceName), cause);
+        throw new ApplianceException(CODE, createMessage(applianceName), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, String applianceName) {
-        throwExceptionForCommonError(exceptionType, createMessage(applianceName));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(applianceName));
     }
 
     public static void throwException(ExceptionType exceptionType, String applianceName, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(applianceName), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(applianceName), cause);
     }
 
 }

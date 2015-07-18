@@ -22,11 +22,11 @@ public abstract class BedError extends BedroomError {
     }
 
     public static void throwException(String model) {
-        throw new BedException(createMessage(model));
+        throw new BedException(CODE, createMessage(model));
     }
 
     public static void throwException(String model, Throwable cause) {
-        throw new BedException(createMessage(model), cause);
+        throw new BedException(CODE, createMessage(model), cause);
     }
 
 

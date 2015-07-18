@@ -22,11 +22,11 @@ public abstract class PillowNotFoundError extends BedError {
     }
 
     public static void throwException(String personName) {
-        throw new PillowNotFoundException(createMessage(personName));
+        throw new PillowNotFoundException(CODE, createMessage(personName));
     }
 
     public static void throwException(String personName, Throwable cause) {
-        throw new PillowNotFoundException(createMessage(personName), cause);
+        throw new PillowNotFoundException(CODE, createMessage(personName), cause);
     }
 
 

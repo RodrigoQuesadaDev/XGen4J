@@ -20,11 +20,11 @@ public abstract class CE3_3Error extends CE2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) throws CE3_3Exception {
-        throw new CE3_3Exception(createMessage(generator));
+        throw new CE3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) throws CE3_3Exception {
-        throw new CE3_3Exception(createMessage(generator), cause);
+        throw new CE3_3Exception(CODE, createMessage(generator), cause);
     }
 
 

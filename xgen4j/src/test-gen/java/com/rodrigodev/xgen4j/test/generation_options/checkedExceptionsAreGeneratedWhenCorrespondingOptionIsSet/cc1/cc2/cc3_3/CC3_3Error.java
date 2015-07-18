@@ -22,19 +22,19 @@ public abstract class CC3_3Error extends CC2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) throws CC3_3Exception {
-        throw new CC3_3Exception(createMessage(generator));
+        throw new CC3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) throws CC3_3Exception {
-        throw new CC3_3Exception(createMessage(generator), cause);
+        throw new CC3_3Exception(CODE, createMessage(generator), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObject generator) throws CRootException {
-        throwExceptionForCommonError(exceptionType, createMessage(generator));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator));
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObject generator, Throwable cause) throws CRootException {
-        throwExceptionForCommonError(exceptionType, createMessage(generator), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator), cause);
     }
 
 }

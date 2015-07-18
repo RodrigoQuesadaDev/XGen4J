@@ -41,7 +41,7 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
-    private TypeTemplateModel root;
+    private TypeTemplateModel rootClass;
     private boolean common;
     private boolean hasType;
     private boolean checkedException;
@@ -55,7 +55,7 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
         ExceptionClassDefinition classDefinition = errorClassFile.classDefinition();
 
-        this.root = rootClassFile.isPresent() ? new TypeTemplateModel(rootClassFile.get().classDefinition()) : null;
+        this.rootClass = rootClassFile.isPresent() ? new TypeTemplateModel(rootClassFile.get().classDefinition()) : null;
         this.common = classDefinition.errorDefinition().isCommon();
         this.hasType = classDefinition.hasType();
         this.checkedException = classDefinition.isCheckedException();
@@ -63,6 +63,10 @@ public class ExceptionClassTemplateModel extends ClassTemplateModel {
 
     protected ExceptionClassTemplateModel(ExceptionClassTemplateModelBuilder builder) {
         this(builder, builder.rootClassFile, builder.errorClassFile);
+    }
+
+    public boolean isRoot() {
+        return getParent() == null;
     }
 
     public static ExceptionClassTemplateModelBuilder builder() {

@@ -46,7 +46,7 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <#---->
     <#macro throwException cause=false>
     public static void throwException(<@descriptionParamsDef endingComma=cause/><#if cause>Throwable cause</#if>) <@throwClause/>{
-        throw new ${exception.name}(createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
+        throw new ${exception.name}(CODE, createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
     }
     </#macro>
 
@@ -57,7 +57,7 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <#---->
     <#macro throwExceptionForCommonError cause=false>
     public static void throwException(ExceptionType exceptionType<@descriptionParamsDef startingComma=true/><#if cause>, Throwable cause</#if>) <@throwClause rootException=true/>{
-        throwExceptionForCommonError(exceptionType, createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(<@descriptionParams/>)<#if cause>, cause</#if>);
     }
     </#macro>
     </#if>
@@ -74,7 +74,7 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <#---->
     <#macro throwExceptionUsingGenerator cause=false>
     public static void throwException(<@messageGeneratorDef/><#if cause>, Throwable cause</#if>) <@throwClause/>{
-        throw new ${exception.name}(createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
+        throw new ${exception.name}(CODE, createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
     }
     </#macro>
 
@@ -85,7 +85,7 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <#---->
     <#macro throwExceptionForCommonErrorUsingGenerator cause=false>
     public static void throwException(ExceptionType exceptionType, <@messageGeneratorDef/><#if cause>, Throwable cause</#if>) <@throwClause rootException=true/>{
-        throwExceptionForCommonError(exceptionType, createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(<@messageGenerator/>)<#if cause>, cause</#if>);
     }
     </#macro>
     </#if>
@@ -98,10 +98,10 @@ public abstract class ${name} <#if parent??>extends ${parent.name} </#if>{
     <@rootThrowExceptionForCommonError cause=true/>
     <#---->
     <#macro rootThrowExceptionForCommonError cause=false>
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message<#if cause>, Throwable cause</#if>) <@throwClause/>{
+    protected static void throwExceptionForCommonError(ErrorCode code, ExceptionType exceptionType, String message<#if cause>, Throwable cause</#if>) <@throwClause/>{
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message<#if cause>, cause</#if>);
+        throw exceptionType.createException(code, message<#if cause>, cause</#if>);
     }
     </#macro>
 </#if>

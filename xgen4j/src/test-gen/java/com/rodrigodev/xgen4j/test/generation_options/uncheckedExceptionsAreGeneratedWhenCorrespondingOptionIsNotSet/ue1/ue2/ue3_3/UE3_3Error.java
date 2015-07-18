@@ -20,11 +20,11 @@ public abstract class UE3_3Error extends UE2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) {
-        throw new UE3_3Exception(createMessage(generator));
+        throw new UE3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) {
-        throw new UE3_3Exception(createMessage(generator), cause);
+        throw new UE3_3Exception(CODE, createMessage(generator), cause);
     }
 
 

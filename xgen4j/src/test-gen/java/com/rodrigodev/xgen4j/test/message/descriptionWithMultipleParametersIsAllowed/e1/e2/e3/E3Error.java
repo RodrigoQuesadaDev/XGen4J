@@ -26,11 +26,11 @@ public abstract class E3Error extends E2Error {
     }
 
     public static void throwException(String param1, Double param2, TestObject param3) {
-        throw new E3Exception(createMessage(param1, param2, param3));
+        throw new E3Exception(CODE, createMessage(param1, param2, param3));
     }
 
     public static void throwException(String param1, Double param2, TestObject param3, Throwable cause) {
-        throw new E3Exception(createMessage(param1, param2, param3), cause);
+        throw new E3Exception(CODE, createMessage(param1, param2, param3), cause);
     }
 
 

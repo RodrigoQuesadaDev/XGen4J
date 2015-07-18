@@ -22,11 +22,11 @@ public abstract class FoodNotFoundError extends FridgeError {
     }
 
     public static void throwException(String foodName) {
-        throw new FoodNotFoundException(createMessage(foodName));
+        throw new FoodNotFoundException(CODE, createMessage(foodName));
     }
 
     public static void throwException(String foodName, Throwable cause) {
-        throw new FoodNotFoundException(createMessage(foodName), cause);
+        throw new FoodNotFoundException(CODE, createMessage(foodName), cause);
     }
 
 

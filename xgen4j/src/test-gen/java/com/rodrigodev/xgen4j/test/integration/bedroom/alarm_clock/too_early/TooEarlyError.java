@@ -22,11 +22,11 @@ public abstract class TooEarlyError extends AlarmClockError {
     }
 
     public static void throwException(String time) {
-        throw new TooEarlyException(createMessage(time));
+        throw new TooEarlyException(CODE, createMessage(time));
     }
 
     public static void throwException(String time, Throwable cause) {
-        throw new TooEarlyException(createMessage(time), cause);
+        throw new TooEarlyException(CODE, createMessage(time), cause);
     }
 
 

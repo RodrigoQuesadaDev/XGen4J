@@ -24,19 +24,19 @@ public abstract class DirtyError extends RoomError {
     }
 
     public static void throwException(String roomName) {
-        throw new DirtyException(createMessage(roomName));
+        throw new DirtyException(CODE, createMessage(roomName));
     }
 
     public static void throwException(String roomName, Throwable cause) {
-        throw new DirtyException(createMessage(roomName), cause);
+        throw new DirtyException(CODE, createMessage(roomName), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, String roomName) {
-        throwExceptionForCommonError(exceptionType, createMessage(roomName));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(roomName));
     }
 
     public static void throwException(ExceptionType exceptionType, String roomName, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(roomName), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(roomName), cause);
     }
 
 }

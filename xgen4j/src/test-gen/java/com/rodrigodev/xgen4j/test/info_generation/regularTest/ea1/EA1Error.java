@@ -20,11 +20,11 @@ public abstract class EA1Error extends RootError {
     }
 
     public static void throwException() {
-        throw new EA1Exception(createMessage());
+        throw new EA1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new EA1Exception(createMessage(), cause);
+        throw new EA1Exception(CODE, createMessage(), cause);
     }
 
 

@@ -22,11 +22,11 @@ public abstract class BugsInfestationError extends BedError {
     }
 
     public static void throwException(String place) {
-        throw new BugsInfestationException(createMessage(place));
+        throw new BugsInfestationException(CODE, createMessage(place));
     }
 
     public static void throwException(String place, Throwable cause) {
-        throw new BugsInfestationException(createMessage(place), cause);
+        throw new BugsInfestationException(CODE, createMessage(place), cause);
     }
 
 

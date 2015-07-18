@@ -24,19 +24,19 @@ public abstract class ScratchesError extends ApplianceError {
     }
 
     public static void throwException(String applianceName) {
-        throw new ScratchesException(createMessage(applianceName));
+        throw new ScratchesException(CODE, createMessage(applianceName));
     }
 
     public static void throwException(String applianceName, Throwable cause) {
-        throw new ScratchesException(createMessage(applianceName), cause);
+        throw new ScratchesException(CODE, createMessage(applianceName), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, String applianceName) {
-        throwExceptionForCommonError(exceptionType, createMessage(applianceName));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(applianceName));
     }
 
     public static void throwException(ExceptionType exceptionType, String applianceName, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(applianceName), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(applianceName), cause);
     }
 
 }

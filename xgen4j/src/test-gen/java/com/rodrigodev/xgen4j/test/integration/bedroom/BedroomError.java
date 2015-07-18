@@ -22,11 +22,11 @@ public abstract class BedroomError extends HouseError {
     }
 
     public static void throwException(String personName) {
-        throw new BedroomException(createMessage(personName));
+        throw new BedroomException(CODE, createMessage(personName));
     }
 
     public static void throwException(String personName, Throwable cause) {
-        throw new BedroomException(createMessage(personName), cause);
+        throw new BedroomException(CODE, createMessage(personName), cause);
     }
 
 

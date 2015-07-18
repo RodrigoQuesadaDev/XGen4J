@@ -22,11 +22,11 @@ public abstract class OvenError extends KitchenError {
     }
 
     public static void throwException(String model) {
-        throw new OvenException(createMessage(model));
+        throw new OvenException(CODE, createMessage(model));
     }
 
     public static void throwException(String model, Throwable cause) {
-        throw new OvenException(createMessage(model), cause);
+        throw new OvenException(CODE, createMessage(model), cause);
     }
 
 

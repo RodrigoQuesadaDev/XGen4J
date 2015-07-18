@@ -20,11 +20,11 @@ public abstract class U2E3_1Error extends U2E2Error {
     }
 
     public static void throwException() {
-        throw new U2E3_1Exception(createMessage());
+        throw new U2E3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new U2E3_1Exception(createMessage(), cause);
+        throw new U2E3_1Exception(CODE, createMessage(), cause);
     }
 
 

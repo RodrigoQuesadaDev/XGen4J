@@ -22,11 +22,11 @@ public abstract class TooMuchSmokeError extends OvenError {
     }
 
     public static void throwException(String model) {
-        throw new TooMuchSmokeException(createMessage(model));
+        throw new TooMuchSmokeException(CODE, createMessage(model));
     }
 
     public static void throwException(String model, Throwable cause) {
-        throw new TooMuchSmokeException(createMessage(model), cause);
+        throw new TooMuchSmokeException(CODE, createMessage(model), cause);
     }
 
 

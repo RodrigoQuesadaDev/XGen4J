@@ -22,19 +22,19 @@ public abstract class UC3_3Error extends UC2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) {
-        throw new UC3_3Exception(createMessage(generator));
+        throw new UC3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) {
-        throw new UC3_3Exception(createMessage(generator), cause);
+        throw new UC3_3Exception(CODE, createMessage(generator), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObject generator) {
-        throwExceptionForCommonError(exceptionType, createMessage(generator));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator));
     }
 
     public static void throwException(ExceptionType exceptionType, TestMessageGeneratorObject generator, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(generator), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(generator), cause);
     }
 
 }

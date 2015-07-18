@@ -28,19 +28,19 @@ public abstract class C3_2Error extends C2Error {
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3) {
-        throw new C3_2Exception(createMessage(param1, param2, param3));
+        throw new C3_2Exception(CODE, createMessage(param1, param2, param3));
     }
 
     public static void throwException(String param1, Integer param2, TestObject param3, Throwable cause) {
-        throw new C3_2Exception(createMessage(param1, param2, param3), cause);
+        throw new C3_2Exception(CODE, createMessage(param1, param2, param3), cause);
     }
 
     public static void throwException(ExceptionType exceptionType, String param1, Integer param2, TestObject param3) {
-        throwExceptionForCommonError(exceptionType, createMessage(param1, param2, param3));
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(param1, param2, param3));
     }
 
     public static void throwException(ExceptionType exceptionType, String param1, Integer param2, TestObject param3, Throwable cause) {
-        throwExceptionForCommonError(exceptionType, createMessage(param1, param2, param3), cause);
+        throwExceptionForCommonError(CODE, exceptionType, createMessage(param1, param2, param3), cause);
     }
 
 }

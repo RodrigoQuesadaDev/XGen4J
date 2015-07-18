@@ -20,11 +20,11 @@ public abstract class U2E3_3Error extends U2E2Error {
     }
 
     public static void throwException(TestMessageGeneratorObject generator) {
-        throw new U2E3_3Exception(createMessage(generator));
+        throw new U2E3_3Exception(CODE, createMessage(generator));
     }
 
     public static void throwException(TestMessageGeneratorObject generator, Throwable cause) {
-        throw new U2E3_3Exception(createMessage(generator), cause);
+        throw new U2E3_3Exception(CODE, createMessage(generator), cause);
     }
 
 

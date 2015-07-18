@@ -20,11 +20,11 @@ public abstract class EB1Error extends RootError {
     }
 
     public static void throwException() {
-        throw new EB1Exception(createMessage());
+        throw new EB1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new EB1Exception(createMessage(), cause);
+        throw new EB1Exception(CODE, createMessage(), cause);
     }
 
 

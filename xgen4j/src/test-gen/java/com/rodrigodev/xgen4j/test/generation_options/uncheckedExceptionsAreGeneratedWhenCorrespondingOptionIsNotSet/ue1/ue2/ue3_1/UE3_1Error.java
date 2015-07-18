@@ -20,11 +20,11 @@ public abstract class UE3_1Error extends UE2Error {
     }
 
     public static void throwException() {
-        throw new UE3_1Exception(createMessage());
+        throw new UE3_1Exception(CODE, createMessage());
     }
 
     public static void throwException(Throwable cause) {
-        throw new UE3_1Exception(createMessage(), cause);
+        throw new UE3_1Exception(CODE, createMessage(), cause);
     }
 
 

@@ -13,15 +13,15 @@ public abstract class RootError {
     public static final ErrorCode CODE = new ErrorCode("code-name-1", 123);
 
 
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message) {
+    protected static void throwExceptionForCommonError(ErrorCode code, ExceptionType exceptionType, String message) {
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message);
+        throw exceptionType.createException(code, message);
     }
 
-    protected static void throwExceptionForCommonError(ExceptionType exceptionType, String message, Throwable cause) {
+    protected static void throwExceptionForCommonError(ErrorCode code, ExceptionType exceptionType, String message, Throwable cause) {
         if(exceptionType == null) throw new NullPointerException("exceptionType");
 
-        throw exceptionType.createException(message, cause);
+        throw exceptionType.createException(code, message, cause);
     }
 }
