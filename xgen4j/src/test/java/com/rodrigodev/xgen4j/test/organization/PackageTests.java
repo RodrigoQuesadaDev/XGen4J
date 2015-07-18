@@ -121,7 +121,7 @@ public class PackageTests extends TestSpecification {
             boolean withNumericId, String namespace
     ) {
         try {
-            String basePackage = "com.rodrigodev.xgen4j.test.organization.packages." + namespace;
+            String basePackage = "com.rodrigodev.xgen4j.test.organization.packages.packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided_" + namespace;
             // @formatter:off
             generator().generate(code(rootError("Root"), "code-9-name-root", 1, withNumericId).errors(
                     code(commonError("C1"), "code-9-name-c1", 2, withNumericId).errors(
@@ -163,11 +163,11 @@ public class PackageTests extends TestSpecification {
     public void packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided() {
         assert_packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided(
                 false,
-                "packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided_nameOnly"
+                "nameOnly"
         );
         assert_packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided(
                 true,
-                "packagesForErrorsAndExceptionsAreGeneratedFromCodeNamesWhenCodeNameIsProvided_withNumber"
+                "withNumber"
         );
     }
 

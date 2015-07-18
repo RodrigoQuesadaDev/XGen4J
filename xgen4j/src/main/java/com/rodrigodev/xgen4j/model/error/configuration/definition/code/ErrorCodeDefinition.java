@@ -86,6 +86,11 @@ public class ErrorCodeDefinition {
         }
 
         private void checkName() {
+            checkNameUniquenessAmongSiblings();
+            checkNameNotEqualToRootName();
+        }
+
+        private void checkNameUniquenessAmongSiblings() {
             if (parent.isPresent()) {
                 Set<String> parentChildrenNames = parent.get().childrenNames;
                 checkState(
@@ -93,6 +98,17 @@ public class ErrorCodeDefinition {
                         String.format("Duplicated code name '%s' for error code.", name)
                 );
             }
+        }
+
+        private void checkNameNotEqualToRootName() {
+            parent.ifPresent(p -> {
+                if (p.isRoot()) {
+                    checkState(
+                            !name.equals(p.name),
+                            String.format("Error code '%s' has same name as root error's code.", name)
+                    );
+                }
+            });
         }
 
         private void checkNumber() {
