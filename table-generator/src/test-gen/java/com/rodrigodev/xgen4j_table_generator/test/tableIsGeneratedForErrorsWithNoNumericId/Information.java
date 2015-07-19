@@ -28,104 +28,104 @@ public class Information {
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.CName1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.CName1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.CName1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.CName1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.CName1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.CName1Error.CODE,
                     new PlainTextErrorDescription("Message for CName1 error."),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.CName2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.CName2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.CName2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.CName2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.CName2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.CName2Error.CODE,
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_1.CName3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_1.CName3_1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_1.CName3_1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_1.CName3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_1.CName3_1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_1.CName3_1Error.CODE,
                     new PlainTextErrorDescription("Message for CName3_1 error."),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_2.CName3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_2.CName3_2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_2.CName3_2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_2.CName3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_2.CName3_2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_2.CName3_2Error.CODE,
                     new PlainTextErrorDescription("CName3_2: {param1: '%s', param2: %d, param3: '%s'}"),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.cname1.cname2.cname3_3.CName3_3Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_3.CName3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_3.CName3_3Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.common_code_name_1.common_code_name_2.common_code_name_3_3.CName3_3Error.CODE,
                     new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject1.class),
                     true
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.EName1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.EName1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.EName1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.EName1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.EName1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.EName1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.EName1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.EName1Error.CODE,
                     new PlainTextErrorDescription("Message for EName1 error."),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.EName2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.EName2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.EName2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.EName2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.EName2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.EName2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.EName2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.EName2Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_1.EName3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_1.EName3_1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_1.EName3_1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_1.EName3_1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_1.EName3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_1.EName3_1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_1.EName3_1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_1.EName3_1Error.CODE,
                     new PlainTextErrorDescription("Message for EName3_1 error."),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_2.EName3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_2.EName3_2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_2.EName3_2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_2.EName3_2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_2.EName3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_2.EName3_2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_2.EName3_2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_2.EName3_2Error.CODE,
                     new PlainTextErrorDescription("EName3_2: {param1: '%s', param2: %d, param3: '%s'}"),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.ename1.ename2.ename3_3.EName3_3Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_3.EName3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_3.EName3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_3.EName3_3Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_code_name_1.error_code_name_2.error_code_name_3_3.EName3_3Error.CODE,
                     new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject2.class),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.E2Name1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.E2Name1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.E2Name1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.E2Name1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.E2Name1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.E2Name1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.E2Name1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.E2Name1Error.CODE,
                     new PlainTextErrorDescription("Message for E2Name1 error."),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.E2Name2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.E2Name2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.E2Name2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.E2Name2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.E2Name2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.E2Name2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.E2Name2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.E2Name2Error.CODE,
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_1.E2Name3_1Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_1.E2Name3_1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_1.E2Name3_1Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_1.E2Name3_1Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_1.E2Name3_1Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_1.E2Name3_1Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_1.E2Name3_1Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_1.E2Name3_1Error.CODE,
                     new PlainTextErrorDescription("Message for E2Name3_1 error."),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_2.E2Name3_2Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_2.E2Name3_2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_2.E2Name3_2Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_2.E2Name3_2Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_2.E2Name3_2Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_2.E2Name3_2Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_2.E2Name3_2Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_2.E2Name3_2Error.CODE,
                     new PlainTextErrorDescription("E2Name3_2: {param1: '%s', param2: %d, param3: '%s'}"),
                     false
             ));
             errorInfoList.add(new ErrorInfo(
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Error.class,
-                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Exception.class),
-                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.e2name1.e2name2.e2name3_3.E2Name3_3Error.CODE,
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_3.E2Name3_3Error.class,
+                    new ExceptionInfo(com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_3.E2Name3_3Exception.TYPE, com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_3.E2Name3_3Exception.class),
+                    com.rodrigodev.xgen4j_table_generator.test.tableIsGeneratedForErrorsWithNoNumericId.error_2_code_name_1.error_2_code_name_2.error_2_code_name_3_3.E2Name3_3Error.CODE,
                     new CustomMessageGeneratorErrorDescription<>(com.rodrigodev.xgen4j_table_generator.test.TableCreationTestSpecification.TestMessageGeneratorObject3.class),
                     false
             ));

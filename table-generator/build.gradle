@@ -25,16 +25,12 @@ configurations {
 sourceSets {
     main {
         compileClasspath += [configurations.provided]
-
-        java {
-            srcDir 'generated'
-        }
     }
     test {
         compileClasspath += [configurations.provided]
 
         java {
-            srcDirs += ['src/test-gen/java', 'generated_tests']
+            srcDir 'src/test-gen/java'
         }
     }
 }
@@ -42,6 +38,8 @@ sourceSets {
 idea {
     module {
         scopes.PROVIDED.plus += [configurations.provided]
+        sourceDirs += file('generated')
+        testSourceDirs += file('generated_tests')
     }
 }
 
