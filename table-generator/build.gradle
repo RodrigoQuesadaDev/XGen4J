@@ -43,9 +43,12 @@ idea {
     }
 }
 
+compileTestJava.dependsOn tasks.getByPath(':xgen4j:testClasses')
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':xgen4j')
+    testCompile project(':xgen4j').sourceSets.test.output
     compile("com.google.guava:guava:${guavaVersion}")
     compile("com.codepoetics:protonpack:${protonpackVersion}")
     provided("org.projectlombok:lombok:${lombokVersion}")
