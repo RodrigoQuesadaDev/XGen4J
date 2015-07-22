@@ -10,7 +10,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'com.rodrigodev'
-version = '1.0'
 
 repositories {
     mavenCentral()

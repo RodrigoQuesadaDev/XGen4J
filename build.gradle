@@ -1,11 +1,19 @@
+import org.ajoberstar.grgit.Grgit
+import org.ajoberstar.gradle.git.release.opinion.Strategies
+
 apply plugin: 'java'
+apply plugin: 'org.ajoberstar.release-opinion'
 
 sourceCompatibility = 1.8
 group = 'com.rodrigodev'
-version = '1.0'
 
-repositories {
-    mavenCentral()
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.ajoberstar:gradle-git:1.2.0'
+    }
 }
 
 subprojects {
@@ -15,7 +23,6 @@ subprojects {
         protonpackVersion = '1.4'
         lombokVersion = '1.16.4'
         daggerVersion = '2.0.1'
-        apachePoiVersion = ''
         apachePoiVersion = '3.12'
         apacheCommonsIoVersion = '2.4'
 
@@ -30,4 +37,21 @@ subprojects {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
+}
+
+release {
+    // need to specify the repository to interact with
+    grgit = Grgit.open()
+
+    /*
+     * Base plugin adds no strategies.
+     * Opinion plugin adds:
+     *   RebuildVersionStrategy.INSTANCE
+     *   Strategies.DEVELOPMENT (default)
+     *   Strategies.PRE_RELEASE
+     *   Strategies.FINAL
+     */
+
+    // set the default, can be one already added or something else
+    defaultVersionStrategy = Strategies.SNAPSHOT
 }
