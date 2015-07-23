@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'org.ajoberstar.release-opinion'
 
 sourceCompatibility = 1.8
-group = 'com.rodrigodev'
+group = 'com.rodrigodev.xgen4j'
 
 buildscript {
     repositories {
@@ -55,3 +55,4 @@ release {
     // set the default, can be one already added or something else
     defaultVersionStrategy = Strategies.SNAPSHOT
 }
+tasks.release.dependsOn ':xgen4j:publishToMavenLocal'
