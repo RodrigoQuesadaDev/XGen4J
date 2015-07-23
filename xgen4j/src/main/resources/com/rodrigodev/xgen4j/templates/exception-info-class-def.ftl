@@ -17,7 +17,7 @@ public class ${name} {
     }
 
     public ${name}(Class<? extends ${rootError.exception.name}> clazz) {
-        this(Optional.${optionalType.emptyMethod}(), clazz);
+        this(Optional.<ExceptionType>${optionalType.emptyMethod}(), clazz);
     }
 
     public ${name}(ExceptionType type, Class<? extends ${rootError.exception.name}> clazz) {

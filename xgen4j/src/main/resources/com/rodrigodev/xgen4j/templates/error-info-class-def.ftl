@@ -33,7 +33,7 @@ public class ${name} {
             ErrorCode code,
             boolean isCommon
     ) {
-        this(clazz, exceptionInfo, code, Optional.${optionalType.emptyMethod}(), isCommon);
+        this(clazz, exceptionInfo, code, Optional.<ErrorDescription>${optionalType.emptyMethod}(), isCommon);
     }
 
     public ${name}(
