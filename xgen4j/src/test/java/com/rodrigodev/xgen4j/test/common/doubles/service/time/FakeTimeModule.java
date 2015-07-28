@@ -26,14 +26,18 @@ package com.rodrigodev.xgen4j.test.common.doubles.service.time;
 
 import com.rodrigodev.xgen4j.service.time.TimeModule;
 import com.rodrigodev.xgen4j.service.time.TimeService;
+import lombok.AllArgsConstructor;
 
 /**
  * Created by Rodrigo Quesada on 28/06/15.
  */
+@AllArgsConstructor
 public class FakeTimeModule extends TimeModule {
+
+    private TimeService timeService;
 
     @Override
     public TimeService provideTimeService() {
-        return new FakeTimeService();
+        return timeService;
     }
 }

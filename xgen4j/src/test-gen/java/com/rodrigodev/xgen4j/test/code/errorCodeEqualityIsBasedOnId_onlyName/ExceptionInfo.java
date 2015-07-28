@@ -17,7 +17,7 @@ public class ExceptionInfo {
     }
 
     public ExceptionInfo(Class<? extends ARootException> clazz) {
-        this(Optional.empty(), clazz);
+        this(Optional.<ExceptionType>empty(), clazz);
     }
 
     public ExceptionInfo(ExceptionType type, Class<? extends ARootException> clazz) {

@@ -26,14 +26,18 @@ package com.rodrigodev.xgen4j.test.common.doubles.file;
 
 import com.rodrigodev.xgen4j.model.common.file.FileModule;
 import com.rodrigodev.xgen4j.model.common.file.FileService;
+import lombok.AllArgsConstructor;
 
 /**
  * Created by Rodrigo Quesada on 27/06/15.
  */
-public class InMemoryFileModule extends FileModule {
+@AllArgsConstructor
+public class FakeFileModule extends FileModule {
+
+    private FileService fileService;
 
     @Override
     public FileService provideFileService() {
-        return new InMemoryFileService();
+        return fileService;
     }
 }

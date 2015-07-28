@@ -17,7 +17,7 @@ public class ExceptionInfo {
     }
 
     public ExceptionInfo(Class<? extends BRootException> clazz) {
-        this(Optional.empty(), clazz);
+        this(Optional.<ExceptionType>empty(), clazz);
     }
 
     public ExceptionInfo(ExceptionType type, Class<? extends BRootException> clazz) {

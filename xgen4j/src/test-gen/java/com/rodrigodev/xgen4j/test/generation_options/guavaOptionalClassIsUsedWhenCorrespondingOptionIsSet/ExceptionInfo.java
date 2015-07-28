@@ -17,7 +17,7 @@ public class ExceptionInfo {
     }
 
     public ExceptionInfo(Class<? extends RootException> clazz) {
-        this(Optional.absent(), clazz);
+        this(Optional.<ExceptionType>absent(), clazz);
     }
 
     public ExceptionInfo(ExceptionType type, Class<? extends RootException> clazz) {

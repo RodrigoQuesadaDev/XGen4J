@@ -33,7 +33,7 @@ public class ErrorInfo {
             ErrorCode code,
             boolean isCommon
     ) {
-        this(clazz, exceptionInfo, code, Optional.empty(), isCommon);
+        this(clazz, exceptionInfo, code, Optional.<ErrorDescription>empty(), isCommon);
     }
 
     public ErrorInfo(

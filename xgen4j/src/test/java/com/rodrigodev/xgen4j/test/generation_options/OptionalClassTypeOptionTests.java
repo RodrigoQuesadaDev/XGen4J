@@ -24,57 +24,40 @@
 
 package com.rodrigodev.xgen4j.test.generation_options;
 
+import com.rodrigodev.xgen4j.DaggerExceptionsGeneratorComponent;
 import com.rodrigodev.xgen4j.ExceptionsGenerator;
 import com.rodrigodev.xgen4j.ExceptionsGeneratorComponent;
 import com.rodrigodev.xgen4j.GenerationOptions;
-import com.rodrigodev.xgen4j.MainModule;
-import com.rodrigodev.xgen4j.model.common.file.FileService;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.RootErrorDefinition;
 import com.rodrigodev.xgen4j.model.support.optional.OptionalClassType;
 import com.rodrigodev.xgen4j.test.TestSpecification;
 import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestMessageGeneratorObject;
 import com.rodrigodev.xgen4j.test.common.doubles.error.message.TestObject;
-import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileModule;
+import com.rodrigodev.xgen4j.test.common.doubles.file.FakeFileModule;
 import com.rodrigodev.xgen4j.test.common.doubles.file.InMemoryFileService;
-import dagger.Component;
 import org.assertj.core.api.Condition;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.Optional;
 
 import static com.rodrigodev.xgen4j.model.error.configuration.ErrorConfiguration.*;
 import static com.rodrigodev.xgen4j.model.error.configuration.definition.ParameterDefinition.p;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by Rodrigo Quesada on 13/07/15.
  */
 public class OptionalClassTypeOptionTests extends TestSpecification {
 
-    @Singleton
-    @Component(modules = {MainModule.class})
-    public interface TestExceptionsGeneratorComponent extends ExceptionsGeneratorComponent {
-
-        void inject(OptionalClassTypeOptionTests testClass);
-    }
-
-    private TestExceptionsGeneratorComponent exceptionsGeneratorComponent;
+    private ExceptionsGeneratorComponent normalExceptionsGeneratorComponent;
     private InMemoryFileService fileService;
 
-    public OptionalClassTypeOptionTests() {
-        exceptionsGeneratorComponent = DaggerOptionalClassTypeOptionTests_TestExceptionsGeneratorComponent.builder()
-                .mainModule(new MainModule(SRC_DIR_PATH))
-                .fileModule(new InMemoryFileModule())
-                .build();
-        exceptionsGeneratorComponent.inject(this);
-    }
-
-    @Inject
-    public void setFileService(FileService fileService) {
-        this.fileService = (InMemoryFileService) fileService;
+    @Override
+    protected void customizeComponent(DaggerExceptionsGeneratorComponent.Builder componentBuilder) {
+        normalExceptionsGeneratorComponent = componentBuilder.build();
+        fileService = new InMemoryFileService();
+        componentBuilder.fileModule(new FakeFileModule(fileService));
     }
 
     @Before
@@ -89,8 +72,7 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
     ) {
         if (optionalClassType.isPresent()) {
             xgen.generate(rootError, GenerationOptions.builder().optionalClassType(optionalClassType.get()).build());
-        }
-        else {
+        } else {
             xgen.generate(rootError);
         }
     }
@@ -101,14 +83,13 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
     ) {
         try {
             //generate for testing compilation
-            generateClasses(generator(), rootError, optionalClassType);
+            generateClasses(normalExceptionsGeneratorComponent.generator(), rootError, optionalClassType);
 
             //verify correct Optional class was written
-            generateClasses(exceptionsGeneratorComponent.generator(), rootError, optionalClassType);
+            generateClasses(generator(), rootError, optionalClassType);
             assertThat(fileService.files()).have(new DoesNotContainNonSelectedOptionalTypes(optionalClassType));
             assertThat(fileService.files()).haveAtLeastOne(new ContainsSelectedOptionalType(optionalClassType));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -148,8 +129,7 @@ public class OptionalClassTypeOptionTests extends TestSpecification {
             assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_1.E3_1");
             assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_2.E3_2");
             assertThatErrorAndExceptionClassExist(basePackage, "e1.e2.e3_3.E3_3");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

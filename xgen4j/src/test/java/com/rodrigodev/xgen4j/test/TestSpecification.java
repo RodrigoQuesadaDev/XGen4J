@@ -26,9 +26,12 @@ package com.rodrigodev.xgen4j.test;
 
 import com.rodrigodev.xgen4j.DaggerExceptionsGeneratorComponent;
 import com.rodrigodev.xgen4j.ExceptionsGenerator;
+import com.rodrigodev.xgen4j.ExceptionsGeneratorComponent;
 import com.rodrigodev.xgen4j.MainModule;
 import com.rodrigodev.xgen4j.model.error.configuration.definition.ErrorDefinition.ErrorDefinitionBuilder;
+import com.rodrigodev.xgen4j.service.time.TimeService;
 import com.rodrigodev.xgen4j.test.common.doubles.service.time.FakeTimeModule;
+import com.rodrigodev.xgen4j.test.common.doubles.service.time.FakeTimeService;
 
 import static com.rodrigodev.xgen4j.common.lang.PackageUtil.join;
 
@@ -41,18 +44,31 @@ public class TestSpecification {
     protected static final String ERROR_SUFFIX = "Error";
     protected static final String EXCEPTION_SUFFIX = "Exception";
 
-    protected static ExceptionsGenerator generator() {
-        return DaggerExceptionsGeneratorComponent.builder()
+    private ExceptionsGeneratorComponent exceptionsGeneratorComponent;
+
+    public TestSpecification() {
+        FakeTimeService timeService = new FakeTimeService();
+        timeService.setupConstant();
+
+        DaggerExceptionsGeneratorComponent.Builder componentBuilder = DaggerExceptionsGeneratorComponent.builder()
                 .mainModule(new MainModule(SRC_DIR_PATH))
-                .timeModule(new FakeTimeModule())
-                .build().generator();
+                .timeModule(new FakeTimeModule(timeService));
+
+        customizeComponent(componentBuilder);
+        this.exceptionsGeneratorComponent = componentBuilder.build();
+    }
+
+    protected void customizeComponent(DaggerExceptionsGeneratorComponent.Builder componentBuilder) {
+    }
+
+    protected ExceptionsGenerator generator() {
+        return exceptionsGeneratorComponent.generator();
     }
 
     protected static void assertThatClassExists(String basePackage, String classPath) {
         try {
             Class.forName(join(basePackage, classPath));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
